@@ -27,7 +27,7 @@ class _Dashboard extends State<Dashboard> {
       body: tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.blue[800],
+        selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,

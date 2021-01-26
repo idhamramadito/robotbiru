@@ -33,7 +33,7 @@ class AccountBalance extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0),
               ),
-              primary: Colors.blue[600],
+              primary: Theme.of(context).primaryColor,
               onPrimary: Colors.white),
           onPressed: () {
             Navigator.of(context).pushNamed('/topup');
