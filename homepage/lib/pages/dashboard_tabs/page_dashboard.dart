@@ -29,21 +29,7 @@ class _PageDashboard extends State<PageDashboard> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Container(
-                  margin: EdgeInsets.only(top: 180),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30.0),
-                      topRight: Radius.circular(30.0),
-                    ),
-                  ),
-                  child: MainServices(),
-                ),
+                MainServices(),
                 AccountBalance(),
               ],
             ),
@@ -269,93 +255,69 @@ class MainServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(top: 60, left: 30, right: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("images/jekbot_n.png"),
-                    ),
-                    Text("JekBot")
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("images/taxibot_n.png"),
-                    ),
-                    Text("TaxiBot")
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("images/sendbot_n.png"),
-                    ),
-                    Text("SendBot")
-                  ],
-                ),
-              ),
-            ],
-          ),
+    return Container(
+      margin: EdgeInsets.only(top: 180),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
         ),
-        SizedBox(height: 20),
-        Container(
-          margin: EdgeInsets.only(top: 10, left: 30, right: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("images/foodbot_n.png"),
-                    ),
-                    Text("FoodBot")
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("images/pulsa_n.png"),
-                    ),
-                    Text("Pulsa/"),
-                    Text("Paket Data")
-                  ],
-                ),
-              ),
-              OtherServices(),
-            ],
+      ),
+      height: 300,
+      child: GridView.count(
+        crossAxisCount: 3,
+        children: [
+          InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Image.asset("images/jekbot_n.png", width: 40, height: 40),
+                Text("JekBot")
+              ],
+            ),
           ),
-        ),
-      ],
+          InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Image.asset("images/taxibot_n.png", width: 40, height: 40),
+                Text("TaxiBot")
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Image.asset("images/sendbot_n.png", width: 40, height: 40),
+                Text("SendBot")
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Image.asset("images/foodbot_n.png", width: 40, height: 40),
+                Text("FoodBot")
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Column(
+              children: [
+                Image.asset("images/pulsa_n.png", width: 40, height: 40),
+                Text("Pulsa/"),
+                Text("Paket Data")
+              ],
+            ),
+          ),
+          OtherServices(),
+        ],
+      ),
     );
   }
 }
