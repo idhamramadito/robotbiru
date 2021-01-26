@@ -265,7 +265,7 @@ class MainServices extends StatelessWidget {
           topRight: Radius.circular(30.0),
         ),
       ),
-      height: 300,
+      height: 280,
       child: GridView.count(
         crossAxisCount: 3,
         children: [
@@ -329,7 +329,7 @@ class OtherServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         showMaterialModalBottomSheet(
             context: context,
