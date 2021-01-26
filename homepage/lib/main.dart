@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'dashboard.dart';
+import 'package:homepage/routing/routing_table.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,20 +13,16 @@ void main() {
 class RobotBiruApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Robot Biru',
-        home: Dashboard(),
-      );
-    // return Provider(
-    //   create: (_) => RecomFoodApiService.create(),
-    //   dispose: (_, RecomFoodApiService service) => service.client.dispose(),
-    //   child: MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     title: 'Robot Biru',
-    //     home: SplashScreenPage(),
-    //   ),
-    // );
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Robot Biru',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue[600],
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: '/',
+      onGenerateRoute: RoutingTable.generateRoute,
+    );
   }
 }
-
