@@ -63,9 +63,9 @@ class _PageDashboard extends State<PageDashboard> {
               height: 20,
               color: Color(0xffF2F3F5),
             ),
-            PromoCard_1(),
+            PromoCard1(),
             SizedBox(height: 15),
-            PromoCard_2(),
+            PromoCard2(),
             SizedBox(height: 80),
           ],
         ),
@@ -718,8 +718,8 @@ class ComplaintButton extends StatelessWidget {
   }
 }
 
-class PromoCard_1 extends StatelessWidget {
-  const PromoCard_1({
+class PromoCard1 extends StatelessWidget {
+  const PromoCard1({
     Key key,
   }) : super(key: key);
 
@@ -759,8 +759,8 @@ class PromoCard_1 extends StatelessWidget {
   }
 }
 
-class PromoCard_2 extends StatelessWidget {
-  const PromoCard_2({
+class PromoCard2 extends StatelessWidget {
+  const PromoCard2({
     Key key,
   }) : super(key: key);
 
