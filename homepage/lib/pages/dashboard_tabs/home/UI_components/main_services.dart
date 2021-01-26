@@ -8,82 +8,71 @@ class MainServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 180),
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
+    return GridView.count(
+      padding: EdgeInsets.only(top: 20),
+      shrinkWrap: true,
+      childAspectRatio: 1.2,
+      physics: NeverScrollableScrollPhysics(),
+      crossAxisCount: 3,
+      children: [
+        InkWell(
+          child: Column(
+            children: [
+              Image.asset("images/jekbot_n.png", height: 40),
+              Text("JekBot")
+            ],
+          ),
+          onTap: () {},
         ),
-      ),
-      height: 280,
-      child: GridView.count(
-        shrinkWrap: true,
-        childAspectRatio: 1.2,
-        physics: NeverScrollableScrollPhysics(),
-        crossAxisCount: 3,
-        children: [
-          InkWell(
-            child: Column(
-              children: [
-                Image.asset("images/jekbot_n.png", height: 40),
-                Text("JekBot")
-              ],
-            ),
-            onTap: () {},
+        InkWell(
+          child: Column(
+            children: [
+              Image.asset("images/taxibot_n.png", height: 40),
+              Text("TaxiBot")
+            ],
           ),
-          InkWell(
-            child: Column(
-              children: [
-                Image.asset("images/taxibot_n.png", height: 40),
-                Text("TaxiBot")
-              ],
-            ),
-            onTap: () {},
+          onTap: () {},
+        ),
+        InkWell(
+          child: Column(
+            children: [
+              Image.asset("images/sendbot_n.png", height: 40),
+              Text("SendBot")
+            ],
           ),
-          InkWell(
-            child: Column(
-              children: [
-                Image.asset("images/sendbot_n.png", height: 40),
-                Text("SendBot")
-              ],
-            ),
-            onTap: () {},
+          onTap: () {},
+        ),
+        InkWell(
+          child: Column(
+            children: [
+              Image.asset("images/foodbot_n.png", height: 40),
+              Text("FoodBot")
+            ],
           ),
-          InkWell(
-            child: Column(
-              children: [
-                Image.asset("images/foodbot_n.png", height: 40),
-                Text("FoodBot")
-              ],
-            ),
-            onTap: () {},
+          onTap: () {},
+        ),
+        InkWell(
+          child: Column(
+            children: [
+              Image.asset("images/pulsa_n.png", height: 40),
+              Text("Pulsa/"),
+              Text("Paket Data")
+            ],
           ),
-          InkWell(
-            child: Column(
-              children: [
-                Image.asset("images/pulsa_n.png", height: 40),
-                Text("Pulsa/"),
-                Text("Paket Data")
-              ],
-            ),
-            onTap: () {},
+          onTap: () {},
+        ),
+        InkWell(
+          child: Column(
+            children: [
+              Image.asset("images/dll_n.png", height: 40),
+              Text("Lainnya")
+            ],
           ),
-          InkWell(
-            child: Column(
-              children: [
-                Image.asset("images/dll_n.png", height: 40),
-                Text("Lainnya")
-              ],
-            ),
-            onTap: () {
-              otherServices(context);
-            },
-          ),
-        ],
-      ),
+          onTap: () {
+            otherServices(context);
+          },
+        ),
+      ],
     );
   }
 }

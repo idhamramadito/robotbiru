@@ -29,44 +29,33 @@ class _PageDashboard extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF2F3F5),
+      backgroundColor: Color(0xff008AD5), //grey = Color(0xffF2F3F5),
       body: SingleChildScrollView(
-        child: Column(
+        child: Stack(
           children: [
-            Stack(
-              children: [
-                Container(
-                  height: 250,
-                  color: Color(0xff008AD5),
-                  child: Column(
-                    children: [
-                      UserInfo(),
-                      SizedBox(height: 20),
-                      SearchBar(),
-                    ],
-                  ),
+            Container(
+              margin: EdgeInsets.only(top: 180),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
                 ),
-                MainServices(),
+              ),
+              height: 300,
+            ),
+            Column(
+              children: [
+                UserInfo(),
+                SearchBar(),
                 AccountBalance(),
+                MainServices(),
+                UpgradeToPartner(),
+                Infographics(),
+                ComplaintButton(),
+                PromoCard(),
               ],
             ),
-            Container(
-              height: 270,
-              child: Stack(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 50),
-                    height: 220,
-                    color: Color(0xff008AD5),
-                  ),
-                  UpgradeToPartner(),
-                  Infographics(),
-                ],
-              ),
-            ),
-            ComplaintButton(),
-            PromoCard1(),
-            PromoCard2(),
           ],
         ),
       ),

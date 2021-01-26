@@ -8,7 +8,7 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 30, right: 30),
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: ButtonTheme(
         minWidth: 300,
         height: 50,
@@ -30,10 +30,7 @@ class SearchBar extends StatelessWidget {
                   margin: EdgeInsets.only(left: 10),
                   child: Text(
                     "Mau Cari Apa?",
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff818181),
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 15, color: Color(0xff818181)),
                     textAlign: TextAlign.center,
                   ),
                 ),

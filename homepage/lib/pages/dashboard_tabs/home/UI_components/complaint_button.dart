@@ -26,13 +26,13 @@ class ComplaintButton extends StatelessWidget {
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
+                fontSize: 12,
               ),
               children: <TextSpan>[
                 TextSpan(
                   text: 'Silahkan Lapor Di Sini',
                   style: TextStyle(
                     color: Colors.blue,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ],

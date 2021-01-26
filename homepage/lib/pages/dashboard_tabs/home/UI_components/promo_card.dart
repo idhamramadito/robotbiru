@@ -1,79 +1,42 @@
 import 'package:flutter/material.dart';
 
-class PromoCard1 extends StatelessWidget {
-  const PromoCard1({
+class PromoCard extends StatelessWidget {
+  const PromoCard({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 20),
-          Container(
-            margin: EdgeInsets.only(left: 15),
-            child: Text(
-              "BotRide",
-              style: TextStyle(fontWeight: FontWeight.bold),
+    return Container(
+      color: Colors.grey[300],
+      child: ListView.builder(
+        padding: EdgeInsets.all(5),
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: 3,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.symmetric(vertical: 5),
+            padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(10.0))),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("promo_name",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("promo_description",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("Let's check tips for you"),
+                SizedBox(height: 10),
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(5.0),
+                    child: Image.asset("images/promo${index + 1}.png")),
+              ],
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 15),
-            child: Text(
-              "Jaga Selalu Diri Anda",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 15),
-            child: Text("Let's check tips for you"),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Image.asset("images/promo3.png"),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class PromoCard2 extends StatelessWidget {
-  const PromoCard2({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.only(left: 15),
-            child: Text(
-              "BotFood",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 15),
-            child: Text(
-              "Jaga Selalu Diri Anda",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 15),
-            child: Text("Let's check tips for you"),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Image.asset("images/promo1.png"),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

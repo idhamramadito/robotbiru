@@ -8,64 +8,21 @@ class Infographics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 100),
-      height: 150,
-      child: ListView(
+      margin: EdgeInsets.symmetric(vertical: 15),
+      height: 200,
+      child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(left: 15),
-            width: 120,
-            color: Colors.transparent,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: new Center(
-                child: new Text("Infografis"),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 10),
-            width: 120,
-            color: Colors.transparent,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: new Center(
-                child: new Text("Infografis"),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 10),
-            width: 120,
-            color: Colors.transparent,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: new Center(
-                child: new Text("Infografis"),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 10),
-            width: 120,
-            color: Colors.transparent,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: new Center(
-                child: new Text("Infografis"),
-              ),
-            ),
-          ),
-        ],
+        //itemCount: <JUMLAH DATA>
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.symmetric(horizontal: 5),
+            width: 150,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(10.0))),
+            child: Center(child: Text("Infografis $index")),
+          );
+        },
       ),
     );
   }
