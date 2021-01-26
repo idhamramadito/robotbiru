@@ -1,132 +1,83 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/account_balance.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/complaint_button.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/infographics.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/main_services.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/promo_card.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/search_bar.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/upgrade_to_partner.dart';
+import 'package:homepage/pages/dashboard_tabs/home/UI_components/user_info.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
+class Home extends StatefulWidget {
+  _PageDashboard createState() => _PageDashboard();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PageDashboard extends State<Home> {
+  //========================= main function =========================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-            SizedBox(height: 20),
-            TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search, size: 30),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: 200,
+                  color: Color(0xff008AD5),
+                  child: Column(
+                    children: [
+                      UserInfo(),
+                      SizedBox(height: 20),
+                      SearchBar(),
+                    ],
+                  ),
                 ),
-                hintText: 'Mau Cari Apa?',
-              ),
+                SizedBox(height: 20),
+                MainServices(),
+                AccountBalance(),
+              ],
             ),
-            SizedBox(height: 20),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.account_balance_wallet,
-                    color: Colors.blue[600], size: 35),
-                title: Text('Saldo Anda'),
-                subtitle: Text('RP. 0'),
-                trailing: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.blue[600], onPrimary: Colors.white),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/topup');
-                  },
-                  child: Text('Isi Saldo'),
-                ),
-              ),
-            ),
-            //ListTile(
-            //IconButton(icon: Icon(Icons.account_balance_wallet), onPressed: () {}),
-            //Text('Saldo Anda'),
-            //Text('Isi Saldo'),
-            //),
-            //Card(
-            // child: ListTile(
-            // leading: FlutterLogo(size: 56.0),
-            //title: Text('Two-line ListTile'),
-            //subtitle: Text('Here is a second line'),
-            //trailing: Icon(Icons.more_vert),
-            //),
-            //),
-            SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text('Icon 1'),
-                  Text('Icon 2'),
-                  Text('Icon 3'),
+            Container(
+              height: 290,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 90,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 70),
+                    height: 220,
+                    color: Color(0xff008AD5),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, right: 15, left: 15),
+                    child: Card(
+                      elevation: 5,
+                      child: UpgradeToPartner(),
+                    ),
+                  ),
+                  Infographics(),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: Image.asset('assets/img/foodbot_2.png'),
-                      ),
-                      Text('FoodBot'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: Image.asset('assets/img/blue_pulsa-01.png'),
-                      ),
-                      Text('Pulsa'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: Image.asset('assets/img/blue_others-01.png'),
-                      ),
-                      Text('Lainnya'),
-                    ],
-                  ),
-                ],
-              ),
+            ComplaintButton(),
+            SizedBox(height: 10),
+            Container(
+              height: 20,
+              color: Color(0xffF2F3F5),
             ),
-            SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text('Upgrade Menjadi \nMitra Robot Biru'),
-                Text('Retail'),
-                Text('Koperasi/\nKomunitas'),
-              ],
-            ),
-            SizedBox(height: 100),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text('Infografis \nPanduan'),
-                Text('Infografis \nPanduan'),
-                Text('Infografis \nPanduan'),
-                Text('Infografis \nPanduan'),
-              ],
-            ),
-            SizedBox(height: 100),
-            Text('Punya Keluhan? Silahkan Lapor Di Sini'),
+            PromoCard1(),
+            SizedBox(height: 15),
+            PromoCard2(),
+            SizedBox(height: 80),
           ],
         ),
       ),
     );
   }
+  //========================= main function =========================
 }

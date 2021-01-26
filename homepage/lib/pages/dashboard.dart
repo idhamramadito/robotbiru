@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/history/history.dart';
 import 'package:homepage/pages/dashboard_tabs/notification/notification.dart';
-import 'package:homepage/pages/dashboard_tabs/page_dashboard.dart';
+import 'package:homepage/pages/dashboard_tabs/home/home.dart';
 import 'package:homepage/pages/dashboard_tabs/profile/profile.dart';
 
 /// This is the stateful widget that the main application instantiates.
@@ -15,7 +15,7 @@ class Dashboard extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _Dashboard extends State<Dashboard> {
   final tabs = [
-    PageDashboard(),
+    Home(),
     NotificationPage(),
     HistoryPage(),
     ProfilePage(),

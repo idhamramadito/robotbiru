@@ -20,6 +20,7 @@ class MainServices extends StatelessWidget {
       ),
       height: 280,
       child: GridView.count(
+        physics: NeverScrollableScrollPhysics(),
         crossAxisCount: 3,
         children: [
           InkWell(
