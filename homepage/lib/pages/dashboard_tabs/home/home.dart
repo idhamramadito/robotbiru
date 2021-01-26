@@ -25,7 +25,6 @@ class _PageDashboard extends State<Home> {
     );
   }
 
-  //========================= main function =========================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +64,4 @@ class _PageDashboard extends State<Home> {
       ),
     );
   }
-
-  //========================= main function =========================
 }
