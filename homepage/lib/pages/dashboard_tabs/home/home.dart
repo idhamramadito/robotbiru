@@ -19,7 +19,6 @@ class _PageDashboard extends State<Home> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.renderView.automaticSystemUiAdjustment = false;
     SystemChrome.setSystemUIOverlayStyle(
       transparentNotifBar(),
     );
