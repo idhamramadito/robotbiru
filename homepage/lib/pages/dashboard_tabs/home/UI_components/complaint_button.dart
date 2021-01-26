@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ComplaintButton extends StatelessWidget {
@@ -9,7 +8,7 @@ class ComplaintButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 20),
+      padding: EdgeInsets.all(15),
       child: ButtonTheme(
         minWidth: 300,
         height: 50,

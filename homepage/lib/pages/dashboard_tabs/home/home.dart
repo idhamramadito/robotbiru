@@ -45,13 +45,12 @@ class _PageDashboard extends State<Home> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
                 MainServices(),
                 AccountBalance(),
               ],
             ),
             Container(
-              height: 290,
+              height: 270,
               child: Stack(
                 children: [
                   Container(
@@ -59,27 +58,18 @@ class _PageDashboard extends State<Home> {
                     height: 220,
                     color: Color(0xff008AD5),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(right: 15, left: 15),
-                    child: Card(
-                      elevation: 5,
-                      child: UpgradeToPartner(),
-                    ),
-                  ),
+                  UpgradeToPartner(),
                   Infographics(),
                 ],
               ),
             ),
+            Container(height: 15, color: Color(0xffF2F3F5)),
             ComplaintButton(),
-            SizedBox(height: 10),
-            Container(
-              height: 20,
-              color: Color(0xffF2F3F5),
-            ),
+            Container(height: 15, color: Color(0xffF2F3F5)),
             PromoCard1(),
-            SizedBox(height: 15),
+            Container(height: 15, color: Color(0xffF2F3F5)),
             PromoCard2(),
-            SizedBox(height: 80),
+            Container(height: 15, color: Color(0xffF2F3F5)),
           ],
         ),
       ),

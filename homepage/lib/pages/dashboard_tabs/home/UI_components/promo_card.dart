@@ -30,7 +30,6 @@ class PromoCard1 extends StatelessWidget {
             margin: EdgeInsets.only(left: 15),
             child: Text("Let's check tips for you"),
           ),
-          SizedBox(height: 15),
           Container(
             margin: EdgeInsets.all(10),
             child: Image.asset("images/promo3.png"),
@@ -50,6 +49,7 @@ class PromoCard2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             margin: EdgeInsets.only(left: 15),
@@ -69,7 +69,6 @@ class PromoCard2 extends StatelessWidget {
             margin: EdgeInsets.only(left: 15),
             child: Text("Let's check tips for you"),
           ),
-          SizedBox(height: 15),
           Container(
             margin: EdgeInsets.all(10),
             child: Image.asset("images/promo1.png"),

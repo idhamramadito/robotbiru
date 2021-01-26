@@ -8,7 +8,8 @@ class AccountBalance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 150, right: 15, left: 15),
+      alignment: Alignment.center,
+      margin: EdgeInsets.only(top: 150),
       child: Card(
         elevation: 5,
         child: Container(

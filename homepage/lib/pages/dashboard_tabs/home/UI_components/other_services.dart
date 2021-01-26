@@ -33,7 +33,8 @@ Future otherServices(BuildContext context) {
               ),
               GridView.count(
                 shrinkWrap: true,
-                childAspectRatio: 1.2,
+                padding: EdgeInsets.only(top: 20),
+                childAspectRatio: 1.5,
                 physics: NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
