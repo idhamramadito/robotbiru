@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/top_up/top_up.dart';
 import 'package:homepage/routing/error_route.dart';
-
-import '../dashboard.dart';
+import 'package:homepage/pages/dashboard.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -10,6 +10,8 @@ class RoutingTable {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => Dashboard());
+      case '/topup':
+        return MaterialPageRoute(builder: (_) => TopUp());
       default:
         return errorRoute();
     }
