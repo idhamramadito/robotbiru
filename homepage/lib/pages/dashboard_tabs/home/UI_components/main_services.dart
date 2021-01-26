@@ -11,7 +11,7 @@ class MainServices extends StatelessWidget {
     return GridView.count(
       padding: EdgeInsets.only(top: 20),
       shrinkWrap: true,
-      childAspectRatio: 1.2,
+      childAspectRatio: 1.5,
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 3,
       children: [
