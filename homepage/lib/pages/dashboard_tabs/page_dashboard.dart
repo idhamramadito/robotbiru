@@ -270,43 +270,42 @@ class MainServices extends StatelessWidget {
         crossAxisCount: 3,
         children: [
           InkWell(
-            onTap: () {},
             child: Column(
               children: [
                 Image.asset("images/jekbot_n.png", width: 40, height: 40),
                 Text("JekBot")
               ],
             ),
+            onTap: () {},
           ),
           InkWell(
-            onTap: () {},
             child: Column(
               children: [
                 Image.asset("images/taxibot_n.png", width: 40, height: 40),
                 Text("TaxiBot")
               ],
             ),
+            onTap: () {},
           ),
           InkWell(
-            onTap: () {},
             child: Column(
               children: [
                 Image.asset("images/sendbot_n.png", width: 40, height: 40),
                 Text("SendBot")
               ],
             ),
+            onTap: () {},
           ),
           InkWell(
-            onTap: () {},
             child: Column(
               children: [
                 Image.asset("images/foodbot_n.png", width: 40, height: 40),
                 Text("FoodBot")
               ],
             ),
+            onTap: () {},
           ),
           InkWell(
-            onTap: () {},
             child: Column(
               children: [
                 Image.asset("images/pulsa_n.png", width: 40, height: 40),
@@ -314,6 +313,7 @@ class MainServices extends StatelessWidget {
                 Text("Paket Data")
               ],
             ),
+            onTap: () {},
           ),
           OtherServices(),
         ],
@@ -330,6 +330,12 @@ class OtherServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      child: Column(
+        children: [
+          Image.asset("images/dll_n.png", width: 40, height: 40),
+          Text("Lainnya")
+        ],
+      ),
       onTap: () {
         showMaterialModalBottomSheet(
           context: context,
@@ -506,16 +512,6 @@ class OtherServices extends StatelessWidget {
           ),
         );
       },
-      child: Column(
-        children: [
-          Image.asset(
-            "images/dll_n.png",
-            width: 40,
-            height: 40,
-          ),
-          Text("Lainya")
-        ],
-      ),
     );
   }
 }
