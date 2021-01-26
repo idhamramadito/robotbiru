@@ -29,6 +29,7 @@ class _PageDashboard extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffF2F3F5),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -63,13 +64,9 @@ class _PageDashboard extends State<Home> {
                 ],
               ),
             ),
-            Container(height: 15, color: Color(0xffF2F3F5)),
             ComplaintButton(),
-            Container(height: 15, color: Color(0xffF2F3F5)),
             PromoCard1(),
-            Container(height: 15, color: Color(0xffF2F3F5)),
             PromoCard2(),
-            Container(height: 15, color: Color(0xffF2F3F5)),
           ],
         ),
       ),

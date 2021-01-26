@@ -8,20 +8,35 @@ class ComplaintButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
-      child: ButtonTheme(
-        minWidth: 300,
-        height: 50,
-        child: FlatButton(
-          onPressed: () {},
-          color: Colors.transparent,
-          shape: RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(10.0),
-              side: BorderSide(color: Colors.grey)),
-          child: Text(
-            "Punya Keluhan ? Silahkan Lapor Disini",
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          border: Border.all(color: Colors.grey),
+        ),
+        child: ListTile(
+          dense: true,
+          onTap: () {},
+          leading: Icon(Icons.info, color: Colors.blue[800]),
+          title: RichText(
+            text: TextSpan(
+              text: 'Punya Keluhan?  ',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: 'Silahkan Lapor Di Sini',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
