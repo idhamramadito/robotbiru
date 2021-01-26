@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class Infographics extends StatelessWidget {
@@ -9,7 +8,7 @@ class Infographics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 120),
+      margin: EdgeInsets.only(top: 100),
       height: 150,
       child: ListView(
         scrollDirection: Axis.horizontal,

@@ -18,9 +18,10 @@ class MainServices extends StatelessWidget {
           topRight: Radius.circular(30.0),
         ),
       ),
-      height: 280,
+      height: 260,
       child: GridView.count(
         shrinkWrap: true,
+        childAspectRatio: 1.2,
         physics: NeverScrollableScrollPhysics(),
         crossAxisCount: 3,
         children: [

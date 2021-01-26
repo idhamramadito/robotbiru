@@ -31,12 +31,11 @@ class _PageDashboard extends State<Home> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
                 Container(
-                  height: 200,
+                  height: 250,
                   color: Color(0xff008AD5),
                   child: Column(
                     children: [
@@ -56,16 +55,12 @@ class _PageDashboard extends State<Home> {
               child: Stack(
                 children: [
                   Container(
-                    height: 90,
-                    color: Colors.white,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 70),
+                    margin: EdgeInsets.only(top: 50),
                     height: 220,
                     color: Color(0xff008AD5),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 20, right: 15, left: 15),
+                    margin: EdgeInsets.only(right: 15, left: 15),
                     child: Card(
                       elevation: 5,
                       child: UpgradeToPartner(),
