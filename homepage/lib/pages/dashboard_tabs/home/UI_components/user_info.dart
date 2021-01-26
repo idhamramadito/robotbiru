@@ -8,39 +8,25 @@ class UserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 50),
+      margin: EdgeInsets.only(top: 50, left: 20, right: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 15),
-                child: Image.asset(
-                  "images/profile_photo.png",
-                  width: 30,
-                  height: 30,
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                child: Text(
+          InkWell(
+            onTap: () {},
+            child: Row(
+              children: [
+                CircleAvatar(
+                    child: Image.asset("images/profile_photo.png", height: 30)),
+                SizedBox(width: 10),
+                Text(
                   "Dhimas Nur Ramadhan",
                   style: TextStyle(color: Colors.white, fontSize: 15),
-                ),
-              )
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(right: 15),
-            child: Image.asset(
-              "images/logo.png",
-              width: 65,
-              height: 26,
+                )
+              ],
             ),
-          )
+          ),
+          Image.asset("images/logo.png", height: 25)
         ],
       ),
     );

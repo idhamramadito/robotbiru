@@ -14,13 +14,16 @@ class Infographics extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         //itemCount: <JUMLAH DATA>
         itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            width: 150,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10.0))),
-            child: Center(child: Text("Infografis $index")),
+          return InkWell(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              width: 150,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
+              child: Center(child: Text("Infografis $index")),
+            ),
           );
         },
       ),
