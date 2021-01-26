@@ -338,7 +338,9 @@ class MainServices extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed('/pulsa');
+                },
                 child: Column(
                   children: [
                     SizedBox(
