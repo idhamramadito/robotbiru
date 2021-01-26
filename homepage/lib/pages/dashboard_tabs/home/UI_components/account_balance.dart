@@ -25,7 +25,7 @@ class AccountBalance extends StatelessWidget {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color(0xff008AD5),
+            color: Theme.of(context).primaryColor,
           ),
         ),
         trailing: ElevatedButton(

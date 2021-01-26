@@ -29,12 +29,15 @@ class _PageDashboard extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff008AD5), //grey = Color(0xffF2F3F5),
+      backgroundColor:
+          Theme.of(context).primaryColor, //grey = Color(0xffF2F3F5),
+      appBar: UserInfo().appBar(),
       body: SingleChildScrollView(
         child: Stack(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 180),
+              margin: EdgeInsets.only(top: 100),
+              // margin: EdgeInsets.only(top: 180),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -42,11 +45,12 @@ class _PageDashboard extends State<Home> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              height: 300,
+              height: 280,
+              // height: 300,
             ),
             Column(
               children: [
-                UserInfo(),
+                // UserInfo().container(),
                 SearchBar(),
                 AccountBalance(),
                 MainServices(),
@@ -61,5 +65,6 @@ class _PageDashboard extends State<Home> {
       ),
     );
   }
+
   //========================= main function =========================
 }

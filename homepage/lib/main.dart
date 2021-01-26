@@ -18,7 +18,7 @@ class RobotBiruApp extends StatelessWidget {
       title: 'Robot Biru',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        primaryColor: Colors.blue[600],
+        primaryColor: Color(0xff008AD5), //Colors.blue[600],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',

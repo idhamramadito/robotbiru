@@ -10,7 +10,7 @@ class UpgradeToPartner extends StatelessWidget {
     return Card(
       elevation: 5,
       margin: EdgeInsets.symmetric(horizontal: 20),
-      color: Color(0xff008AD5),
+      color: Theme.of(context).primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: new BorderRadius.circular(10.0),
       ),
@@ -33,7 +33,9 @@ class UpgradeToPartner extends StatelessWidget {
               child: Text(
                 "Retail",
                 style: TextStyle(
-                    color: Color(0xff008AD5), fontWeight: FontWeight.bold),
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             FlatButton(
@@ -45,7 +47,9 @@ class UpgradeToPartner extends StatelessWidget {
               child: Text(
                 "Koperasi/ \nKomunitas",
                 style: TextStyle(
-                    color: Color(0xff008AD5), fontWeight: FontWeight.bold),
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
