@@ -10,6 +10,8 @@ class PulsaPage extends StatefulWidget {
 class _PulsaPageState extends State<PulsaPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.blue[600], title: Text('Pulsa')),
+    );
   }
 }

@@ -264,6 +264,45 @@ class MainServices extends StatelessWidget {
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
+<<<<<<< HEAD
+        SizedBox(height: 20),
+        Container(
+          margin: EdgeInsets.only(top: 10, left: 30, right: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: Image.asset("images/foodbot_n.png"),
+                    ),
+                    Text("FoodBot")
+                  ],
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/pulsa');
+                },
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: Image.asset("images/pulsa_n.png"),
+                    ),
+                    Text("Pulsa/"),
+                    Text("Paket Data")
+                  ],
+                ),
+              ),
+              OtherServices(),
+            ],
+=======
       ),
       height: 280,
       child: GridView.count(
@@ -277,6 +316,7 @@ class MainServices extends StatelessWidget {
                 Text("JekBot")
               ],
             ),
+>>>>>>> 43494c6b6d4b5fe439a4b229ded0a1bf998a36f4
           ),
           InkWell(
             onTap: () {},
