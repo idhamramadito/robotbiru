@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:homepage/pages/dashboard_tabs/home/top_up/top_up.dart';
-import 'package:homepage/pages/submenu/pulsa/pulsapage.dart';
-=======
 import 'package:homepage/pages/submenu/top_up/top_up.dart';
->>>>>>> 43494c6b6d4b5fe439a4b229ded0a1bf998a36f4
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 

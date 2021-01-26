@@ -264,45 +264,6 @@ class MainServices extends StatelessWidget {
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
-<<<<<<< HEAD
-        SizedBox(height: 20),
-        Container(
-          margin: EdgeInsets.only(top: 10, left: 30, right: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("images/foodbot_n.png"),
-                    ),
-                    Text("FoodBot")
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed('/pulsa');
-                },
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset("images/pulsa_n.png"),
-                    ),
-                    Text("Pulsa/"),
-                    Text("Paket Data")
-                  ],
-                ),
-              ),
-              OtherServices(),
-            ],
-=======
       ),
       height: 280,
       child: GridView.count(
@@ -316,7 +277,6 @@ class MainServices extends StatelessWidget {
                 Text("JekBot")
               ],
             ),
->>>>>>> 43494c6b6d4b5fe439a4b229ded0a1bf998a36f4
           ),
           InkWell(
             onTap: () {},
@@ -372,178 +332,179 @@ class OtherServices extends StatelessWidget {
     return InkWell(
       onTap: () {
         showMaterialModalBottomSheet(
-            context: context,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            builder: (context) => Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Wrap(
-                    children: [
-                      Column(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          builder: (context) => Container(
+            width: MediaQuery.of(context).size.width,
+            child: Wrap(
+              children: [
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 10),
+                        height: 4,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: Color(0xffC4C4C4),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Text(
+                        "Semua Menu Robot Biru",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Align(
-                            alignment: Alignment.topCenter,
-                            child: Container(
-                              margin: EdgeInsets.only(top: 10),
-                              height: 4,
-                              width: 30,
-                              decoration: BoxDecoration(
-                                color: Color(0xffC4C4C4),
-                                borderRadius: BorderRadius.circular(5),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "images/jekbot_n.png",
+                                  width: 47,
+                                  height: 46,
+                                ),
+                                Text("JekBot")
+                              ],
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Image.asset(
+                                "images/taxibot_n.png",
+                                width: 70,
+                                height: 31,
                               ),
-                            ),
+                              Text("TaxiBot")
+                            ],
                           ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10),
-                            child: Text(
-                              "Semua Menu Robot Biru",
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
+                          Column(
+                            children: [
+                              Image.asset(
+                                "images/sendbot_n.png",
+                                width: 42,
+                                height: 47,
+                              ),
+                              Text("SendBot")
+                            ],
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        "images/jekbot_n.png",
-                                        width: 47,
-                                        height: 46,
-                                      ),
-                                      Text("JekBot")
-                                    ],
-                                  ),
-                                ),
-                                Column(
-                                  children: [
-                                    Image.asset(
-                                      "images/taxibot_n.png",
-                                      width: 70,
-                                      height: 31,
-                                    ),
-                                    Text("TaxiBot")
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Image.asset(
-                                      "images/sendbot_n.png",
-                                      width: 42,
-                                      height: 47,
-                                    ),
-                                    Text("SendBot")
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        "images/foodbot_n.png",
-                                        width: 59,
-                                        height: 34,
-                                      ),
-                                      Text("FoodBot")
-                                    ],
-                                  ),
-                                ),
-                                Column(
-                                  children: [
-                                    Image.asset(
-                                      "images/pulsa_n.png",
-                                      width: 40,
-                                      height: 47,
-                                    ),
-                                    Text("Pulsa/"),
-                                    Text("Paket Data")
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Image.asset(
-                                      "images/martbot_n.png",
-                                      width: 40,
-                                      height: 41,
-                                    ),
-                                    Text("MartBot")
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        "images/boxbot_n.png",
-                                        width: 55,
-                                        height: 43,
-                                      ),
-                                      Text("BoxBot")
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        "images/tiket_n.png",
-                                        width: 56,
-                                        height: 56,
-                                      ),
-                                      Text("Tiket"),
-                                      Text("Perjalanan")
-                                    ],
-                                  ),
-                                ),
-                                Column(
-                                  children: [
-                                    Image.asset(
-                                      "images/tagihan_n.png",
-                                      width: 56,
-                                      height: 56,
-                                    ),
-                                    Text("Pembayaran"),
-                                    Text("Tagihan")
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 80,
-                          )
                         ],
-                      )
-                    ],
-                  ),
-                ));
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          GestureDetector(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "images/foodbot_n.png",
+                                  width: 59,
+                                  height: 34,
+                                ),
+                                Text("FoodBot")
+                              ],
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Image.asset(
+                                "images/pulsa_n.png",
+                                width: 40,
+                                height: 47,
+                              ),
+                              Text("Pulsa/"),
+                              Text("Paket Data")
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Image.asset(
+                                "images/martbot_n.png",
+                                width: 40,
+                                height: 41,
+                              ),
+                              Text("MartBot")
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          GestureDetector(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "images/boxbot_n.png",
+                                  width: 55,
+                                  height: 43,
+                                ),
+                                Text("BoxBot")
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  "images/tiket_n.png",
+                                  width: 56,
+                                  height: 56,
+                                ),
+                                Text("Tiket"),
+                                Text("Perjalanan")
+                              ],
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Image.asset(
+                                "images/tagihan_n.png",
+                                width: 56,
+                                height: 56,
+                              ),
+                              Text("Pembayaran"),
+                              Text("Tagihan")
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 80,
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        );
       },
       child: Column(
         children: [
