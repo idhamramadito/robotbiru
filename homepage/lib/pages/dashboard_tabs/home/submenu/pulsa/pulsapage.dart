@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './components/input_baru.dart';
 import './components/daftar_favorit.dart';
-import 'package:homepage/shared/UI_components/big_button.dart';
+import 'package:homepage/shared_UI_components/big_button.dart';
 
 class PulsaPage extends StatefulWidget {
   PulsaPage({Key key}) : super(key: key);

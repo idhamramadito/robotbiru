@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/shared/UI_components/big_button.dart';
+import 'package:homepage/shared_UI_components/big_button.dart';
 
 class TransCompleted extends StatefulWidget {
   final List data;
