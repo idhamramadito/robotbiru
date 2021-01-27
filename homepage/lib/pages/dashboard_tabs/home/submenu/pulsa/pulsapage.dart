@@ -22,7 +22,7 @@ class _PulsaPageState extends State<PulsaPage> {
       body: DefaultTabController(
           length: 2,
           child: Container(
-            margin: EdgeInsets.fromLTRB(25, 11, 25, 29),
+            margin: EdgeInsets.fromLTRB(0, 11, 0, 29),
             child: Scaffold(
                 appBar: TabBar(
                   unselectedLabelColor: Theme.of(context).primaryColor,
@@ -30,12 +30,7 @@ class _PulsaPageState extends State<PulsaPage> {
                     borderRadius: BorderRadius.circular(10),
                     color: Theme.of(context).primaryColor,
                   ),
-                  tabs: [
-                    Tab(
-                      text: "Input Baru",
-                    ),
-                    Tab(text: "Daftar Favorit")
-                  ],
+                  tabs: [Tab(text: "Input Baru"), Tab(text: "Daftar Favorit")],
                 ),
                 body: Column(
                   children: [
@@ -50,12 +45,15 @@ class _PulsaPageState extends State<PulsaPage> {
                         ),
                       ),
                     ),
-                    BigButton(
-                      title: 'Beli',
-                      route: () {
-                        Navigator.of(context).pushNamed('/pin_code',
-                            arguments: 'Masukkan Pin Anda');
-                      },
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      child: BigButton(
+                        title: 'Beli',
+                        route: () {
+                          Navigator.of(context).pushNamed('/pin_code',
+                              arguments: 'Masukkan Pin Anda');
+                        },
+                      ),
                     ),
                   ],
                 )),
