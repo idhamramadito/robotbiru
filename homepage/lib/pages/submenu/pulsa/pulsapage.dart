@@ -42,8 +42,8 @@ class _PulsaPageState extends State<PulsaPage> {
                   padding: EdgeInsets.fromLTRB(0, 29, 0, 0),
                   child: TabBarView(
                     children: [
-                      inputBaru(),
-                      daftarFavorit(),
+                      InputBaru(),
+                      DaftarFavorit(),
                     ],
                   ),
                 )),

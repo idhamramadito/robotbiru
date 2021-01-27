@@ -2,14 +2,14 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class inputBaru extends StatefulWidget {
-  inputBaru({Key key}) : super(key: key);
+class InputBaru extends StatefulWidget {
+  InputBaru({Key key}) : super(key: key);
 
   @override
-  _inputBaruState createState() => _inputBaruState();
+  _InputBaruState createState() => _InputBaruState();
 }
 
-class _inputBaruState extends State<inputBaru> {
+class _InputBaruState extends State<InputBaru> {
   bool rememberMe = false;
   String defvalue = "20.000";
 
