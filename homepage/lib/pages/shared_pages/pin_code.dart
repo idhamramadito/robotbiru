@@ -15,6 +15,7 @@ class PinCode extends StatefulWidget {
 class _PinCodeState extends State<PinCode> {
   String currentText = '';
   String requiredAnswer = '123456';
+  bool wrongInput = false;
   StreamController<ErrorAnimationType> errorController =
       StreamController<ErrorAnimationType>();
 
@@ -62,15 +63,18 @@ class _PinCodeState extends State<PinCode> {
               onChanged: (value) {
                 print(value);
                 setState(() {
+                  wrongInput = false;
                   currentText = value;
                 });
               },
               onCompleted: (val) {
-                // TODO: buat if state untuk membandingkan input & pin yang benar
                 if (val == requiredAnswer) {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                   Navigator.of(context).pushNamed('/trans_completed');
                 } else {
+                  setState(() {
+                    wrongInput = true;
+                  });
                   errorController.add(ErrorAnimationType.shake);
                 }
               },
@@ -82,6 +86,16 @@ class _PinCodeState extends State<PinCode> {
               },
             ),
           ),
+          (wrongInput)
+              ? Text(
+                  'Pin Tidak Sesuai',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                    fontSize: 20,
+                  ),
+                )
+              : Container(),
         ],
       ),
     );

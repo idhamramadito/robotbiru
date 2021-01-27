@@ -10,12 +10,12 @@ class TransCompleted extends StatefulWidget {
 }
 
 class _TransCompletedState extends State<TransCompleted> {
+  String transID = 'TRANS_ID';
   String transName = 'TRANSACTION_TYPE';
+  String transDate = 'TRANSACTION_DATE';
   String paymentMethod = 'PAYMENT_METHOD';
   String cost = 'Rp TOTAL_COST';
   String orderInfo = 'ORDER_INFO';
-  String transDate = 'TRANSACTION_DATE';
-  String orderID = 'ORDER_ID';
 
   @override
   Widget build(BuildContext context) {
@@ -131,13 +131,13 @@ class _TransCompletedState extends State<TransCompleted> {
                           Padding(
                             padding: const EdgeInsets.all(2.0),
                             child: Text(
-                              'Order ID',
+                              'ID Transaksi',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(2.0),
-                            child: Text(orderID),
+                            child: Text(transID),
                           ),
                           SizedBox(height: 10),
                         ],
@@ -160,20 +160,3 @@ class _TransCompletedState extends State<TransCompleted> {
     );
   }
 }
-
-// Text(
-//   "Total Harga",
-//   style: TextStyle(
-//       fontSize: 20, fontWeight: FontWeight.bold),
-// ),
-// Padding(
-//   padding: const EdgeInsets.all(10.0),
-//   child: Text(
-//     price,
-//     style: TextStyle(
-//       fontSize: 30,
-//       fontWeight: FontWeight.bold,
-//       color: Theme.of(context).primaryColor,
-//     ),
-//   ),
-// ),
