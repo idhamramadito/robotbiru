@@ -116,13 +116,15 @@ class _InputBaruState extends State<InputBaru> {
                       margin: EdgeInsets.only(left: 10),
                       child: Text(
                         "20.000",
-                        style:
-                            TextStyle(fontSize: 15, color: Color(0xff818181)),
+                        style: TextStyle(fontSize: 15),
                         textAlign: TextAlign.center,
                       ),
                     ),
                     Container(
-                      child: Icon(Icons.arrow_drop_down),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     )
                   ],
                 ),

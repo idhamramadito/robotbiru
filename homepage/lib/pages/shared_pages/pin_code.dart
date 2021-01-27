@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -12,11 +14,16 @@ class PinCode extends StatefulWidget {
 
 class _PinCodeState extends State<PinCode> {
   String currentText = '';
+  String requiredAnswer = '123456';
+  StreamController<ErrorAnimationType> errorController =
+      StreamController<ErrorAnimationType>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).primaryColor,
+      appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -44,6 +51,7 @@ class _PinCodeState extends State<PinCode> {
               obscureText: true,
               animationType: AnimationType.scale,
               enableActiveFill: true,
+              errorAnimationController: errorController,
               pinTheme: PinTheme(
                 shape: PinCodeFieldShape.box,
                 borderRadius: BorderRadius.circular(10),
@@ -59,10 +67,12 @@ class _PinCodeState extends State<PinCode> {
               },
               onCompleted: (val) {
                 // TODO: buat if state untuk membandingkan input & pin yang benar
-                if (val == '123456') {
+                if (val == requiredAnswer) {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                   Navigator.of(context).pushNamed('/trans_completed');
-                } else {}
+                } else {
+                  errorController.add(ErrorAnimationType.shake);
+                }
               },
               beforeTextPaste: (text) {
                 print("Allowing to paste $text");
