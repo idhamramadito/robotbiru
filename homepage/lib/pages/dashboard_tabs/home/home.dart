@@ -9,7 +9,7 @@ import 'package:homepage/pages/dashboard_tabs/home/UI_components/promo_card.dart
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/search_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/upgrade_to_partner.dart';
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/user_info.dart';
-import 'package:homepage/shared/UI_components/transparent_notif_and_navbar.dart';
+import 'package:homepage/shared_UI_components/transparent_notif_and_navbar.dart';
 
 class Home extends StatefulWidget {
   _PageDashboard createState() => _PageDashboard();
