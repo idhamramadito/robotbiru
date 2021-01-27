@@ -10,7 +10,8 @@ class InputBaru extends StatefulWidget {
 
 class _InputBaruState extends State<InputBaru> {
   bool rememberMe = false;
-  String defvalue = "20.000";
+  int selectedIndex = 0;
+  String selectedValue = '20.000';
   List box = [
     ['20.000', 'Cashback: Rp 750.00', 'Rp21.750'],
     ['50.000', 'Cashback: Rp 750.00', 'Rp51.750'],
@@ -108,14 +109,21 @@ class _InputBaruState extends State<InputBaru> {
                   crossAxisCount: 2, childAspectRatio: 0.55),
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = index;
+                      selectedValue = box[selectedIndex][0];
+                    });
+                  },
                   child: Container(
                     width: 500,
                     margin: EdgeInsets.all(5),
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: Border.all(color: Colors.grey, width: 2),
+                        border: (selectedIndex == index)
+                            ? Border.all(color: Colors.blue, width: 2)
+                            : Border.all(color: Colors.grey[200], width: 2),
                         borderRadius: BorderRadius.all(Radius.circular(10.0))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
