@@ -24,13 +24,22 @@ class _PulsaPageState extends State<PulsaPage> {
           child: Container(
             margin: EdgeInsets.fromLTRB(0, 11, 0, 29),
             child: Scaffold(
-                appBar: TabBar(
-                  unselectedLabelColor: Theme.of(context).primaryColor,
-                  indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Theme.of(context).primaryColor,
+                appBar: PreferredSize(
+                  preferredSize: Size(100, 100),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TabBar(
+                      unselectedLabelColor: Theme.of(context).primaryColor,
+                      indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      tabs: [
+                        Tab(text: "Input Baru"),
+                        Tab(text: "Daftar Favorit")
+                      ],
+                    ),
                   ),
-                  tabs: [Tab(text: "Input Baru"), Tab(text: "Daftar Favorit")],
                 ),
                 body: Column(
                   children: [
