@@ -1,4 +1,3 @@
-import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -123,7 +122,7 @@ class _InputBaruState extends State<InputBaru> {
                       ),
                     ),
                     Container(
-                  child: Icon(Icons.arrow_drop_down),
+                      child: Icon(Icons.arrow_drop_down),
                     )
                   ],
                 ),
