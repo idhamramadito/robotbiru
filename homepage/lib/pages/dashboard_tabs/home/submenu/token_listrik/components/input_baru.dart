@@ -12,6 +12,8 @@ class InputBaru extends StatefulWidget {
 class _InputBaruState extends State<InputBaru> {
   bool rememberMe = false;
   String defvalue = "20.000";
+List boxAtas = [['20.000', 'Cashback: Rp 750.00', 'Rp21.750'], ['50.000', 'Cashback: Rp 750.00', 'Rp51.750'], ['75.000', 'Cashback: Rp 750.00', 'Rp75.750']];
+List boxBawah = [['100.000', 'Cashback: Rp 750.00', 'Rp101.750'], ['200.000', 'Cashback: Rp 750.00', 'Rp201.750'], ['500.000', 'Cashback: Rp 750.00', 'Rp501.750']];
 
   void _onRememberMeChanged(bool newValue) => setState(() {
         rememberMe = newValue;
@@ -104,11 +106,24 @@ class _InputBaruState extends State<InputBaru> {
                   border: Border.all(color: Colors.grey, width: 2),
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.0))),
-              child: Center(
-                child: Text(
-                  "Infografis \nPanduan",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    boxAtas[index][0],
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                      boxAtas[index][1],
+                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal),
+                     textAlign: TextAlign.center,
+                  ),
+                  Text(
+                      boxAtas[index][2],
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[700]),
+                      textAlign: TextAlign.right,
+                  ),
+                ],
               ),
             ),
           );
@@ -117,7 +132,7 @@ class _InputBaruState extends State<InputBaru> {
       ),
 
       Container(
-      margin: EdgeInsets.symmetric(vertical: 3),
+      margin: EdgeInsets.symmetric(vertical: 2),
       height: 100,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -133,11 +148,28 @@ class _InputBaruState extends State<InputBaru> {
                   border: Border.all(color: Colors.grey, width: 2),
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.0))),
-              child: Center(
-                child: Text(
-                  "Infografis \nPanduan",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                      child: Text(
+                      
+                      boxBawah[index][0],
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  Text(
+                      boxBawah[index][1],
+                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal),
+                      textAlign: TextAlign.center,
+                  ),
+                  Text(
+                      boxBawah[index][2],
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[700]),
+                      textAlign: TextAlign.right,
+                  ),
+                ],
               ),
             ),
           );
