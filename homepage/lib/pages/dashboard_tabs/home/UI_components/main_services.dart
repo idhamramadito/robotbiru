@@ -59,7 +59,9 @@ class MainServices extends StatelessWidget {
               Text("Paket Data")
             ],
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed('/pulsa');
+          },
         ),
         InkWell(
           child: Column(

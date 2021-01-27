@@ -24,7 +24,6 @@ class _PulsaPageState extends State<PulsaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         title: Text(
           'Pulsa',
           style: TextStyle(fontWeight: FontWeight.bold),
