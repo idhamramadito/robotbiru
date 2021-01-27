@@ -25,10 +25,7 @@ class Infographics extends StatelessWidget {
               child: Center(
                 child: Text(
                   "Infografis \nPanduan",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      fontFeatures: Center),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
