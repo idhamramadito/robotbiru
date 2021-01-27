@@ -31,7 +31,7 @@ class _InputBaruState extends State<InputBaru> {
         children: [
           Row(children: <Widget>[
             Text(
-              "Masukkan Nomor HP",
+              "Masukkan ID Pelanggan / Nomor Meteran",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ]),
@@ -52,7 +52,7 @@ class _InputBaruState extends State<InputBaru> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    hintText: "Nomor Handphone",
+                    hintText: "ID Pelanggan / Nomor Meteran",
                   ),
                 ),
               ),
@@ -81,7 +81,7 @@ class _InputBaruState extends State<InputBaru> {
           Row(
             children: [
               Text(
-                "Nominal Pulsa",
+                "Nominal Token Listrik",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               )
             ],
@@ -103,8 +103,13 @@ class _InputBaruState extends State<InputBaru> {
                     defvalue = newValue;
                   });
                 },
-                items: <String>['20.000', '25.000', '35.000', '50.000']
-                    .map<DropdownMenuItem<String>>((String value) {
+                items: <String>[
+                  '20.000',
+                  '50.000',
+                  '100.000',
+                  '200.000',
+                  '500.000'
+                ].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -113,80 +118,9 @@ class _InputBaruState extends State<InputBaru> {
               )
             ],
           ),
-
-    Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: ButtonTheme(
-        minWidth: 300,
-        height: 50,
-        child: FlatButton(
-            onPressed: () {},
-            color: Color(0xffDDDDDD),
-            shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(
-                    "20.000",
-                    style: TextStyle(fontSize: 15, color: Color(0xff818181)),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  child: Icon(Icons.arrow_drop_down),
-                )
-              ],
-            ),
-            ),
-      ),
-    ),
-
-
           Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
-                child: Text(
-                  'Ringkasan',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: Image.asset("images/provider_indosat.png")),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
-                        child: Text(
-                          "Pulsa 20.000",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
-                        child: Text(
-                          "Masa Aktif 30 Hari",
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
+            children: [],
+          )
         ],
       ),
     );
