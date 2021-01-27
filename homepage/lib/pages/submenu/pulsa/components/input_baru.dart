@@ -25,8 +25,8 @@ class _InputBaruState extends State<InputBaru> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.all(5),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(children: <Widget>[
@@ -140,7 +140,7 @@ class _InputBaruState extends State<InputBaru> {
                       Container(
                         padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
                         child: Text(
-                          "Pulsa 30.000",
+                          "Pulsanya adalah 30.000",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
@@ -148,7 +148,7 @@ class _InputBaruState extends State<InputBaru> {
                       Container(
                         padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                         child: Text(
-                          "Masa Aktif 40 Hari",
+                          "Masa Aktif 30 Hari",
                         ),
                       ),
                     ],
@@ -157,31 +157,6 @@ class _InputBaruState extends State<InputBaru> {
               )
             ],
           ),
-          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
-          new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [new Text("Harga Dasar"), new Text("Rp5800")]),
-          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
-          new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [new Text("Harga Dasar"), new Text("Rp5800")]),
-          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-          Container(
-            height: 20,
-            color: Colors.grey[300],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
-                child: Text(
-                  'Cashback',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          )
         ],
       ),
     );
