@@ -86,33 +86,7 @@ class _InputBaruState extends State<InputBaru> {
               )
             ],
           ),
-          Row(
-            children: [
-              DropdownButton<String>(
-                value: defvalue,
-                icon: Icon(Icons.arrow_downward),
-                iconSize: 24,
-                elevation: 16,
-                style: TextStyle(color: Colors.deepPurple),
-                underline: Container(
-                  height: 2,
-                  color: Colors.deepPurpleAccent,
-                ),
-                onChanged: (String newValue) {
-                  setState(() {
-                    defvalue = newValue;
-                  });
-                },
-                items: <String>['20.000', '25.000', '35.000', '50.000']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              )
-            ],
-          ),
+          
 
     Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -120,7 +94,7 @@ class _InputBaruState extends State<InputBaru> {
         minWidth: 300,
         height: 50,
         child: FlatButton(
-            onPressed: () {},
+            onPressed: () {Navigator.of(context).pushNamed('/nominal_pulsa');},
             color: Color(0xffDDDDDD),
             shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0)),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/submenu/pulsa/components/nominal_pulsa.dart';
 import 'package:homepage/pages/submenu/pulsa/pulsapage.dart';
 import 'package:homepage/pages/submenu/top_up/top_up.dart';
 import 'package:homepage/routing/error_route.dart';
@@ -23,6 +24,8 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => TokenPage());
       case '/pin_code':
         return MaterialPageRoute(builder: (_) => PinCode(hintText: args));
+      case '/nominal_pulsa':
+        return MaterialPageRoute(builder: (_) => NominalPulsa());
       case '/trans_completed':
         return MaterialPageRoute(
             builder: (_) => TransCompleted(hintText: args));
