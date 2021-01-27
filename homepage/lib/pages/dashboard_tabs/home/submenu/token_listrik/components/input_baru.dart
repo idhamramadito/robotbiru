@@ -12,8 +12,18 @@ class InputBaru extends StatefulWidget {
 class _InputBaruState extends State<InputBaru> {
   bool rememberMe = false;
   String defvalue = "20.000";
-List boxAtas = [['20.000', 'Cashback: Rp 750.00', 'Rp21.750'], ['50.000', 'Cashback: Rp 750.00', 'Rp51.750'], ['75.000', 'Cashback: Rp 750.00', 'Rp75.750']];
-List boxBawah = [['100.000', 'Cashback: Rp 750.00', 'Rp101.750'], ['200.000', 'Cashback: Rp 750.00', 'Rp201.750'], ['500.000', 'Cashback: Rp 750.00', 'Rp501.750']];
+  List box = [
+    ['20.000', 'Cashback: Rp 750.00', 'Rp21.750'],
+    ['50.000', 'Cashback: Rp 750.00', 'Rp51.750'],
+    ['75.000', 'Cashback: Rp 750.00', 'Rp75.750'],
+    ['100.000', 'Cashback: Rp 750.00', 'Rp101.750'],
+    ['200.000', 'Cashback: Rp 750.00', 'Rp201.750'],
+    ['500.000', 'Cashback: Rp 750.00', 'Rp501.750'],
+    ['1.000.000', 'Cashback: Rp 750.00', 'Rp1.001.750'],
+    ['5.000.000', 'Cashback: Rp 750.00', 'Rp5.001.750'],
+    ['10.000.000', 'Cashback: Rp 750.00', 'Rp10.001.750'],
+    ['50.000.000', 'Cashback: Rp 750.00', 'Rp50.001.750'],
+  ];
 
   void _onRememberMeChanged(bool newValue) => setState(() {
         rememberMe = newValue;
@@ -88,150 +98,64 @@ List boxBawah = [['100.000', 'Cashback: Rp 750.00', 'Rp101.750'], ['200.000', 'C
               )
             ],
           ),
-
-    Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      height: 100,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: (3),
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {},
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal:10),
-              margin: EdgeInsets.symmetric(horizontal: 5),
-              width: 160,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.grey, width: 2),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10.0))),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                      child: Text(
-                      
-                      boxAtas[index][0],
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
+          Container(
+            height: 200,
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: GridView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: box.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 0.55),
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: 500,
+                    margin: EdgeInsets.all(5),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.grey, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            box[index][0],
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            box[index][1],
+                            style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.grey),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            box[index][2],
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue[700]),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                      child: Text(
-                        boxAtas[index][1],
-                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal, color: Colors.grey),
-                        textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                      child: Text(
-                        boxAtas[index][2],
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue[700]),
-                        textAlign: TextAlign.right,
-                    ),
-                  ),
-                ],
-              ),
+                );
+              },
             ),
-          );
-        },
-      ),
-      ),
-
-      Container(
-      margin: EdgeInsets.symmetric(vertical: 2),
-      height: 100,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: (3),
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {},
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal:10),
-              margin: EdgeInsets.symmetric(horizontal: 5),
-              width: 160,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.grey, width: 2),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10.0))),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                      child: Text(
-                      
-                      boxBawah[index][0],
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                      child: Text(
-                        boxBawah[index][1],
-                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal, color: Colors.grey),
-                        textAlign: TextAlign.left,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                      child: Text(
-                        boxBawah[index][2],
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue[700]),
-                        textAlign: TextAlign.right,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-      ),
-        
-         // Row(
-           // children: [
-             // DropdownButton<String>(
-               // value: defvalue,
-               // icon: Icon(Icons.arrow_downward),
-               // iconSize: 24,
-               // elevation: 16,
-               // style: TextStyle(color: Colors.deepPurple),
-               // underline: Container(
-                //  height: 2,
-                //  color: Colors.deepPurpleAccent,
-               // ),
-               // onChanged: (String newValue) {
-                  //setState(() {
-                    //defvalue = newValue;
-                  //});
-                //},
-                //items: <String>[
-                  //'20.000',
-                  //'50.000',
-                  //'100.000',
-                  //'200.000',
-                 // '500.000'
-                //].map<DropdownMenuItem<String>>((String value) {
-                 // return DropdownMenuItem<String>(
-                  //  value: value,
-                  //  child: Text(value),
-                //  );
-              //  }).toList(),
-            //  )
-          //  ],
-        //  ),
-          Row(
-            children: [],
-          )
+          ),
         ],
       ),
     );
