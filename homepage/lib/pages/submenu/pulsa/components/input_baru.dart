@@ -87,64 +87,38 @@ class _InputBaruState extends State<InputBaru> {
             ],
           ),
           Row(
-            children: [
-              DropdownButton<String>(
-                value: defvalue,
-                icon: Icon(Icons.arrow_downward),
-                iconSize: 24,
-                elevation: 16,
-                style: TextStyle(color: Colors.deepPurple),
-                underline: Container(
-                  height: 2,
-                  color: Colors.deepPurpleAccent,
-                ),
-                onChanged: (String newValue) {
-                  setState(() {
-                    defvalue = newValue;
-                  });
-                },
-                items: <String>['20.000', '25.000', '35.000', '50.000']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              )
-            ],
+            children: [],
           ),
-
-    Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: ButtonTheme(
-        minWidth: 300,
-        height: 50,
-        child: FlatButton(
-            onPressed: () {},
-            color: Color(0xffDDDDDD),
-            shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(
-                    "20.000",
-                    style: TextStyle(fontSize: 15, color: Color(0xff818181)),
-                    textAlign: TextAlign.center,
-                  ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: ButtonTheme(
+              minWidth: 300,
+              height: 50,
+              child: FlatButton(
+                onPressed: () {},
+                color: Color(0xffDDDDDD),
+                shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "20.000",
+                        style:
+                            TextStyle(fontSize: 15, color: Color(0xff818181)),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      child: Icon(Icons.arrow_drop_down),
+                    )
+                  ],
                 ),
-                Container(
-                  child: Icon(Icons.arrow_drop_down),
-                )
-              ],
+              ),
             ),
-            ),
-      ),
-    ),
-
-
+          ),
           Row(
             children: [
               Padding(
@@ -180,7 +154,7 @@ class _InputBaruState extends State<InputBaru> {
                         child: Text(
                           "Masa Aktif 30 Hari",
                         ),
-                      )
+                      ),
                     ],
                   )
                 ],
