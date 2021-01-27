@@ -86,27 +86,32 @@ class _InputBaruState extends State<InputBaru> {
               )
             ],
           ),
-          
-    Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: ButtonTheme(
-        minWidth: 300,
-        height: 50,
-        child: FlatButton(
-            onPressed: () {Navigator.of(context).pushNamed('/nominal_pulsa');},
-            color: Color(0xffDDDDDD),
-            shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(
-                    "20.000",
-                    style: TextStyle(fontSize: 15, color: Color(0xff818181)),
-                    textAlign: TextAlign.center,
-                  ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: ButtonTheme(
+              minWidth: 300,
+              height: 50,
+              child: FlatButton(
+                onPressed: () {},
+                color: Color(0xffDDDDDD),
+                shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "20.000",
+                        style:
+                            TextStyle(fontSize: 15, color: Color(0xff818181)),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      child: Icon(Icons.arrow_drop_down),
+                    )
+                  ],
                 ),
               ),
             ),
