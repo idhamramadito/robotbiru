@@ -27,7 +27,7 @@ Future otherServices(BuildContext context) {
               Container(
                 margin: EdgeInsets.only(top: 10),
                 child: Text(
-                  "Semua Menu Robot Biru",
+                  "Menu Utama Robot Biru",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -41,7 +41,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/jekbot_n.png", height: 40),
+                        Image.asset("images/jekbot_n.png", height: 35),
                         Text("JekBot")
                       ],
                     ),
@@ -50,7 +50,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/taxibot_n.png", height: 40),
+                        Image.asset("images/taxibot_n.png", height: 35),
                         Text("TaxiBot")
                       ],
                     ),
@@ -59,7 +59,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/sendbot_n.png", height: 40),
+                        Image.asset("images/sendbot_n.png", height: 35),
                         Text("SendBot")
                       ],
                     ),
@@ -68,7 +68,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/foodbot_n.png", height: 40),
+                        Image.asset("images/foodbot_n.png", height: 35),
                         Text("FoodBot")
                       ],
                     ),
@@ -77,7 +77,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/pulsa_n.png", height: 40),
+                        Image.asset("images/pulsa_n.png", height: 35),
                         Text("Pulsa/"),
                         Text("Paket Data")
                       ],
@@ -89,7 +89,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/martbot_n.png", height: 40),
+                        Image.asset("images/martbot_n.png", height: 35),
                         Text("MartBot")
                       ],
                     ),
@@ -98,7 +98,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/boxbot_n.png", height: 40),
+                        Image.asset("images/boxbot_n.png", height: 35),
                         Text("BoxBot")
                       ],
                     ),
@@ -107,7 +107,7 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/tiket_n.png", height: 40),
+                        Image.asset("images/tiket_n.png", height: 35),
                         Text("Tiket"),
                         Text("Perjalanan"),
                       ],
@@ -117,9 +117,183 @@ Future otherServices(BuildContext context) {
                   InkWell(
                     child: Column(
                       children: [
-                        Image.asset("images/tagihan_n.png", height: 40),
+                        Image.asset("images/tagihan_n.png", height: 35),
                         Text("Pembayaran"),
                         Text("Tagihan"),
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Text(
+                  "Top Up",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              GridView.count(
+                shrinkWrap: true,
+                padding: EdgeInsets.only(top: 20),
+                childAspectRatio: 1.5,
+                physics: NeverScrollableScrollPhysics(),
+                crossAxisCount: 4,
+                children: [
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/pulsa.png", height: 40),
+                        Text("Pulsa")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/paket data.png", height: 40),
+                        Text("Paket Data")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/token listrik.png", height: 40),
+                        Text("Token Listrik")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/ovo.png", height: 40),
+                        Text("OVO")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/gopay.png", height: 40),
+                        Text("GoPay")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/link_aja.png", height: 40),
+                        Text("Link Aja")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/dana.png", height: 40),
+                        Text("Dana")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/shopee_pay.png", height: 40),
+                        Text("Shopee Pay")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Text(
+                  "Perjalanan",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              GridView.count(
+                shrinkWrap: true,
+                padding: EdgeInsets.only(top: 20),
+                childAspectRatio: 1.5,
+                physics: NeverScrollableScrollPhysics(),
+                crossAxisCount: 4,
+                children: [
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/pesawat.png", height: 40),
+                        Text("Pesawat")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/kereta.png", height: 40),
+                        Text("Kereta")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/web_check_in.png", height: 40),
+                        Text("Web Check In")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Text(
+                  "Bayar Tagihan",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              GridView.count(
+                shrinkWrap: true,
+                padding: EdgeInsets.only(top: 20),
+                childAspectRatio: 1.5,
+                physics: NeverScrollableScrollPhysics(),
+                crossAxisCount: 4,
+                children: [
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/pln.png", height: 40),
+                        Text("PLN")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/indihome.png", height: 40),
+                        Text("Indihome")
+                      ],
+                    ),
+                    onTap: () {},
+                  ),
+                  InkWell(
+                    child: Column(
+                      children: [
+                        Image.asset("images/gas_negara.png", height: 40),
+                        Text("Gas Negara")
                       ],
                     ),
                     onTap: () {},
