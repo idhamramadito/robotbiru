@@ -86,38 +86,97 @@ class _InputBaruState extends State<InputBaru> {
               )
             ],
           ),
-          Row(
-            children: [
-              DropdownButton<String>(
-                value: defvalue,
-                icon: Icon(Icons.arrow_downward),
-                iconSize: 24,
-                elevation: 16,
-                style: TextStyle(color: Colors.deepPurple),
-                underline: Container(
-                  height: 2,
-                  color: Colors.deepPurpleAccent,
+
+    Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      height: 100,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: (3),
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              width: 160,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey, width: 2),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.0))),
+              child: Center(
+                child: Text(
+                  "Infografis \nPanduan",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
-                onChanged: (String newValue) {
-                  setState(() {
-                    defvalue = newValue;
-                  });
-                },
-                items: <String>[
-                  '20.000',
-                  '50.000',
-                  '100.000',
-                  '200.000',
-                  '500.000'
-                ].map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              )
-            ],
-          ),
+              ),
+            ),
+          );
+        },
+      ),
+      ),
+
+      Container(
+      margin: EdgeInsets.symmetric(vertical: 3),
+      height: 100,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: (3),
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              width: 160,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey, width: 2),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.0))),
+              child: Center(
+                child: Text(
+                  "Infografis \nPanduan",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+      ),
+        
+         // Row(
+           // children: [
+             // DropdownButton<String>(
+               // value: defvalue,
+               // icon: Icon(Icons.arrow_downward),
+               // iconSize: 24,
+               // elevation: 16,
+               // style: TextStyle(color: Colors.deepPurple),
+               // underline: Container(
+                //  height: 2,
+                //  color: Colors.deepPurpleAccent,
+               // ),
+               // onChanged: (String newValue) {
+                  //setState(() {
+                    //defvalue = newValue;
+                  //});
+                //},
+                //items: <String>[
+                  //'20.000',
+                  //'50.000',
+                  //'100.000',
+                  //'200.000',
+                 // '500.000'
+                //].map<DropdownMenuItem<String>>((String value) {
+                 // return DropdownMenuItem<String>(
+                  //  value: value,
+                  //  child: Text(value),
+                //  );
+              //  }).toList(),
+            //  )
+          //  ],
+        //  ),
           Row(
             children: [],
           )
