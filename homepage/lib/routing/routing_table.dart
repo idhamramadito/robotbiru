@@ -27,8 +27,7 @@ class RoutingTable {
       case '/nominal_pulsa':
         return MaterialPageRoute(builder: (_) => NominalPulsa());
       case '/trans_completed':
-        return MaterialPageRoute(
-            builder: (_) => TransCompleted(hintText: args));
+        return MaterialPageRoute(builder: (_) => TransCompleted(data: args));
       default:
         return errorRoute();
     }
