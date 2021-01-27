@@ -21,8 +21,7 @@ class RoutingTable {
       case '/pin_code':
         return MaterialPageRoute(builder: (_) => PinCode(hintText: args));
       case '/trans_completed':
-        return MaterialPageRoute(
-            builder: (_) => TransCompleted(hintText: args));
+        return MaterialPageRoute(builder: (_) => TransCompleted(data: args));
       default:
         return errorRoute();
     }
