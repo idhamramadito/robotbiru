@@ -122,6 +122,9 @@ class _InputBaruState extends State<InputBaru> {
                         textAlign: TextAlign.center,
                       ),
                     ),
+                    Container(
+                  child: Icon(Icons.arrow_drop_down),
+                    )
                   ],
                 ),
               ),
