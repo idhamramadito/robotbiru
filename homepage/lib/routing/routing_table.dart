@@ -5,6 +5,7 @@ import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 
 import '../pages/shared_pages/pin_code.dart';
+import '../pages/shared_pages/trans_completed.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -19,6 +20,9 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => PulsaPage());
       case '/pin_code':
         return MaterialPageRoute(builder: (_) => PinCode(hintText: args));
+      case '/trans_completed':
+        return MaterialPageRoute(
+            builder: (_) => TransCompleted(hintText: args));
       default:
         return errorRoute();
     }

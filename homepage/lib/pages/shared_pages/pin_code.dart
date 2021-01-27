@@ -57,8 +57,12 @@ class _PinCodeState extends State<PinCode> {
                   currentText = value;
                 });
               },
-              onCompleted: (v) {
-                print("Completed");
+              onCompleted: (val) {
+                // TODO: buat if state untuk membandingkan input & pin yang benar
+                if (val == '123456') {
+                  Navigator.of(context)
+                      .pushReplacementNamed('/trans_completed');
+                } else {}
               },
               beforeTextPaste: (text) {
                 print("Allowing to paste $text");

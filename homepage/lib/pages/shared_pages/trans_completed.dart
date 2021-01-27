@@ -10,26 +10,53 @@ class TransCompleted extends StatefulWidget {
 
 class _TransCompletedState extends State<TransCompleted> {
   String currentText = '';
+  String transName = 'Token Listrik';
+  String paymentMethod = 'Saldo Robot Biru';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              'Transaksi Berhasil',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 20,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.asset('images/ceklis_big.png'),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                'Transaksi Berhasil',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
               ),
             ),
-          ),
-        ],
+            Container(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                'Pembelian $transName Menggunakan',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                paymentMethod,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
