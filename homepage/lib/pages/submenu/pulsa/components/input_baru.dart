@@ -86,73 +86,73 @@ class _InputBaruState extends State<InputBaru> {
               )
             ],
           ),
-          
-    Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: ButtonTheme(
-        minWidth: 300,
-        height: 50,
-        child: FlatButton(
-            onPressed: () {Navigator.of(context).pushNamed('/nominal_pulsa');},
-            color: Color(0xffDDDDDD),
-            shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(
-                    "20.000",
-                    style: TextStyle(fontSize: 15, color: Color(0xff818181)),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
-                child: Text(
-                  'Ringkasan',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: Image.asset("images/provider_indosat.png")),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
-                        child: Text(
-                          "Pulsa 20.000",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
-                        child: Text(
-                          "Masa Aktif 30 Hari",
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
+
+          // Container(
+          //   margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          //   child: ButtonTheme(
+          //     minWidth: 300,
+          //     height: 50,
+          //     child: FlatButton(
+          //         onPressed: () {Navigator.of(context).pushNamed('/nominal_pulsa');},
+          //         color: Color(0xffDDDDDD),
+          //         shape: RoundedRectangleBorder(
+          //             borderRadius: new BorderRadius.circular(10.0)),
+          //         child: Row(
+          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //           children: [
+          //             Container(
+          //               margin: EdgeInsets.only(left: 10),
+          //               child: Text(
+          //                 "20.000",
+          //                 style: TextStyle(fontSize: 15, color: Color(0xff818181)),
+          //                 textAlign: TextAlign.center,
+          //               ),
+          //             ),
+          //           ),
+          //         ),
+          //       ),
+          //       Row(
+          //         children: [
+          //           Padding(
+          //             padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
+          //             child: Text(
+          //               'Ringkasan',
+          //               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          //             ),
+          //           )
+          //         ],
+          //       ),
+          //       Row(
+          //         mainAxisAlignment: MainAxisAlignment.start,
+          //         children: [
+          //           Row(
+          //             children: [
+          //               Container(
+          //                   padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          //                   child: Image.asset("images/provider_indosat.png")),
+          //               Column(
+          //                 crossAxisAlignment: CrossAxisAlignment.start,
+          //                 children: [
+          //                   Container(
+          //                     padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
+          //                     child: Text(
+          //                       "Pulsa 20.000",
+          //                       style: TextStyle(
+          //                           fontSize: 16, fontWeight: FontWeight.bold),
+          //                     ),
+          //                   ),
+          //                   Container(
+          //                     padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+          //                     child: Text(
+          //                       "Masa Aktif 30 Hari",
+          //                     ),
+          //                   ),
+          //                 ],
+          //               )
+          //             ],
+          //           )
+          //         ],
+          //       ),
         ],
       ),
     );

@@ -1,8 +1,7 @@
-import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import './components/input_baru.dart';
 import './components/daftar_favorit.dart';
+import 'package:homepage/shared/UI_components/big_button.dart';
 
 class PulsaPage extends StatefulWidget {
   PulsaPage({Key key}) : super(key: key);
@@ -38,14 +37,27 @@ class _PulsaPageState extends State<PulsaPage> {
                     Tab(text: "Daftar Favorit")
                   ],
                 ),
-                body: Container(
-                  padding: EdgeInsets.fromLTRB(0, 29, 0, 0),
-                  child: TabBarView(
-                    children: [
-                      InputBaru(),
-                      DaftarFavorit(),
-                    ],
-                  ),
+                body: Column(
+                  children: [
+                    Flexible(
+                      child: Container(
+                        padding: EdgeInsets.fromLTRB(0, 29, 0, 0),
+                        child: TabBarView(
+                          children: [
+                            InputBaru(),
+                            DaftarFavorit(),
+                          ],
+                        ),
+                      ),
+                    ),
+                    BigButton(
+                      title: 'Beli',
+                      route: () {
+                        Navigator.of(context).pushNamed('/pin_code',
+                            arguments: 'Masukkan Pin Anda');
+                      },
+                    ),
+                  ],
                 )),
           )),
     );

@@ -25,12 +25,7 @@ class UpgradeToPartner extends StatelessWidget {
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             FlatButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(
-                  '/pin_code',
-                  arguments: 'Masukkan Pin Anda',
-                );
-              },
+              onPressed: () {},
               color: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0),
