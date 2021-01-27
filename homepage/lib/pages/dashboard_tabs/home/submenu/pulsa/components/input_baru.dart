@@ -30,61 +30,73 @@ class _InputBaruState extends State<InputBaru> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(children: <Widget>[
-            Text(
-              "Masukkan Nomor HP",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Container(
+              padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+              child: Text(
+                "Masukkan Nomor HP",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
           ]),
           SizedBox(height: 5),
-          Row(
-            children: [
-              Flexible(
-                flex: 8,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(
-                      RegExp(r'[0-9]'),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 8,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.allow(
+                        RegExp(r'[0-9]'),
+                      ),
+                    ],
+                    decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.clear, size: 30),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      hintText: "Nomor Handphone",
                     ),
-                  ],
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.clear, size: 30),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    hintText: "Nomor Handphone",
                   ),
                 ),
-              ),
-              Flexible(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    child: Icon(Icons.perm_contact_cal, size: 30),
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      child: Icon(Icons.perm_contact_cal, size: 30),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Checkbox(value: rememberMe, onChanged: _onRememberMeChanged),
-              Text("Simpan Nomor",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.grey,
-                  )),
-            ],
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 0, 25, 0),
+            child: Row(
+              children: [
+                Checkbox(value: rememberMe, onChanged: _onRememberMeChanged),
+                Text("Simpan Nomor",
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.grey,
+                    )),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Text(
-                "Nominal Pulsa",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: Row(
+              children: [
+                Text(
+                  "Nominal Pulsa",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -115,73 +127,121 @@ class _InputBaruState extends State<InputBaru> {
               ),
             ),
           ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
-                child: Text(
-                  'Ringkasan',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
+                  child: Text(
+                    'Ringkasan',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: Image.asset("images/provider_indosat.png")),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
-                        child: Text(
-                          "Pulsa 30.000",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        child: Image.asset("images/provider_indosat.png")),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
+                          child: Text(
+                            "Pulsa 30.000",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
-                        child: Text(
-                          "Masa Aktif 40 Hari",
+                        Container(
+                          padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                          child: Text(
+                            "Masa Aktif 40 Hari",
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
-              )
-            ],
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
           Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
-          new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [new Text("Harga Dasar"), new Text("Rp5800")]),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [new Text("Harga Dasar"), new Text("Rp5800")]),
+          ),
           Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
-          new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [new Text("Harga Dasar"), new Text("Rp5800")]),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [new Text("Harga Dasar"), new Text("Rp5800")]),
+          ),
           Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
           Container(
-            height: 20,
+            height: 15,
             color: Colors.grey[300],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
-                child: Text(
-                  'Cashback',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
+                  child: Text(
+                    'Cashback',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-            ],
-          )
+              ],
+            ),
+          ),
+          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [new Text("Pemilik Retail"), new Text("Rp5800")]),
+          ),
+          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [new Text("Badan Koperasi"), new Text("Rp5800")]),
+          ),
+          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [new Text("Anggota Koperasi"), new Text("Rp5800")]),
+          ),
+          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 5)),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [new Text("Anggota Retail"), new Text("Rp5800")]),
+          ),
+          Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 10)),
+          Container(
+            height: 15,
+            color: Colors.grey[300],
+          ),
         ],
       ),
     );
