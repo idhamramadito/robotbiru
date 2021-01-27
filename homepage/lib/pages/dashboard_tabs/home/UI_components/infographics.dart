@@ -22,7 +22,15 @@ class Infographics extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: Center(child: Text("Infografis $index")),
+              child: Center(
+                child: Text(
+                  "Infografis \nPanduan",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFeatures: Center),
+                ),
+              ),
             ),
           );
         },
