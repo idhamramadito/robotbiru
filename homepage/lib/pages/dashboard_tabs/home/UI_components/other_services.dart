@@ -24,12 +24,18 @@ Future otherServices(BuildContext context) {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Text(
-                  "Menu Utama Robot Biru",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 10, left: 30),
+                    child: Text(
+                      "Menu Utama Robot Biru",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
               GridView.count(
                 shrinkWrap: true,
@@ -126,12 +132,18 @@ Future otherServices(BuildContext context) {
                   ),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Text(
-                  "Top Up",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 10, left: 30),
+                    child: Text(
+                      "Top Up",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
               GridView.count(
                 shrinkWrap: true,
@@ -219,12 +231,18 @@ Future otherServices(BuildContext context) {
                   ),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Text(
-                  "Perjalanan",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 10, left: 30),
+                    child: Text(
+                      "Perjalanan",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
               GridView.count(
                 shrinkWrap: true,
@@ -262,12 +280,18 @@ Future otherServices(BuildContext context) {
                   ),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Text(
-                  "Bayar Tagihan",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 10, left: 30),
+                    child: Text(
+                      "Bayar Tagihan",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
               GridView.count(
                 shrinkWrap: true,

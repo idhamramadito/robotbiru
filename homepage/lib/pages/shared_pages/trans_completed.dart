@@ -68,7 +68,7 @@ class _TransCompletedState extends State<TransCompleted> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Total Hargga",
+                      "Total Harga",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
