@@ -35,9 +35,7 @@ class _InputBaruState extends State<InputBaru> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ]),
-
           SizedBox(height: 5),
-
           Row(
             children: [
               Flexible(
@@ -54,7 +52,7 @@ class _InputBaruState extends State<InputBaru> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    hintText: "Nomer Handphone",
+                    hintText: "Nomor Handphone",
                   ),
                 ),
               ),
@@ -116,8 +114,47 @@ class _InputBaruState extends State<InputBaru> {
             ],
           ),
           Row(
-            children: [],
-          )
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 15, 0, 3),
+                child: Text(
+                  'Ringkasan',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: Image.asset("images/provider_indosat.png")),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
+                        child: Text(
+                          "Pulsa 20.000",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                        child: Text(
+                          "Masa Aktif 30 Hari",
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         ],
       ),
     );
