@@ -147,7 +147,9 @@ Future otherServices(BuildContext context) {
                         Text("Pulsa")
                       ],
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/pulsa');
+                    },
                   ),
                   InkWell(
                     child: Column(
@@ -165,7 +167,9 @@ Future otherServices(BuildContext context) {
                         Text("Token Listrik")
                       ],
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/token_listrik');
+                    },
                   ),
                   InkWell(
                     child: Column(
