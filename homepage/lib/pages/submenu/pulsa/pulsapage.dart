@@ -35,10 +35,10 @@ class _PulsaPageState extends State<PulsaPage> {
             margin: EdgeInsets.fromLTRB(25, 11, 25, 29),
             child: Scaffold(
                 appBar: TabBar(
-                  unselectedLabelColor: Colors.blue[600],
+                  unselectedLabelColor: Theme.of(context).primaryColor,
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                   ),
                   tabs: [
                     Tab(
@@ -94,7 +94,7 @@ class _PulsaPageState extends State<PulsaPage> {
                                   style: TextStyle(color: Colors.deepPurple),
                                   underline: Container(
                                     height: 2,
-                                    color: Colors.deepPurpleAccent,
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                   onChanged: (String newValue) {
                                     setState(() {
