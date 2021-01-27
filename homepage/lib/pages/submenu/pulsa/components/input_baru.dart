@@ -35,10 +35,13 @@ class _inputBaruState extends State<inputBaru> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ]),
+
+          SizedBox(height: 5),
+
           Row(
             children: [
               Flexible(
-                flex: 10,
+                flex: 8,
                 child: TextFormField(
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
@@ -60,7 +63,7 @@ class _inputBaruState extends State<inputBaru> {
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
-                    child: Icon(Icons.perm_contact_cal, size: 35),
+                    child: Icon(Icons.perm_contact_cal, size: 30),
                   ),
                 ),
               ),
