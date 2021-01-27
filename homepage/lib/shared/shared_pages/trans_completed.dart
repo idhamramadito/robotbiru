@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/shared/UI_components/big_button.dart';
 
 class TransCompleted extends StatefulWidget {
   final List data;
@@ -80,27 +81,12 @@ class _TransCompletedState extends State<TransCompleted> {
                         color: Theme.of(context).primaryColor,
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(10.0),
-                            ),
-                            primary: Theme.of(context).primaryColor,
-                            onPrimary: Colors.white),
-                        child: Text(
-                          "Lihat Detail Transaksi",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed('/trans_details');
-                        },
-                      ),
+                    BigButton(
+                      title: 'Lihat Detail Transaksi',
+                      route: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/trans_details');
+                      },
                     ),
                   ],
                 ),

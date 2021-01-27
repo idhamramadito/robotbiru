@@ -92,7 +92,9 @@ class _InputBaruState extends State<InputBaru> {
               minWidth: 300,
               height: 50,
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/nominal_pulsa');
+                },
                 color: Color(0xffDDDDDD),
                 shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(10.0)),
@@ -108,9 +110,6 @@ class _InputBaruState extends State<InputBaru> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    Container(
-                      child: Icon(Icons.arrow_drop_down),
-                    )
                   ],
                 ),
               ),

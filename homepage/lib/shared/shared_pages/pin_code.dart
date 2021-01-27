@@ -60,8 +60,8 @@ class _PinCodeState extends State<PinCode> {
               onCompleted: (val) {
                 // TODO: buat if state untuk membandingkan input & pin yang benar
                 if (val == '123456') {
-                  Navigator.of(context)
-                      .pushReplacementNamed('/trans_completed');
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  Navigator.of(context).pushNamed('/trans_completed');
                 } else {}
               },
               beforeTextPaste: (text) {
