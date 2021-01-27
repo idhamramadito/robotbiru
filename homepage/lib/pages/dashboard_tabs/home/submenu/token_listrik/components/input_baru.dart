@@ -99,6 +99,7 @@ List boxBawah = [['100.000', 'Cashback: Rp 750.00', 'Rp101.750'], ['200.000', 'C
           return InkWell(
             onTap: () {},
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal:10),
               margin: EdgeInsets.symmetric(horizontal: 5),
               width: 160,
               decoration: BoxDecoration(
@@ -107,21 +108,32 @@ List boxBawah = [['100.000', 'Cashback: Rp 750.00', 'Rp101.750'], ['200.000', 'C
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.0))),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
-                    boxAtas[index][0],
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.left,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                      child: Text(
+                      
+                      boxAtas[index][0],
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                  Text(
-                      boxAtas[index][1],
-                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal),
-                     textAlign: TextAlign.center,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                      child: Text(
+                        boxAtas[index][1],
+                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal, color: Colors.grey),
+                        textAlign: TextAlign.left,
+                    ),
                   ),
-                  Text(
-                      boxAtas[index][2],
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[700]),
-                      textAlign: TextAlign.right,
+                  Align(
+                    alignment: Alignment.bottomRight,
+                      child: Text(
+                        boxAtas[index][2],
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue[700]),
+                        textAlign: TextAlign.right,
+                    ),
                   ),
                 ],
               ),
@@ -141,6 +153,7 @@ List boxBawah = [['100.000', 'Cashback: Rp 750.00', 'Rp101.750'], ['200.000', 'C
           return InkWell(
             onTap: () {},
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal:10),
               margin: EdgeInsets.symmetric(horizontal: 5),
               width: 160,
               decoration: BoxDecoration(
@@ -149,25 +162,32 @@ List boxBawah = [['100.000', 'Cashback: Rp 750.00', 'Rp101.750'], ['200.000', 'C
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.0))),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                       child: Text(
                       
                       boxBawah[index][0],
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  Text(
-                      boxBawah[index][1],
-                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal),
-                      textAlign: TextAlign.center,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                      child: Text(
+                        boxBawah[index][1],
+                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal, color: Colors.grey),
+                        textAlign: TextAlign.left,
+                    ),
                   ),
-                  Text(
-                      boxBawah[index][2],
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue[700]),
-                      textAlign: TextAlign.right,
+                  Align(
+                    alignment: Alignment.bottomRight,
+                      child: Text(
+                        boxBawah[index][2],
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue[700]),
+                        textAlign: TextAlign.right,
+                    ),
                   ),
                 ],
               ),
