@@ -83,7 +83,7 @@ Future otherServices(BuildContext context) {
                       ],
                     ),
                     onTap: () {
-                      Navigator.of(context).pushNamed('/pulsa');
+                      Navigator.of(context).pushReplacementNamed('/pulsa');
                     },
                   ),
                   InkWell(
@@ -148,7 +148,7 @@ Future otherServices(BuildContext context) {
                       ],
                     ),
                     onTap: () {
-                      Navigator.of(context).pushNamed('/pulsa');
+                      Navigator.of(context).pushReplacementNamed('/pulsa');
                     },
                   ),
                   InkWell(
@@ -168,7 +168,8 @@ Future otherServices(BuildContext context) {
                       ],
                     ),
                     onTap: () {
-                      Navigator.of(context).pushNamed('/token_listrik');
+                      Navigator.of(context)
+                          .pushReplacementNamed('/token_listrik');
                     },
                   ),
                   InkWell(
