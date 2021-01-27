@@ -82,7 +82,9 @@ Future otherServices(BuildContext context) {
                         Text("Paket Data")
                       ],
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/pulsa');
+                    },
                   ),
                   InkWell(
                     child: Column(
