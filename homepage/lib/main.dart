@@ -3,10 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:homepage/routing/routing_table.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-
   runApp(RobotBiruApp());
 }
 
