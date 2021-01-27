@@ -306,7 +306,9 @@ class MainServices extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed('/pulsa');
+            },
             child: Column(
               children: [
                 Image.asset("images/pulsa_n.png", width: 40, height: 40),
