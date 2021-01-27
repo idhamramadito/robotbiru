@@ -121,9 +121,12 @@ class _InputBaruState extends State<InputBaru> {
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        border: (selectedIndex == index)
-                            ? Border.all(color: Colors.blue, width: 2)
-                            : Border.all(color: Colors.grey[200], width: 2),
+                        border: Border.all(
+                          width: 2,
+                          color: (selectedIndex == index)
+                              ? Colors.blue
+                              : Colors.grey[200],
+                        ),
                         borderRadius: BorderRadius.all(Radius.circular(10.0))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
