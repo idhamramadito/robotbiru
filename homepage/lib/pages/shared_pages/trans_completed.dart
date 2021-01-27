@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/shared/UI_components/big_button.dart';
+import 'package:homepage/shared_UI_components/big_button.dart';
 
 class TransCompleted extends StatefulWidget {
   final List data;
@@ -10,10 +10,9 @@ class TransCompleted extends StatefulWidget {
 }
 
 class _TransCompletedState extends State<TransCompleted> {
-  String currentText = '';
-  String transName = 'Token Listrik';
-  String paymentMethod = 'Saldo Robot Biru';
-  String price = '20.000';
+  String transName = 'TRANSACTION_TYPE';
+  String paymentMethod = 'PAYMENT_METHOD';
+  String price = 'TOTAL_COST';
 
   @override
   Widget build(BuildContext context) {
