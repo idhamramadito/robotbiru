@@ -35,14 +35,37 @@ class _inputBaruState extends State<inputBaru> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ]),
-          Row(children: <Widget>[
-            Container(
-              width: 250,
-              child: TextField(
-                keyboardType: TextInputType.number,
+          Row(
+            children: [
+              Flexible(
+                flex: 10,
+                child: TextFormField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(
+                      RegExp(r'[0-9]'),
+                    ),
+                  ],
+                  decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.clear, size: 30),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    hintText: "Nomer Handphone",
+                  ),
+                ),
               ),
-            ),
-          ]),
+              Flexible(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                    child: Icon(Icons.perm_contact_cal, size: 35),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Row(
             children: [
               Checkbox(value: rememberMe, onChanged: _onRememberMeChanged),
