@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './components/input_baru.dart';
 import './components/daftar_favorit.dart';
+import 'package:homepage/shared_UI_components/big_button.dart';
 
 class TokenPage extends StatefulWidget {
   TokenPage({Key key}) : super(key: key);
@@ -21,33 +22,46 @@ class _TokenPageState extends State<TokenPage> {
         ),
       ),
       body: DefaultTabController(
-          length: 2,
-          child: Container(
-            margin: EdgeInsets.fromLTRB(25, 11, 25, 29),
-            child: Scaffold(
-                appBar: TabBar(
-                  unselectedLabelColor: Theme.of(context).primaryColor,
-                  indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  tabs: [
-                    Tab(
-                      text: "Input Baru",
+        length: 2,
+        child: Container(
+          margin: EdgeInsets.fromLTRB(25, 11, 25, 29),
+          child: Scaffold(
+            appBar: TabBar(
+              unselectedLabelColor: Theme.of(context).primaryColor,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Theme.of(context).primaryColor,
+              ),
+              tabs: [Tab(text: "Input Baru"), Tab(text: "Daftar Favorit")],
+            ),
+            body: Column(
+              children: [
+                Flexible(
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(0, 29, 0, 0),
+                    child: TabBarView(
+                      children: [
+                        InputBaru(),
+                        DaftarFavorit(),
+                      ],
                     ),
-                    Tab(text: "Daftar Favorit")
-                  ],
-                ),
-                body: Container(
-                  padding: EdgeInsets.fromLTRB(0, 29, 0, 0),
-                  child: TabBarView(
-                    children: [
-                      InputBaru(),
-                      DaftarFavorit(),
-                    ],
                   ),
-                )),
-          )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: BigButton(
+                    title: 'Beli',
+                    route: () {
+                      Navigator.of(context).pushNamed('/pin_code',
+                          arguments: 'Masukkan Pin Anda');
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -13,7 +13,7 @@ class _DaftarFavoritState extends State<DaftarFavorit> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Daftar Favorit'),
+      child: Text('Insert Daftar Favorit Here'),
     );
   }
 }
