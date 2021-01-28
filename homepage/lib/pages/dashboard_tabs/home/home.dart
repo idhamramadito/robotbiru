@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/account_balance.dart';
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/complaint_button.dart';
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/infographics.dart';
@@ -15,17 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _PageDashboard extends State<Home> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Color(0xff008AD5),
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
