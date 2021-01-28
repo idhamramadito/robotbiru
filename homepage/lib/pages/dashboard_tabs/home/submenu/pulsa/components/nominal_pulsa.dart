@@ -46,7 +46,7 @@ class _NominalPulsaState extends State<NominalPulsa> {
                       child: Text(
                         boxAtas[index][0],
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 25, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left,
                       ),
                     ),
@@ -55,7 +55,7 @@ class _NominalPulsaState extends State<NominalPulsa> {
                       child: Text(
                         boxAtas[index][1],
                         style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 15,
                             fontWeight: FontWeight.normal,
                             color: Colors.grey),
                         textAlign: TextAlign.right,
@@ -66,7 +66,7 @@ class _NominalPulsaState extends State<NominalPulsa> {
                       child: Text(
                         boxAtas[index][2],
                         style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 23,
                             fontWeight: FontWeight.bold,
                             color: Colors.blue[700]),
                         textAlign: TextAlign.right,
