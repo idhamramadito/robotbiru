@@ -23,9 +23,9 @@ class FormFieldNoHandphone extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  flex: 8,
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
@@ -42,13 +42,11 @@ class FormFieldNoHandphone extends StatelessWidget {
                     ),
                   ),
                 ),
-                Flexible(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      child: Icon(Icons.perm_contact_cal, size: 30),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: IconButton(
+                    icon: Icon(Icons.perm_contact_cal),
+                    onPressed: () {},
                   ),
                 ),
               ],
@@ -82,9 +80,9 @@ class FormFieldNoMeteran extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  flex: 8,
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
@@ -101,18 +99,13 @@ class FormFieldNoMeteran extends StatelessWidget {
                     ),
                   ),
                 ),
-                Flexible(
-                  flex: 1,
-                  child: InkWell(
-                    onTap: () {
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: IconButton(
+                    icon: Icon(Icons.qr_code_scanner),
+                    onPressed: () {
                       Navigator.of(context).pushNamed('/scan_barcode');
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        child: Icon(Icons.qr_code_scanner_outlined, size: 30),
-                      ),
-                    ),
                   ),
                 ),
               ],

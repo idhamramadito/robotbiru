@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/components/card_cashback.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/components/card_ringkasan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/components/formfield_nomor.dart';
@@ -16,6 +15,11 @@ class _InputBaruState extends State<InputBaru> {
   bool rememberMe = false;
   int selectedIndex = 0;
   String selectedValue = '20.000';
+  List boxPulsa = [
+    ['20.000', 'Harga', 'Rp19.500'],
+    ['25.000', 'Harga', 'Rp24.500'],
+    ['30.000', 'Harga', 'Rp29.000']
+  ];
   List _boxTokenListrik = [
     ['20.000', 'Cashback: Rp 750.00', 'Rp21.750'],
     ['50.000', 'Cashback: Rp 750.00', 'Rp51.750'],
@@ -28,8 +32,6 @@ class _InputBaruState extends State<InputBaru> {
     ['10.000.000', 'Cashback: Rp 750.00', 'Rp10.001.750'],
     ['50.000.000', 'Cashback: Rp 750.00', 'Rp50.001.750'],
   ];
-  String _valGender;
-  List _listGender = ["Male", "Female"];
 
   void _onRememberMeChanged(bool newValue) => setState(() {
         rememberMe = newValue;
@@ -65,73 +67,7 @@ class _InputBaruState extends State<InputBaru> {
               ],
             ),
           ),
-          (widget.pageName == 'Pulsa')
-              ? Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                        child: Text(
-                          "Nominal Pulsa",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      DropdownButton(
-                        hint: Text("Select The Gender"),
-                        value: _valGender,
-                        items: _listGender.map((value) {
-                          return DropdownMenuItem(
-                            child: Text(value),
-                            value: value,
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            selectedValue = value;
-                          });
-                        },
-                      ),
-                      // Container(
-                      //   margin:
-                      //       EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      //   child: ButtonTheme(
-                      //     minWidth: 300,
-                      //     height: 50,
-                      //     child: FlatButton(
-                      //       onPressed: () {
-                      //         Navigator.of(context).pushNamed('/nominal_pulsa');
-                      //       },
-                      //       color: Color(0xffDDDDDD),
-                      //       shape: RoundedRectangleBorder(
-                      //           borderRadius: new BorderRadius.circular(10.0)),
-                      //       child: Row(
-                      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //         children: [
-                      //           Container(
-                      //             margin: EdgeInsets.only(left: 10),
-                      //             child: Text(
-                      //               "20.000",
-                      //               style: TextStyle(fontSize: 15),
-                      //               textAlign: TextAlign.center,
-                      //             ),
-                      //           ),
-                      //           Container(
-                      //             child: Icon(
-                      //               Icons.arrow_drop_down,
-                      //               color: Theme.of(context).primaryColor,
-                      //             ),
-                      //           )
-                      //         ],
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                    ],
-                  ),
-                )
-              : nominalTokenListrik(),
+          (widget.pageName == 'Pulsa') ? nominalPulsa() : nominalTokenListrik(),
           CardRingkasan(pageName: widget.pageName),
           Container(height: 10, color: Colors.grey[300]),
           CardCashback(),
@@ -140,6 +76,47 @@ class _InputBaruState extends State<InputBaru> {
     );
   }
   //============================= main function ===============================
+
+  Container nominalPulsa() {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: Text(
+              "Nominal Pulsa",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: DropdownButtonFormField(
+              iconEnabledColor: Theme.of(context).primaryColor,
+              decoration: InputDecoration(
+                isDense: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              value: selectedValue,
+              items: boxPulsa.map((element) {
+                return DropdownMenuItem(
+                  child: Text(element[0]),
+                  value: element[0],
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   Container nominalTokenListrik() {
     return Container(
