@@ -7,6 +7,9 @@ class AccountBalance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String currency = 'Rp';
+    double accountBalance = 12000.0;
+
     return Card(
       elevation: 5,
       margin: EdgeInsets.symmetric(horizontal: 20),
@@ -21,7 +24,7 @@ class AccountBalance extends StatelessWidget {
           style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          "Rp 12.000",
+          '$currency ${accountBalance.toString()}',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

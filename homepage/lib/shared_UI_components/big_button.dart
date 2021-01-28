@@ -26,7 +26,10 @@ class BigButton extends StatelessWidget {
         child: Text(
           title,
           style: TextStyle(
-              fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         onPressed: route,
       ),

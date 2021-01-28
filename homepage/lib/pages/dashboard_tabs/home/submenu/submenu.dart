@@ -21,7 +21,10 @@ class _PulsaPageState extends State<PulsaPage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Pulsa', style: TextStyle(fontWeight: FontWeight.bold)),
+          title: Text(
+            widget.pageName,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
         body: Column(
           children: [
