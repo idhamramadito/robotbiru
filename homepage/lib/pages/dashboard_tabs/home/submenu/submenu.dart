@@ -17,7 +17,7 @@ class SubMenu extends StatefulWidget {
 class _SubMenuState extends State<SubMenu> {
   String currency = 'Rp';
   double chosenPrice = 20000.00;
-  double accountBalance = 12000.0;
+  double accountBalance = 100000.0;
 
   @override
   Widget build(BuildContext context) {
