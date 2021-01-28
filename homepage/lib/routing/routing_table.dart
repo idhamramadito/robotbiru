@@ -27,7 +27,6 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => ScanBarcode());
       case '/trans_details':
         return MaterialPageRoute(builder: (_) => HasilTrans());
-
       default:
         return errorRoute();
     }
