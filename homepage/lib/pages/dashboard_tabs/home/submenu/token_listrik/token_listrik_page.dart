@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/UI_Components/checkout_bottom_bar.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/daftar_favorit.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/input_baru.dart';
+import 'package:homepage/shared_UI_components/checkout_bottom_bar.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/UI_components/shared/card_cashback.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/UI_components/shared/card_ringkasan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/UI_components/shared/rememberme_checkbox.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/UI_components/token_listrik/form_no_meteran.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/UI_components/token_listrik/nominal_token_listrik.dart';
 
-class SubMenu extends StatefulWidget {
-  final String pageName;
-  SubMenu({
+class TokenListrikPage extends StatefulWidget {
+  TokenListrikPage({
     Key key,
-    @required this.pageName,
   }) : super(key: key);
 
   @override
   _SubMenuState createState() => _SubMenuState();
 }
 
-class _SubMenuState extends State<SubMenu> {
+class _SubMenuState extends State<TokenListrikPage> {
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
@@ -29,7 +30,7 @@ class _SubMenuState extends State<SubMenu> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            widget.pageName,
+            'Token Listrik',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -52,15 +53,33 @@ class _SubMenuState extends State<SubMenu> {
             Flexible(
               child: TabBarView(
                 children: [
-                  InputBaru(pageName: widget.pageName),
-                  DaftarFavorit(pageName: widget.pageName),
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        FormNoMeteran(),
+                        RememberMeCheckBox(),
+                        NominalTokenListrik(),
+                        CardRingkasan(pageName: 'Token Listrik'),
+                        Divider(thickness: 5),
+                        CardCashback(),
+                        Divider(thickness: 5),
+                      ],
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      child: Text('Daftar Favorit'),
+                    ),
+                  ),
                 ],
               ),
             ),
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          pageName: widget.pageName,
+          pageName: 'Token Listrik',
           currency: _currency,
           paymentMethod: _paymentMethod,
           paymentLogo: _paymentLogo,

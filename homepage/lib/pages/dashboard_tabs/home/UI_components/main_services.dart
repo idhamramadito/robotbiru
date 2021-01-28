@@ -60,7 +60,7 @@ class MainServices extends StatelessWidget {
             ],
           ),
           onTap: () {
-            Navigator.of(context).pushNamed('/submenu', arguments: 'Pulsa');
+            Navigator.of(context).pushNamed('/pulsa');
           },
         ),
         InkWell(

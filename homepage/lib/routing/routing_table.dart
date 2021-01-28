@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/shared_pages/pin_code.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/shared_pages/scan_barcode.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu.dart';
-import 'package:homepage/pages/dashboard_tabs/home/transaction_process/trans_completed.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
-
-import '../pages/dashboard_tabs/home/transaction_process/trans_details.dart';
+import 'package:homepage/pages/shared_pages/pin_code.dart';
+import 'package:homepage/pages/shared_pages/scan_barcode.dart';
+import 'package:homepage/pages/dashboard_tabs/home/transaction_process/trans_completed.dart';
+import 'package:homepage/pages/dashboard_tabs/home/transaction_process/trans_details.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/pulsa_page.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/token_listrik_page.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -17,9 +17,13 @@ class RoutingTable {
         return MaterialPageRoute(
           builder: (_) => Dashboard(),
         );
-      case '/submenu':
+      case '/pulsa':
         return MaterialPageRoute(
-          builder: (_) => SubMenu(pageName: args),
+          builder: (_) => PulsaPage(),
+        );
+      case '/token_listrik':
+        return MaterialPageRoute(
+          builder: (_) => TokenListrikPage(),
         );
       case '/pin_code':
         return MaterialPageRoute(
