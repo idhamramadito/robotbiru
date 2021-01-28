@@ -19,7 +19,7 @@ class _SubMenuState extends State<SubMenu> {
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
   double _chosenPrice = 20000.00;
-  double _accountBalance = 100000.0;
+  double _accountBalance = 100000.00;
 
   @override
   //============================= main function ===============================
