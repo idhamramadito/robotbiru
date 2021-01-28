@@ -13,18 +13,29 @@ class RoutingTable {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => Dashboard());
+        return MaterialPageRoute(
+          builder: (_) => Dashboard(),
+        );
       case '/submenu':
-        return MaterialPageRoute(builder: (_) => SubMenu(pageName: args));
+        return MaterialPageRoute(
+          builder: (_) => SubMenu(pageName: args),
+        );
       case '/pin_code':
-        return MaterialPageRoute(builder: (_) => PinCode(pageName: args));
+        return MaterialPageRoute(
+          builder: (_) => PinCode(pageName: args),
+        );
       case '/trans_completed':
         return MaterialPageRoute(
-            builder: (_) => TransCompleted(pageName: args));
-      case '/scan_barcode':
-        return MaterialPageRoute(builder: (_) => ScanBarcode());
+          builder: (_) => TransCompleted(pageName: args),
+        );
       case '/trans_details':
-        return MaterialPageRoute(builder: (_) => TransDetails(pageName: args));
+        return MaterialPageRoute(
+          builder: (_) => TransDetails(pageName: args),
+        );
+      case '/scan_barcode':
+        return MaterialPageRoute(
+          builder: (_) => ScanBarcode(),
+        );
       default:
         return errorRoute();
     }
