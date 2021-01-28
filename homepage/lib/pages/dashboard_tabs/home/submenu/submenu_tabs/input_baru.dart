@@ -92,6 +92,7 @@ class _InputBaruState extends State<InputBaru> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: DropdownButtonFormField(
+              iconEnabledColor: Theme.of(context).primaryColor,
               decoration: InputDecoration(
                 isDense: true,
                 border: OutlineInputBorder(
