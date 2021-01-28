@@ -13,7 +13,7 @@ class _InputBaruState extends State<InputBaru> {
   bool rememberMe = false;
   int selectedIndex = 0;
   String selectedValue = '20.000';
-  List box = [
+  List boxTokenListrik = [
     ['20.000', 'Cashback: Rp 750.00', 'Rp21.750'],
     ['50.000', 'Cashback: Rp 750.00', 'Rp51.750'],
     ['75.000', 'Cashback: Rp 750.00', 'Rp75.750'],
@@ -110,7 +110,7 @@ class _InputBaruState extends State<InputBaru> {
             child: GridView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: box.length,
+              itemCount: boxTokenListrik.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, childAspectRatio: 0.55),
               itemBuilder: (context, index) {
@@ -118,7 +118,7 @@ class _InputBaruState extends State<InputBaru> {
                   onTap: () {
                     setState(() {
                       selectedIndex = index;
-                      selectedValue = box[selectedIndex][0];
+                      selectedValue = boxTokenListrik[selectedIndex][0];
                     });
                   },
                   child: Container(
@@ -140,7 +140,7 @@ class _InputBaruState extends State<InputBaru> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            box[index][0],
+                            boxTokenListrik[index][0],
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -148,7 +148,7 @@ class _InputBaruState extends State<InputBaru> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            box[index][1],
+                            boxTokenListrik[index][1],
                             style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.normal,
@@ -158,7 +158,7 @@ class _InputBaruState extends State<InputBaru> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: Text(
-                            box[index][2],
+                            boxTokenListrik[index][2],
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,

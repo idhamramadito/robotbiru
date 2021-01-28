@@ -3,15 +3,18 @@ import './components/input_baru.dart';
 import './components/daftar_favorit.dart';
 import 'package:homepage/shared_UI_components/big_button.dart';
 
-class PulsaPage extends StatefulWidget {
+class SubMenu extends StatefulWidget {
   final String pageName;
-  PulsaPage({Key key, this.pageName}) : super(key: key);
+  SubMenu({
+    Key key,
+    @required this.pageName,
+  }) : super(key: key);
 
   @override
-  _PulsaPageState createState() => _PulsaPageState();
+  _SubMenuState createState() => _SubMenuState();
 }
 
-class _PulsaPageState extends State<PulsaPage> {
+class _SubMenuState extends State<SubMenu> {
   String currency = 'Rp';
   double chosenPrice = 20000.00;
 
@@ -45,8 +48,8 @@ class _PulsaPageState extends State<PulsaPage> {
             Flexible(
               child: TabBarView(
                 children: [
-                  InputBaru(),
-                  DaftarFavorit(),
+                  InputBaru(pageName: widget.pageName),
+                  DaftarFavorit(pageName: widget.pageName),
                 ],
               ),
             ),
