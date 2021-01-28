@@ -44,10 +44,13 @@ class FormFieldNoHandphone extends StatelessWidget {
                 ),
                 Flexible(
                   flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      child: Icon(Icons.perm_contact_cal, size: 30),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                        child: Icon(Icons.perm_contact_cal, size: 30),
+                      ),
                     ),
                   ),
                 ),
@@ -108,9 +111,9 @@ class FormFieldNoMeteran extends StatelessWidget {
                       Navigator.of(context).pushNamed('/scan_barcode');
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        child: Icon(Icons.qr_code_scanner_outlined, size: 30),
+                        child: Icon(Icons.qr_code_scanner, size: 30),
                       ),
                     ),
                   ),
