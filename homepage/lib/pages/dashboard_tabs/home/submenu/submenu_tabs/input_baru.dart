@@ -28,8 +28,9 @@ class _InputBaruState extends State<InputBaru> {
           RememberMeCheckBox(),
           (widget.pageName == 'Pulsa') ? NominalPulsa() : NominalTokenListrik(),
           CardRingkasan(pageName: widget.pageName),
-          Container(height: 10, color: Colors.grey[300]),
+          Divider(thickness: 5),
           CardCashback(),
+          Divider(thickness: 5),
         ],
       ),
     );

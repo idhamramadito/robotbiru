@@ -15,7 +15,7 @@ class _CardRingkasanState extends State<CardRingkasan> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: 5),
       child: Column(
         children: [
           Container(

@@ -13,6 +13,7 @@ class _CardCashbackState extends State<CardCashback> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
       child: Column(
         children: [
           Container(
@@ -47,7 +48,6 @@ class _CardCashbackState extends State<CardCashback> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [new Text("Anggota Retail"), new Text("Rp5800")]),
           ),
-          Container(height: 15, color: Colors.grey[300]),
         ],
       ),
     );
