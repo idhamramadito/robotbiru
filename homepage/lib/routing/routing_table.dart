@@ -3,7 +3,7 @@ import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/components/nominal_pulsa.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/pulsapage.dart';
-
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/components/scan_barcode.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/tokenpage.dart';
 import 'package:homepage/pages/shared_pages/pin_code.dart';
 import 'package:homepage/pages/shared_pages/trans_completed.dart';
@@ -25,6 +25,8 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => NominalPulsa());
       case '/trans_completed':
         return MaterialPageRoute(builder: (_) => TransCompleted(data: args));
+      case '/scan_barcode':
+        return MaterialPageRoute(builder: (_) => ScanBarcode());
       default:
         return errorRoute();
     }

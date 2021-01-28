@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class InputBaru extends StatefulWidget {
   InputBaru({Key key}) : super(key: key);
@@ -51,7 +52,7 @@ class _InputBaruState extends State<InputBaru> {
           Row(
             children: [
               Flexible(
-                flex: 8,
+                flex: 7,
                 child: TextFormField(
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
@@ -70,10 +71,15 @@ class _InputBaruState extends State<InputBaru> {
               ),
               Flexible(
                 flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    child: Icon(Icons.perm_contact_cal, size: 30),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/scan_barcode');
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      child: Icon(Icons.qr_code_scanner_outlined, size: 30),
+                    ),
                   ),
                 ),
               ),
