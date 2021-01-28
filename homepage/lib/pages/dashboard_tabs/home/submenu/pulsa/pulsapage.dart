@@ -90,8 +90,8 @@ class _PulsaPageState extends State<PulsaPage> {
                 BigButton(
                   title: 'Beli',
                   route: () {
-                    Navigator.of(context)
-                        .pushNamed('/pin_code', arguments: 'Masukkan Pin Anda');
+                    Navigator.of(context).pushNamed('/detail_pulsa',
+                        arguments: 'Masukkan Pin Anda');
                   },
                 ),
               ],
