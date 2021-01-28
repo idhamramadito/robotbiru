@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './components/input_baru.dart';
-import './components/daftar_favorit.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/daftar_favorit.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/input_baru.dart';
 import 'package:homepage/shared_UI_components/big_button.dart';
 
 class SubMenu extends StatefulWidget {
@@ -59,15 +59,8 @@ class _SubMenuState extends State<SubMenu> {
           height: 90,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
             boxShadow: [
-              BoxShadow(
-                blurRadius: 10,
-                color: Colors.black.withOpacity(0.1),
-              )
+              BoxShadow(blurRadius: 10, color: Colors.black.withOpacity(0.1))
             ],
           ),
           child: Container(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/components/nominal_pulsa.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/components/scan_barcode.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/components/nominal_pulsa.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu_tabs/components/scan_barcode.dart';
 import 'package:homepage/pages/shared_pages/trans_detail.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
