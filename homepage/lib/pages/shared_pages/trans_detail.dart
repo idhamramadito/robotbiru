@@ -4,6 +4,7 @@ class HasilTrans extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
@@ -19,7 +20,7 @@ class HasilTrans extends StatelessWidget {
       body: Card(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 75.0),
             child: Column(
               children: [
                 Container(
