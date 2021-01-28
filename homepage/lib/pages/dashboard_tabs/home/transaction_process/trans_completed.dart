@@ -11,7 +11,6 @@ class TransCompleted extends StatefulWidget {
 
 class _TransCompletedState extends State<TransCompleted> {
   String transID = 'TRANS_ID';
-  String transName = 'TRANSACTION_TYPE';
   String transDate = 'TRANSACTION_DATE';
   String paymentMethod = 'PAYMENT_METHOD';
   String cost = 'Rp TOTAL_COST';
@@ -46,7 +45,7 @@ class _TransCompletedState extends State<TransCompleted> {
               Container(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  'Pembelian $transName Menggunakan',
+                  'Pembelian ${widget.pageName} Menggunakan',
                   style: TextStyle(
                     color: Colors.white,
                   ),
