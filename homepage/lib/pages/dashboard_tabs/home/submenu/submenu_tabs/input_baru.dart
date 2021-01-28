@@ -16,24 +16,38 @@ class InputBaru extends StatefulWidget {
 }
 
 class _InputBaruState extends State<InputBaru> {
-  //============================= main function ===============================
   @override
+  //============================= main function ===============================
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          (widget.pageName == 'Pulsa') ? FormNoHandphone() : FormNoMeteran(),
-          RememberMeCheckBox(),
-          (widget.pageName == 'Pulsa') ? NominalPulsa() : NominalTokenListrik(),
-          CardRingkasan(pageName: widget.pageName),
-          Divider(thickness: 5),
-          CardCashback(),
-          Divider(thickness: 5),
-        ],
+        children: (widget.pageName == 'Pulsa')
+            ? _pulsaPageWidgetList
+            : _tokenPageWidgetList,
       ),
     );
   }
   //============================= main function ===============================
 }
+
+List<Widget> _pulsaPageWidgetList = [
+  FormNoHandphone(),
+  RememberMeCheckBox(),
+  NominalPulsa(),
+  CardRingkasan(pageName: 'Pulsa'),
+  Divider(thickness: 5),
+  CardCashback(),
+  Divider(thickness: 5),
+];
+
+List<Widget> _tokenPageWidgetList = [
+  FormNoMeteran(),
+  RememberMeCheckBox(),
+  NominalTokenListrik(),
+  CardRingkasan(pageName: 'Token Listrik'),
+  Divider(thickness: 5),
+  CardCashback(),
+  Divider(thickness: 5),
+];
