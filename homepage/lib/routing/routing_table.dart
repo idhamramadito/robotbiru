@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/shared_pages/trans_detail.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/components/nominal_pulsa.dart';
@@ -27,6 +28,9 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => TransCompleted(data: args));
       case '/scan_barcode':
         return MaterialPageRoute(builder: (_) => ScanBarcode());
+      case '/trans_details':
+        return MaterialPageRoute(builder: (_) => HasilTrans());
+
       default:
         return errorRoute();
     }
