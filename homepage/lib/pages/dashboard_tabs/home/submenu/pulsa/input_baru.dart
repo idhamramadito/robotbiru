@@ -169,7 +169,7 @@ class _InputBaruState extends State<InputBaru> {
                         Container(
                           padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                           child: Text(
-                            "Masa Aktif 40 Hari",
+                            "Masa Aktif 30 Hari",
                           ),
                         ),
                       ],

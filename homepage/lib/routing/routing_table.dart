@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/nominal_pulsa.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/submenu.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/scan_barcode.dart';
+import 'package:homepage/pages/shared_pages/trans_detail.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/shared_pages/pin_code.dart';
@@ -24,6 +25,9 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => TransCompleted(data: args));
       case '/scan_barcode':
         return MaterialPageRoute(builder: (_) => ScanBarcode());
+      case '/trans_details':
+        return MaterialPageRoute(builder: (_) => HasilTrans());
+
       default:
         return errorRoute();
     }
