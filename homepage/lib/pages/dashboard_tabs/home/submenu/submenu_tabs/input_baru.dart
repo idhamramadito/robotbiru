@@ -16,6 +16,25 @@ class InputBaru extends StatefulWidget {
 }
 
 class _InputBaruState extends State<InputBaru> {
+  List<Widget> _pulsaPageWidgetList = [
+    FormNoHandphone(),
+    RememberMeCheckBox(),
+    NominalPulsa(),
+    CardRingkasan(pageName: 'Pulsa'),
+    Divider(thickness: 5),
+    CardCashback(),
+    Divider(thickness: 5),
+  ];
+
+  List<Widget> _tokenPageWidgetList = [
+    FormNoMeteran(),
+    RememberMeCheckBox(),
+    NominalTokenListrik(),
+    CardRingkasan(pageName: 'Token Listrik'),
+    Divider(thickness: 5),
+    CardCashback(),
+    Divider(thickness: 5),
+  ];
   @override
   //============================= main function ===============================
   Widget build(BuildContext context) {
@@ -31,23 +50,3 @@ class _InputBaruState extends State<InputBaru> {
   }
   //============================= main function ===============================
 }
-
-List<Widget> _pulsaPageWidgetList = [
-  FormNoHandphone(),
-  RememberMeCheckBox(),
-  NominalPulsa(),
-  CardRingkasan(pageName: 'Pulsa'),
-  Divider(thickness: 5),
-  CardCashback(),
-  Divider(thickness: 5),
-];
-
-List<Widget> _tokenPageWidgetList = [
-  FormNoMeteran(),
-  RememberMeCheckBox(),
-  NominalTokenListrik(),
-  CardRingkasan(pageName: 'Token Listrik'),
-  Divider(thickness: 5),
-  CardCashback(),
-  Divider(thickness: 5),
-];

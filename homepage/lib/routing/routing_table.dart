@@ -17,13 +17,14 @@ class RoutingTable {
       case '/submenu':
         return MaterialPageRoute(builder: (_) => SubMenu(pageName: args));
       case '/pin_code':
-        return MaterialPageRoute(builder: (_) => PinCode(hintText: args));
+        return MaterialPageRoute(builder: (_) => PinCode(pageName: args));
       case '/trans_completed':
-        return MaterialPageRoute(builder: (_) => TransCompleted(data: args));
+        return MaterialPageRoute(
+            builder: (_) => TransCompleted(pageName: args));
       case '/scan_barcode':
         return MaterialPageRoute(builder: (_) => ScanBarcode());
       case '/trans_details':
-        return MaterialPageRoute(builder: (_) => HasilTrans());
+        return MaterialPageRoute(builder: (_) => TransDetails(pageName: args));
       default:
         return errorRoute();
     }

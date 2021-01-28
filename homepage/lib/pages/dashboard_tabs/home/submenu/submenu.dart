@@ -60,6 +60,7 @@ class _SubMenuState extends State<SubMenu> {
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
+          pageName: widget.pageName,
           currency: _currency,
           paymentMethod: _paymentMethod,
           paymentLogo: _paymentLogo,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:homepage/shared_UI_components/big_button.dart';
 
 class TransCompleted extends StatefulWidget {
-  final List data;
-  const TransCompleted({Key key, this.data}) : super(key: key);
+  final String pageName;
+  const TransCompleted({Key key, @required this.pageName}) : super(key: key);
 
   @override
   _TransCompletedState createState() => _TransCompletedState();
@@ -145,8 +145,10 @@ class _TransCompletedState extends State<TransCompleted> {
                       BigButton(
                         title: 'Lihat Detail Transaksi',
                         route: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed('/trans_details');
+                          Navigator.of(context).pushReplacementNamed(
+                            '/trans_details',
+                            arguments: widget.pageName,
+                          );
                         },
                       ),
                     ],

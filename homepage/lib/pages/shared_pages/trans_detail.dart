@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/shared_pages/UI_component_trans/trans_listrik.dart';
 import 'package:homepage/pages/shared_pages/UI_component_trans/trans_pulsa.dart';
 
-class HasilTrans extends StatelessWidget {
+class TransDetails extends StatelessWidget {
+  final String pageName;
+  TransDetails({Key key, @required this.pageName}) : super(key: key);
+
   @override
+  //============================= main function ===============================
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -22,15 +26,11 @@ class HasilTrans extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(0),
-            child: Column(
-              children: [
-                //TransPulsa(),
-                TransListrik(),
-              ],
-            ),
+            child: (pageName == 'Pulsa') ? TransPulsa() : TransListrik(),
           ),
         ),
       ),
     );
   }
+  //============================= main function ===============================
 }

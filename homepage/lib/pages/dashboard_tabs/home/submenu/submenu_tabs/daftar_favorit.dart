@@ -11,8 +11,10 @@ class DaftarFavorit extends StatefulWidget {
 class _DaftarFavoritState extends State<DaftarFavorit> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Insert Daftar Favorit Here'),
+    return Center(
+      child: Container(
+        child: Text('Daftar Favorit'),
+      ),
     );
   }
 }
