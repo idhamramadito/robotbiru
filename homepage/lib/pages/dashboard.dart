@@ -6,7 +6,6 @@ import 'package:homepage/pages/dashboard_tabs/notification/notification.dart';
 import 'package:homepage/pages/dashboard_tabs/home/home.dart';
 import 'package:homepage/pages/dashboard_tabs/profile/profile.dart';
 
-/// This is the stateful widget that the main application instantiates.
 class Dashboard extends StatefulWidget {
   Dashboard({Key key, addres}) : super(key: key);
   @override
@@ -34,6 +33,7 @@ class _Dashboard extends State<Dashboard> {
   int _currentIndex = 0;
 
   @override
+  //============================= main function ===============================
   Widget build(BuildContext context) {
     return Scaffold(
       body: tabs[_currentIndex],
@@ -69,4 +69,5 @@ class _Dashboard extends State<Dashboard> {
       ),
     );
   }
+  //============================= main function ===============================
 }

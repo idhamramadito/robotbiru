@@ -15,17 +15,16 @@ class Home extends StatefulWidget {
 
 class _PageDashboard extends State<Home> {
   @override
+  //============================= main function ===============================
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Theme.of(context).primaryColor, //grey = Color(0xffF2F3F5),
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: UserInfo().appBar(),
       body: SingleChildScrollView(
         child: Stack(
           children: [
             Container(
               margin: EdgeInsets.only(top: 100),
-              // margin: EdgeInsets.only(top: 180),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -38,7 +37,6 @@ class _PageDashboard extends State<Home> {
             ),
             Column(
               children: [
-                // UserInfo().container(),
                 SearchBar(),
                 AccountBalance(),
                 MainServices(),
@@ -53,4 +51,5 @@ class _PageDashboard extends State<Home> {
       ),
     );
   }
+  //============================= main function ===============================
 }

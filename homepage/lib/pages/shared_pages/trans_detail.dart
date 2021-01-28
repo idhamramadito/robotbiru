@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/shared_pages/component_trans/trans_listrik.dart';
-
-import 'component_trans/trans_pulsa.dart';
+import 'package:homepage/pages/shared_pages/UI_component_trans/trans_listrik.dart';
+import 'package:homepage/pages/shared_pages/UI_component_trans/trans_pulsa.dart';
 
 class HasilTrans extends StatelessWidget {
   @override
