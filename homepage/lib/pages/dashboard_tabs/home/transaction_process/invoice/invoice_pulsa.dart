@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TransPulsa extends StatelessWidget {
+class InvoicePulsa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

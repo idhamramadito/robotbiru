@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/shared_pages/UI_component_trans/trans_listrik.dart';
-import 'package:homepage/pages/shared_pages/UI_component_trans/trans_pulsa.dart';
+import 'package:homepage/pages/dashboard_tabs/home/transaction_process/invoice/invoice_pulsa.dart';
+
+import 'invoice/invoice_tokenlistrik.dart';
 
 class TransDetails extends StatelessWidget {
   final String pageName;
@@ -26,7 +27,7 @@ class TransDetails extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(0),
-            child: (pageName == 'Pulsa') ? TransPulsa() : TransListrik(),
+            child: (pageName == 'Pulsa') ? InvoicePulsa() : InvoiceListrik(),
           ),
         ),
       ),
