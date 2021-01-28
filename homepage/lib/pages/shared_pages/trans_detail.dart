@@ -111,7 +111,91 @@ class HasilTrans extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                Divider(),
+                SizedBox(height: 10),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [new Text("Produk"), new Text("Indogshit")]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text("Ditransfer Menggunakan"),
+                        new Text("Saldo Robot Biru")
+                      ]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [new Text("Status"), new Text("Diproses")]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [new Text("Waktu"), new Text("11:30 PM")]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text("Tanggal"),
+                        new Text("25 Januari 2021")
+                      ]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text("ID Transfer"),
+                        new Text("ID23423232")
+                      ]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text("Jumlah Transfer"),
+                        new Text("Rp 10.000")
+                      ]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text("Biaya Admin"),
+                        new Text("Rp 1.000")
+                      ]),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text("Total Transfer"),
+                        new Text("Rp 11.000")
+                      ]),
+                ),
+                Container(height: 15, color: Colors.grey[300]),
               ],
             ),
           ),
