@@ -3,8 +3,8 @@ import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/shared_pages/pin_code.dart';
 import 'package:homepage/pages/shared_pages/scan_barcode.dart';
-import 'package:homepage/pages/dashboard_tabs/home/transaction_process/trans_completed.dart';
-import 'package:homepage/pages/dashboard_tabs/home/transaction_process/trans_details.dart';
+import 'package:homepage/pages/shared_pages/trans_completed.dart';
+import 'package:homepage/pages/shared_pages/trans_details.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/pulsa_page.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/token_listrik_page.dart';
 

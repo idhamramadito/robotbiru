@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/transaction_process/invoice/invoice_pulsa.dart';
-import 'package:homepage/pages/dashboard_tabs/home/transaction_process/invoice/invoice_tokenlistrik.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/invoice_pulsa.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice_tokenlistrik.dart';
 
 class TransDetails extends StatelessWidget {
   final String pageName;
