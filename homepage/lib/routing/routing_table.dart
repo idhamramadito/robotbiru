@@ -21,9 +21,17 @@ class RoutingTable {
         return MaterialPageRoute(
           builder: (_) => PulsaPage(),
         );
+      case '/invoice_pulsa':
+        return MaterialPageRoute(
+          builder: (_) => InvoicePulsa(),
+        );
       case '/token_listrik':
         return MaterialPageRoute(
           builder: (_) => TokenListrikPage(),
+        );
+      case '/invoice_token_listrik':
+        return MaterialPageRoute(
+          builder: (_) => InvoiceTokenListrik(),
         );
       case '/pin_code':
         return MaterialPageRoute(
@@ -33,14 +41,7 @@ class RoutingTable {
         return MaterialPageRoute(
           builder: (_) => TransCompleted(routeName: args),
         );
-      case '/invoice_pulsa':
-        return MaterialPageRoute(
-          builder: (_) => InvoicePulsa(),
-        );
-      case '/invoice_token_listrik':
-        return MaterialPageRoute(
-          builder: (_) => InvoiceTokenListrik(),
-        );
+
       default:
         return errorRoute();
     }
