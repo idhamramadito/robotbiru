@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class FormNoMeteran extends StatefulWidget {
   const FormNoMeteran({
@@ -11,6 +12,8 @@ class FormNoMeteran extends StatefulWidget {
 }
 
 class _FormNoMeteranState extends State<FormNoMeteran> {
+  String barcode = '';
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,9 +54,7 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
                   padding: const EdgeInsets.only(left: 10),
                   child: IconButton(
                     icon: Icon(Icons.qr_code_scanner),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/scan_barcode');
-                    },
+                    onPressed: _scanBarcode,
                   ),
                 ),
               ],
@@ -62,5 +63,22 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
         ],
       ),
     );
+  }
+
+  Future<void> _scanBarcode() async {
+    try {
+      final barcode = await FlutterBarcodeScanner.scanBarcode(
+        '#FF6666',
+        'Cancel',
+        true,
+        ScanMode.BARCODE,
+      );
+      if (!mounted) return;
+      setState(() {
+        this.barcode = barcode;
+      });
+    } on PlatformException {
+      // display error message
+    }
   }
 }
