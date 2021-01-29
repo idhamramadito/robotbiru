@@ -17,6 +17,7 @@ class PagePulsa extends StatefulWidget {
 
 class _PagePulsaState extends State<PagePulsa> {
   String _phoneNumber = '';
+  bool _rememberNumber = false;
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
@@ -67,7 +68,12 @@ class _PagePulsaState extends State<PagePulsa> {
                             _phoneNumber = '';
                           }),
                         ),
-                        RememberMeCheckBox(),
+                        RememberMeCheckBox(
+                          onChanged: () => setState(() {
+                            _rememberNumber = !_rememberNumber;
+                            print(_rememberNumber);
+                          }),
+                        ),
                         Visibility(
                           visible: (_phoneNumber != ''),
                           child: Column(

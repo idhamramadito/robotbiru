@@ -17,6 +17,7 @@ class PageTokenListrik extends StatefulWidget {
 
 class _PageTokenListrikState extends State<PageTokenListrik> {
   String _idNumber = '';
+  bool _rememberNumber = false;
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
@@ -67,7 +68,12 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                             _idNumber = '';
                           }),
                         ),
-                        RememberMeCheckBox(),
+                        RememberMeCheckBox(
+                          onChanged: () => setState(() {
+                            _rememberNumber = !_rememberNumber;
+                            print(_rememberNumber);
+                          }),
+                        ),
                         Visibility(
                           visible: (_idNumber != ''),
                           child: Column(

@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class RememberMeCheckBox extends StatefulWidget {
   const RememberMeCheckBox({
     Key key,
+    @required this.onChanged,
   }) : super(key: key);
+
+  final Function onChanged;
 
   @override
   _RememberMeCheckBoxState createState() => _RememberMeCheckBoxState();
@@ -11,15 +14,6 @@ class RememberMeCheckBox extends StatefulWidget {
 
 class _RememberMeCheckBoxState extends State<RememberMeCheckBox> {
   bool rememberMe = false;
-
-  void _onRememberMeChanged(bool newValue) => setState(() {
-        rememberMe = newValue;
-        if (rememberMe) {
-          // TODO: Here goes your functionality that remembers the user.
-        } else {
-          // TODO: Forget the user
-        }
-      });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +23,10 @@ class _RememberMeCheckBoxState extends State<RememberMeCheckBox> {
         children: [
           Checkbox(
             value: rememberMe,
-            onChanged: _onRememberMeChanged,
+            onChanged: (newVal) {
+              rememberMe = newVal;
+              widget.onChanged();
+            },
           ),
           Text("Simpan Nomor",
               style: TextStyle(
