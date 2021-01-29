@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class CustomForm extends StatefulWidget {
   const CustomForm({
@@ -14,7 +15,7 @@ class CustomForm extends StatefulWidget {
   final bool clearButton;
   final String prompt;
   final Function(String) onChanged;
-  final IconButton externalPicker;
+  final String externalPicker;
 
   @override
   _CustomFormState createState() => _CustomFormState();
@@ -90,7 +91,17 @@ class _CustomFormState extends State<CustomForm> {
                   visible: (widget.externalPicker != null),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10),
-                    child: widget.externalPicker,
+                    child: (widget.externalPicker == 'contacts')
+                        ? IconButton(
+                            icon: Icon(Icons.perm_contact_cal),
+                            onPressed: _contactPicker,
+                          )
+                        : (widget.externalPicker == 'barcode')
+                            ? IconButton(
+                                icon: Icon(Icons.qr_code_scanner),
+                                onPressed: _barcodeScanner,
+                              )
+                            : () {},
                   ),
                 ),
               ],
@@ -99,5 +110,31 @@ class _CustomFormState extends State<CustomForm> {
         ],
       ),
     );
+  }
+
+  Future _contactPicker() async {
+    final result = await Navigator.of(context).pushNamed('/contacts_picker');
+    setState(() {
+      _textController.text = result ?? _textController.text;
+      print(_textController.text);
+    });
+  }
+
+  Future _barcodeScanner() async {
+    try {
+      final barcode = await FlutterBarcodeScanner.scanBarcode(
+        '#FF6666',
+        'Cancel',
+        true,
+        ScanMode.BARCODE,
+      );
+      if (!mounted) return;
+      setState(() {
+        _textController.text = barcode ?? _textController.text;
+        print(_textController.text);
+      });
+    } on PlatformException {
+      // display error message
+    }
   }
 }

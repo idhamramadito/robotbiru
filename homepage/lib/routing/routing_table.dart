@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/shared_pages/contacts_picker.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/shared_pages/pin_code.dart';
 import 'package:homepage/pages/shared_pages/trans_completed.dart';
@@ -28,7 +29,8 @@ class RoutingTable {
       case '/trans_completed':
         return MaterialPageRoute(
             builder: (_) => TransCompleted(routeName: args));
-
+      case '/contacts_picker':
+        return MaterialPageRoute(builder: (_) => ContactsPicker());
       default:
         return errorRoute();
     }

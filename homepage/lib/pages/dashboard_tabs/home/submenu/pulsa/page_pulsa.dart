@@ -78,10 +78,7 @@ class _PagePulsaState extends State<PagePulsa> {
                           onChanged: (val) => setState(() {
                             _phoneNumber = val;
                           }),
-                          externalPicker: IconButton(
-                            icon: Icon(Icons.perm_contact_cal),
-                            onPressed: () {},
-                          ),
+                          externalPicker: 'contacts',
                         ),
                         RememberMeCheckBox(
                           onChanged: () => setState(() {

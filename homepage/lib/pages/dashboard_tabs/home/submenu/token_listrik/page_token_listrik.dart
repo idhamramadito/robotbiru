@@ -80,10 +80,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           onChanged: (val) => setState(() {
                             _idNumber = val;
                           }),
-                          externalPicker: IconButton(
-                            icon: Icon(Icons.qr_code_scanner),
-                            onPressed: _scanBarcode,
-                          ),
+                          externalPicker: 'barcode',
                         ),
                         RememberMeCheckBox(
                           onChanged: () => setState(() {
@@ -141,21 +138,4 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
     );
   }
   //============================= main function ===============================
-
-  Future<void> _scanBarcode() async {
-    try {
-      final barcode = await FlutterBarcodeScanner.scanBarcode(
-        '#FF6666',
-        'Cancel',
-        true,
-        ScanMode.BARCODE,
-      );
-      if (!mounted) return;
-      setState(() {
-        _idNumber = barcode ?? _idNumber;
-      });
-    } on PlatformException {
-      // display error message
-    }
-  }
 }

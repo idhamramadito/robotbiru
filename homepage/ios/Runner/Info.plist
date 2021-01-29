@@ -46,6 +46,8 @@
 	<string>Camera permission is required for barcode scanning.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Storage permission is required for accessing pictures.</string>
+	<key>NSContactsUsageDescription</key>  
+	<string>This app requires contacts access to function properly.</string>  
 
 </dict>
 </plist>
