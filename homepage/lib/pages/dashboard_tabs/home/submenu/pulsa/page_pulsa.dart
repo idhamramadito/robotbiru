@@ -6,16 +6,16 @@ import 'package:homepage/shared_UI_components/checkout_bottom_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/UI_components/form_no_handphone.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/UI_components/nominal_pulsa.dart';
 
-class PulsaPage extends StatefulWidget {
-  PulsaPage({
+class PagePulsa extends StatefulWidget {
+  PagePulsa({
     Key key,
   }) : super(key: key);
 
   @override
-  _SubMenuState createState() => _SubMenuState();
+  _PagePulsaState createState() => _PagePulsaState();
 }
 
-class _SubMenuState extends State<PulsaPage> {
+class _PagePulsaState extends State<PagePulsa> {
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';

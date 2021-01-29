@@ -6,16 +6,16 @@ import 'package:homepage/shared_UI_components/card_ringkasan.dart';
 import 'package:homepage/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared_UI_components/checkout_bottom_bar.dart';
 
-class TokenListrikPage extends StatefulWidget {
-  TokenListrikPage({
+class PageTokenListrik extends StatefulWidget {
+  PageTokenListrik({
     Key key,
   }) : super(key: key);
 
   @override
-  _SubMenuState createState() => _SubMenuState();
+  _PageTokenListrikState createState() => _PageTokenListrikState();
 }
 
-class _SubMenuState extends State<TokenListrikPage> {
+class _PageTokenListrikState extends State<PageTokenListrik> {
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
