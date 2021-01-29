@@ -53,18 +53,22 @@ class _CardRingkasanState extends State<CardRingkasan> {
                   ),
                 )
               : Container(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-            child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [new Text("Harga Dasar"), new Text("Rp5800")]),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-            child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [new Text("Harga Dasar"), new Text("Rp5800")]),
-          ),
+          ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: _ringkasan.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text(_ringkasan[index][0]),
+                        new Text(_ringkasan[index][1]),
+                      ]),
+                );
+              }),
         ],
       ),
     );
