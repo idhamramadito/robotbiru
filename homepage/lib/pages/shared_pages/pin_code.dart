@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PinCode extends StatefulWidget {
-  final String pageName;
-  const PinCode({Key key, this.pageName}) : super(key: key);
+  final String routeName;
+  const PinCode({Key key, this.routeName}) : super(key: key);
 
   @override
   _PinCodeState createState() => _PinCodeState();
@@ -71,8 +71,8 @@ class _PinCodeState extends State<PinCode> {
                 if (val == requiredAnswer) {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                   Navigator.of(context).pushNamed(
-                    '/trans_completed',
-                    arguments: widget.pageName,
+                    'trans_completed',
+                    arguments: widget.routeName,
                   );
                 } else {
                   setState(() {

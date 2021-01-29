@@ -9,10 +9,10 @@ class CheckoutBottomBar extends StatefulWidget {
     @required this.chosenPrice,
     @required this.paymentMethod,
     @required this.paymentLogo,
-    @required this.pageName,
+    @required this.routeName,
   }) : super(key: key);
 
-  final String pageName;
+  final String routeName;
   final String currency;
   final String paymentMethod;
   final String paymentLogo;
@@ -90,7 +90,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
             title: 'Beli',
             route: () {
               Navigator.of(context)
-                  .pushNamed('/pin_code', arguments: widget.pageName);
+                  .pushNamed('pin_code', arguments: widget.routeName);
             },
           ),
         ],

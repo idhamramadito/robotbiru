@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:homepage/shared_UI_components/big_button.dart';
 
 class TransCompleted extends StatefulWidget {
-  final String pageName;
-  const TransCompleted({Key key, @required this.pageName}) : super(key: key);
+  final String routeName;
+  const TransCompleted({Key key, @required this.routeName}) : super(key: key);
 
   @override
   _TransCompletedState createState() => _TransCompletedState();
 }
 
 class _TransCompletedState extends State<TransCompleted> {
-  String transID = 'TRANS_ID';
-  String transDate = 'TRANSACTION_DATE';
-  String paymentMethod = 'PAYMENT_METHOD';
-  String cost = 'Rp TOTAL_COST';
-  String orderInfo = 'ORDER_INFO';
+  final List _boxDetailTransaksi = [
+    ['Jenis Transaksi', 'TRANSACTION_TYPE'],
+    ['Jumlah', 'Rp TOTAL_COST'],
+    ['Metode Pembayaran', 'PAYMENT_METHOD'],
+    ['Waktu Transaksi', 'TRANSACTION_DATE'],
+    ['Info Pesanan', 'ORDER_INFO'],
+    ['ID Transaksi', 'TRANSACTION_ID'],
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,7 @@ class _TransCompletedState extends State<TransCompleted> {
               Container(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  'Pembelian ${widget.pageName} Menggunakan',
+                  'Pembelian ${_boxDetailTransaksi[0][1]} Menggunakan',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -54,7 +57,7 @@ class _TransCompletedState extends State<TransCompleted> {
               Container(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  paymentMethod,
+                  _boxDetailTransaksi[2][1],
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -82,7 +85,7 @@ class _TransCompletedState extends State<TransCompleted> {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
-                          cost,
+                          _boxDetailTransaksi[1][1],
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 30,
@@ -91,63 +94,38 @@ class _TransCompletedState extends State<TransCompleted> {
                           ),
                         ),
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(
-                              'Info Pesanan',
-                              style: TextStyle(color: Colors.grey),
-                            ),
+                          ListView.builder(
+                            padding: EdgeInsets.all(0),
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: _boxDetailTransaksi.length,
+                            itemBuilder: (context, index) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Text(
+                                      _boxDetailTransaksi[index][0],
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Text(_boxDetailTransaksi[index][1]),
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              );
+                            },
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(orderInfo),
-                          ),
-                          SizedBox(height: 10),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(
-                              'Jumlah',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(cost),
-                          ),
-                          SizedBox(height: 10),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(
-                              'Waktu Transaksi',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(transDate),
-                          ),
-                          SizedBox(height: 10),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(
-                              'ID Transaksi',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Text(transID),
-                          ),
-                          SizedBox(height: 10),
                         ],
                       ),
                       BigButton(
                         title: 'Lihat Detail Transaksi',
                         route: () {
                           Navigator.of(context).pushReplacementNamed(
-                            '/trans_details',
-                            arguments: widget.pageName,
-                          );
+                              'invoice_${widget.routeName}');
                         },
                       ),
                     ],

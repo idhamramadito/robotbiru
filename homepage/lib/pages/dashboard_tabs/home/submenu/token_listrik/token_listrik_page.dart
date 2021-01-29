@@ -79,7 +79,7 @@ class _SubMenuState extends State<TokenListrikPage> {
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          pageName: 'Token Listrik',
+          routeName: 'token_listrik',
           currency: _currency,
           paymentMethod: _paymentMethod,
           paymentLogo: _paymentLogo,
