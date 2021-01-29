@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 
 class InvoiceListrik extends StatelessWidget {
+  List _boxDetailPesanan = [
+    ['IDPEL', '131241412412414'],
+    ['Nama', 'Miyamori Aoi'],
+    ['Tarif/Daya', 'R1M/900VA'],
+    ['Waktu', '1:30 PM'],
+    ['Tanggal', '25 Agustus 2000'],
+    ['Stand Meter', '0103901390193-1203910392190'],
+    ['RP TAG PLN', 'Rp2900.200'],
+    ['NO REF', 'OBMS 4345 X 4454 545'],
+  ];
+
+  List _boxDetailTransaksi = [
+    ['Admin', 'Rp1.555'],
+    ['Cashback', 'Rp755'],
+    ['Total Bayar', 'Rp173.555'],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
