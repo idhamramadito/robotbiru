@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/shared_UI_components/receipt_card.dart';
 
 class InvoicePulsa extends StatelessWidget {
   final List _boxDetailPesanan = [
@@ -142,23 +143,7 @@ class InvoicePulsa extends StatelessWidget {
                         )
                       ]),
                 ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: _boxDetailPesanan.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            new Text(_boxDetailPesanan[index][0]),
-                            new Text(_boxDetailPesanan[index][1]),
-                          ],
-                        ),
-                      );
-                    }),
+                ReceiptCard(dataList: _boxDetailPesanan),
                 SizedBox(height: 10),
                 Container(
                   child: Image.asset('images/barcode.png'),

@@ -4,7 +4,7 @@ class ReceiptCard extends StatefulWidget {
   const ReceiptCard({
     Key key,
     this.cardName,
-    this.dataList,
+    @required this.dataList,
   }) : super(key: key);
 
   final String cardName;
@@ -27,7 +27,7 @@ class _ReceiptCardState extends State<ReceiptCard> {
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.fromLTRB(25, 15, 25, 3),
               child: Text(
-                widget.cardName,
+                widget.cardName ?? '',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/shared_UI_components/receipt_card.dart';
 
 class InvoiceTokenListrik extends StatelessWidget {
   final List _boxDetailPesanan = [
@@ -294,26 +295,7 @@ class InvoiceTokenListrik extends StatelessWidget {
                     'Detail Pesanan',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  children: [
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: _boxDetailPesanan.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 25, vertical: 10),
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              new Text(_boxDetailPesanan[index][0]),
-                              new Text(_boxDetailPesanan[index][1]),
-                            ],
-                          ),
-                        );
-                      },
-                    )
-                  ],
+                  children: [ReceiptCard(dataList: _boxDetailPesanan)],
                 ),
                 ExpansionTile(
                   expandedAlignment: Alignment.centerLeft,
@@ -322,26 +304,7 @@ class InvoiceTokenListrik extends StatelessWidget {
                     'Detail Transaksi',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  children: [
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: _boxDetailTransaksi.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 25, vertical: 10),
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              new Text(_boxDetailTransaksi[index][0]),
-                              new Text(_boxDetailTransaksi[index][1]),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                  children: [ReceiptCard(dataList: _boxDetailTransaksi)],
                 ),
               ],
             )),
