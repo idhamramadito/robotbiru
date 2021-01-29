@@ -14,33 +14,20 @@ class RoutingTable {
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(
-          builder: (_) => Dashboard(),
-        );
+        return MaterialPageRoute(builder: (_) => Dashboard());
       case '/pulsa':
-        return MaterialPageRoute(
-          builder: (_) => PulsaPage(),
-        );
+        return MaterialPageRoute(builder: (_) => PulsaPage());
       case '/invoice_pulsa':
-        return MaterialPageRoute(
-          builder: (_) => InvoicePulsa(),
-        );
+        return MaterialPageRoute(builder: (_) => InvoicePulsa());
       case '/token_listrik':
-        return MaterialPageRoute(
-          builder: (_) => TokenListrikPage(),
-        );
+        return MaterialPageRoute(builder: (_) => TokenListrikPage());
       case '/invoice_token_listrik':
-        return MaterialPageRoute(
-          builder: (_) => InvoiceTokenListrik(),
-        );
+        return MaterialPageRoute(builder: (_) => InvoiceTokenListrik());
       case '/pin_code':
-        return MaterialPageRoute(
-          builder: (_) => PinCode(routeName: args),
-        );
+        return MaterialPageRoute(builder: (_) => PinCode(routeName: args));
       case '/trans_completed':
         return MaterialPageRoute(
-          builder: (_) => TransCompleted(routeName: args),
-        );
+            builder: (_) => TransCompleted(routeName: args));
 
       default:
         return errorRoute();
