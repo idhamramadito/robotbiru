@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class FormNomor extends StatefulWidget {
-  const FormNomor({
+class CustomForm extends StatefulWidget {
+  const CustomForm({
     Key key,
     @required this.onChanged,
-    this.onClear,
+    bool clearButton,
     this.prompt,
     this.externalPicker,
-  }) : super(key: key);
+  })  : this.clearButton = clearButton ?? false,
+        super(key: key);
 
+  final bool clearButton;
   final String prompt;
   final Function(String) onChanged;
-  final Function onClear;
   final IconButton externalPicker;
 
   @override
-  _FormNomorState createState() => _FormNomorState();
+  _CustomFormState createState() => _CustomFormState();
 }
 
-class _FormNomorState extends State<FormNomor> {
+class _CustomFormState extends State<CustomForm> {
   TextEditingController _textController;
 
   @override
   void initState() {
     _textController = TextEditingController();
-    _textController.addListener(widget.onClear);
+    _textController.addListener(() => widget.onChanged(_textController.text));
     super.initState();
   }
 
@@ -40,12 +41,15 @@ class _FormNomorState extends State<FormNomor> {
     return Container(
       child: Column(
         children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-            child: Text(
-              widget.prompt ?? '',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          Visibility(
+            visible: (widget.prompt != null),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+              child: Text(
+                widget.prompt ?? '',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           SizedBox(height: 5),
@@ -57,7 +61,6 @@ class _FormNomorState extends State<FormNomor> {
                 Flexible(
                   child: TextFormField(
                     controller: _textController,
-                    onChanged: widget.onChanged,
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(
@@ -66,7 +69,7 @@ class _FormNomorState extends State<FormNomor> {
                     ],
                     decoration: InputDecoration(
                       suffixIcon: Visibility(
-                        visible: (widget.onClear != null),
+                        visible: widget.clearButton,
                         child: IconButton(
                           icon: Icon(Icons.clear, size: 30),
                           onPressed: () {

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
-import 'package:homepage/shared_UI_components/card_cashback.dart';
-import 'package:homepage/shared_UI_components/card_ringkasan.dart';
-import 'package:homepage/shared_UI_components/form_nomor.dart';
+import 'package:homepage/shared_UI_components/receipt_card.dart';
+import 'package:homepage/shared_UI_components/custom_form.dart';
 import 'package:homepage/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared_UI_components/checkout_bottom_bar.dart';
 
@@ -25,6 +24,18 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
   String _paymentLogo = 'images/dompet.png';
   double _chosenPrice = 20000.00;
   double _accountBalance = 100000.00;
+
+  List _cashback = [
+    ['Pemilik Retail', 'Rp5800'],
+    ['Badan Koperasi', 'Rp5800'],
+    ['Anggota Koperasi', 'Rp5800'],
+    ['Anggota Retail', 'Rp5800'],
+  ];
+
+  List _ringkasan = [
+    ['Harga Dasar', 'Rp5800'],
+    ['Harga Dasar', 'Rp5800'],
+  ];
 
   @override
   //============================= main function ===============================
@@ -62,13 +73,11 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FormNomor(
+                        CustomForm(
                           prompt: 'ID Pelanggan / Nomor Meteran',
+                          clearButton: true,
                           onChanged: (val) => setState(() {
                             _idNumber = val;
-                          }),
-                          onClear: () => setState(() {
-                            _idNumber = '';
                           }),
                           externalPicker: IconButton(
                             icon: Icon(Icons.qr_code_scanner),
@@ -85,9 +94,15 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           child: Column(
                             children: [
                               NominalTokenListrik(),
-                              CardRingkasan(pageName: 'Token Listrik'),
+                              ReceiptCard(
+                                cardName: 'Ringkasan',
+                                dataList: _ringkasan,
+                              ),
                               Divider(thickness: 5),
-                              CardCashback(),
+                              ReceiptCard(
+                                cardName: 'Cashback',
+                                dataList: _cashback,
+                              ),
                               Divider(thickness: 5),
                             ],
                           ),

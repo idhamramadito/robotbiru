@@ -1,33 +1,41 @@
 import 'package:flutter/material.dart';
 
-class CardCashback extends StatefulWidget {
-  const CardCashback({
+class ReceiptCard extends StatefulWidget {
+  const ReceiptCard({
     Key key,
+    this.cardName,
+    this.dataList,
   }) : super(key: key);
 
+  final String cardName;
+  final List dataList;
+
   @override
-  _CardCashbackState createState() => _CardCashbackState();
+  _ReceiptCardState createState() => _ReceiptCardState();
 }
 
-class _CardCashbackState extends State<CardCashback> {
+class _ReceiptCardState extends State<ReceiptCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 5),
       child: Column(
         children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.fromLTRB(25, 15, 25, 3),
-            child: Text(
-              'Cashback',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          Visibility(
+            visible: (widget.cardName != null),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.fromLTRB(25, 15, 25, 3),
+              child: Text(
+                widget.cardName,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: _cashback.length,
+              itemCount: widget.dataList.length,
               itemBuilder: (context, index) {
                 return Padding(
                   padding:
@@ -35,8 +43,8 @@ class _CardCashbackState extends State<CardCashback> {
                   child: new Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        new Text(_cashback[index][0]),
-                        new Text(_cashback[index][1]),
+                        new Text(widget.dataList[index][0]),
+                        new Text(widget.dataList[index][1]),
                       ]),
                 );
               }),
@@ -45,10 +53,3 @@ class _CardCashbackState extends State<CardCashback> {
     );
   }
 }
-
-List _cashback = [
-  ['Pemilik Retail', 'Rp5800'],
-  ['Badan Koperasi', 'Rp5800'],
-  ['Anggota Koperasi', 'Rp5800'],
-  ['Anggota Retail', 'Rp5800'],
-];

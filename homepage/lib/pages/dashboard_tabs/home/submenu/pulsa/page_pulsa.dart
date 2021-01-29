@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/shared_UI_components/card_cashback.dart';
-import 'package:homepage/shared_UI_components/card_ringkasan.dart';
-import 'package:homepage/shared_UI_components/form_nomor.dart';
+import 'package:homepage/shared_UI_components/paket_pulsa_kuota.dart';
+import 'package:homepage/shared_UI_components/receipt_card.dart';
+import 'package:homepage/shared_UI_components/custom_form.dart';
 import 'package:homepage/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared_UI_components/checkout_bottom_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/UI_components/nominal_pulsa.dart';
@@ -23,6 +23,18 @@ class _PagePulsaState extends State<PagePulsa> {
   String _paymentLogo = 'images/dompet.png';
   double _chosenPrice = 20000.00;
   double _accountBalance = 100000.00;
+
+  List _cashback = [
+    ['Pemilik Retail', 'Rp5800'],
+    ['Badan Koperasi', 'Rp5800'],
+    ['Anggota Koperasi', 'Rp5800'],
+    ['Anggota Retail', 'Rp5800'],
+  ];
+
+  List _ringkasan = [
+    ['Harga Dasar', 'Rp5800'],
+    ['Harga Dasar', 'Rp5800'],
+  ];
 
   @override
   //============================= main function ===============================
@@ -60,13 +72,11 @@ class _PagePulsaState extends State<PagePulsa> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FormNomor(
+                        CustomForm(
                           prompt: 'Nomor Handphone',
+                          clearButton: true,
                           onChanged: (val) => setState(() {
                             _phoneNumber = val;
-                          }),
-                          onClear: () => setState(() {
-                            _phoneNumber = '';
                           }),
                           externalPicker: IconButton(
                             icon: Icon(Icons.perm_contact_cal),
@@ -83,9 +93,16 @@ class _PagePulsaState extends State<PagePulsa> {
                           child: Column(
                             children: [
                               NominalPulsa(),
-                              CardRingkasan(pageName: 'Pulsa'),
+                              PaketPulsaKuota(),
+                              ReceiptCard(
+                                cardName: 'Ringkasan',
+                                dataList: _ringkasan,
+                              ),
                               Divider(thickness: 5),
-                              CardCashback(),
+                              ReceiptCard(
+                                cardName: 'Cashback',
+                                dataList: _cashback,
+                              ),
                               Divider(thickness: 5),
                             ],
                           ),
