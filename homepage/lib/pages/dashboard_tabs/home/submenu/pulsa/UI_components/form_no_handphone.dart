@@ -11,6 +11,8 @@ class FormNoHandphone extends StatefulWidget {
 }
 
 class _FormNoHandphoneState extends State<FormNoHandphone> {
+  var _textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,6 +34,7 @@ class _FormNoHandphoneState extends State<FormNoHandphone> {
               children: [
                 Flexible(
                   child: TextFormField(
+                    controller: _textController,
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(
@@ -39,7 +42,10 @@ class _FormNoHandphoneState extends State<FormNoHandphone> {
                       ),
                     ],
                     decoration: InputDecoration(
-                      suffixIcon: Icon(Icons.clear, size: 30),
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.clear, size: 30),
+                        onPressed: () => _textController.clear(),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),

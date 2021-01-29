@@ -12,7 +12,7 @@ class FormNoMeteran extends StatefulWidget {
 }
 
 class _FormNoMeteranState extends State<FormNoMeteran> {
-  String barcode = '';
+  var _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +35,7 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
               children: [
                 Flexible(
                   child: TextFormField(
+                    controller: _textController,
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(
@@ -42,7 +43,10 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
                       ),
                     ],
                     decoration: InputDecoration(
-                      suffixIcon: Icon(Icons.clear, size: 30),
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.clear, size: 30),
+                        onPressed: () => _textController.clear(),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -75,7 +79,7 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
       );
       if (!mounted) return;
       setState(() {
-        this.barcode = barcode;
+        this._textController.text = barcode;
       });
     } on PlatformException {
       // display error message
