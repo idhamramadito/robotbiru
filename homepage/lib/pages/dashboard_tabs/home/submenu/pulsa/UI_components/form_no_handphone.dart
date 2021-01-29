@@ -4,7 +4,10 @@ import 'package:flutter/services.dart';
 class FormNoHandphone extends StatefulWidget {
   const FormNoHandphone({
     Key key,
+    @required this.onChanged,
   }) : super(key: key);
+
+  final Function onChanged;
 
   @override
   _FormNoHandphoneState createState() => _FormNoHandphoneState();
@@ -35,6 +38,7 @@ class _FormNoHandphoneState extends State<FormNoHandphone> {
                 Flexible(
                   child: TextFormField(
                     controller: _textController,
+                    onChanged: widget.onChanged,
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(

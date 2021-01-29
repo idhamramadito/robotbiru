@@ -16,6 +16,7 @@ class PagePulsa extends StatefulWidget {
 }
 
 class _PagePulsaState extends State<PagePulsa> {
+  String _phoneNumber = '';
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
@@ -58,7 +59,12 @@ class _PagePulsaState extends State<PagePulsa> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FormNoHandphone(),
+                        FormNoHandphone(
+                          onChanged: (val) => setState(() {
+                            _phoneNumber = val;
+                            print(_phoneNumber);
+                          }),
+                        ),
                         RememberMeCheckBox(),
                         NominalPulsa(),
                         CardRingkasan(pageName: 'Pulsa'),

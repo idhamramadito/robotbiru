@@ -16,6 +16,7 @@ class PageTokenListrik extends StatefulWidget {
 }
 
 class _PageTokenListrikState extends State<PageTokenListrik> {
+  String _idNumber = '';
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
@@ -58,7 +59,12 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FormNoMeteran(),
+                        FormNoMeteran(
+                          onChanged: (val) => setState(() {
+                            _idNumber = val;
+                            print(_idNumber);
+                          }),
+                        ),
                         RememberMeCheckBox(),
                         NominalTokenListrik(),
                         CardRingkasan(pageName: 'Token Listrik'),

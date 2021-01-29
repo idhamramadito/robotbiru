@@ -5,7 +5,10 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 class FormNoMeteran extends StatefulWidget {
   const FormNoMeteran({
     Key key,
+    @required this.onChanged,
   }) : super(key: key);
+
+  final Function onChanged;
 
   @override
   _FormNoMeteranState createState() => _FormNoMeteranState();
@@ -36,6 +39,7 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
                 Flexible(
                   child: TextFormField(
                     controller: _textController,
+                    onChanged: widget.onChanged,
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(
@@ -79,7 +83,7 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
       );
       if (!mounted) return;
       setState(() {
-        this._textController.text = barcode;
+        this._textController.text = barcode ?? this._textController.text;
       });
     } on PlatformException {
       // display error message
