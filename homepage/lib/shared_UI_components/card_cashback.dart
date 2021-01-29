@@ -53,3 +53,10 @@ class _CardCashbackState extends State<CardCashback> {
     );
   }
 }
+
+List _cashback = [
+  ['Pemilik Retail', 'Rp5800'],
+  ['Badan Koperasi', 'Rp5800'],
+  ['Anggota Koperasi', 'Rp5800'],
+  ['Anggota Retail', 'Rp5800'],
+];
