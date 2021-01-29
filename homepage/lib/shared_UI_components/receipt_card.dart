@@ -43,7 +43,10 @@ class _ReceiptCardState extends State<ReceiptCard> {
                   child: new Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        new Text(widget.dataList[index][0]),
+                        new Text(
+                          widget.dataList[index][0],
+                          style: TextStyle(color: Colors.grey),
+                        ),
                         new Text(widget.dataList[index][1]),
                       ]),
                 );
