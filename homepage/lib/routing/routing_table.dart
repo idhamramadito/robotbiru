@@ -39,7 +39,7 @@ class RoutingTable {
         );
       case '/scan_barcode':
         return MaterialPageRoute(
-          builder: (_) => ScanBarcode(),
+          builder: (_) => ScanScreen(),
         );
       default:
         return errorRoute();
