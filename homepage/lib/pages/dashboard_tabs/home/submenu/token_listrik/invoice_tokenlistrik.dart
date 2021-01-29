@@ -255,169 +255,56 @@ class InvoiceListrik extends StatelessWidget {
           ),
         ),
         Divider(),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-          child: Column(
-            children: <Widget>[
-              ExpansionTile(
-                title: Text(
-                  "Detail Pesanan",
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                ),
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "IDPEL",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("131241412412414")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Nama",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("Miyamori Aoi")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Tarif/Daya",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("R1M/900VA")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Waktu",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("1:30 PM")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Tanggal",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("25 Agustus 2020")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Stand Meter",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("0103901390193-1203910392190")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "RP TAG PLN",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("Rp2900.200")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "NO REF",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("OBMS 4345 X 4454 545")
-                        ]),
-                  ),
-                ],
-              ),
-            ],
+        Container(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.fromLTRB(25, 15, 25, 3),
+          child: Text(
+            'Detail Pesanan',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          child: Column(
-            children: <Widget>[
-              ExpansionTile(
-                title: Text(
-                  "Detail Transaksi",
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+        ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: _boxDetailPesanan.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    new Text(_boxDetailPesanan[index][0]),
+                    new Text(_boxDetailPesanan[index][1]),
+                  ],
                 ),
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Admin",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("Rp1.555")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Cashback",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("Rp755")
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(
-                            "Total Bayar",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          new Text("Rp173.555")
-                        ]),
-                  ),
-                  SizedBox(height: 90),
-                ],
-              ),
-            ],
+              );
+            }),
+        Container(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.fromLTRB(25, 15, 25, 3),
+          child: Text(
+            'Detail Transaksi',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
+        ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: _boxDetailTransaksi.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    new Text(_boxDetailTransaksi[index][0]),
+                    new Text(_boxDetailTransaksi[index][1]),
+                  ],
+                ),
+              );
+            }),
       ],
     ));
   }
