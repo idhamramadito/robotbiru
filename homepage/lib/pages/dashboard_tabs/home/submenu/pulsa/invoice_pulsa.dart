@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 
 class InvoicePulsa extends StatelessWidget {
+  List _boxDetailPesanan = [
+    ['Ditransfer Menggunakan', 'Saldo Robot Biru'],
+    ['Status', 'Diproses'],
+    ['Waktu', '11.30 PM'],
+    ['Tanggal', '25 Januari 2021'],
+    ['ID Transfer', 'ID12313132'],
+    ['Jumlah Transfer', 'Rp10.000'],
+    ['Biaya Admin', 'Rp1.000'],
+    ['Total Transfer', 'Rp11.000'],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -111,100 +122,23 @@ class InvoicePulsa extends StatelessWidget {
                 )
               ]),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text(
-                  "Ditransfer Menggunakan",
-                  style: TextStyle(color: Colors.grey),
+        ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: _boxDetailPesanan.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    new Text(_boxDetailPesanan[index][0]),
+                    new Text(_boxDetailPesanan[index][1]),
+                  ],
                 ),
-                new Text("Saldo Robot Biru")
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text(
-                  "Status",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                new Text("Diproses")
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text(
-                  "Waktu",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                new Text("11:30 PM")
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text(
-                  "Tanggal",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                new Text("25 Januari 2021")
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text(
-                  "ID Transfer",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                new Text("ID23423232")
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text(
-                  "Jumlah Transfer",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                new Text("Rp 10.000")
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text(
-                  "Biaya Admin",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                new Text("Rp 1.000")
-              ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-          child: new Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                new Text("Total Transfer",
-                    style: TextStyle(color: Colors.grey)),
-                new Text("Rp 11.000")
-              ]),
-        ),
+              );
+            }),
         SizedBox(height: 10),
         Container(
           child: Image.asset('images/barcode.png'),
