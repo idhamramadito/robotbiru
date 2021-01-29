@@ -70,3 +70,8 @@ class _CardRingkasanState extends State<CardRingkasan> {
     );
   }
 }
+
+List _ringkasan = [
+  ['Harga Dasar', 'Rp5800'],
+  ['Harga Dasar', 'Rp5800'],
+];
