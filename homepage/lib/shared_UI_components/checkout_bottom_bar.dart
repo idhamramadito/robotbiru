@@ -90,7 +90,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
             title: 'Beli',
             route: () {
               Navigator.of(context)
-                  .pushNamed('pin_code', arguments: widget.routeName);
+                  .pushNamed('/pin_code', arguments: widget.routeName);
             },
           ),
         ],

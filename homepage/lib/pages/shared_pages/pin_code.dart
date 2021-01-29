@@ -71,7 +71,7 @@ class _PinCodeState extends State<PinCode> {
                 if (val == requiredAnswer) {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                   Navigator.of(context).pushNamed(
-                    'trans_completed',
+                    '/trans_completed',
                     arguments: widget.routeName,
                   );
                 } else {

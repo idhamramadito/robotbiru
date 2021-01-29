@@ -79,7 +79,7 @@ class _SubMenuState extends State<PulsaPage> {
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          routeName: 'pulsa',
+          routeName: '/invoice_pulsa',
           currency: _currency,
           paymentMethod: _paymentMethod,
           paymentLogo: _paymentLogo,
