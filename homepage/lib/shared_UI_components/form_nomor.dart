@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class FormNoHandphone extends StatefulWidget {
-  const FormNoHandphone({
+class FormNomor extends StatefulWidget {
+  const FormNomor({
     Key key,
     @required this.onChanged,
-    @required this.onClear,
+    this.onClear,
+    this.prompt,
+    this.externalPicker,
   }) : super(key: key);
 
+  final String prompt;
   final Function(String) onChanged;
   final Function onClear;
+  final IconButton externalPicker;
 
   @override
-  _FormNoHandphoneState createState() => _FormNoHandphoneState();
+  _FormNomorState createState() => _FormNomorState();
 }
 
-class _FormNoHandphoneState extends State<FormNoHandphone> {
+class _FormNomorState extends State<FormNomor> {
   TextEditingController _textController;
 
   @override
@@ -40,7 +44,7 @@ class _FormNoHandphoneState extends State<FormNoHandphone> {
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
             child: Text(
-              "Masukkan Nomor HP",
+              widget.prompt ?? '',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
@@ -61,26 +65,29 @@ class _FormNoHandphoneState extends State<FormNoHandphone> {
                       ),
                     ],
                     decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.clear, size: 30),
-                        onPressed: () {
-                          setState(() {
-                            _textController.clear();
-                          });
-                        },
+                      suffixIcon: Visibility(
+                        visible: (widget.onClear != null),
+                        child: IconButton(
+                          icon: Icon(Icons.clear, size: 30),
+                          onPressed: () {
+                            setState(() {
+                              _textController.clear();
+                            });
+                          },
+                        ),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      hintText: "Nomor Handphone",
+                      hintText: widget.prompt ?? '',
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: IconButton(
-                    icon: Icon(Icons.perm_contact_cal),
-                    onPressed: () {},
+                Visibility(
+                  visible: (widget.externalPicker != null),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: widget.externalPicker,
                   ),
                 ),
               ],

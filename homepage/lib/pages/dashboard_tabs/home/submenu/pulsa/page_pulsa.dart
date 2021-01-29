@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/shared_UI_components/card_cashback.dart';
 import 'package:homepage/shared_UI_components/card_ringkasan.dart';
+import 'package:homepage/shared_UI_components/form_nomor.dart';
 import 'package:homepage/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared_UI_components/checkout_bottom_bar.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/UI_components/form_no_handphone.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/UI_components/nominal_pulsa.dart';
 
 class PagePulsa extends StatefulWidget {
@@ -60,13 +60,18 @@ class _PagePulsaState extends State<PagePulsa> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FormNoHandphone(
+                        FormNomor(
+                          prompt: 'Nomor Handphone',
                           onChanged: (val) => setState(() {
                             _phoneNumber = val;
                           }),
                           onClear: () => setState(() {
                             _phoneNumber = '';
                           }),
+                          externalPicker: IconButton(
+                            icon: Icon(Icons.perm_contact_cal),
+                            onPressed: () {},
+                          ),
                         ),
                         RememberMeCheckBox(
                           onChanged: () => setState(() {

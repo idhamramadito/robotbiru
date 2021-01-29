@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/form_no_meteran.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared_UI_components/card_cashback.dart';
 import 'package:homepage/shared_UI_components/card_ringkasan.dart';
+import 'package:homepage/shared_UI_components/form_nomor.dart';
 import 'package:homepage/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared_UI_components/checkout_bottom_bar.dart';
 
@@ -60,13 +62,18 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FormNoMeteran(
+                        FormNomor(
+                          prompt: 'ID Pelanggan / Nomor Meteran',
                           onChanged: (val) => setState(() {
                             _idNumber = val;
                           }),
                           onClear: () => setState(() {
                             _idNumber = '';
                           }),
+                          externalPicker: IconButton(
+                            icon: Icon(Icons.qr_code_scanner),
+                            onPressed: _scanBarcode,
+                          ),
                         ),
                         RememberMeCheckBox(
                           onChanged: () => setState(() {
@@ -113,4 +120,21 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
     );
   }
   //============================= main function ===============================
+
+  Future<void> _scanBarcode() async {
+    try {
+      final barcode = await FlutterBarcodeScanner.scanBarcode(
+        '#FF6666',
+        'Cancel',
+        true,
+        ScanMode.BARCODE,
+      );
+      if (!mounted) return;
+      setState(() {
+        _idNumber = barcode ?? _idNumber;
+      });
+    } on PlatformException {
+      // display error message
+    }
+  }
 }
