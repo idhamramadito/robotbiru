@@ -71,7 +71,6 @@ class _PagePulsaState extends State<PagePulsa> {
                         RememberMeCheckBox(
                           onChanged: () => setState(() {
                             _rememberNumber = !_rememberNumber;
-                            print(_rememberNumber);
                           }),
                         ),
                         Visibility(

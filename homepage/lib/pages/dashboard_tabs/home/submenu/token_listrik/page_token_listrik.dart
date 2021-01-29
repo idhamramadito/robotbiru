@@ -71,7 +71,6 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                         RememberMeCheckBox(
                           onChanged: () => setState(() {
                             _rememberNumber = !_rememberNumber;
-                            print(_rememberNumber);
                           }),
                         ),
                         Visibility(
