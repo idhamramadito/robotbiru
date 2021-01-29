@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:homepage/pages/dashboard_tabs/history/history.dart';
 import 'package:homepage/pages/dashboard_tabs/notification/notification.dart';
 import 'package:homepage/pages/dashboard_tabs/home/home.dart';
@@ -13,16 +12,16 @@ class Dashboard extends StatefulWidget {
 }
 
 class _Dashboard extends State<Dashboard> {
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Color(0xff008AD5),
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   SystemChrome.setSystemUIOverlayStyle(
+  //     SystemUiOverlayStyle(
+  //       statusBarColor: Color(0xff008AD5),
+  //       statusBarIconBrightness: Brightness.light,
+  //     ),
+  //   );
+  // }
 
   final tabs = [
     Home(),
