@@ -16,8 +16,8 @@ class CheckoutBottomBar extends StatefulWidget {
   final String currency;
   final String paymentMethod;
   final String paymentLogo;
-  final double accountBalance;
-  final double chosenPrice;
+  final String accountBalance;
+  final String chosenPrice;
 
   @override
   _CheckoutBottomBarState createState() => _CheckoutBottomBarState();

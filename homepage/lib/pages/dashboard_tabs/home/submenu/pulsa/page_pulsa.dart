@@ -21,8 +21,8 @@ class _PagePulsaState extends State<PagePulsa> {
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
-  double _chosenPrice = 20000.00;
-  double _accountBalance = 100000.00;
+  String _chosenPrice = '20.000';
+  String _accountBalance = '100.000';
 
   List _cashback = [
     ['Pemilik Retail', 'Rp5800'],
@@ -92,8 +92,12 @@ class _PagePulsaState extends State<PagePulsa> {
                           visible: (_phoneNumber != ''),
                           child: Column(
                             children: [
-                              NominalPulsa(),
-                              PaketPulsaKuota(),
+                              NominalPulsa(
+                                onChanged: (val) => setState(() {
+                                  _chosenPrice = val;
+                                }),
+                              ),
+                              PaketPulsaKuota(amount: _chosenPrice),
                               ReceiptCard(
                                 cardName: 'Ringkasan',
                                 dataList: _ringkasan,

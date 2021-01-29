@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class NominalTokenListrik extends StatefulWidget {
-  const NominalTokenListrik({Key key}) : super(key: key);
+  const NominalTokenListrik({
+    Key key,
+    this.onChanged,
+  }) : super(key: key);
+
+  final Function(String) onChanged;
 
   @override
   _NominalTokenListrikState createState() => _NominalTokenListrikState();
@@ -9,18 +14,18 @@ class NominalTokenListrik extends StatefulWidget {
 
 class _NominalTokenListrikState extends State<NominalTokenListrik> {
   int selectedIndex = 0;
-  String selectedValue = '20.000';
+  String selectedValue = '21.750';
   List _boxTokenListrik = [
-    ['20.000', 'Cashback: Rp 750.00', 'Rp21.750'],
-    ['50.000', 'Cashback: Rp 750.00', 'Rp51.750'],
-    ['75.000', 'Cashback: Rp 750.00', 'Rp75.750'],
-    ['100.000', 'Cashback: Rp 750.00', 'Rp101.750'],
-    ['200.000', 'Cashback: Rp 750.00', 'Rp201.750'],
-    ['500.000', 'Cashback: Rp 750.00', 'Rp501.750'],
-    ['1.000.000', 'Cashback: Rp 750.00', 'Rp1.001.750'],
-    ['5.000.000', 'Cashback: Rp 750.00', 'Rp5.001.750'],
-    ['10.000.000', 'Cashback: Rp 750.00', 'Rp10.001.750'],
-    ['50.000.000', 'Cashback: Rp 750.00', 'Rp50.001.750'],
+    ['20.000', 'Cashback: Rp 750.00', '21.750'],
+    ['50.000', 'Cashback: Rp 750.00', '51.750'],
+    ['75.000', 'Cashback: Rp 750.00', '75.750'],
+    ['100.000', 'Cashback: Rp 750.00', '101.750'],
+    ['200.000', 'Cashback: Rp 750.00', '201.750'],
+    ['500.000', 'Cashback: Rp 750.00', '501.750'],
+    ['1.000.000', 'Cashback: Rp 750.00', '1.001.750'],
+    ['5.000.000', 'Cashback: Rp 750.00', '5.001.750'],
+    ['10.000.000', 'Cashback: Rp 750.00', '10.001.750'],
+    ['50.000.000', 'Cashback: Rp 750.00', '50.001.750'],
   ];
 
   @override
@@ -50,7 +55,8 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                   onTap: () {
                     setState(() {
                       selectedIndex = index;
-                      selectedValue = _boxTokenListrik[selectedIndex][0];
+                      selectedValue = _boxTokenListrik[selectedIndex][2];
+                      widget.onChanged(selectedValue);
                     });
                   },
                   child: Container(
@@ -90,7 +96,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: Text(
-                            _boxTokenListrik[index][2],
+                            'Rp ${_boxTokenListrik[index][2]}',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,

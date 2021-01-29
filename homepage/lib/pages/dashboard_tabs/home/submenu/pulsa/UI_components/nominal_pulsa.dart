@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class NominalPulsa extends StatefulWidget {
   const NominalPulsa({
     Key key,
+    this.onChanged,
   }) : super(key: key);
+
+  final Function(String) onChanged;
 
   @override
   _NominalPulsaState createState() => _NominalPulsaState();
@@ -50,6 +53,7 @@ class _NominalPulsaState extends State<NominalPulsa> {
               onChanged: (value) {
                 setState(() {
                   selectedValue = value;
+                  widget.onChanged(value);
                 });
               },
             ),

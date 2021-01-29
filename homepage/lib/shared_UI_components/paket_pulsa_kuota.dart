@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
-class PaketPulsaKuota extends StatelessWidget {
+class PaketPulsaKuota extends StatefulWidget {
   const PaketPulsaKuota({
     Key key,
+    this.amount,
   }) : super(key: key);
+  final String amount;
 
+  @override
+  _PaketPulsaKuotaState createState() => _PaketPulsaKuotaState();
+}
+
+class _PaketPulsaKuotaState extends State<PaketPulsaKuota> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +25,7 @@ class PaketPulsaKuota extends StatelessWidget {
               Container(
                 padding: EdgeInsets.fromLTRB(8, 1, 0, 1),
                 child: Text(
-                  "Pulsa 30.000",
+                  "Pulsa ${widget.amount}",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),

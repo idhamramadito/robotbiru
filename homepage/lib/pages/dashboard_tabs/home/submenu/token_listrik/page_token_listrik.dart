@@ -23,8 +23,8 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
-  double _chosenPrice = 20000.00;
-  double _accountBalance = 100000.00;
+  String _chosenPrice = '21.750';
+  String _accountBalance = '100.000';
 
   List _cashback = [
     ['Pemilik Retail', 'Rp5800'],
@@ -95,7 +95,11 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           child: Column(
                             children: [
                               CardTokenListrik(idNumber: _idNumber),
-                              NominalTokenListrik(),
+                              NominalTokenListrik(
+                                onChanged: (val) => setState(() {
+                                  _chosenPrice = val;
+                                }),
+                              ),
                               ReceiptCard(
                                 cardName: 'Ringkasan',
                                 dataList: _ringkasan,
