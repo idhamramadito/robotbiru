@@ -28,69 +28,6 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
     return Container(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
-            child: Container(
-                width: 1000,
-                height: 90,
-                decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.circular(16.0),
-                  color: Colors.blue,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 10, 0, 5),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Nama Pelanggan",
-                            style: TextStyle(fontSize: 12, color: Colors.white),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                            child: Text(
-                              "Martin Keren",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          ),
-                          Text(
-                            "435436346",
-                            style: TextStyle(fontSize: 15, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(60, 10, 0, 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Tarif/Daya",
-                            style: TextStyle(fontSize: 12, color: Colors.white),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                            child: Text(
-                              "R2/3500VA",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                )),
-          ),
           Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),

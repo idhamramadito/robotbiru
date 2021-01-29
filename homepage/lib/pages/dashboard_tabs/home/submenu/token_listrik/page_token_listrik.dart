@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared_UI_components/custom_form.dart';
@@ -93,6 +94,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           visible: (_idNumber != ''),
                           child: Column(
                             children: [
+                              CardTokenListrik(idNumber: _idNumber),
                               NominalTokenListrik(),
                               ReceiptCard(
                                 cardName: 'Ringkasan',
