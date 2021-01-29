@@ -61,7 +61,6 @@ class _PinCodeState extends State<PinCode> {
                 selectedFillColor: Colors.white,
               ),
               onChanged: (value) {
-                print(value);
                 setState(() {
                   wrongInput = false;
                   currentText = value;
