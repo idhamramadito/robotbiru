@@ -62,15 +62,24 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                         FormNoMeteran(
                           onChanged: (val) => setState(() {
                             _idNumber = val;
-                            print(_idNumber);
+                          }),
+                          onClear: () => setState(() {
+                            _idNumber = '';
                           }),
                         ),
                         RememberMeCheckBox(),
-                        NominalTokenListrik(),
-                        CardRingkasan(pageName: 'Token Listrik'),
-                        Divider(thickness: 5),
-                        CardCashback(),
-                        Divider(thickness: 5),
+                        Visibility(
+                          visible: (_idNumber != ''),
+                          child: Column(
+                            children: [
+                              NominalTokenListrik(),
+                              CardRingkasan(pageName: 'Token Listrik'),
+                              Divider(thickness: 5),
+                              CardCashback(),
+                              Divider(thickness: 5),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -84,13 +93,16 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
             ),
           ],
         ),
-        bottomNavigationBar: CheckoutBottomBar(
-          routeName: '/invoice_token_listrik',
-          currency: _currency,
-          paymentMethod: _paymentMethod,
-          paymentLogo: _paymentLogo,
-          accountBalance: _accountBalance,
-          chosenPrice: _chosenPrice,
+        bottomNavigationBar: Visibility(
+          visible: (_idNumber != ''),
+          child: CheckoutBottomBar(
+            routeName: '/invoice_token_listrik',
+            currency: _currency,
+            paymentMethod: _paymentMethod,
+            paymentLogo: _paymentLogo,
+            accountBalance: _accountBalance,
+            chosenPrice: _chosenPrice,
+          ),
         ),
       ),
     );

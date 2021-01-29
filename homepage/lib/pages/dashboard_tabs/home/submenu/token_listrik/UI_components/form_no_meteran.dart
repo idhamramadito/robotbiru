@@ -6,16 +6,31 @@ class FormNoMeteran extends StatefulWidget {
   const FormNoMeteran({
     Key key,
     @required this.onChanged,
+    @required this.onClear,
   }) : super(key: key);
 
-  final Function onChanged;
+  final Function(String) onChanged;
+  final Function onClear;
 
   @override
   _FormNoMeteranState createState() => _FormNoMeteranState();
 }
 
 class _FormNoMeteranState extends State<FormNoMeteran> {
-  var _textController = TextEditingController();
+  TextEditingController _textController;
+
+  @override
+  void initState() {
+    _textController = TextEditingController();
+    _textController.addListener(widget.onClear);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +64,11 @@ class _FormNoMeteranState extends State<FormNoMeteran> {
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         icon: Icon(Icons.clear, size: 30),
-                        onPressed: () => _textController.clear(),
+                        onPressed: () {
+                          setState(() {
+                            _textController.clear();
+                          });
+                        },
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),

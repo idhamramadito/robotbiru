@@ -5,16 +5,31 @@ class FormNoHandphone extends StatefulWidget {
   const FormNoHandphone({
     Key key,
     @required this.onChanged,
+    @required this.onClear,
   }) : super(key: key);
 
-  final Function onChanged;
+  final Function(String) onChanged;
+  final Function onClear;
 
   @override
   _FormNoHandphoneState createState() => _FormNoHandphoneState();
 }
 
 class _FormNoHandphoneState extends State<FormNoHandphone> {
-  var _textController = TextEditingController();
+  TextEditingController _textController;
+
+  @override
+  void initState() {
+    _textController = TextEditingController();
+    _textController.addListener(widget.onClear);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +63,11 @@ class _FormNoHandphoneState extends State<FormNoHandphone> {
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         icon: Icon(Icons.clear, size: 30),
-                        onPressed: () => _textController.clear(),
+                        onPressed: () {
+                          setState(() {
+                            _textController.clear();
+                          });
+                        },
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),

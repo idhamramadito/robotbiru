@@ -62,15 +62,24 @@ class _PagePulsaState extends State<PagePulsa> {
                         FormNoHandphone(
                           onChanged: (val) => setState(() {
                             _phoneNumber = val;
-                            print(_phoneNumber);
+                          }),
+                          onClear: () => setState(() {
+                            _phoneNumber = '';
                           }),
                         ),
                         RememberMeCheckBox(),
-                        NominalPulsa(),
-                        CardRingkasan(pageName: 'Pulsa'),
-                        Divider(thickness: 5),
-                        CardCashback(),
-                        Divider(thickness: 5),
+                        Visibility(
+                          visible: (_phoneNumber != ''),
+                          child: Column(
+                            children: [
+                              NominalPulsa(),
+                              CardRingkasan(pageName: 'Pulsa'),
+                              Divider(thickness: 5),
+                              CardCashback(),
+                              Divider(thickness: 5),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -84,13 +93,16 @@ class _PagePulsaState extends State<PagePulsa> {
             ),
           ],
         ),
-        bottomNavigationBar: CheckoutBottomBar(
-          routeName: '/invoice_pulsa',
-          currency: _currency,
-          paymentMethod: _paymentMethod,
-          paymentLogo: _paymentLogo,
-          accountBalance: _accountBalance,
-          chosenPrice: _chosenPrice,
+        bottomNavigationBar: Visibility(
+          visible: (_phoneNumber != ''),
+          child: CheckoutBottomBar(
+            routeName: '/invoice_pulsa',
+            currency: _currency,
+            paymentMethod: _paymentMethod,
+            paymentLogo: _paymentLogo,
+            accountBalance: _accountBalance,
+            chosenPrice: _chosenPrice,
+          ),
         ),
       ),
     );
