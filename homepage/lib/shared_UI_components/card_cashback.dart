@@ -24,23 +24,22 @@ class _CardCashbackState extends State<CardCashback> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
-          Container(
-            height: 150,
-            child: ListView.builder(
-                itemCount: _cashback.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 10),
-                    child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          new Text(_cashback[index][0]),
-                          new Text(_cashback[index][1]),
-                        ]),
-                  );
-                }),
-          ),
+          ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: _cashback.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        new Text(_cashback[index][0]),
+                        new Text(_cashback[index][1]),
+                      ]),
+                );
+              }),
         ],
       ),
     );
