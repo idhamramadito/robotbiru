@@ -93,11 +93,13 @@ class InvoiceListrik extends StatelessWidget {
                         color: Colors.grey[300],
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Text(
-                          "Listrik",
-                          style:
-                              TextStyle(fontSize: 15, color: Colors.grey[700]),
+                        padding: const EdgeInsets.all(0),
+                        child: Center(
+                          child: Text(
+                            "Listrik",
+                            style: TextStyle(
+                                fontSize: 15, color: Colors.grey[700]),
+                          ),
                         ),
                       )),
                 ),
@@ -117,10 +119,12 @@ class InvoiceListrik extends StatelessWidget {
                     color: Colors.white,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Text(
-                      "Order Berhasil",
-                      style: TextStyle(fontSize: 15, color: Colors.green),
+                    padding: const EdgeInsets.all(0),
+                    child: Center(
+                      child: Text(
+                        "Order Berhasil",
+                        style: TextStyle(fontSize: 15, color: Colors.green),
+                      ),
                     ),
                   )),
             ),
@@ -158,13 +162,15 @@ class InvoiceListrik extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(0),
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-                      child: Text(
-                        "1234 5678 9101 1213 11111",
-                        style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Center(
+                        child: Text(
+                          "12344 5678 91441 1213 11111",
+                          style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   )),
