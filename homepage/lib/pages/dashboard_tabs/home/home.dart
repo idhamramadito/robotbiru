@@ -9,11 +9,11 @@ import 'package:homepage/pages/dashboard_tabs/home/UI_components/search_bar.dart
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/upgrade_to_partner.dart';
 import 'package:homepage/pages/dashboard_tabs/home/UI_components/user_info.dart';
 
-class Home extends StatefulWidget {
-  _PageDashboard createState() => _PageDashboard();
+class HomePage extends StatefulWidget {
+  _HomePageState createState() => _HomePageState();
 }
 
-class _PageDashboard extends State<Home> {
+class _HomePageState extends State<HomePage> {
   @override
   //============================= main function ===============================
   Widget build(BuildContext context) {

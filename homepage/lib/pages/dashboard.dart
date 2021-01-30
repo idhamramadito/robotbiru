@@ -12,19 +12,8 @@ class Dashboard extends StatefulWidget {
 }
 
 class _Dashboard extends State<Dashboard> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   SystemChrome.setSystemUIOverlayStyle(
-  //     SystemUiOverlayStyle(
-  //       statusBarColor: Color(0xff008AD5),
-  //       statusBarIconBrightness: Brightness.light,
-  //     ),
-  //   );
-  // }
-
   final tabs = [
-    Home(),
+    HomePage(),
     NotificationPage(),
     HistoryPage(),
     ProfilePage(),
