@@ -113,7 +113,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                   ),
                   Center(
                     child: Container(
-                      child: Text('Daftar Favorit'),
+                      child: Text('Daftar Favorit Kosong'),
                     ),
                   ),
                 ],
