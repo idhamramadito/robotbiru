@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/shared_UI_components/receipt_card.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class InvoiceTokenListrik extends StatelessWidget {
   final List _boxDetailPesanan = [
@@ -295,7 +295,11 @@ class InvoiceTokenListrik extends StatelessWidget {
                     'Detail Pesanan',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  children: [ReceiptCard(dataList: _boxDetailPesanan)],
+                  children: [
+                    ReceiptCard(
+                      dataList: _boxDetailPesanan,
+                    )
+                  ],
                 ),
                 ExpansionTile(
                   expandedAlignment: Alignment.centerLeft,
@@ -304,7 +308,11 @@ class InvoiceTokenListrik extends StatelessWidget {
                     'Detail Transaksi',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                  children: [ReceiptCard(dataList: _boxDetailTransaksi)],
+                  children: [
+                    ReceiptCard(
+                      dataList: _boxDetailTransaksi,
+                    )
+                  ],
                 ),
               ],
             )),

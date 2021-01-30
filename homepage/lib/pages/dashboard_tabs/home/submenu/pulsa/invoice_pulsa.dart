@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/shared_UI_components/receipt_card.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class InvoicePulsa extends StatelessWidget {
   final List _boxDetailPesanan = [
