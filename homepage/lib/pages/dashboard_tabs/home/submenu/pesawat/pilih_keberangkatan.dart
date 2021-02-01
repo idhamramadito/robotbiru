@@ -31,6 +31,45 @@ class _PilihKeberangkatanState extends State<PilihKeberangkatan> {
               ),
             ),
           ),
+          SizedBox(height: 10),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: const EdgeInsets.fromLTRB(30, 10, 20, 0),
+            child: Text(
+              'Tujuan Terpopuler',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 15,
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            child: ListTile(
+              dense: true,
+              leading: Image.asset("images/gedung.png", width: 40),
+              title: Text(
+                'Jakarta, Indonesia',
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                'Semua Bandara',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey),
+              ),
+              trailing: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Text(
+                  'JKTC',
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
