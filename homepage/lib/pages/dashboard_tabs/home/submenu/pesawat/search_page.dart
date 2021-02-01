@@ -34,7 +34,9 @@ class _SearchPageState extends State<SearchPage> {
               child: TextField(
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search, size: 25),
-                    hintText: 'Cari Kota atau Bandara'),
+                    hintText: (widget.pageName == 'Maskapai')
+                        ? 'Cari Maskapai'
+                        : 'Cari Kota atau Bandara'),
               ),
             ),
           ),
