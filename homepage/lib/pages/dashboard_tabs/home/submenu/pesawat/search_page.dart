@@ -40,6 +40,108 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
           ),
+          SizedBox(height: 10),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: const EdgeInsets.fromLTRB(30, 10, 20, 0),
+            child: Text(
+              'Tujuan Terpopuler',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 15,
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            child: ListTile(
+              dense: true,
+              leading: Image.asset("images/gedung.png", width: 40),
+              title: Text(
+                'Jakarta, Indonesia',
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                'Semua Bandara',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey),
+              ),
+              trailing: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(10)),
+                child: Text(
+                  'JKTC',
+                  style: TextStyle(
+                    color: Colors.grey[700],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            child: ListTile(
+              dense: true,
+              leading: Image.asset("images/gedung.png", width: 40),
+              title: Text(
+                'Surabaya, Indonesia',
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                'Semua Bandara',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey),
+              ),
+              trailing: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(10)),
+                child: Text(
+                  'SBYC',
+                  style: TextStyle(
+                    color: Colors.grey[700],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            child: ListTile(
+              dense: true,
+              leading: Image.asset("images/gedung.png", width: 40),
+              title: Text(
+                'Medan, Indonesia',
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                'Semua Bandara',
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey),
+              ),
+              trailing: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(10)),
+                child: Text(
+                  'MESC',
+                  style: TextStyle(
+                    color: Colors.grey[700],
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
