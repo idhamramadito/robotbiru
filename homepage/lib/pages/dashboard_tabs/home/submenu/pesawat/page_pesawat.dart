@@ -8,43 +8,6 @@ class PagePesawat extends StatefulWidget {
 }
 
 class _PagePesawatState extends State<PagePesawat> {
-  List<TransportationAttributes> _dataList = [
-    TransportationAttributes(
-      name: 'Asal',
-      icon: Icons.flight_takeoff,
-      routeName: '/search_page',
-    ),
-    TransportationAttributes(
-      name: 'Destinasi',
-      icon: Icons.flight_land,
-      routeName: '/search_page',
-    ),
-    TransportationAttributes(
-      name: 'Tanggal Pergi',
-      icon: Icons.calendar_today,
-      routeName: '/date_page',
-    ),
-    TransportationAttributes(
-      name: 'Tanggal Pulang',
-      icon: Icons.calendar_today,
-      routeName: '/date_page',
-    ),
-    TransportationAttributes(
-      name: 'Jumlah Penumpang',
-      icon: Icons.person,
-      routeName: '/passengers',
-    ),
-    TransportationAttributes(
-      name: 'Kelas Kabin',
-      icon: Icons.airline_seat_recline_extra,
-      routeName: '/cabin_class',
-    ),
-    TransportationAttributes(
-      name: 'Maskapai',
-      icon: Icons.airplanemode_active,
-      routeName: '/search_page',
-    ),
-  ];
   bool _isTwoWayTrip = false;
 
   @override
@@ -140,3 +103,41 @@ class _PagePesawatState extends State<PagePesawat> {
     );
   }
 }
+
+List<TransportationAttributes> _dataList = [
+  TransportationAttributes(
+    name: 'Asal',
+    icon: Icons.flight_takeoff,
+    routeName: '/search_page',
+  ),
+  TransportationAttributes(
+    name: 'Destinasi',
+    icon: Icons.flight_land,
+    routeName: '/search_page',
+  ),
+  TransportationAttributes(
+    name: 'Tanggal Pergi',
+    icon: Icons.calendar_today,
+    routeName: '/date_page',
+  ),
+  TransportationAttributes(
+    name: 'Tanggal Pulang',
+    icon: Icons.calendar_today,
+    routeName: '/date_page',
+  ),
+  TransportationAttributes(
+    name: 'Jumlah Penumpang',
+    icon: Icons.person,
+    routeName: '/passengers',
+  ),
+  TransportationAttributes(
+    name: 'Kelas Kabin',
+    icon: Icons.airline_seat_recline_extra,
+    routeName: '/cabin_class',
+  ),
+  TransportationAttributes(
+    name: 'Maskapai',
+    icon: Icons.airplanemode_active,
+    routeName: '/search_page',
+  ),
+];
