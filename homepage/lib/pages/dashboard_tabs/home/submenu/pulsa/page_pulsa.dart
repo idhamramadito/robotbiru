@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/transaction_attributes.dart';
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/custom_form.dart';
@@ -25,16 +25,16 @@ class _PagePulsaState extends State<PagePulsa> {
   double _chosenPrice = 20000;
   double _accountBalance = 100000;
 
-  List<TransactionAttributes> _cashback = [
-    TransactionAttributes(name: 'Pemilik Retail'),
-    TransactionAttributes(name: 'Badan Koperasi'),
-    TransactionAttributes(name: 'Anggota Koperasi'),
-    TransactionAttributes(name: 'Anggota Retail'),
+  List<NameAndContent> _cashback = [
+    NameAndContent(name: 'Pemilik Retail'),
+    NameAndContent(name: 'Badan Koperasi'),
+    NameAndContent(name: 'Anggota Koperasi'),
+    NameAndContent(name: 'Anggota Retail'),
   ];
 
-  List<TransactionAttributes> _ringkasan = [
-    TransactionAttributes(name: 'Harga Dasar'),
-    TransactionAttributes(name: 'Harga Dasar'),
+  List<NameAndContent> _ringkasan = [
+    NameAndContent(name: 'Harga Dasar'),
+    NameAndContent(name: 'Harga Dasar'),
   ];
 
   @override
@@ -123,6 +123,17 @@ class _PagePulsaState extends State<PagePulsa> {
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                        width: double.infinity,
+                        child: FlatButton(
+                          child: Text('Pilih Kontak'),
+                          shape: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          onPressed: _contactPicker,
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -144,5 +155,12 @@ class _PagePulsaState extends State<PagePulsa> {
       ),
     );
   }
+
   //============================= main function ===============================
+  Future _contactPicker() async {
+    final result = await Navigator.of(context).pushNamed('/contacts_picker');
+    setState(() {
+      _phoneNumber = result ?? _phoneNumber;
+    });
+  }
 }

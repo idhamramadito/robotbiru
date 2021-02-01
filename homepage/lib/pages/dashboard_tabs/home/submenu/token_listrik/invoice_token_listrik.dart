@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/transaction_attributes.dart';
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class InvoiceTokenListrik extends StatelessWidget {
-  final List<TransactionAttributes> _boxDetailPesanan = [
-    TransactionAttributes(name: 'IDPEL'),
-    TransactionAttributes(name: 'Nama'),
-    TransactionAttributes(name: 'Tarif/Daya'),
-    TransactionAttributes(name: 'Waktu'),
-    TransactionAttributes(name: 'Tanggal'),
-    TransactionAttributes(name: 'Stand Meter'),
-    TransactionAttributes(name: 'RP TAG PLN'),
-    TransactionAttributes(name: 'NO REF'),
+  final List<NameAndContent> _boxDetailPesanan = [
+    NameAndContent(name: 'IDPEL'),
+    NameAndContent(name: 'Nama'),
+    NameAndContent(name: 'Tarif/Daya'),
+    NameAndContent(name: 'Waktu'),
+    NameAndContent(name: 'Tanggal'),
+    NameAndContent(name: 'Stand Meter'),
+    NameAndContent(name: 'RP TAG PLN'),
+    NameAndContent(name: 'NO REF'),
   ];
 
-  final List<TransactionAttributes> _boxDetailTransaksi = [
-    TransactionAttributes(name: 'Admin'),
-    TransactionAttributes(name: 'Cashback'),
-    TransactionAttributes(name: 'Total Bayar'),
+  final List<NameAndContent> _boxDetailTransaksi = [
+    NameAndContent(name: 'Admin'),
+    NameAndContent(name: 'Cashback'),
+    NameAndContent(name: 'Total Bayar'),
   ];
   @override
   //============================= main function ===============================

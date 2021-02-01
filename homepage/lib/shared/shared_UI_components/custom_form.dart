@@ -116,7 +116,6 @@ class _CustomFormState extends State<CustomForm> {
     final result = await Navigator.of(context).pushNamed('/contacts_picker');
     setState(() {
       _textController.text = result ?? _textController.text;
-      print(_textController.text);
     });
   }
 

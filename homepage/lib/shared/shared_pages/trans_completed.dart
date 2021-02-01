@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/transaction_attributes.dart';
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class TransCompleted extends StatefulWidget {
@@ -11,13 +11,13 @@ class TransCompleted extends StatefulWidget {
 }
 
 class _TransCompletedState extends State<TransCompleted> {
-  final List<TransactionAttributes> _boxDetailTransaksi = [
-    TransactionAttributes(name: 'Jenis Transaksi'),
-    TransactionAttributes(name: 'Jumlah'),
-    TransactionAttributes(name: 'Metode Pembayaran'),
-    TransactionAttributes(name: 'Waktu Transaksi'),
-    TransactionAttributes(name: 'Info Pesanan'),
-    TransactionAttributes(name: 'ID Transaksi'),
+  final List<NameAndContent> _boxDetailTransaksi = [
+    NameAndContent(name: 'Jenis Transaksi'),
+    NameAndContent(name: 'Jumlah'),
+    NameAndContent(name: 'Metode Pembayaran'),
+    NameAndContent(name: 'Waktu Transaksi'),
+    NameAndContent(name: 'Info Pesanan'),
+    NameAndContent(name: 'ID Transaksi'),
   ];
 
   @override

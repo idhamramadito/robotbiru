@@ -1,7 +1,7 @@
-class TransactionAttributes {
+class NameAndContent {
   String name;
   String content;
-  TransactionAttributes({
+  NameAndContent({
     String name,
     String content,
   })  : this.name = name,

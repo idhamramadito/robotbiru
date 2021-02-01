@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/transaction_attributes.dart';
+import 'package:homepage/models/name_and_content.dart';
 
 class ReceiptCard extends StatefulWidget {
   const ReceiptCard({
@@ -9,7 +9,7 @@ class ReceiptCard extends StatefulWidget {
   }) : super(key: key);
 
   final String cardName;
-  final List<TransactionAttributes> dataList;
+  final List<NameAndContent> dataList;
 
   @override
   _ReceiptCardState createState() => _ReceiptCardState();

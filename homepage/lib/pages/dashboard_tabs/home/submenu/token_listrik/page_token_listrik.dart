@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/transaction_attributes.dart';
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
@@ -25,16 +25,16 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
   double _chosenPrice = 21750;
   double _accountBalance = 100000;
 
-  List<TransactionAttributes> _cashback = [
-    TransactionAttributes(name: 'Pemilik Retail'),
-    TransactionAttributes(name: 'Badan Koperasi'),
-    TransactionAttributes(name: 'Anggota Koperasi'),
-    TransactionAttributes(name: 'Anggota Retail'),
+  List<NameAndContent> _cashback = [
+    NameAndContent(name: 'Pemilik Retail'),
+    NameAndContent(name: 'Badan Koperasi'),
+    NameAndContent(name: 'Anggota Koperasi'),
+    NameAndContent(name: 'Anggota Retail'),
   ];
 
-  List<TransactionAttributes> _ringkasan = [
-    TransactionAttributes(name: 'Harga Dasar'),
-    TransactionAttributes(name: 'Harga Dasar'),
+  List<NameAndContent> _ringkasan = [
+    NameAndContent(name: 'Harga Dasar'),
+    NameAndContent(name: 'Harga Dasar'),
   ];
 
   @override
