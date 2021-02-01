@@ -245,7 +245,9 @@ Future otherServices(BuildContext context) {
                           Text("Pesawat")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/pesawat');
+                      },
                     ),
                     InkWell(
                       child: Column(
