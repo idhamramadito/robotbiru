@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class BigButton extends StatelessWidget {
   final String title;
   final List data;
-  final VoidCallback route;
+  final VoidCallback onPressed;
 
   const BigButton({
     Key key,
     @required this.title,
     this.data,
-    this.route,
+    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -21,8 +21,7 @@ class BigButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(10.0),
             ),
-            primary: Theme.of(context).primaryColor,
-            onPrimary: Colors.white),
+            primary: Theme.of(context).primaryColor),
         child: Text(
           title,
           style: TextStyle(
@@ -31,7 +30,7 @@ class BigButton extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        onPressed: route,
+        onPressed: onPressed,
       ),
     );
   }

@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 
-class PilihKeberangkatan extends StatefulWidget {
+class SearchPage extends StatefulWidget {
+  SearchPage({
+    Key key,
+    this.pageName,
+  }) : super(key: key);
+
+  final String pageName;
+
   @override
-  _PilihKeberangkatanState createState() => _PilihKeberangkatanState();
+  _SearchPageState createState() => _SearchPageState();
 }
 
-class _PilihKeberangkatanState extends State<PilihKeberangkatan> {
+class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          'Pilih Keberangkatan',
+          'Pilih ${widget.pageName}',
           style: TextStyle(fontWeight: FontWeight.normal),
         ),
       ),
