@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class PagePesawat extends StatefulWidget {
@@ -7,49 +8,42 @@ class PagePesawat extends StatefulWidget {
 }
 
 class _PagePesawatState extends State<PagePesawat> {
-  List _dataList = [
-    [
-      'Asal',
-      Icons.flight_takeoff,
-      'Jakarta (JKTC)',
-      '/search_page',
-    ],
-    [
-      'Destinasi',
-      Icons.flight_land,
-      'Denpasar-Bali (DPS)',
-      '/search_page',
-    ],
-    [
-      'Tanggal Pergi',
-      Icons.calendar_today,
-      'Senin, 18 Januari 2021',
-      '/date_page',
-    ],
-    [
-      'Tanggal Pulang',
-      Icons.calendar_today,
-      'Senin, 22 Januari 2021',
-      '/date_page',
-    ],
-    [
-      'Jumlah Penumpang',
-      Icons.person,
-      '1 Dewasa, 1 Anak',
-      '/passengers',
-    ],
-    [
-      'Kelas Kabin',
-      Icons.airline_seat_recline_extra,
-      'Ekonomi',
-      '/cabin_class',
-    ],
-    [
-      'Maskapai',
-      Icons.airplanemode_active,
-      'Garuda Indonesia',
-      '/search_page',
-    ],
+  List<TransportationAttributes> _dataList = [
+    TransportationAttributes(
+      name: 'Asal',
+      icon: Icons.flight_takeoff,
+      routeName: '/search_page',
+    ),
+    TransportationAttributes(
+      name: 'Destinasi',
+      icon: Icons.flight_land,
+      routeName: '/search_page',
+    ),
+    TransportationAttributes(
+      name: 'Tanggal Pergi',
+      icon: Icons.calendar_today,
+      routeName: '/date_page',
+    ),
+    TransportationAttributes(
+      name: 'Tanggal Pulang',
+      icon: Icons.calendar_today,
+      routeName: '/date_page',
+    ),
+    TransportationAttributes(
+      name: 'Jumlah Penumpang',
+      icon: Icons.person,
+      routeName: '/passengers',
+    ),
+    TransportationAttributes(
+      name: 'Kelas Kabin',
+      icon: Icons.airline_seat_recline_extra,
+      routeName: '/cabin_class',
+    ),
+    TransportationAttributes(
+      name: 'Maskapai',
+      icon: Icons.airplanemode_active,
+      routeName: '/search_page',
+    ),
   ];
   bool _isTwoWayTrip = false;
 
@@ -90,27 +84,27 @@ class _PagePesawatState extends State<PagePesawat> {
                         Divider(thickness: 1),
                     itemBuilder: (BuildContext context, int index) {
                       return Visibility(
-                        visible: (_dataList[index][0] != 'Tanggal Pulang') ||
+                        visible: (_dataList[index].name != 'Tanggal Pulang') ||
                             (_isTwoWayTrip),
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).pushNamed(
-                              _dataList[index][3],
-                              arguments: _dataList[index][0],
+                              _dataList[index].routeName,
+                              arguments: _dataList[index].name,
                             );
                           },
                           child: ListTile(
                             dense: true,
                             leading: Icon(
-                              _dataList[index][1],
+                              _dataList[index].icon,
                               color: Theme.of(context).primaryColor,
                             ),
                             title: Text(
-                              _dataList[index][0],
+                              _dataList[index].name ?? 'Kosong',
                               style: TextStyle(color: Colors.grey),
                             ),
                             subtitle: Text(
-                              _dataList[index][2],
+                              _dataList[index].content ?? 'Belum Dipilih',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
@@ -118,7 +112,7 @@ class _PagePesawatState extends State<PagePesawat> {
                               ),
                             ),
                             trailing: Visibility(
-                              visible: _dataList[index][0] == 'Destinasi',
+                              visible: _dataList[index].name == 'Tanggal Pergi',
                               child: Switch(
                                 value: _isTwoWayTrip,
                                 onChanged: (val) {
