@@ -123,7 +123,7 @@ class _TransCompletedState extends State<TransCompleted> {
                       ),
                       BigButton(
                         title: 'Lihat Detail Transaksi',
-                        route: () {
+                        onPressed: () {
                           Navigator.of(context)
                               .pushReplacementNamed(widget.routeName);
                         },

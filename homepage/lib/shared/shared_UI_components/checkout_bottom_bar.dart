@@ -88,7 +88,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
           ),
           BigButton(
             title: 'Beli',
-            route: () {
+            onPressed: () {
               Navigator.of(context)
                   .pushNamed('/pin_code', arguments: widget.routeName);
             },

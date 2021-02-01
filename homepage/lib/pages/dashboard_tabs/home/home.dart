@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               height: 280,
-              // height: 300,
             ),
             Column(
               children: [
