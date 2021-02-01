@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transaction_attributes.dart';
 
 class ReceiptCard extends StatefulWidget {
   const ReceiptCard({
@@ -8,7 +9,7 @@ class ReceiptCard extends StatefulWidget {
   }) : super(key: key);
 
   final String cardName;
-  final List dataList;
+  final List<TransactionAttributes> dataList;
 
   @override
   _ReceiptCardState createState() => _ReceiptCardState();
@@ -44,10 +45,10 @@ class _ReceiptCardState extends State<ReceiptCard> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         new Text(
-                          widget.dataList[index][0],
+                          widget.dataList[index].name ?? 'NULL',
                           style: TextStyle(color: Colors.grey),
                         ),
-                        new Text(widget.dataList[index][1]),
+                        new Text(widget.dataList[index].content ?? 'NULL'),
                       ]),
                 );
               }),

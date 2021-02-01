@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transaction_attributes.dart';
 import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/custom_form.dart';
@@ -24,16 +25,16 @@ class _PagePulsaState extends State<PagePulsa> {
   String _chosenPrice = '20.000';
   String _accountBalance = '100.000';
 
-  List _cashback = [
-    ['Pemilik Retail', 'Rp5800'],
-    ['Badan Koperasi', 'Rp5800'],
-    ['Anggota Koperasi', 'Rp5800'],
-    ['Anggota Retail', 'Rp5800'],
+  List<TransactionAttributes> _cashback = [
+    TransactionAttributes(name: 'Pemilik Retail'),
+    TransactionAttributes(name: 'Badan Koperasi'),
+    TransactionAttributes(name: 'Anggota Koperasi'),
+    TransactionAttributes(name: 'Anggota Retail'),
   ];
 
-  List _ringkasan = [
-    ['Harga Dasar', 'Rp5800'],
-    ['Harga Dasar', 'Rp5800'],
+  List<TransactionAttributes> _ringkasan = [
+    TransactionAttributes(name: 'Harga Dasar'),
+    TransactionAttributes(name: 'Harga Dasar'),
   ];
 
   @override
@@ -111,10 +112,18 @@ class _PagePulsaState extends State<PagePulsa> {
                       ],
                     ),
                   ),
-                  Center(
-                    child: Container(
-                      child: Text('Daftar Favorit Kosong'),
-                    ),
+                  Column(
+                    children: [
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                        child: Text(
+                          'Pilih Kontak',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

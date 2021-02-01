@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transaction_attributes.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class InvoicePulsa extends StatelessWidget {
-  final List _boxDetailPesanan = [
-    ['Ditransfer Menggunakan', 'Saldo Robot Biru'],
-    ['Status', 'Diproses'],
-    ['Waktu', '11.30 PM'],
-    ['Tanggal', '25 Januari 2021'],
-    ['ID Transfer', 'ID12313132'],
-    ['Jumlah Transfer', 'Rp10.000'],
-    ['Biaya Admin', 'Rp1.000'],
-    ['Total Transfer', 'Rp11.000'],
+  final List<TransactionAttributes> _boxDetailPesanan = [
+    TransactionAttributes(name: 'Ditransfer Menggunakan'),
+    TransactionAttributes(name: 'Status'),
+    TransactionAttributes(name: 'Waktu'),
+    TransactionAttributes(name: 'Tanggal'),
+    TransactionAttributes(name: 'ID Transfer'),
+    TransactionAttributes(name: 'Jumlah Transfer'),
+    TransactionAttributes(name: 'Biaya Admin'),
+    TransactionAttributes(name: 'Total Transfer'),
   ];
 
   @override
