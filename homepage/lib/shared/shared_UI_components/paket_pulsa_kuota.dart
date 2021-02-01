@@ -5,7 +5,7 @@ class PaketPulsaKuota extends StatefulWidget {
     Key key,
     this.amount,
   }) : super(key: key);
-  final String amount;
+  final double amount;
 
   @override
   _PaketPulsaKuotaState createState() => _PaketPulsaKuotaState();

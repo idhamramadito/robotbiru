@@ -6,19 +6,15 @@ class NominalPulsa extends StatefulWidget {
     this.onChanged,
   }) : super(key: key);
 
-  final Function(String) onChanged;
+  final Function(double) onChanged;
 
   @override
   _NominalPulsaState createState() => _NominalPulsaState();
 }
 
 class _NominalPulsaState extends State<NominalPulsa> {
-  String selectedValue = '20.000';
-  List _boxPulsa = [
-    ['20.000', 'Harga', 'Rp19.500'],
-    ['25.000', 'Harga', 'Rp24.500'],
-    ['30.000', 'Harga', 'Rp29.000']
-  ];
+  double selectedValue = 20000;
+  List<double> _boxPulsa = [20000, 25000, 30000];
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +42,8 @@ class _NominalPulsaState extends State<NominalPulsa> {
               value: selectedValue,
               items: _boxPulsa.map((element) {
                 return DropdownMenuItem(
-                  child: Text(element[0]),
-                  value: element[0],
+                  child: Text(element.toString()),
+                  value: element,
                 );
               }).toList(),
               onChanged: (value) {

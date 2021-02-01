@@ -22,8 +22,8 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
   String _paymentLogo = 'images/dompet.png';
-  String _chosenPrice = '21.750';
-  String _accountBalance = '100.000';
+  double _chosenPrice = 21750;
+  double _accountBalance = 100000;
 
   List<TransactionAttributes> _cashback = [
     TransactionAttributes(name: 'Pemilik Retail'),

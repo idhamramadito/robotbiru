@@ -8,7 +8,7 @@ class AccountBalance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String currency = 'Rp';
-    double accountBalance = 12000.0;
+    double accountBalance = 12000;
 
     return Card(
       elevation: 5,
