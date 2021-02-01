@@ -6,6 +6,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/invoice_pulsa.d
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/page_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pilih_keberangkatan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/tanggal_pesawat.dart';
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
@@ -29,6 +30,8 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => PinCode(routeName: args));
       case '/pesawat':
         return MaterialPageRoute(builder: (_) => PilihKeberangkatan());
+      case '/tanggal_pesawat':
+        return MaterialPageRoute(builder: (_) => TanggalPesawat());
       case '/trans_completed':
         return MaterialPageRoute(
             builder: (_) => TransCompleted(routeName: args));
