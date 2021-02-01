@@ -8,11 +8,21 @@ class PagePesawat extends StatefulWidget {
 
 class _PagePesawatState extends State<PagePesawat> {
   List _dataList = [
-    ['Dari', Icons.flight_takeoff, 'Jakarta (JKTC)', '/search_page'],
-    ['Ke', Icons.flight_land, 'Denpasar-Bali (DPS)', '/search_page'],
-    ['Pergi', Icons.calendar_today, 'Senin, 18 Januari 2021', '/date_page'],
-    ['Pulang', Icons.calendar_today, 'Senin, 22 Januari 2021', '/date_page'],
-    ['Penumpang', Icons.person, '1 Dewasa, 1 Anak', '/passengers'],
+    ['Asal', Icons.flight_takeoff, 'Jakarta (JKTC)', '/search_page'],
+    ['Destinasi', Icons.flight_land, 'Denpasar-Bali (DPS)', '/search_page'],
+    [
+      'Tanggal Pergi',
+      Icons.calendar_today,
+      'Senin, 18 Januari 2021',
+      '/date_page'
+    ],
+    [
+      'Tanggal Pulang',
+      Icons.calendar_today,
+      'Senin, 22 Januari 2021',
+      '/date_page'
+    ],
+    ['Jumlah Penumpang', Icons.person, '1 Dewasa, 1 Anak', '/passengers'],
     [
       'Kelas Kabin',
       Icons.airline_seat_recline_extra,
@@ -60,12 +70,14 @@ class _PagePesawatState extends State<PagePesawat> {
                         Divider(thickness: 1),
                     itemBuilder: (BuildContext context, int index) {
                       return Visibility(
-                        visible: (_dataList[index][0] != 'Pulang') ||
+                        visible: (_dataList[index][0] != 'Tanggal Pulang') ||
                             (_isTwoWayTrip),
                         child: InkWell(
                           onTap: () {
-                            Navigator.of(context)
-                                .pushNamed(_dataList[index][3]);
+                            Navigator.of(context).pushNamed(
+                              _dataList[index][3],
+                              arguments: _dataList[index][0],
+                            );
                           },
                           child: ListTile(
                             dense: true,
@@ -86,7 +98,7 @@ class _PagePesawatState extends State<PagePesawat> {
                               ),
                             ),
                             trailing: Visibility(
-                              visible: _dataList[index][0] == 'Pergi',
+                              visible: _dataList[index][0] == 'Destinasi',
                               child: Switch(
                                 value: _isTwoWayTrip,
                                 onChanged: (val) {

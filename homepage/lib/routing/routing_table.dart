@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/search_page.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/invoice_pulsa.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/page_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice_token_listrik.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pilih_keberangkatan.dart';
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
@@ -25,7 +25,7 @@ class RoutingTable {
       case '/pesawat':
         return MaterialPageRoute(builder: (_) => PagePesawat());
       case '/search_page':
-        return MaterialPageRoute(builder: (_) => PilihKeberangkatan());
+        return MaterialPageRoute(builder: (_) => SearchPage(pageName: args));
       case '/invoice_pulsa':
         return MaterialPageRoute(builder: (_) => InvoicePulsa());
       case '/invoice_token_listrik':
