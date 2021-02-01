@@ -101,7 +101,7 @@ class _CustomFormState extends State<CustomForm> {
                                 icon: Icon(Icons.qr_code_scanner),
                                 onPressed: _barcodeScanner,
                               )
-                            : () {},
+                            : Container(),
                   ),
                 ),
               ],

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -88,46 +90,69 @@ class _ContactsPickerState extends State<ContactsPicker> {
     bool isSearching = searchController.text.isNotEmpty;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contacts'),
+        elevation: 0,
+        title: Text('Pilih Kontak'),
       ),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: <Widget>[
-            Container(
+      body: Column(
+        children: <Widget>[
+          Container(
+            color: Theme.of(context).primaryColor,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: TextField(
                 controller: searchController,
                 decoration: InputDecoration(
-                    labelText: 'Search',
-                    border: new OutlineInputBorder(
-                        borderSide: new BorderSide(
-                            color: Theme.of(context).primaryColor)),
-                    prefixIcon: Icon(Icons.search,
-                        color: Theme.of(context).primaryColor)),
+                  labelText: 'Cari Kontak',
+                  prefixIcon: Icon(Icons.search, size: 25),
+                ),
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: isSearching == true
-                    ? contactsFiltered.length
-                    : contacts.length,
-                itemBuilder: (context, index) {
-                  Contact contact = isSearching == true
-                      ? contactsFiltered[index]
-                      : contacts[index];
+          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: isSearching == true
+                  ? contactsFiltered.length
+                  : contacts.length,
+              itemBuilder: (context, index) {
+                Contact contact = isSearching == true
+                    ? contactsFiltered[index]
+                    : contacts[index];
 
-                  var baseColor =
-                      contactsColorMap[contact.displayName] as dynamic;
+                var baseColor =
+                    contactsColorMap[contact.displayName] as dynamic;
 
-                  Color color1 = baseColor[800];
-                  Color color2 = baseColor[400];
-                  return InkWell(
-                    onTap: () => Navigator.pop(
-                      context,
-                      contact.phones.elementAt(0).value,
+                Color color1 = baseColor[800];
+                Color color2 = baseColor[400];
+                return Column(
+                  children: [
+                    Visibility(
+                      visible: index == 0 ||
+                          contact.initials()[0] !=
+                              (isSearching == true
+                                  ? contactsFiltered[index - 1].initials()[0]
+                                  : contacts[index - 1].initials()[0]),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        color: Colors.grey[200],
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                        child: Text(
+                          contact.initials()[0],
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
                     ),
-                    child: ListTile(
+                    InkWell(
+                      onTap: () => Navigator.pop(
+                        context,
+                        contact.phones.elementAt(0).value,
+                      ),
+                      child: ListTile(
                         title: Text(contact.displayName),
                         subtitle: Text(contact.phones.length > 0
                             ? contact.phones.elementAt(0).value
@@ -139,24 +164,30 @@ class _ContactsPickerState extends State<ContactsPicker> {
                               )
                             : Container(
                                 decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    gradient: LinearGradient(
-                                        colors: [
-                                          color1,
-                                          color2,
-                                        ],
-                                        begin: Alignment.bottomLeft,
-                                        end: Alignment.topRight)),
+                                  shape: BoxShape.circle,
+                                  gradient: LinearGradient(
+                                      colors: [
+                                        color1,
+                                        color2,
+                                      ],
+                                      begin: Alignment.bottomLeft,
+                                      end: Alignment.topRight),
+                                ),
                                 child: CircleAvatar(
-                                    child: Text(contact.initials(),
-                                        style: TextStyle(color: Colors.white)),
-                                    backgroundColor: Colors.transparent))),
-                  );
-                },
-              ),
-            )
-          ],
-        ),
+                                    child: Text(
+                                      contact.initials(),
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    backgroundColor: Colors.transparent),
+                              ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          )
+        ],
       ),
     );
   }

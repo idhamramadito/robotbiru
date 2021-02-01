@@ -112,10 +112,18 @@ class _PagePulsaState extends State<PagePulsa> {
                       ],
                     ),
                   ),
-                  Center(
-                    child: Container(
-                      child: Text('Daftar Favorit Kosong'),
-                    ),
+                  Column(
+                    children: [
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                        child: Text(
+                          'Pilih Kontak',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

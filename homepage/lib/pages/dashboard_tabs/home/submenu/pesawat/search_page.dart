@@ -18,10 +18,7 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text(
-          'Pilih ${widget.pageName}',
-          style: TextStyle(fontWeight: FontWeight.normal),
-        ),
+        title: Text('Pilih ${widget.pageName}'),
       ),
       body: Column(
         children: [
