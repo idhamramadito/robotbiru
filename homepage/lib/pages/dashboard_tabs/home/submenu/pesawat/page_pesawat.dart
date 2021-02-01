@@ -8,28 +8,48 @@ class PagePesawat extends StatefulWidget {
 
 class _PagePesawatState extends State<PagePesawat> {
   List _dataList = [
-    ['Asal', Icons.flight_takeoff, 'Jakarta (JKTC)', '/search_page'],
-    ['Destinasi', Icons.flight_land, 'Denpasar-Bali (DPS)', '/search_page'],
+    [
+      'Asal',
+      Icons.flight_takeoff,
+      'Jakarta (JKTC)',
+      '/search_page',
+    ],
+    [
+      'Destinasi',
+      Icons.flight_land,
+      'Denpasar-Bali (DPS)',
+      '/search_page',
+    ],
     [
       'Tanggal Pergi',
       Icons.calendar_today,
       'Senin, 18 Januari 2021',
-      '/date_page'
+      '/date_page',
     ],
     [
       'Tanggal Pulang',
       Icons.calendar_today,
       'Senin, 22 Januari 2021',
-      '/date_page'
+      '/date_page',
     ],
-    ['Jumlah Penumpang', Icons.person, '1 Dewasa, 1 Anak', '/passengers'],
+    [
+      'Jumlah Penumpang',
+      Icons.person,
+      '1 Dewasa, 1 Anak',
+      '/passengers',
+    ],
     [
       'Kelas Kabin',
       Icons.airline_seat_recline_extra,
       'Ekonomi',
-      '/cabin_class'
+      '/cabin_class',
     ],
-    ['Maskapai', Icons.airplanemode_active, 'Garuda Indonesia', '/search_page'],
+    [
+      'Maskapai',
+      Icons.airplanemode_active,
+      'Garuda Indonesia',
+      '/search_page',
+    ],
   ];
   bool _isTwoWayTrip = false;
 
