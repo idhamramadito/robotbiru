@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transaction_attributes.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class TransCompleted extends StatefulWidget {
@@ -10,13 +11,13 @@ class TransCompleted extends StatefulWidget {
 }
 
 class _TransCompletedState extends State<TransCompleted> {
-  final List _boxDetailTransaksi = [
-    ['Jenis Transaksi', 'TRANSACTION_TYPE'],
-    ['Jumlah', 'Rp TOTAL_COST'],
-    ['Metode Pembayaran', 'PAYMENT_METHOD'],
-    ['Waktu Transaksi', 'TRANSACTION_DATE'],
-    ['Info Pesanan', 'ORDER_INFO'],
-    ['ID Transaksi', 'TRANSACTION_ID'],
+  final List<TransactionAttributes> _boxDetailTransaksi = [
+    TransactionAttributes(name: 'Jenis Transaksi'),
+    TransactionAttributes(name: 'Jumlah'),
+    TransactionAttributes(name: 'Metode Pembayaran'),
+    TransactionAttributes(name: 'Waktu Transaksi'),
+    TransactionAttributes(name: 'Info Pesanan'),
+    TransactionAttributes(name: 'ID Transaksi'),
   ];
 
   @override
@@ -48,7 +49,7 @@ class _TransCompletedState extends State<TransCompleted> {
               Container(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  'Pembelian ${_boxDetailTransaksi[0][1]} Menggunakan',
+                  'Pembelian ${_boxDetailTransaksi[0].content ?? 'NULL'} Menggunakan',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -57,7 +58,7 @@ class _TransCompletedState extends State<TransCompleted> {
               Container(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  _boxDetailTransaksi[2][1],
+                  _boxDetailTransaksi[2].content ?? 'NULL',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -85,7 +86,7 @@ class _TransCompletedState extends State<TransCompleted> {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
-                          _boxDetailTransaksi[1][1],
+                          _boxDetailTransaksi[1].content ?? 'NULL',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 30,
@@ -106,13 +107,15 @@ class _TransCompletedState extends State<TransCompleted> {
                                   Padding(
                                     padding: const EdgeInsets.all(2.0),
                                     child: Text(
-                                      _boxDetailTransaksi[index][0],
+                                      _boxDetailTransaksi[index].name ?? 'NULL',
                                       style: TextStyle(color: Colors.grey),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(2.0),
-                                    child: Text(_boxDetailTransaksi[index][1]),
+                                    child: Text(
+                                        _boxDetailTransaksi[index].content ??
+                                            'NULL'),
                                   ),
                                   SizedBox(height: 10),
                                 ],
