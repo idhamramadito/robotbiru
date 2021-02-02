@@ -37,10 +37,7 @@ class _PagePesawatState extends State<PagePesawat> {
     TransportationAttributes(
       name: 'Tanggal Pulang',
       icon: Icons.calendar_today,
-      onPressed: (context) {
-        Navigator.of(context)
-            .pushNamed('/date_page', arguments: 'Tanggal Pulang');
-      },
+      onPressed: (context) {},
     ),
     TransportationAttributes(
       name: 'Jumlah Penumpang',
@@ -129,7 +126,9 @@ class _PagePesawatState extends State<PagePesawat> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: (_dataList[index].content == null)
+                                  ? Colors.grey[300]
+                                  : Colors.black,
                             ),
                           ),
                           trailing: Visibility(
