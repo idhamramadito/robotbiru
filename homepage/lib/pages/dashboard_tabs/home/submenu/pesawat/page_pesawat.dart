@@ -15,31 +15,37 @@ class _PagePesawatState extends State<PagePesawat> {
     TransportationAttributes(
       name: 'Asal',
       icon: Icons.flight_takeoff,
-      onPressed: (context) {
-        Navigator.of(context).pushNamed('/search_page', arguments: 'Asal');
+      onPressed: (context) async {
+        var result = await Navigator.of(context)
+            .pushNamed('/search_page', arguments: 'Asal');
+        return result;
       },
     ),
     TransportationAttributes(
       name: 'Destinasi',
       icon: Icons.flight_land,
-      onPressed: (context) {
-        Navigator.of(context).pushNamed('/search_page', arguments: 'Destinasi');
+      onPressed: (context) async {
+        var result = await Navigator.of(context)
+            .pushNamed('/search_page', arguments: 'Destinasi');
+        return result;
       },
     ),
     TransportationAttributes(
       name: 'Tanggal Pergi',
       icon: Icons.calendar_today,
-      onPressed: (context) {
-        Navigator.of(context)
+      onPressed: (context) async {
+        var result = Navigator.of(context)
             .pushNamed('/date_page', arguments: 'Tanggal Pergi');
+        return result;
       },
     ),
     TransportationAttributes(
       name: 'Tanggal Pulang',
       icon: Icons.calendar_today,
-      onPressed: (context) {
-        Navigator.of(context)
+      onPressed: (context) async {
+        var result = Navigator.of(context)
             .pushNamed('/date_page', arguments: 'Tanggal Pulang');
+        return result;
       },
     ),
     TransportationAttributes(
