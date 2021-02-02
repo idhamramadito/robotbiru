@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_attributes.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/passengers.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class PagePesawat extends StatefulWidget {
@@ -48,8 +49,7 @@ class _PagePesawatState extends State<PagePesawat> {
         name: 'Jumlah Penumpang',
         icon: Icons.person,
         onPressed: () {
-          Navigator.of(context)
-              .pushNamed('/passengers', arguments: 'Jumlah Penumpang');
+          passengers(context);
         },
       ),
       TransportationAttributes(

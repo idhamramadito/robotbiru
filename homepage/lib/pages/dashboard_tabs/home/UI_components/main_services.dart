@@ -31,9 +31,7 @@ class MainServices extends StatelessWidget {
               Text("TaxiBot")
             ],
           ),
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed('/tanggal_pesawat');
-          },
+          onTap: () {},
         ),
         InkWell(
           child: Column(
