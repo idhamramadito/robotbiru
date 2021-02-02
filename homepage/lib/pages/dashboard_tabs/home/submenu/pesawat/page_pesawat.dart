@@ -3,6 +3,7 @@ import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/kelas_kabin.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/passengers.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:date_range_picker/date_range_picker.dart' as DateRangePicker;
 
 class PagePesawat extends StatefulWidget {
   @override
@@ -29,15 +30,18 @@ class _PagePesawatState extends State<PagePesawat> {
     TransportationAttributes(
       name: 'Tanggal Pergi',
       icon: Icons.calendar_today,
-      onPressed: (context) {
-        Navigator.of(context)
-            .pushNamed('/date_page', arguments: 'Tanggal Pergi');
+      onPressed: (context) async {
+        var result = await displayDateRangePicker(context);
+        return result;
       },
     ),
     TransportationAttributes(
       name: 'Tanggal Pulang',
       icon: Icons.calendar_today,
-      onPressed: (context) {},
+      onPressed: (context) async {
+        var result = await displayDateRangePicker(context);
+        return result;
+      },
     ),
     TransportationAttributes(
       name: 'Jumlah Penumpang',
@@ -159,5 +163,19 @@ class _PagePesawatState extends State<PagePesawat> {
         ),
       ),
     );
+  }
+}
+
+Future displayDateRangePicker(BuildContext context) async {
+  final List<DateTime> picked = await DateRangePicker.showDatePicker(
+      context: context,
+      initialFirstDate: DateTime.now(),
+      initialLastDate: DateTime.now().add(Duration(days: 2)),
+      firstDate: new DateTime(DateTime.now().year - 50),
+      lastDate: new DateTime(DateTime.now().year + 50));
+  if (picked != null && picked.length == 1) {
+    return picked[0].toString();
+  } else if (picked != null && picked.length == 2) {
+    return picked.toString();
   }
 }
