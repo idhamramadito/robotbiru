@@ -124,7 +124,7 @@ class _PagePesawatState extends State<PagePesawat> {
                               _dataList[index].content =
                                   result ?? _dataList[index].content;
                             });
-                            print(_dataList[index].content);
+                            print('${_dataList[index].content}');
                           },
                           dense: true,
                           leading: Icon(
@@ -132,11 +132,13 @@ class _PagePesawatState extends State<PagePesawat> {
                             color: Theme.of(context).primaryColor,
                           ),
                           title: Text(
-                            _dataList[index].name ?? 'Kosong',
+                            '${_dataList[index].name}' ?? 'Kosong',
                             style: TextStyle(color: Colors.grey),
                           ),
                           subtitle: Text(
-                            _dataList[index].content ?? 'Belum Dipilih',
+                            (_dataList[index].content == null)
+                                ? 'Belum Dipilih'
+                                : '${_dataList[index].content}',
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
@@ -187,8 +189,8 @@ Future displayDateRangePicker(BuildContext context) async {
       firstDate: new DateTime(DateTime.now().year - 50),
       lastDate: new DateTime(DateTime.now().year + 50));
   if (picked != null && picked.length == 1) {
-    return picked[0].toString();
+    return picked[0];
   } else if (picked != null && picked.length == 2) {
-    return picked.toString();
+    return picked;
   }
 }

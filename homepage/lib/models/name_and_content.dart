@@ -1,9 +1,12 @@
 class NameAndContent {
+  String id;
   String name;
   var content;
   NameAndContent({
+    String id,
     String name,
     var content,
-  })  : this.name = name,
+  })  : this.id = id,
+        this.name = name,
         this.content = content;
 }

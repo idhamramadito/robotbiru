@@ -24,7 +24,7 @@ class AccountBalance extends StatelessWidget {
           style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          '$currency ${accountBalance.toString()}',
+          '$currency $accountBalance',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

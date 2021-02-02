@@ -58,7 +58,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                     ],
                   ),
                   Text(
-                    '${widget.currency} ${widget.accountBalance.toString()}',
+                    '${widget.currency} ${widget.accountBalance}',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                 ],
@@ -79,7 +79,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                 ),
                 children: <TextSpan>[
                   TextSpan(
-                    text: '${widget.currency} ${widget.chosenPrice.toString()}',
+                    text: '${widget.currency} ${widget.chosenPrice}',
                     style: TextStyle(color: Colors.blue),
                   ),
                 ],

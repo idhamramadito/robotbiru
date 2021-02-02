@@ -80,7 +80,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            _boxTokenListrik[index].toString(),
+                            '${_boxTokenListrik[index]}',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
