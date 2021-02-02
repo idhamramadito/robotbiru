@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_attributes.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/kelas_kabin.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class PagePesawat extends StatefulWidget {
@@ -55,9 +56,9 @@ class _PagePesawatState extends State<PagePesawat> {
       TransportationAttributes(
         name: 'Kelas Kabin',
         icon: Icons.airline_seat_recline_extra,
-        onPressed: () {
-          Navigator.of(context)
-              .pushNamed('/cabin_class', arguments: 'Kelas Kabin');
+        onPressed: () async {
+          Future result = await kelasKabin(context);
+          return result;
         },
       ),
       TransportationAttributes(
@@ -108,7 +109,12 @@ class _PagePesawatState extends State<PagePesawat> {
                         visible: (_dataList[index].name != 'Tanggal Pulang') ||
                             (_isTwoWayTrip),
                         child: InkWell(
-                          onTap: _dataList[index].onPressed,
+                          onTap: () async {
+                            var result = await _dataList[index].onPressed();
+                            setState(() {
+                              _dataList[index].content = result;
+                            });
+                          },
                           child: ListTile(
                             dense: true,
                             leading: Icon(

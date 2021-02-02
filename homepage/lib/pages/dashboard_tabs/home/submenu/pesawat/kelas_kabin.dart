@@ -1,48 +1,139 @@
 import 'package:flutter/material.dart';
 
-class KelasKabin extends StatefulWidget {
-  @override
-  _KelasKabinState createState() => _KelasKabinState();
-}
+List _cabinClass = ['Ekonomi', 'Premium Ekonomi', 'Bisnis', 'First'];
 
-class _KelasKabinState extends State<KelasKabin> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            child: Text(
-              'Kelas Kabin',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            child: Text(
-              'Ekonomi',
-              style: TextStyle(fontWeight: FontWeight.normal),
-            ),
-          ),
-          Container(
-            child: Text(
-              'Premium Ekonomi',
-              style: TextStyle(fontWeight: FontWeight.normal),
-            ),
-          ),
-          Container(
-            child: Text(
-              'Bisnis',
-              style: TextStyle(fontWeight: FontWeight.normal),
-            ),
-          ),
-          Container(
-            child: Text(
-              'First',
-              style: TextStyle(fontWeight: FontWeight.normal),
-            ),
-          ),
-        ],
+Future kelasKabin(BuildContext context) {
+  return showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
       ),
-    );
-  }
+    ),
+    builder: (context) {
+      return DraggableScrollableSheet(
+        expand: false,
+        builder: (context, controller) {
+          return SingleChildScrollView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: controller,
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+                  height: 5,
+                  width: 30,
+                  decoration: BoxDecoration(
+                    color: Color(0xffC4C4C4),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                Text(
+                  'Kelas Kabin',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 21,
+                  ),
+                ),
+                ListView.separated(
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 4,
+                  separatorBuilder: (context, index) => Divider(
+                    color: Colors.black,
+                  ),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      child: Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Text(
+                              _cabinClass[index],
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 20,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context, _cabinClass[index]);
+                      },
+                    );
+                  },
+                )
+
+                //
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Container(
+                //         child: Text(
+                //           'Kelas Kabin',
+                //           style: TextStyle(
+                //             fontWeight: FontWeight.bold,
+                //             fontSize: 21,
+                //           ),
+                //         ),
+                //       ),
+                //       SizedBox(height: 30),
+                //       Container(
+                //         child: Text(
+                //           'Ekonomi',
+                //           style: TextStyle(
+                //             fontWeight: FontWeight.normal,
+                //             fontSize: 20,
+                //           ),
+                //         ),
+                //       ),
+                //       SizedBox(height: 20),
+                //       Divider(),
+                //       SizedBox(height: 20),
+                //       Container(
+                //         child: Text(
+                //           'Premium Ekonomi',
+                //           style: TextStyle(
+                //             fontWeight: FontWeight.normal,
+                //             fontSize: 20,
+                //           ),
+                //         ),
+                //       ),
+                //       SizedBox(height: 20),
+                //       Divider(),
+                //       SizedBox(height: 20),
+                //       Container(
+                //         child: Text(
+                //           'Bisnis',
+                //           style: TextStyle(
+                //             fontWeight: FontWeight.normal,
+                //             fontSize: 20,
+                //           ),
+                //         ),
+                //       ),
+                //       SizedBox(height: 20),
+                //       Divider(),
+                //       SizedBox(height: 20),
+                //       Container(
+                //         child: Text(
+                //           'First',
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.normal, fontSize: 20),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+              ],
+            ),
+          );
+        },
+      );
+    },
+  );
 }
