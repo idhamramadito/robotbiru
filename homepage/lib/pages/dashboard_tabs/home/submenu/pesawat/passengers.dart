@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 Future passengers(BuildContext context) {
+  List passengerList = [0, 0, 0];
+
   return showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -20,18 +24,7 @@ Future passengers(BuildContext context) {
               controller: controller,
               child: Column(
                 children: [
-                  Center(
-                    child: Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      height: 4,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: Color(0xffC4C4C4),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                  ),
+                  SlideUpMarker(),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                     child: Text(
@@ -91,15 +84,25 @@ Future passengers(BuildContext context) {
                   CupertinoPicker(
                     itemExtent: 50,
                     onSelectedItemChanged: (int index) {
-                      print(index);
+                      passengerList[0] = index;
                     },
                     children: <Widget>[
-                      Text("Item 1"),
-                      Text("Item 2"),
-                      Text("Item 3"),
-                      Text("Item 4"),
+                      Text("0"),
+                      Text("1"),
+                      Text("2"),
+                      Text("3"),
+                      Text("4"),
                     ],
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: BigButton(
+                      title: 'Simpan',
+                      onPressed: () {
+                        Navigator.pop(context, passengerList[0].toString());
+                      },
+                    ),
+                  ),
                 ],
               ),
             );

@@ -118,7 +118,8 @@ class _PagePesawatState extends State<PagePesawat> {
                             final result =
                                 await _dataList[index].onPressed(context);
                             setState(() {
-                              _dataList[index].content = result;
+                              _dataList[index].content =
+                                  result ?? _dataList[index].content;
                             });
                             print(_dataList[index].content);
                           },

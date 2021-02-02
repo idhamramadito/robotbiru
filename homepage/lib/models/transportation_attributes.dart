@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class TransportationAttributes {
   String name;
   IconData icon;
-  String content;
+  var content;
   String routeName;
   Function onPressed;
   TransportationAttributes({
     String name,
     IconData icon,
-    String content,
+    var content,
     String routeName,
     Function onPressed,
   })  : this.name = name,

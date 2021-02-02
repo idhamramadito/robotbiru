@@ -1,9 +1,9 @@
 class NameAndContent {
   String name;
-  String content;
+  var content;
   NameAndContent({
     String name,
-    String content,
+    var content,
   })  : this.name = name,
         this.content = content;
 }

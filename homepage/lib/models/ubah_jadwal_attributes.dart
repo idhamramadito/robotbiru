@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class UbahJadwalAttribute {
   String name;
   IconData icon;
-  String content;
+  var content;
   String routeName;
   UbahJadwalAttribute({
     String name,
     IconData icon,
-    String content,
+    var content,
     String routeName,
   })  : this.name = name,
         this.icon = icon,
