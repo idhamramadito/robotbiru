@@ -65,32 +65,39 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
             ),
           ),
           Divider(thickness: 2),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 5),
-            alignment: Alignment.centerLeft,
-            child: RichText(
-              text: TextSpan(
-                text: 'Total Akhir:  ',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: '${widget.currency} ${widget.data.chosenPrice}',
-                    style: TextStyle(color: Colors.blue),
+          Visibility(
+            visible: (widget.data.targetNumber != null &&
+                widget.data.targetNumber != ''),
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              alignment: Alignment.centerLeft,
+              child: RichText(
+                text: TextSpan(
+                  text: 'Total Akhir:  ',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
                   ),
-                ],
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: '${widget.currency} ${widget.data.chosenPrice}',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
           BigButton(
             title: 'Beli',
-            onPressed: () {
-              Navigator.of(context)
-                  .pushNamed('/pin_code', arguments: widget.routeName);
-            },
+            onPressed: (widget.data.targetNumber != null &&
+                    widget.data.targetNumber != '')
+                ? () {
+                    Navigator.of(context)
+                        .pushNamed('/pin_code', arguments: widget.routeName);
+                  }
+                : null,
           ),
         ],
       ),

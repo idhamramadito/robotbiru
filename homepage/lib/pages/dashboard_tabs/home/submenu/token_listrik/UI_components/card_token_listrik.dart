@@ -6,7 +6,7 @@ class CardTokenListrik extends StatefulWidget {
     @required this.idNumber,
   }) : super(key: key);
 
-  final int idNumber;
+  final String idNumber;
 
   @override
   _CardTokenListrikState createState() => _CardTokenListrikState();

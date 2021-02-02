@@ -77,13 +77,10 @@ class _PagePulsaState extends State<PagePulsa> {
             ),
           ],
         ),
-        bottomNavigationBar: Visibility(
-          visible: (_dataList.targetNumber != null),
-          child: CheckoutBottomBar(
-            routeName: '/invoice_pulsa',
-            currency: _currency,
-            data: _dataList,
-          ),
+        bottomNavigationBar: CheckoutBottomBar(
+          routeName: '/invoice_pulsa',
+          currency: _currency,
+          data: _dataList,
         ),
       ),
     );
@@ -100,7 +97,7 @@ class _PagePulsaState extends State<PagePulsa> {
             prompt: 'Nomor Handphone',
             clearButton: true,
             onChanged: (val) => setState(() {
-              _dataList.targetNumber = int.parse(val);
+              _dataList.targetNumber = val;
             }),
             externalPicker: 'contacts',
           ),
@@ -110,7 +107,8 @@ class _PagePulsaState extends State<PagePulsa> {
             }),
           ),
           Visibility(
-            visible: (_dataList.targetNumber != null),
+            visible: (_dataList.targetNumber != null &&
+                _dataList.targetNumber != ''),
             child: Column(
               children: [
                 NominalPulsa(

@@ -1,6 +1,6 @@
 class TopUpData {
   String id;
-  int targetNumber;
+  String targetNumber;
   String paymentMethod;
   double accountBalance;
   double chosenPrice;
@@ -9,7 +9,7 @@ class TopUpData {
 
   TopUpData({
     String id,
-    int targetNumber,
+    String targetNumber,
     String paymentMethod,
     double accountBalance,
     double chosenPrice,

@@ -79,7 +79,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           prompt: 'ID Pelanggan / Nomor Meteran',
                           clearButton: true,
                           onChanged: (val) => setState(() {
-                            _dataList.targetNumber = int.parse(val);
+                            _dataList.targetNumber = val;
                           }),
                           externalPicker: 'barcode',
                         ),
@@ -89,7 +89,8 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           }),
                         ),
                         Visibility(
-                          visible: (_dataList.targetNumber != null),
+                          visible: (_dataList.targetNumber != null &&
+                              _dataList.targetNumber != ''),
                           child: Column(
                             children: [
                               CardTokenListrik(
@@ -125,13 +126,10 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
             ),
           ],
         ),
-        bottomNavigationBar: Visibility(
-          visible: (_dataList.targetNumber != null),
-          child: CheckoutBottomBar(
-            routeName: '/invoice__token_listrik',
-            currency: _currency,
-            data: _dataList,
-          ),
+        bottomNavigationBar: CheckoutBottomBar(
+          routeName: '/invoice__token_listrik',
+          currency: _currency,
+          data: _dataList,
         ),
       ),
     );
