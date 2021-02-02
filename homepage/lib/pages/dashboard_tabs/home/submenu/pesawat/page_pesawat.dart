@@ -135,7 +135,9 @@ class _PagePesawatState extends State<PagePesawat> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: (_dataList[index].content == null)
+                                  ? Colors.grey[300]
+                                  : Colors.black,
                             ),
                           ),
                           trailing: Visibility(
