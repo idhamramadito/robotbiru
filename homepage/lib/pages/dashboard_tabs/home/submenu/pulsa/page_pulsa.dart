@@ -37,6 +37,60 @@ class _PagePulsaState extends State<PagePulsa> {
     NameAndContent(name: 'Harga Dasar'),
   ];
 
+  @override
+  //============================= main function ===============================
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Pulsa',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        body: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: TabBar(
+                unselectedLabelColor: Theme.of(context).primaryColor,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Theme.of(context).primaryColor,
+                ),
+                tabs: [
+                  Tab(text: "Input Baru"),
+                  Tab(text: "Daftar Favorit"),
+                ],
+              ),
+            ),
+            Flexible(
+              child: TabBarView(
+                children: [
+                  _inputBaru(),
+                  _daftarFavorit(context),
+                ],
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: Visibility(
+          visible: (_phoneNumber != '' && _phoneNumber != null),
+          child: CheckoutBottomBar(
+            routeName: '/invoice_pulsa',
+            currency: _currency,
+            paymentMethod: _paymentMethod,
+            paymentLogo: _paymentLogo,
+            accountBalance: _accountBalance,
+            chosenPrice: _chosenPrice,
+          ),
+        ),
+      ),
+    );
+  }
+  //============================= main function ===============================
+
   Widget _inputBaru() {
     return SingleChildScrollView(
       child: Column(
@@ -128,58 +182,4 @@ class _PagePulsaState extends State<PagePulsa> {
       _phoneNumber = result ?? _phoneNumber;
     });
   }
-
-  @override
-  //============================= main function ===============================
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Pulsa',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-        body: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: TabBar(
-                unselectedLabelColor: Theme.of(context).primaryColor,
-                indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).primaryColor,
-                ),
-                tabs: [
-                  Tab(text: "Input Baru"),
-                  Tab(text: "Daftar Favorit"),
-                ],
-              ),
-            ),
-            Flexible(
-              child: TabBarView(
-                children: [
-                  _inputBaru(),
-                  _daftarFavorit(context),
-                ],
-              ),
-            ),
-          ],
-        ),
-        bottomNavigationBar: Visibility(
-          visible: (_phoneNumber != '' && _phoneNumber != null),
-          child: CheckoutBottomBar(
-            routeName: '/invoice_pulsa',
-            currency: _currency,
-            paymentMethod: _paymentMethod,
-            paymentLogo: _paymentLogo,
-            accountBalance: _accountBalance,
-            chosenPrice: _chosenPrice,
-          ),
-        ),
-      ),
-    );
-  }
-  //============================= main function ===============================
 }
