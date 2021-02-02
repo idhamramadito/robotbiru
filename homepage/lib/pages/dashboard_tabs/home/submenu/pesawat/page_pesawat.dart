@@ -123,6 +123,11 @@ class _PagePesawatState extends State<PagePesawat> {
                             setState(() {
                               _dataList[index].content =
                                   result ?? _dataList[index].content;
+                              if (_dataList[index].name == 'Tanggal Pergi' &&
+                                  !_isTwoWayTrip) {
+                                _dataList[index + 1].content =
+                                    result ?? _dataList[index + 1].content;
+                              }
                             });
                             print('${_dataList[index].content}');
                           },
