@@ -3,7 +3,6 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/jadwal_pesawa
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/search_page.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/date_page.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/kelas_kabin.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -25,8 +24,6 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => PagePulsa());
       case '/token_listrik':
         return MaterialPageRoute(builder: (_) => PageTokenListrik());
-      case '/cabin_class':
-        return MaterialPageRoute(builder: (_) => KelasKabin());
       case '/pesawat':
         return MaterialPageRoute(builder: (_) => PagePesawat());
       case '/search_page':
