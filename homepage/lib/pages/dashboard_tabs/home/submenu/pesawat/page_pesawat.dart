@@ -57,7 +57,7 @@ class _PagePesawatState extends State<PagePesawat> {
         name: 'Kelas Kabin',
         icon: Icons.airline_seat_recline_extra,
         onPressed: () async {
-          Future result = await kelasKabin(context);
+          var result = await kelasKabin(context);
           return result;
         },
       ),
@@ -102,47 +102,46 @@ class _PagePesawatState extends State<PagePesawat> {
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: _dataList.length,
-                    separatorBuilder: (BuildContext context, int index) =>
-                        Divider(thickness: 1),
-                    itemBuilder: (BuildContext context, int index) {
+                    separatorBuilder: (context, index) => Divider(),
+                    itemBuilder: (context, index) {
                       return Visibility(
                         visible: (_dataList[index].name != 'Tanggal Pulang') ||
                             (_isTwoWayTrip),
-                        child: InkWell(
+                        child: ListTile(
+                          key: UniqueKey(),
                           onTap: () async {
-                            var result = await _dataList[index].onPressed();
+                            final result = await _dataList[index].onPressed();
                             setState(() {
                               _dataList[index].content = result;
                             });
+                            print(_dataList[index].content);
                           },
-                          child: ListTile(
-                            dense: true,
-                            leading: Icon(
-                              _dataList[index].icon,
-                              color: Theme.of(context).primaryColor,
+                          dense: true,
+                          leading: Icon(
+                            _dataList[index].icon,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          title: Text(
+                            _dataList[index].name ?? 'Kosong',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          subtitle: Text(
+                            _dataList[index].content ?? 'Belum Dipilih',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
                             ),
-                            title: Text(
-                              _dataList[index].name ?? 'Kosong',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            subtitle: Text(
-                              _dataList[index].content ?? 'Belum Dipilih',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
-                            trailing: Visibility(
-                              visible: _dataList[index].name == 'Tanggal Pergi',
-                              child: Switch(
-                                value: _isTwoWayTrip,
-                                onChanged: (val) {
-                                  setState(() {
-                                    _isTwoWayTrip = val;
-                                  });
-                                },
-                              ),
+                          ),
+                          trailing: Visibility(
+                            visible: _dataList[index].name == 'Tanggal Pergi',
+                            child: Switch(
+                              value: _isTwoWayTrip,
+                              onChanged: (val) {
+                                setState(() {
+                                  _isTwoWayTrip = val;
+                                });
+                              },
                             ),
                           ),
                         ),

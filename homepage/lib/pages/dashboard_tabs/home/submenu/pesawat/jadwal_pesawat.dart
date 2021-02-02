@@ -111,45 +111,41 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                       visible: (_dataList[index].name !=
                                               'Tanggal Pulang') ||
                                           (_isTwoWayTrip),
-                                      child: InkWell(
+                                      child: ListTile(
                                         onTap: () {
                                           Navigator.of(context).pushNamed(
                                             _dataList[index].routeName,
                                             arguments: _dataList[index].name,
                                           );
                                         },
-                                        child: ListTile(
-                                          dense: true,
-                                          leading: Icon(
-                                            _dataList[index].icon,
-                                            color:
-                                                Theme.of(context).primaryColor,
+                                        dense: true,
+                                        leading: Icon(
+                                          _dataList[index].icon,
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                        title: Text(
+                                          _dataList[index].name ?? 'Kosong',
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                        subtitle: Text(
+                                          _dataList[index].content ??
+                                              'Belum Dipilih',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
                                           ),
-                                          title: Text(
-                                            _dataList[index].name ?? 'Kosong',
-                                            style:
-                                                TextStyle(color: Colors.grey),
-                                          ),
-                                          subtitle: Text(
-                                            _dataList[index].content ??
-                                                'Belum Dipilih',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          trailing: Visibility(
-                                            visible: _dataList[index].name ==
-                                                'Tanggal Pergi',
-                                            child: Switch(
-                                              value: _isTwoWayTrip,
-                                              onChanged: (val) {
-                                                setState(() {
-                                                  _isTwoWayTrip = val;
-                                                });
-                                              },
-                                            ),
+                                        ),
+                                        trailing: Visibility(
+                                          visible: _dataList[index].name ==
+                                              'Tanggal Pergi',
+                                          child: Switch(
+                                            value: _isTwoWayTrip,
+                                            onChanged: (val) {
+                                              setState(() {
+                                                _isTwoWayTrip = val;
+                                              });
+                                            },
                                           ),
                                         ),
                                       ),
