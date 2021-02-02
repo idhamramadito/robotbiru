@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_attributes.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/kelas_kabin.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/passengers.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/kelas_kabin.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/passengers.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRangePicker;
 
