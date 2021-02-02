@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/transportation_attributes.dart';
+import 'package:homepage/models/ubah_jadwal_attributes.dart';
 
 class JadwalPesawat extends StatefulWidget {
   JadwalPesawat({Key key}) : super(key: key);
@@ -439,41 +439,40 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
   }
 }
 
-List<TransportationAttributes> _dataList = [
-  TransportationAttributes(
+List _dataList = [
+  UbahJadwalAttribute(
     name: 'Asal',
     icon: Icons.flight_takeoff,
     routeName: '/search_page',
   ),
-  TransportationAttributes(
+  UbahJadwalAttribute(
     name: 'Destinasi',
     icon: Icons.flight_land,
     routeName: '/search_page',
   ),
-  TransportationAttributes(
+  UbahJadwalAttribute(
     name: 'Tanggal Pergi',
     icon: Icons.calendar_today,
     routeName: '/date_page',
   ),
-  TransportationAttributes(
+  UbahJadwalAttribute(
     name: 'Tanggal Pulang',
     icon: Icons.calendar_today,
     routeName: '/date_page',
   ),
-  TransportationAttributes(
+  UbahJadwalAttribute(
     name: 'Jumlah Penumpang',
     icon: Icons.person,
     routeName: '/passengers',
   ),
-  TransportationAttributes(
+  UbahJadwalAttribute(
     name: 'Kelas Kabin',
     icon: Icons.airline_seat_recline_extra,
     routeName: '/cabin_class',
   ),
-  TransportationAttributes(
+  UbahJadwalAttribute(
     name: 'Maskapai',
     icon: Icons.airplanemode_active,
     routeName: '/search_page',
   ),
 ];
-
