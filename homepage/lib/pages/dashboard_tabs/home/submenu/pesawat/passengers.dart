@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 Future passengers(BuildContext context) {
   return showModalBottomSheet(
@@ -87,6 +88,18 @@ Future passengers(BuildContext context) {
                           )),
                     ],
                   ),
+                  CupertinoPicker(
+                    itemExtent: 50,
+                    onSelectedItemChanged: (int index) {
+                      print(index);
+                    },
+                    children: <Widget>[
+                      Text("Item 1"),
+                      Text("Item 2"),
+                      Text("Item 3"),
+                      Text("Item 4"),
+                    ],
+                  )
                 ],
               ),
             );
