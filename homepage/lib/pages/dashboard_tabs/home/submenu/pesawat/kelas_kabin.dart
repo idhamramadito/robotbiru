@@ -80,67 +80,6 @@ Future kelasKabin(BuildContext context) {
                     );
                   },
                 )
-
-                //
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.start,
-                //     children: [
-                //       Container(
-                //         child: Text(
-                //           'Kelas Kabin',
-                //           style: TextStyle(
-                //             fontWeight: FontWeight.bold,
-                //             fontSize: 21,
-                //           ),
-                //         ),
-                //       ),
-                //       SizedBox(height: 30),
-                //       Container(
-                //         child: Text(
-                //           'Ekonomi',
-                //           style: TextStyle(
-                //             fontWeight: FontWeight.normal,
-                //             fontSize: 20,
-                //           ),
-                //         ),
-                //       ),
-                //       SizedBox(height: 20),
-                //       Divider(),
-                //       SizedBox(height: 20),
-                //       Container(
-                //         child: Text(
-                //           'Premium Ekonomi',
-                //           style: TextStyle(
-                //             fontWeight: FontWeight.normal,
-                //             fontSize: 20,
-                //           ),
-                //         ),
-                //       ),
-                //       SizedBox(height: 20),
-                //       Divider(),
-                //       SizedBox(height: 20),
-                //       Container(
-                //         child: Text(
-                //           'Bisnis',
-                //           style: TextStyle(
-                //             fontWeight: FontWeight.normal,
-                //             fontSize: 20,
-                //           ),
-                //         ),
-                //       ),
-                //       SizedBox(height: 20),
-                //       Divider(),
-                //       SizedBox(height: 20),
-                //       Container(
-                //         child: Text(
-                //           'First',
-                //           style: TextStyle(
-                //               fontWeight: FontWeight.normal, fontSize: 20),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           );

@@ -49,8 +49,9 @@ class _PagePesawatState extends State<PagePesawat> {
       TransportationAttributes(
         name: 'Jumlah Penumpang',
         icon: Icons.person,
-        onPressed: () {
-          passengers(context);
+        onPressed: () async {
+          var result = await passengers(context);
+          return result;
         },
       ),
       TransportationAttributes(
@@ -70,7 +71,6 @@ class _PagePesawatState extends State<PagePesawat> {
         },
       ),
     ];
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
