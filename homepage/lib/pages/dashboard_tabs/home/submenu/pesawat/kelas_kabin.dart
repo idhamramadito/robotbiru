@@ -30,41 +30,53 @@ Future kelasKabin(BuildContext context) {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-                Text(
-                  'Kelas Kabin',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 21,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Kelas Kabin',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 21,
+                      ),
+                    ),
+                  ],
                 ),
+                SizedBox(height: 20),
                 ListView.separated(
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 4,
                   separatorBuilder: (context, index) => Divider(
-                    color: Colors.black,
+                    color: Colors.grey,
                   ),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return InkWell(
-                      child: Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              _cabinClass[index],
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 20,
-                              ),
-                            )
-                          ],
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          child: Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  _cabinClass[index],
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.pop(context, _cabinClass[index]);
+                          },
                         ),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context, _cabinClass[index]);
-                      },
+                      ],
                     );
                   },
                 )
