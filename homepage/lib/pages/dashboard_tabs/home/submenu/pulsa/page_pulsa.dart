@@ -169,7 +169,7 @@ class _PagePulsaState extends State<PagePulsa> {
             shape: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            onPressed: _contactPicker,
+            onPressed: _contactPicker, // GANTI DENGAN DAFTAR NOMOR FAVORIT
           ),
         ),
       ],

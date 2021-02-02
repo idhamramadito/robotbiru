@@ -147,40 +147,38 @@ class _ContactsPickerState extends State<ContactsPicker> {
                         ),
                       ),
                     ),
-                    InkWell(
+                    ListTile(
                       onTap: () => Navigator.pop(
                         context,
                         contact.phones.elementAt(0).value,
                       ),
-                      child: ListTile(
-                        title: Text(contact.displayName),
-                        subtitle: Text(contact.phones.length > 0
-                            ? contact.phones.elementAt(0).value
-                            : ''),
-                        leading: (contact.avatar != null &&
-                                contact.avatar.length > 0)
-                            ? CircleAvatar(
-                                backgroundImage: MemoryImage(contact.avatar),
-                              )
-                            : Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  gradient: LinearGradient(
-                                      colors: [
-                                        color1,
-                                        color2,
-                                      ],
-                                      begin: Alignment.bottomLeft,
-                                      end: Alignment.topRight),
+                      title: Text(contact.displayName),
+                      subtitle: Text(contact.phones.length > 0
+                          ? contact.phones.elementAt(0).value
+                          : ''),
+                      leading:
+                          (contact.avatar != null && contact.avatar.length > 0)
+                              ? CircleAvatar(
+                                  backgroundImage: MemoryImage(contact.avatar),
+                                )
+                              : Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    gradient: LinearGradient(
+                                        colors: [
+                                          color1,
+                                          color2,
+                                        ],
+                                        begin: Alignment.bottomLeft,
+                                        end: Alignment.topRight),
+                                  ),
+                                  child: CircleAvatar(
+                                      child: Text(
+                                        contact.initials(),
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      backgroundColor: Colors.transparent),
                                 ),
-                                child: CircleAvatar(
-                                    child: Text(
-                                      contact.initials(),
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    backgroundColor: Colors.transparent),
-                              ),
-                      ),
                     ),
                   ],
                 );

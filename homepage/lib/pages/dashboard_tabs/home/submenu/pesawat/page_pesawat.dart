@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_attributes.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/kelas_kabin.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/passengers.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
@@ -55,9 +56,9 @@ class _PagePesawatState extends State<PagePesawat> {
       TransportationAttributes(
         name: 'Kelas Kabin',
         icon: Icons.airline_seat_recline_extra,
-        onPressed: () {
-          Navigator.of(context)
-              .pushNamed('/cabin_class', arguments: 'Kelas Kabin');
+        onPressed: () async {
+          var result = await kelasKabin(context);
+          return result;
         },
       ),
       TransportationAttributes(
@@ -101,42 +102,46 @@ class _PagePesawatState extends State<PagePesawat> {
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: _dataList.length,
-                    separatorBuilder: (BuildContext context, int index) =>
-                        Divider(thickness: 1),
-                    itemBuilder: (BuildContext context, int index) {
+                    separatorBuilder: (context, index) => Divider(),
+                    itemBuilder: (context, index) {
                       return Visibility(
                         visible: (_dataList[index].name != 'Tanggal Pulang') ||
                             (_isTwoWayTrip),
-                        child: InkWell(
-                          onTap: _dataList[index].onPressed,
-                          child: ListTile(
-                            dense: true,
-                            leading: Icon(
-                              _dataList[index].icon,
-                              color: Theme.of(context).primaryColor,
+                        child: ListTile(
+                          key: UniqueKey(),
+                          onTap: () async {
+                            final result = await _dataList[index].onPressed();
+                            setState(() {
+                              _dataList[index].content = result;
+                            });
+                            print(_dataList[index].content);
+                          },
+                          dense: true,
+                          leading: Icon(
+                            _dataList[index].icon,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          title: Text(
+                            _dataList[index].name ?? 'Kosong',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          subtitle: Text(
+                            _dataList[index].content ?? 'Belum Dipilih',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
                             ),
-                            title: Text(
-                              _dataList[index].name ?? 'Kosong',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                            subtitle: Text(
-                              _dataList[index].content ?? 'Belum Dipilih',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
-                            trailing: Visibility(
-                              visible: _dataList[index].name == 'Tanggal Pergi',
-                              child: Switch(
-                                value: _isTwoWayTrip,
-                                onChanged: (val) {
-                                  setState(() {
-                                    _isTwoWayTrip = val;
-                                  });
-                                },
-                              ),
+                          ),
+                          trailing: Visibility(
+                            visible: _dataList[index].name == 'Tanggal Pergi',
+                            child: Switch(
+                              value: _isTwoWayTrip,
+                              onChanged: (val) {
+                                setState(() {
+                                  _isTwoWayTrip = val;
+                                });
+                              },
                             ),
                           ),
                         ),
@@ -146,8 +151,7 @@ class _PagePesawatState extends State<PagePesawat> {
                   BigButton(
                     title: 'Cari Penerbangan',
                     onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed('/jadwal_pesawat');
+                      Navigator.of(context).pushNamed('/jadwal_pesawat');
                     },
                   ),
                 ],
