@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_attributes.dart';
 
 class JadwalPesawat extends StatefulWidget {
   JadwalPesawat({Key key}) : super(key: key);
@@ -9,6 +10,7 @@ class JadwalPesawat extends StatefulWidget {
 
 class _JadwalPesawatState extends State<JadwalPesawat> {
   List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
+  bool _isTwoWayTrip = false;
   List _cardJadwal = [
     [
       "Japan Airlines",
@@ -78,9 +80,89 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: IconButton(
                 icon: Icon(Icons.create_outlined),
-                tooltip: 'Increase volume by 10',
                 onPressed: () {
-                  setState(() {});
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                    ),
+                    builder: (context) {
+                      return DraggableScrollableSheet(
+                        expand: false,
+                        builder: (context, controller) {
+                          return SingleChildScrollView(
+                            controller: controller,
+                            child: Column(
+                              children: [
+                                ListView.separated(
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount: _dataList.length,
+                                  separatorBuilder:
+                                      (BuildContext context, int index) =>
+                                          Divider(thickness: 1),
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return Visibility(
+                                      visible: (_dataList[index].name !=
+                                              'Tanggal Pulang') ||
+                                          (_isTwoWayTrip),
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.of(context).pushNamed(
+                                            _dataList[index].routeName,
+                                            arguments: _dataList[index].name,
+                                          );
+                                        },
+                                        child: ListTile(
+                                          dense: true,
+                                          leading: Icon(
+                                            _dataList[index].icon,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                          ),
+                                          title: Text(
+                                            _dataList[index].name ?? 'Kosong',
+                                            style:
+                                                TextStyle(color: Colors.grey),
+                                          ),
+                                          subtitle: Text(
+                                            _dataList[index].content ??
+                                                'Belum Dipilih',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                          trailing: Visibility(
+                                            visible: _dataList[index].name ==
+                                                'Tanggal Pergi',
+                                            child: Switch(
+                                              value: _isTwoWayTrip,
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  _isTwoWayTrip = val;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  );
                 },
               ),
             )
@@ -153,392 +235,245 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                         )),
                   ],
                 ))),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: _cardJadwal.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: Container(
-                width: 1000,
-                height: 215,
-                decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.circular(16.0),
-                  border: Border.all(
-                    color:
-                        Colors.grey[400], //                   <--- border color
+        Expanded(
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: _cardJadwal.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                child: Container(
+                  width: 1000,
+                  height: 215,
+                  decoration: new BoxDecoration(
+                    borderRadius: new BorderRadius.circular(16.0),
+                    border: Border.all(
+                      color: Colors
+                          .grey[400], //                   <--- border color
+                    ),
+                    color: Colors.white,
                   ),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-                  child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    //crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 15, 15),
-                              child: Image.asset('images/japan-airlines.png'),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 15, 15),
-                              child: Text(_cardJadwal[index][0],
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  )),
-                            ),
-                          ]),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 15, 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(_cardJadwal[index][1],
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                          )),
-                                      Text(_cardJadwal[index][2],
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black,
-                                          ))
-                                    ],
-                                  ),
-                                ),
-                                Icon(Icons.radio_button_unchecked),
-                                Icon(Icons.remove_sharp),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(_cardJadwal[index][3],
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                          )),
-                                      Text(_cardJadwal[index][4],
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.grey[600],
-                                          ))
-                                    ],
-                                  ),
-                                ),
-                                Icon(Icons.remove_sharp),
-                                Icon(Icons.stop_circle),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(_cardJadwal[index][5],
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                          )),
-                                      Text(_cardJadwal[index][6],
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.black,
-                                          ))
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: <Widget>[
-                            Row(children: <Widget>[
-                              Text(""),
-                              Spacer(),
-                              Text("Rp" + _cardJadwal[index][8],
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.blue,
-                                  ))
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 0, 15, 15),
+                                child: Image.asset('images/japan-airlines.png'),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 0, 15, 15),
+                                child: Text(_cardJadwal[index][0],
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    )),
+                              ),
                             ]),
-                            Row(children: <Widget>[
-                              Text("Sisa ${_cardJadwal[index][7]} kursi",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                  )),
-                              Spacer(),
-                              Text("per orang",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.grey[500],
-                                  ))
-                            ])
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 15, 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(_cardJadwal[index][1],
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            )),
+                                        Text(_cardJadwal[index][2],
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black,
+                                            ))
+                                      ],
+                                    ),
+                                  ),
+                                  Icon(Icons.radio_button_unchecked),
+                                  Icon(Icons.remove_sharp),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(_cardJadwal[index][3],
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            )),
+                                        Text(_cardJadwal[index][4],
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.grey[600],
+                                            ))
+                                      ],
+                                    ),
+                                  ),
+                                  Icon(Icons.remove_sharp),
+                                  Icon(Icons.stop_circle),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(_cardJadwal[index][5],
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            )),
+                                        Text(_cardJadwal[index][6],
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black,
+                                            ))
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Cashback: ",
-                            style: TextStyle(
-                              fontSize: 11,
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Row(children: <Widget>[
+                                Text(""),
+                                Spacer(),
+                                Text("Rp" + _cardJadwal[index][8],
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.blue,
+                                    ))
+                              ]),
+                              Row(children: <Widget>[
+                                Text("Sisa ${_cardJadwal[index][7]} kursi",
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                    )),
+                                Spacer(),
+                                Text("per orang",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.grey[500],
+                                    ))
+                              ])
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Cashback: ",
+                              style: TextStyle(
+                                fontSize: 11,
+                              ),
                             ),
-                          ),
-                          Text(_cardJadwal[index][9],
-                              style: TextStyle(
-                                fontSize: 11,
-                              )),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-                            child: Text("|"),
-                          ),
-                          Text("Cashback: ",
-                              style: TextStyle(
-                                fontSize: 11,
-                              )),
-                          Text(_cardJadwal[index][10],
-                              style: TextStyle(
-                                fontSize: 11,
-                              )),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-                            child: Text("|"),
-                          ),
-                          Text("Cashback: ",
-                              style: TextStyle(
-                                fontSize: 11,
-                              )),
-                          Text(_cardJadwal[index][11],
-                              style: TextStyle(
-                                fontSize: 11,
-                              )),
-                        ],
-                      )
-                    ],
+                            Text(_cardJadwal[index][9],
+                                style: TextStyle(
+                                  fontSize: 11,
+                                )),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
+                              child: Text("|"),
+                            ),
+                            Text("Cashback: ",
+                                style: TextStyle(
+                                  fontSize: 11,
+                                )),
+                            Text(_cardJadwal[index][10],
+                                style: TextStyle(
+                                  fontSize: 11,
+                                )),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
+                              child: Text("|"),
+                            ),
+                            Text("Cashback: ",
+                                style: TextStyle(
+                                  fontSize: 11,
+                                )),
+                            Text(_cardJadwal[index][11],
+                                style: TextStyle(
+                                  fontSize: 11,
+                                )),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ]),
     );
   }
 }
 
-// RaisedButton(
-//     onPressed: () {},
-//     child: new Text(
-//       _filterButton[0],
-//     ))
+List<TransportationAttributes> _dataList = [
+  TransportationAttributes(
+    name: 'Asal',
+    icon: Icons.flight_takeoff,
+    routeName: '/search_page',
+  ),
+  TransportationAttributes(
+    name: 'Destinasi',
+    icon: Icons.flight_land,
+    routeName: '/search_page',
+  ),
+  TransportationAttributes(
+    name: 'Tanggal Pergi',
+    icon: Icons.calendar_today,
+    routeName: '/date_page',
+  ),
+  TransportationAttributes(
+    name: 'Tanggal Pulang',
+    icon: Icons.calendar_today,
+    routeName: '/date_page',
+  ),
+  TransportationAttributes(
+    name: 'Jumlah Penumpang',
+    icon: Icons.person,
+    routeName: '/passengers',
+  ),
+  TransportationAttributes(
+    name: 'Kelas Kabin',
+    icon: Icons.airline_seat_recline_extra,
+    routeName: '/cabin_class',
+  ),
+  TransportationAttributes(
+    name: 'Maskapai',
+    icon: Icons.airplanemode_active,
+    routeName: '/search_page',
+  ),
+];
 
-// Padding(
-//   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-//   child: Container(
-//     width: 1000,
-//     height: 215,
-//     decoration: new BoxDecoration(
-//       borderRadius: new BorderRadius.circular(16.0),
-//       border: Border.all(
-//         color: Colors.grey[400], //                   <--- border color
-//       ),
-//       color: Colors.white,
-//     ),
-//     child: Padding(
-//       padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-//       child: Column(
-//         // mainAxisAlignment: MainAxisAlignment.start,
-//         //crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               Row(children: [
-//                 Padding(
-//                   padding: const EdgeInsets.fromLTRB(0, 0, 15, 15),
-//                   child: Image.asset('images/japan-airlines.png'),
-//                 ),
-//                 Padding(
-//                   padding: const EdgeInsets.fromLTRB(0, 0, 15, 15),
-//                   child: Text("Japan Airlines",
-//                       style: TextStyle(
-//                         fontSize: 18,
-//                         fontWeight: FontWeight.bold,
-//                         color: Colors.black,
-//                       )),
-//                 ),
-//               ]),
-//               Padding(
-//                 padding: const EdgeInsets.fromLTRB(0, 0, 15, 20),
-//                 child: Row(
-//                   mainAxisAlignment: MainAxisAlignment.start,
-//                   children: [
-//                     Padding(
-//                       padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-//                       child: Column(
-//                         crossAxisAlignment: CrossAxisAlignment.center,
-//                         children: [
-//                           Text("05.00",
-//                               style: TextStyle(
-//                                 fontSize: 16,
-//                                 fontWeight: FontWeight.bold,
-//                                 color: Colors.black,
-//                               )),
-//                           Text("CGK",
-//                               style: TextStyle(
-//                                 fontSize: 15,
-//                                 color: Colors.black,
-//                               ))
-//                         ],
-//                       ),
-//                     ),
-//                     Icon(Icons.radio_button_unchecked),
-//                     Icon(Icons.remove_sharp),
-//                     Padding(
-//                       padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-//                       child: Column(
-//                         crossAxisAlignment: CrossAxisAlignment.center,
-//                         children: [
-//                           Text("10j",
-//                               style: TextStyle(
-//                                 fontSize: 16,
-//                                 fontWeight: FontWeight.bold,
-//                                 color: Colors.black,
-//                               )),
-//                           Text("Langsung",
-//                               style: TextStyle(
-//                                 fontSize: 15,
-//                                 color: Colors.grey[600],
-//                               ))
-//                         ],
-//                       ),
-//                     ),
-//                     Icon(Icons.remove_sharp),
-//                     Icon(Icons.stop_circle),
-//                     Padding(
-//                       padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-//                       child: Column(
-//                         crossAxisAlignment: CrossAxisAlignment.center,
-//                         children: [
-//                           Text("15.00",
-//                               style: TextStyle(
-//                                 fontSize: 16,
-//                                 fontWeight: FontWeight.bold,
-//                                 color: Colors.black,
-//                               )),
-//                           Text("DPS",
-//                               style: TextStyle(
-//                                 fontSize: 15,
-//                                 color: Colors.black,
-//                               ))
-//                         ],
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ),
-//           SizedBox(
-//             height: 10,
-//           ),
-//           Expanded(
-//             child: Column(
-//               children: <Widget>[
-//                 Row(children: <Widget>[
-//                   Text(""),
-//                   Spacer(),
-//                   Text("RP315.000",
-//                       style: TextStyle(
-//                         fontSize: 20,
-//                         fontWeight: FontWeight.bold,
-//                         color: Colors.blue,
-//                       ))
-//                 ]),
-//                 Row(children: <Widget>[
-//                   Text("Sisa 2 kursi",
-//                       style: TextStyle(
-//                         fontSize: 17,
-//                       )),
-//                   Spacer(),
-//                   Text("per orang",
-//                       style: TextStyle(
-//                         fontSize: 15,
-//                         color: Colors.grey[500],
-//                       ))
-//                 ])
-//               ],
-//             ),
-//           ),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               Text(
-//                 "Cashback: ",
-//                 style: TextStyle(
-//                   fontSize: 11,
-//                 ),
-//               ),
-//               Text("Rp10.000",
-//                   style: TextStyle(
-//                     fontSize: 11,
-//                   )),
-//               Padding(
-//                 padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-//                 child: Text("|"),
-//               ),
-//               Text("Cashback: ",
-//                   style: TextStyle(
-//                     fontSize: 11,
-//                   )),
-//               Text("Rp10.000",
-//                   style: TextStyle(
-//                     fontSize: 11,
-//                   )),
-//               Padding(
-//                 padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
-//                 child: Text("|"),
-//               ),
-//               Text("Cashback: ",
-//                   style: TextStyle(
-//                     fontSize: 11,
-//                   )),
-//               Text("Rp10.000",
-//                   style: TextStyle(
-//                     fontSize: 11,
-//                   )),
-//             ],
-//           )
-//         ],
-//       ),
-//     ),
-//   ),
-// )

@@ -91,8 +91,9 @@ class _DatePageState extends State<DatePage> {
               onSelectionChanged: _onSelectionChanged,
               selectionMode: DateRangePickerSelectionMode.multiRange,
               initialSelectedRange: PickerDateRange(
-                  DateTime.now().subtract(const Duration()),
-                  DateTime.now().add(const Duration())),
+                DateTime.now().subtract(const Duration()),
+                DateTime.now().add(const Duration()),
+              ),
             ),
           )
         ],
