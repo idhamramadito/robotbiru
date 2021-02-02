@@ -69,7 +69,35 @@ class _DatePageState extends State<DatePage> {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
       ),
-      body: Placeholder(),
+      body: Stack(
+        children: <Widget>[
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            height: 70,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+            ),
+          ),
+          Positioned(
+            left: 0,
+            top: 80,
+            right: 0,
+            bottom: 0,
+            child: SfDateRangePicker(
+              onSelectionChanged: _onSelectionChanged,
+              selectionMode: DateRangePickerSelectionMode.multiRange,
+              initialSelectedRange: PickerDateRange(
+                DateTime.now().subtract(const Duration()),
+                DateTime.now().add(const Duration()),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 
