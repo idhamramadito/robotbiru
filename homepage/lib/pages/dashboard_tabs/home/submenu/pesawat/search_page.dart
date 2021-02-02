@@ -6,6 +6,12 @@ List _tujuan = [
   ['images/gedung.png', 'Medan, Indonesia', 'Semua Bandara', 'MESC'],
 ];
 
+List _maskapai = [
+  ['images/pesawat_kecil.png', 'American Airlines', '', ''],
+  ['images/pesawat_kecil.png', 'AirAsia Malaysia', '', ''],
+  ['images/pesawat_kecil.png', 'Garuda Indonesia', '', ''],
+];
+
 class SearchPage extends StatefulWidget {
   SearchPage({
     Key key,
@@ -21,6 +27,9 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
+    List _sementara = (widget.pageName == 'Maskapai')
+        ? List.from(_maskapai)
+        : List.from(_tujuan);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -56,7 +65,7 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(height: 10),
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 3,
+              itemCount: _sementara.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Column(
@@ -64,32 +73,38 @@ class _SearchPageState extends State<SearchPage> {
                   children: [
                     ListTile(
                       onTap: () {
-                        Navigator.pop(context, _tujuan[index][1]);
+                        Navigator.pop(context, _sementara[index][1]);
                       },
                       dense: true,
-                      leading: Image.asset(_tujuan[index][0], width: 40),
+                      leading: Image.asset(_sementara[index][0], width: 40),
                       title: Text(
-                        _tujuan[index][1],
+                        _sementara[index][1],
                         style: TextStyle(
                             fontSize: 17, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        _tujuan[index][2],
-                        style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.grey),
-                      ),
-                      trailing: Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(10)),
+                      subtitle: Visibility(
+                        visible: widget.pageName != 'Maskapai',
                         child: Text(
-                          _tujuan[index][3],
+                          _sementara[index][2],
                           style: TextStyle(
-                            color: Colors.grey[700],
+                              fontSize: 17,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.grey),
+                        ),
+                      ),
+                      trailing: Visibility(
+                        visible: widget.pageName != 'Maskapai',
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text(
+                            _sementara[index][3],
+                            style: TextStyle(
+                              color: Colors.grey[700],
+                            ),
                           ),
                         ),
                       ),
