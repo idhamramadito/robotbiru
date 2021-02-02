@@ -107,7 +107,10 @@ class _PagePesawatState extends State<PagePesawat> {
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: _dataList.length,
-                    separatorBuilder: (context, index) => Divider(),
+                    separatorBuilder: (context, index) => Visibility(
+                        visible: (_dataList[index].name != 'Tanggal Pulang') ||
+                            (_isTwoWayTrip),
+                        child: Divider()),
                     itemBuilder: (context, index) {
                       return Visibility(
                         visible: (_dataList[index].name != 'Tanggal Pulang') ||
@@ -160,7 +163,10 @@ class _PagePesawatState extends State<PagePesawat> {
                   BigButton(
                     title: 'Cari Penerbangan',
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/jadwal_pesawat');
+                      Navigator.of(context).pushNamed(
+                        '/jadwal_pesawat',
+                        arguments: _dataList,
+                      );
                     },
                   ),
                 ],

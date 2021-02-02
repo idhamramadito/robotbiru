@@ -4,7 +4,6 @@ class TransportationAttributes {
   String name;
   IconData icon;
   var content;
-  String routeName;
   Function onPressed;
   TransportationAttributes({
     String name,
@@ -15,6 +14,5 @@ class TransportationAttributes {
   })  : this.name = name,
         this.icon = icon,
         this.content = content,
-        this.routeName = routeName,
         this.onPressed = onPressed;
 }

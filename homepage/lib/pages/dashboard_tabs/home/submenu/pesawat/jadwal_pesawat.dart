@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/ubah_jadwal_attributes.dart';
 
 class JadwalPesawat extends StatefulWidget {
-  JadwalPesawat({Key key}) : super(key: key);
+  final List previousData;
+  JadwalPesawat({
+    Key key,
+    List previousData,
+  })  : this.previousData = previousData,
+        super(key: key);
 
   @override
   _JadwalPesawatState createState() => _JadwalPesawatState();
@@ -76,161 +81,75 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                     style: TextStyle(fontSize: 13, color: Colors.white))
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: IconButton(
-                icon: Icon(Icons.create_outlined),
-                onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    isScrollControlled: true,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                    ),
-                    builder: (context) {
-                      return DraggableScrollableSheet(
-                        expand: false,
-                        builder: (context, controller) {
-                          return SingleChildScrollView(
-                            controller: controller,
-                            child: Column(
-                              children: [
-                                ListView.separated(
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  itemCount: _dataList.length,
-                                  separatorBuilder:
-                                      (BuildContext context, int index) =>
-                                          Divider(thickness: 1),
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return Visibility(
-                                      visible: (_dataList[index].name !=
-                                              'Tanggal Pulang') ||
-                                          (_isTwoWayTrip),
-                                      child: ListTile(
-                                        onTap: () {
-                                          Navigator.of(context).pushNamed(
-                                            _dataList[index].routeName,
-                                            arguments: _dataList[index].name,
-                                          );
-                                        },
-                                        dense: true,
-                                        leading: Icon(
-                                          _dataList[index].icon,
-                                          color: Theme.of(context).primaryColor,
-                                        ),
-                                        title: Text(
-                                          _dataList[index].name ?? 'Kosong',
-                                          style: TextStyle(color: Colors.grey),
-                                        ),
-                                        subtitle: Text(
-                                          _dataList[index].content ??
-                                              'Belum Dipilih',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                        trailing: Visibility(
-                                          visible: _dataList[index].name ==
-                                              'Tanggal Pergi',
-                                          child: Switch(
-                                            value: _isTwoWayTrip,
-                                            onChanged: (val) {
-                                              setState(() {
-                                                _isTwoWayTrip = val;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  );
-                },
-              ),
-            )
           ],
         ),
       ),
       body: Column(children: [
         Center(
-            child: Container(
-                height: 60,
-                child: Row(
-                  children: [
-                    Container(
-                        width: 392,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 4,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
-                            ),
-                          ],
+          child: Container(
+            height: 60,
+            child: Row(
+              children: [
+                Container(
+                  width: 392,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 4,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: RaisedButton(
+                            onPressed: () {},
+                            color: Colors.grey[200],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                side: BorderSide(color: Colors.grey[300])),
+                            child: new Text(
+                              '${_filterButton[0]}',
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: RaisedButton(
+                            onPressed: () {},
+                            color: Colors.grey[200],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                side: BorderSide(color: Colors.grey[300])),
+                            child: new Text(
+                              '${_filterButton[1]}',
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: RaisedButton(
+                          onPressed: () {},
+                          color: Colors.grey[200],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: BorderSide(color: Colors.grey[300])),
+                          child: new Text(
+                            '${_filterButton[2]}',
+                          ),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: RaisedButton(
-                                  onPressed: () {},
-                                  color: Colors.grey[200],
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      side:
-                                          BorderSide(color: Colors.grey[300])),
-                                  child: new Text(
-                                    _filterButton[0],
-                                  )),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: RaisedButton(
-                                  onPressed: () {},
-                                  color: Colors.grey[200],
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      side:
-                                          BorderSide(color: Colors.grey[300])),
-                                  child: new Text(
-                                    _filterButton[1],
-                                  )),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: RaisedButton(
-                                  onPressed: () {},
-                                  color: Colors.grey[200],
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      side:
-                                          BorderSide(color: Colors.grey[300])),
-                                  child: new Text(
-                                    _filterButton[2],
-                                  )),
-                            )
-                          ],
-                        )),
-                  ],
-                ))),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         Expanded(
           child: ListView.builder(
             shrinkWrap: true,
@@ -267,7 +186,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                               Padding(
                                 padding:
                                     const EdgeInsets.fromLTRB(0, 0, 15, 15),
-                                child: Text(_cardJadwal[index][0],
+                                child: Text('${_cardJadwal[index][0]}',
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
@@ -287,13 +206,13 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Text(_cardJadwal[index][1],
+                                        Text('${_cardJadwal[index][1]}',
                                             style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                             )),
-                                        Text(_cardJadwal[index][2],
+                                        Text('${_cardJadwal[index][2]}',
                                             style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.black,
@@ -310,13 +229,13 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Text(_cardJadwal[index][3],
+                                        Text('${_cardJadwal[index][3]}',
                                             style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                             )),
-                                        Text(_cardJadwal[index][4],
+                                        Text('${_cardJadwal[index][4]}',
                                             style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.grey[600],
@@ -333,13 +252,13 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Text(_cardJadwal[index][5],
+                                        Text('${_cardJadwal[index][5]}',
                                             style: TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black,
                                             )),
-                                        Text(_cardJadwal[index][6],
+                                        Text('${_cardJadwal[index][6]}',
                                             style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.black,
@@ -361,7 +280,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                               Row(children: <Widget>[
                                 Text(""),
                                 Spacer(),
-                                Text("Rp" + _cardJadwal[index][8],
+                                Text("Rp" + '${_cardJadwal[index][8]}',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -392,7 +311,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                 fontSize: 11,
                               ),
                             ),
-                            Text(_cardJadwal[index][9],
+                            Text('${_cardJadwal[index][9]}',
                                 style: TextStyle(
                                   fontSize: 11,
                                 )),
@@ -400,11 +319,11 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                               padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                               child: Text("|"),
                             ),
-                            Text("Cashback: ",
+                            Text("Anggota: ",
                                 style: TextStyle(
                                   fontSize: 11,
                                 )),
-                            Text(_cardJadwal[index][10],
+                            Text('${_cardJadwal[index][10]}',
                                 style: TextStyle(
                                   fontSize: 11,
                                 )),
@@ -412,11 +331,11 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                               padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                               child: Text("|"),
                             ),
-                            Text("Cashback: ",
+                            Text("Retail: ",
                                 style: TextStyle(
                                   fontSize: 11,
                                 )),
-                            Text(_cardJadwal[index][11],
+                            Text('${_cardJadwal[index][11]}',
                                 style: TextStyle(
                                   fontSize: 11,
                                 )),
@@ -434,41 +353,3 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
     );
   }
 }
-
-List _dataList = [
-  UbahJadwalAttribute(
-    name: 'Asal',
-    icon: Icons.flight_takeoff,
-    routeName: '/search_page',
-  ),
-  UbahJadwalAttribute(
-    name: 'Destinasi',
-    icon: Icons.flight_land,
-    routeName: '/search_page',
-  ),
-  UbahJadwalAttribute(
-    name: 'Tanggal Pergi',
-    icon: Icons.calendar_today,
-    routeName: '/date_page',
-  ),
-  UbahJadwalAttribute(
-    name: 'Tanggal Pulang',
-    icon: Icons.calendar_today,
-    routeName: '/date_page',
-  ),
-  UbahJadwalAttribute(
-    name: 'Jumlah Penumpang',
-    icon: Icons.person,
-    routeName: '/passengers',
-  ),
-  UbahJadwalAttribute(
-    name: 'Kelas Kabin',
-    icon: Icons.airline_seat_recline_extra,
-    routeName: '/cabin_class',
-  ),
-  UbahJadwalAttribute(
-    name: 'Maskapai',
-    icon: Icons.airplanemode_active,
-    routeName: '/search_page',
-  ),
-];
