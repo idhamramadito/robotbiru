@@ -164,12 +164,15 @@ class _PagePesawatState extends State<PagePesawat> {
                   ),
                   BigButton(
                     title: 'Cari Penerbangan',
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(
-                        '/jadwal_pesawat',
-                        arguments: _dataList,
-                      );
-                    },
+                    onPressed:
+                        (_dataList.any((element) => element.content == null))
+                            ? null
+                            : () {
+                                Navigator.of(context).pushNamed(
+                                  '/jadwal_pesawat',
+                                  arguments: _dataList,
+                                );
+                              },
                   ),
                 ],
               ),

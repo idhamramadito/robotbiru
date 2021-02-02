@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/models/topup_data.dart';
 import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/custom_form.dart';
@@ -17,13 +18,14 @@ class PagePulsa extends StatefulWidget {
 }
 
 class _PagePulsaState extends State<PagePulsa> {
-  String _phoneNumber;
   bool _rememberNumber = false;
   String _currency = 'Rp';
-  String _paymentMethod = 'Saldo Robot Biru';
-  String _paymentLogo = 'images/dompet.png';
-  double _chosenPrice = 20000;
-  double _accountBalance = 100000;
+
+  TopUpData _dataList = TopUpData(
+    paymentMethod: 'Saldo Robot Biru',
+    chosenPrice: 20000,
+    accountBalance: 100000,
+  );
 
   List<NameAndContent> _cashback = [
     NameAndContent(name: 'Pemilik Retail'),
@@ -76,14 +78,11 @@ class _PagePulsaState extends State<PagePulsa> {
           ],
         ),
         bottomNavigationBar: Visibility(
-          visible: (_phoneNumber != '' && _phoneNumber != null),
+          visible: (_dataList.targetNumber != null),
           child: CheckoutBottomBar(
             routeName: '/invoice_pulsa',
             currency: _currency,
-            paymentMethod: _paymentMethod,
-            paymentLogo: _paymentLogo,
-            accountBalance: _accountBalance,
-            chosenPrice: _chosenPrice,
+            data: _dataList,
           ),
         ),
       ),
@@ -101,7 +100,7 @@ class _PagePulsaState extends State<PagePulsa> {
             prompt: 'Nomor Handphone',
             clearButton: true,
             onChanged: (val) => setState(() {
-              _phoneNumber = val;
+              _dataList.targetNumber = int.parse(val);
             }),
             externalPicker: 'contacts',
           ),
@@ -111,15 +110,15 @@ class _PagePulsaState extends State<PagePulsa> {
             }),
           ),
           Visibility(
-            visible: (_phoneNumber != '' && _phoneNumber != null),
+            visible: (_dataList.targetNumber != null),
             child: Column(
               children: [
                 NominalPulsa(
                   onChanged: (val) => setState(() {
-                    _chosenPrice = val;
+                    _dataList.chosenPrice = val;
                   }),
                 ),
-                PaketPulsaKuota(amount: _chosenPrice),
+                PaketPulsaKuota(amount: _dataList.chosenPrice),
                 ReceiptCard(
                   cardName: 'Ringkasan',
                   dataList: _ringkasan,
@@ -179,7 +178,7 @@ class _PagePulsaState extends State<PagePulsa> {
   Future _contactPicker() async {
     final result = await Navigator.of(context).pushNamed('/contacts_picker');
     setState(() {
-      _phoneNumber = result ?? _phoneNumber;
+      _dataList.targetNumber = result ?? _dataList.targetNumber;
     });
   }
 }

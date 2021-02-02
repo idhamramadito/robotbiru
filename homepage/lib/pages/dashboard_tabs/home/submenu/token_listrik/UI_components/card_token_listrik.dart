@@ -6,7 +6,7 @@ class CardTokenListrik extends StatefulWidget {
     @required this.idNumber,
   }) : super(key: key);
 
-  final String idNumber;
+  final int idNumber;
 
   @override
   _CardTokenListrikState createState() => _CardTokenListrikState();
@@ -49,7 +49,7 @@ class _CardTokenListrikState extends State<CardTokenListrik> {
                     ),
                   ),
                   Text(
-                    widget.idNumber,
+                    '${widget.idNumber}',
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 15, color: Colors.white),
                   ),

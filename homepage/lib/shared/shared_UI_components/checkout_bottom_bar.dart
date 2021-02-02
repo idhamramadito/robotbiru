@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/topup_data.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class CheckoutBottomBar extends StatefulWidget {
   const CheckoutBottomBar({
     Key key,
     @required this.currency,
-    @required this.accountBalance,
-    @required this.chosenPrice,
-    @required this.paymentMethod,
-    @required this.paymentLogo,
     @required this.routeName,
+    this.data,
   }) : super(key: key);
 
-  final String routeName;
   final String currency;
-  final String paymentMethod;
-  final String paymentLogo;
-  final double accountBalance;
-  final double chosenPrice;
+  final String routeName;
+  final TopUpData data;
 
   @override
   _CheckoutBottomBarState createState() => _CheckoutBottomBarState();
@@ -48,17 +43,21 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                 children: [
                   Row(
                     children: [
-                      Image.asset(widget.paymentLogo, width: 30),
+                      Image.asset(
+                          (widget.data.paymentMethod == 'Saldo Robot Biru')
+                              ? 'images/dompet.png'
+                              : '',
+                          width: 30),
                       SizedBox(width: 10),
                       Text(
-                        widget.paymentMethod,
+                        widget.data.paymentMethod,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 17),
                       ),
                     ],
                   ),
                   Text(
-                    '${widget.currency} ${widget.accountBalance}',
+                    '${widget.currency} ${widget.data.accountBalance}',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                 ],
@@ -79,7 +78,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                 ),
                 children: <TextSpan>[
                   TextSpan(
-                    text: '${widget.currency} ${widget.chosenPrice}',
+                    text: '${widget.currency} ${widget.data.chosenPrice}',
                     style: TextStyle(color: Colors.blue),
                   ),
                 ],

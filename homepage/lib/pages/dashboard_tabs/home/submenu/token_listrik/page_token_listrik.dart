@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/models/topup_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
@@ -17,13 +18,14 @@ class PageTokenListrik extends StatefulWidget {
 }
 
 class _PageTokenListrikState extends State<PageTokenListrik> {
-  String _idNumber = '';
   bool _rememberNumber = false;
   String _currency = 'Rp';
-  String _paymentMethod = 'Saldo Robot Biru';
-  String _paymentLogo = 'images/dompet.png';
-  double _chosenPrice = 21750;
-  double _accountBalance = 100000;
+
+  TopUpData _dataList = TopUpData(
+    paymentMethod: 'Saldo Robot Biru',
+    chosenPrice: 21750,
+    accountBalance: 100000,
+  );
 
   List<NameAndContent> _cashback = [
     NameAndContent(name: 'Pemilik Retail'),
@@ -77,7 +79,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           prompt: 'ID Pelanggan / Nomor Meteran',
                           clearButton: true,
                           onChanged: (val) => setState(() {
-                            _idNumber = val;
+                            _dataList.targetNumber = int.parse(val);
                           }),
                           externalPicker: 'barcode',
                         ),
@@ -87,13 +89,14 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                           }),
                         ),
                         Visibility(
-                          visible: (_idNumber != ''),
+                          visible: (_dataList.targetNumber != null),
                           child: Column(
                             children: [
-                              CardTokenListrik(idNumber: _idNumber),
+                              CardTokenListrik(
+                                  idNumber: _dataList.targetNumber),
                               NominalTokenListrik(
                                 onChanged: (val) => setState(() {
-                                  _chosenPrice = val;
+                                  _dataList.chosenPrice = val;
                                 }),
                               ),
                               ReceiptCard(
@@ -123,14 +126,11 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           ],
         ),
         bottomNavigationBar: Visibility(
-          visible: (_idNumber != ''),
+          visible: (_dataList.targetNumber != null),
           child: CheckoutBottomBar(
-            routeName: '/invoice_token_listrik',
+            routeName: '/invoice__token_listrik',
             currency: _currency,
-            paymentMethod: _paymentMethod,
-            paymentLogo: _paymentLogo,
-            accountBalance: _accountBalance,
-            chosenPrice: _chosenPrice,
+            data: _dataList,
           ),
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/ubah_jadwal_attributes.dart';
 
 class JadwalPesawat extends StatefulWidget {
   final List previousData;
@@ -15,7 +14,6 @@ class JadwalPesawat extends StatefulWidget {
 
 class _JadwalPesawatState extends State<JadwalPesawat> {
   List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
-  bool _isTwoWayTrip = false;
   List _cardJadwal = [
     [
       "Japan Airlines",
