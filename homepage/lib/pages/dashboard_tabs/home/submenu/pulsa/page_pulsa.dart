@@ -17,7 +17,7 @@ class PagePulsa extends StatefulWidget {
 }
 
 class _PagePulsaState extends State<PagePulsa> {
-  String _phoneNumber = '';
+  String _phoneNumber;
   bool _rememberNumber = false;
   String _currency = 'Rp';
   String _paymentMethod = 'Saldo Robot Biru';
@@ -36,6 +36,98 @@ class _PagePulsaState extends State<PagePulsa> {
     NameAndContent(name: 'Harga Dasar'),
     NameAndContent(name: 'Harga Dasar'),
   ];
+
+  Widget _inputBaru() {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CustomForm(
+            prompt: 'Nomor Handphone',
+            clearButton: true,
+            onChanged: (val) => setState(() {
+              _phoneNumber = val;
+            }),
+            externalPicker: 'contacts',
+          ),
+          RememberMeCheckBox(
+            onChanged: () => setState(() {
+              _rememberNumber = !_rememberNumber;
+            }),
+          ),
+          Visibility(
+            visible: (_phoneNumber != '' && _phoneNumber != null),
+            child: Column(
+              children: [
+                NominalPulsa(
+                  onChanged: (val) => setState(() {
+                    _chosenPrice = val;
+                  }),
+                ),
+                PaketPulsaKuota(amount: _chosenPrice),
+                ReceiptCard(
+                  cardName: 'Ringkasan',
+                  dataList: _ringkasan,
+                ),
+                Divider(thickness: 5),
+                ReceiptCard(
+                  cardName: 'Cashback',
+                  dataList: _cashback,
+                ),
+                Divider(thickness: 5),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _daftarFavorit(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          alignment: Alignment.centerLeft,
+          padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+          child: Text(
+            'Pilih Kontak',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
+          width: double.infinity,
+          child: FlatButton(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Nomor:',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Icon(
+                  Icons.arrow_drop_down,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ],
+            ),
+            shape: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            onPressed: _contactPicker,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Future _contactPicker() async {
+    final result = await Navigator.of(context).pushNamed('/contacts_picker');
+    setState(() {
+      _phoneNumber = result ?? _phoneNumber;
+    });
+  }
 
   @override
   //============================= main function ===============================
@@ -68,81 +160,15 @@ class _PagePulsaState extends State<PagePulsa> {
             Flexible(
               child: TabBarView(
                 children: [
-                  SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        CustomForm(
-                          prompt: 'Nomor Handphone',
-                          clearButton: true,
-                          onChanged: (val) => setState(() {
-                            _phoneNumber = val;
-                          }),
-                          externalPicker: 'contacts',
-                        ),
-                        RememberMeCheckBox(
-                          onChanged: () => setState(() {
-                            _rememberNumber = !_rememberNumber;
-                          }),
-                        ),
-                        Visibility(
-                          visible: (_phoneNumber != ''),
-                          child: Column(
-                            children: [
-                              NominalPulsa(
-                                onChanged: (val) => setState(() {
-                                  _chosenPrice = val;
-                                }),
-                              ),
-                              PaketPulsaKuota(amount: _chosenPrice),
-                              ReceiptCard(
-                                cardName: 'Ringkasan',
-                                dataList: _ringkasan,
-                              ),
-                              Divider(thickness: 5),
-                              ReceiptCard(
-                                cardName: 'Cashback',
-                                dataList: _cashback,
-                              ),
-                              Divider(thickness: 5),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-                        child: Text(
-                          'Pilih Kontak',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
-                        width: double.infinity,
-                        child: FlatButton(
-                          child: Text('Pilih Kontak'),
-                          shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          onPressed: _contactPicker,
-                        ),
-                      ),
-                    ],
-                  ),
+                  _inputBaru(),
+                  _daftarFavorit(context),
                 ],
               ),
             ),
           ],
         ),
         bottomNavigationBar: Visibility(
-          visible: (_phoneNumber != ''),
+          visible: (_phoneNumber != '' && _phoneNumber != null),
           child: CheckoutBottomBar(
             routeName: '/invoice_pulsa',
             currency: _currency,
@@ -155,12 +181,5 @@ class _PagePulsaState extends State<PagePulsa> {
       ),
     );
   }
-
   //============================= main function ===============================
-  Future _contactPicker() async {
-    final result = await Navigator.of(context).pushNamed('/contacts_picker');
-    setState(() {
-      _phoneNumber = result ?? _phoneNumber;
-    });
-  }
 }

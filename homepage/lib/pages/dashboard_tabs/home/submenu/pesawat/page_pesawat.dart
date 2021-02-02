@@ -12,6 +12,64 @@ class _PagePesawatState extends State<PagePesawat> {
 
   @override
   Widget build(BuildContext context) {
+    List<TransportationAttributes> _dataList = [
+      TransportationAttributes(
+        name: 'Asal',
+        icon: Icons.flight_takeoff,
+        onPressed: () {
+          Navigator.of(context).pushNamed('/search_page', arguments: 'Asal');
+        },
+      ),
+      TransportationAttributes(
+        name: 'Destinasi',
+        icon: Icons.flight_land,
+        onPressed: () {
+          Navigator.of(context)
+              .pushNamed('/search_page', arguments: 'Destinasi');
+        },
+      ),
+      TransportationAttributes(
+        name: 'Tanggal Pergi',
+        icon: Icons.calendar_today,
+        onPressed: () {
+          Navigator.of(context)
+              .pushNamed('/date_page', arguments: 'Tanggal Pergi');
+        },
+      ),
+      TransportationAttributes(
+        name: 'Tanggal Pulang',
+        icon: Icons.calendar_today,
+        onPressed: () {
+          Navigator.of(context)
+              .pushNamed('/date_page', arguments: 'Tanggal Pulang');
+        },
+      ),
+      TransportationAttributes(
+        name: 'Jumlah Penumpang',
+        icon: Icons.person,
+        onPressed: () {
+          Navigator.of(context)
+              .pushNamed('/passengers', arguments: 'Jumlah Penumpang');
+        },
+      ),
+      TransportationAttributes(
+        name: 'Kelas Kabin',
+        icon: Icons.airline_seat_recline_extra,
+        onPressed: () {
+          Navigator.of(context)
+              .pushNamed('/cabin_class', arguments: 'Kelas Kabin');
+        },
+      ),
+      TransportationAttributes(
+        name: 'Maskapai',
+        icon: Icons.airplanemode_active,
+        onPressed: () {
+          Navigator.of(context)
+              .pushNamed('/search_page', arguments: 'Maskapai');
+        },
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -50,12 +108,7 @@ class _PagePesawatState extends State<PagePesawat> {
                         visible: (_dataList[index].name != 'Tanggal Pulang') ||
                             (_isTwoWayTrip),
                         child: InkWell(
-                          onTap: () {
-                            Navigator.of(context).pushNamed(
-                              _dataList[index].routeName,
-                              arguments: _dataList[index].name,
-                            );
-                          },
+                          onTap: _dataList[index].onPressed,
                           child: ListTile(
                             dense: true,
                             leading: Icon(
@@ -106,41 +159,3 @@ class _PagePesawatState extends State<PagePesawat> {
     );
   }
 }
-
-List<TransportationAttributes> _dataList = [
-  TransportationAttributes(
-    name: 'Asal',
-    icon: Icons.flight_takeoff,
-    routeName: '/search_page',
-  ),
-  TransportationAttributes(
-    name: 'Destinasi',
-    icon: Icons.flight_land,
-    routeName: '/search_page',
-  ),
-  TransportationAttributes(
-    name: 'Tanggal Pergi',
-    icon: Icons.calendar_today,
-    routeName: '/date_page',
-  ),
-  TransportationAttributes(
-    name: 'Tanggal Pulang',
-    icon: Icons.calendar_today,
-    routeName: '/date_page',
-  ),
-  TransportationAttributes(
-    name: 'Jumlah Penumpang',
-    icon: Icons.person,
-    routeName: '/passengers',
-  ),
-  TransportationAttributes(
-    name: 'Kelas Kabin',
-    icon: Icons.airline_seat_recline_extra,
-    routeName: '/cabin_class',
-  ),
-  TransportationAttributes(
-    name: 'Maskapai',
-    icon: Icons.airplanemode_active,
-    routeName: '/search_page',
-  ),
-];
