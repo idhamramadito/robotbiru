@@ -11,66 +11,64 @@ class PagePesawat extends StatefulWidget {
 
 class _PagePesawatState extends State<PagePesawat> {
   bool _isTwoWayTrip = false;
+  List<TransportationAttributes> _dataList = [
+    TransportationAttributes(
+      name: 'Asal',
+      icon: Icons.flight_takeoff,
+      onPressed: (context) {
+        Navigator.of(context).pushNamed('/search_page', arguments: 'Asal');
+      },
+    ),
+    TransportationAttributes(
+      name: 'Destinasi',
+      icon: Icons.flight_land,
+      onPressed: (context) {
+        Navigator.of(context).pushNamed('/search_page', arguments: 'Destinasi');
+      },
+    ),
+    TransportationAttributes(
+      name: 'Tanggal Pergi',
+      icon: Icons.calendar_today,
+      onPressed: (context) {
+        Navigator.of(context)
+            .pushNamed('/date_page', arguments: 'Tanggal Pergi');
+      },
+    ),
+    TransportationAttributes(
+      name: 'Tanggal Pulang',
+      icon: Icons.calendar_today,
+      onPressed: (context) {
+        Navigator.of(context)
+            .pushNamed('/date_page', arguments: 'Tanggal Pulang');
+      },
+    ),
+    TransportationAttributes(
+      name: 'Jumlah Penumpang',
+      icon: Icons.person,
+      onPressed: (context) async {
+        var result = await passengers(context);
+        return result;
+      },
+    ),
+    TransportationAttributes(
+      name: 'Kelas Kabin',
+      icon: Icons.airline_seat_recline_extra,
+      onPressed: (context) async {
+        var result = await kelasKabin(context);
+        return result;
+      },
+    ),
+    TransportationAttributes(
+      name: 'Maskapai',
+      icon: Icons.airplanemode_active,
+      onPressed: (context) {
+        Navigator.of(context).pushNamed('/search_page', arguments: 'Maskapai');
+      },
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    List<TransportationAttributes> _dataList = [
-      TransportationAttributes(
-        name: 'Asal',
-        icon: Icons.flight_takeoff,
-        onPressed: () {
-          Navigator.of(context).pushNamed('/search_page', arguments: 'Asal');
-        },
-      ),
-      TransportationAttributes(
-        name: 'Destinasi',
-        icon: Icons.flight_land,
-        onPressed: () {
-          Navigator.of(context)
-              .pushNamed('/search_page', arguments: 'Destinasi');
-        },
-      ),
-      TransportationAttributes(
-        name: 'Tanggal Pergi',
-        icon: Icons.calendar_today,
-        onPressed: () {
-          Navigator.of(context)
-              .pushNamed('/date_page', arguments: 'Tanggal Pergi');
-        },
-      ),
-      TransportationAttributes(
-        name: 'Tanggal Pulang',
-        icon: Icons.calendar_today,
-        onPressed: () {
-          Navigator.of(context)
-              .pushNamed('/date_page', arguments: 'Tanggal Pulang');
-        },
-      ),
-      TransportationAttributes(
-        name: 'Jumlah Penumpang',
-        icon: Icons.person,
-        onPressed: () async {
-          var result = await passengers(context);
-          return result;
-        },
-      ),
-      TransportationAttributes(
-        name: 'Kelas Kabin',
-        icon: Icons.airline_seat_recline_extra,
-        onPressed: () async {
-          var result = await kelasKabin(context);
-          return result;
-        },
-      ),
-      TransportationAttributes(
-        name: 'Maskapai',
-        icon: Icons.airplanemode_active,
-        onPressed: () {
-          Navigator.of(context)
-              .pushNamed('/search_page', arguments: 'Maskapai');
-        },
-      ),
-    ];
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -110,7 +108,8 @@ class _PagePesawatState extends State<PagePesawat> {
                         child: ListTile(
                           key: UniqueKey(),
                           onTap: () async {
-                            final result = await _dataList[index].onPressed();
+                            final result =
+                                await _dataList[index].onPressed(context);
                             setState(() {
                               _dataList[index].content = result;
                             });
