@@ -41,13 +41,9 @@ class _SearchPageState extends State<SearchPage> {
           Container(
             alignment: Alignment.centerLeft,
             margin: const EdgeInsets.fromLTRB(30, 10, 20, 0),
-            child: Text(
-              'Tujuan Terpopuler',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 15,
-              ),
-            ),
+            child: Text((widget.pageName == 'Maskapai')
+                ? 'Semua Maskapai'
+                : 'Tujuan Terpopuler'),
           ),
           SizedBox(height: 10),
           Container(
