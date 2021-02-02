@@ -16,15 +16,19 @@ class _PagePesawatState extends State<PagePesawat> {
     TransportationAttributes(
       name: 'Asal',
       icon: Icons.flight_takeoff,
-      onPressed: (context) {
-        Navigator.of(context).pushNamed('/search_page', arguments: 'Asal');
+      onPressed: (context) async {
+        var result = await Navigator.of(context)
+            .pushNamed('/search_page', arguments: 'Asal');
+        return result;
       },
     ),
     TransportationAttributes(
       name: 'Destinasi',
       icon: Icons.flight_land,
-      onPressed: (context) {
-        Navigator.of(context).pushNamed('/search_page', arguments: 'Destinasi');
+      onPressed: (context) async {
+        var result = await Navigator.of(context)
+            .pushNamed('/search_page', arguments: 'Destinasi');
+        return result;
       },
     ),
     TransportationAttributes(
@@ -62,8 +66,10 @@ class _PagePesawatState extends State<PagePesawat> {
     TransportationAttributes(
       name: 'Maskapai',
       icon: Icons.airplanemode_active,
-      onPressed: (context) {
-        Navigator.of(context).pushNamed('/search_page', arguments: 'Maskapai');
+      onPressed: (context) async {
+        var result = Navigator.of(context)
+            .pushNamed('/search_page', arguments: 'Maskapai');
+        return result;
       },
     ),
   ];
