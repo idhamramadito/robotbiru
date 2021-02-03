@@ -91,7 +91,10 @@ Future ticketDetails(BuildContext context) {
                               style: TextStyle(
                                   fontSize: 17, fontWeight: FontWeight.bold),
                             ),
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed('/kebijakan_pemesanan');
+                            },
                           ),
                         ],
                       ),
