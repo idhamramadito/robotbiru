@@ -91,7 +91,7 @@ Future ticketDetails(BuildContext context) {
                     ),
                     Flexible(
                       child: BigButton(
-                        title: 'Beli',
+                        title: 'Pesan Pesawat',
                         onPressed: () {
                           Navigator.of(context).pushNamed('/pemesanan');
                         },
