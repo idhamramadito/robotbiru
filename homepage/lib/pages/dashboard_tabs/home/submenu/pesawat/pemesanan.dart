@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
 class Pemesanan extends StatefulWidget {
   Pemesanan({
@@ -32,11 +33,11 @@ class _PemesananState extends State<Pemesanan> {
             ),
             Container(
               margin: EdgeInsets.only(top: 20),
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
                   borderRadius:
-                      BorderRadius.vertical(top: Radius.circular(30.0))),
+                      BorderRadius.vertical(top: Radius.circular(15.0))),
               child: Row(
                 children: [
                   Text(
@@ -60,61 +61,68 @@ class _PemesananState extends State<Pemesanan> {
                 ],
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(30.0))),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'CGK - DPS',
-                      style: TextStyle(
-                        fontSize: 18,
+            InkWell(
+              onTap: () {
+                ticketDetails(context);
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius:
+                        BorderRadius.vertical(bottom: Radius.circular(15.0))),
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'CGK - DPS',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
                       ),
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        '20 Januari 2021 ',
-                        style: TextStyle(
-                          fontSize: 16,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              '20 Januari 2021 ',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            Icon(
+                              Icons.circle,
+                              size: 5,
+                            ),
+                            Text(
+                              ' 1 Dewasa ',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            Icon(
+                              Icons.circle,
+                              size: 5,
+                            ),
+                            Text(
+                              ' Ekonomi',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      Icon(
-                        Icons.circle,
-                        size: 5,
-                      ),
-                      Text(
-                        ' 1 Dewasa ',
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      Icon(
-                        Icons.circle,
-                        size: 5,
-                      ),
-                      Text(
-                        ' Ekonomi',
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Icon(
-                          Icons.arrow_drop_down_sharp,
+                        Icon(
+                          Icons.keyboard_arrow_down,
                           size: 30,
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
