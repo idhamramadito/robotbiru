@@ -143,7 +143,9 @@ class _PagePesawatState extends State<PagePesawat> {
                           subtitle: Text(
                             (_dataList[index].content == null)
                                 ? 'Belum Dipilih'
-                                : '${_dataList[index].content}',
+                                : (_dataList[index].name == 'Jumlah Penumpang')
+                                    ? '${_dataList[index].content[0][1]} ${_dataList[index].content[0][0]}, ${_dataList[index].content[1][1]} ${_dataList[index].content[1][0]}, ${_dataList[index].content[2][1]} ${_dataList[index].content[2][0]}'
+                                    : '${_dataList[index].content}',
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,

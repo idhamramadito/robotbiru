@@ -47,11 +47,11 @@ Future passengers(BuildContext context) {
                           ),
                           subtitle: Text(
                             (element[0] == 'Dewasa')
-                                ? 'Di Atas 11 Tahun'
+                                ? 'Di Atas\n11 Tahun'
                                 : (element[0] == 'Anak')
                                     ? '2-11 Tahun'
                                     : (element[0] == 'Bayi')
-                                        ? 'Di Bawah 2 Tahun'
+                                        ? 'Di Bawah\n2 Tahun'
                                         : '',
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 14),
@@ -61,10 +61,14 @@ Future passengers(BuildContext context) {
                           margin: EdgeInsets.symmetric(vertical: 10),
                           height: 100,
                           child: CupertinoPicker.builder(
-                            itemExtent: 30,
+                            itemExtent: 50,
                             onSelectedItemChanged: (int i) => element[1] = i,
-                            itemBuilder: (context, index) =>
-                                (index >= 0) ? Text('$index') : null,
+                            itemBuilder: (context, index) => (index >= 0)
+                                ? Text(
+                                    '$index',
+                                    style: TextStyle(fontSize: 30),
+                                  )
+                                : null,
                           ),
                         ),
                       ],
