@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class TabHarga extends StatelessWidget {
@@ -8,10 +9,15 @@ class TabHarga extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List _bonusList = [
-      ['Cashback', 'Rp 2.500'],
-      ['Anggota', 'Rp 3.500'],
-      ['Retail', 'Rp 6.000'],
+    List<NameAndContent> _price = [
+      NameAndContent(name: 'Dewasa (1x)', content: 'Rp 435.454'),
+      NameAndContent(name: 'Cashback', content: 'Rp 2.500'),
+    ];
+
+    List<NameAndContent> _bonusList = [
+      NameAndContent(name: 'Cashback', content: 'Rp 2.500'),
+      NameAndContent(name: 'Anggota', content: 'Rp 3.500'),
+      NameAndContent(name: 'Retail', content: 'Rp 6.000'),
     ];
 
     return Padding(
@@ -19,16 +25,17 @@ class TabHarga extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            padding: EdgeInsets.symmetric(horizontal: 25),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Dewasa (1x)',
+                  '${_price[0].name}',
                   style: TextStyle(fontSize: 17),
                 ),
                 Text(
-                  'Rp 435.454',
+                  '${_price[0].content}',
                   style: TextStyle(fontSize: 17),
                 ),
               ],
@@ -38,16 +45,17 @@ class TabHarga extends StatelessWidget {
           Divider(),
           SizedBox(height: 15),
           Container(
+            padding: EdgeInsets.symmetric(horizontal: 25),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Total Pembayaran',
+                  '${_price[1].name}',
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'Rp 435.454',
+                  '${_price[1].content}',
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
               ],
