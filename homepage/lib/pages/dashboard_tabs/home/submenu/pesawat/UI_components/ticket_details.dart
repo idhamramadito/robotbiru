@@ -40,7 +40,41 @@ Future ticketDetails(BuildContext context) {
             Flexible(
               child: TabBarView(
                 children: [
-                  Placeholder(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          dense: true,
+                          leading: Image.asset('images/japan_airlines.png'),
+                          title: Text(
+                            'Japan Airlines',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'JT-22',
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 15,
+                                color: Colors.grey),
+                          ),
+                        ),
+                        Divider(),
+                        InkWell(
+                          child: Text(
+                            'Kebijakan Pembatalan',
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  ),
                   Placeholder(),
                   Placeholder(),
                 ],
