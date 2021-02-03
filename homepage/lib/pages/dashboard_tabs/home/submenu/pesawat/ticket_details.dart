@@ -32,6 +32,43 @@ Future ticketDetails(BuildContext context) {
                 ),
               ),
               // TODO: asal & tujuan
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        'CGK',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      Text(
+                        "Jakarta",
+                        style: TextStyle(),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'DPS',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      Text(
+                        "Denpasar",
+                        style: TextStyle(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: TabBar(
