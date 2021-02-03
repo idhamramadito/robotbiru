@@ -13,6 +13,8 @@ class JadwalPesawat extends StatefulWidget {
 }
 
 class _JadwalPesawatState extends State<JadwalPesawat> {
+  List<bool> isSelected = [false, false];
+
   List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
   List _cardJadwal = [
     [
@@ -348,6 +350,62 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
           ),
         ),
       ]),
+      floatingActionButton: Container(
+        padding: EdgeInsets.zero,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+        ),
+        child: ToggleButtons(
+          color: Colors.black,
+          selectedColor: Colors.blue,
+          selectedBorderColor: Colors.blue,
+          fillColor: Colors.blue.withOpacity(0.08),
+          splashColor: Colors.blue.withOpacity(0.12),
+          hoverColor: Colors.blue.withOpacity(0.04),
+          borderRadius: BorderRadius.circular(18.0),
+          constraints: BoxConstraints(minHeight: 36.0),
+          isSelected: isSelected,
+          onPressed: (index) {
+            // Respond to button selection
+            setState(() {
+              isSelected[index] = !isSelected[index];
+              if (index == 1) {
+                if (isSelected[index - 1] == true) {
+                  isSelected[index - 1] = false;
+                } else {}
+              } else {
+                if (isSelected[index + 1] == true) {
+                  isSelected[index + 1] = false;
+                }
+              }
+            });
+          },
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Container(
+                  child: Row(
+                children: [
+                  // Image.asset('images/blue_filter_1.png'),
+                  Text('Filter'),
+                ],
+              )),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Container(
+                  child: Row(
+                children: [
+                  // Image.asset('images/blue_filter_1.png'),
+                  Text('Tanggal'),
+                ],
+              )),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
