@@ -45,7 +45,7 @@ class RoutingTable {
       case '/jadwal_pesawat':
         return MaterialPageRoute(builder: (_) => JadwalPesawat());
       case '/pemesanan':
-        return MaterialPageRoute(builder: (_) => Pemesanan());
+        return MaterialPageRoute(builder: (_) => Pemesanan(data: args));
       default:
         return errorRoute();
     }

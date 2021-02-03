@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
 class Pemesanan extends StatefulWidget {
+  final List<List> data;
+
   Pemesanan({
     Key key,
-  }) : super(key: key);
+    List<List> data,
+  })  : this.data = data,
+        super(key: key);
 
   @override
   _PemesananState createState() => _PemesananState();
@@ -63,7 +67,8 @@ class _PemesananState extends State<Pemesanan> {
             ),
             InkWell(
               onTap: () {
-                ticketDetails(context);
+                ticketDetails(
+                    context, widget.data[0], widget.data[1], 'Pemesanan');
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -76,7 +81,7 @@ class _PemesananState extends State<Pemesanan> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'CGK - DPS',
+                        '${widget.data[1][2]} - ${widget.data[1][6]}',
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -108,7 +113,7 @@ class _PemesananState extends State<Pemesanan> {
                               size: 5,
                             ),
                             Text(
-                              ' Ekonomi',
+                              ' ${widget.data[0]}',
                               style: TextStyle(
                                 fontSize: 16,
                               ),
