@@ -1,161 +1,7 @@
 import 'package:homepage/models/transportation_attributes.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/filter.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:flutter/material.dart';
-
-class ModalBottomSheet extends StatefulWidget {
-  _ModalBottomSheetState createState() => _ModalBottomSheetState();
-}
-
-class _ModalBottomSheetState extends State<ModalBottomSheet>
-    with SingleTickerProviderStateMixin {
-  List _rekomendasi = [
-    "Harga Terendah",
-    "Keberangkatan Paling Awal",
-    "Keberangkatan Paling Akhir",
-    "Kedatangan Paling Awal",
-    "Kedatangan Paling Akhir",
-    "Durasi Tercepat"
-  ];
-  bool rememberMe = false;
-  List _filterDengan = [
-    ["Langsung", false],
-    ["1 Transit", false],
-    ["2 Transit", false],
-  ];
-
-  void _onRememberMeChanged(bool newValue) => setState(() {
-        rememberMe = newValue;
-        if (rememberMe) {
-          // TODO: Here goes your functionality that remembers the user.
-        } else {
-          // TODO: Forget the user
-        }
-      });
-
-  Widget build(BuildContext context) {
-    return Container(
-        child: DraggableScrollableSheet(
-      expand: false,
-      builder: (context, controller) {
-        return SingleChildScrollView(
-          controller: controller,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(25, 35, 25, 0),
-            child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                  child: Column(children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Container(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text("Urutkan & Filter"),
-                        ],
-                      )),
-                    )
-                  ]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text("Urutkan"),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 342,
-                          child: ExpansionTile(
-                            title: Text(
-                              "Rekomendasi",
-                            ),
-                            children: <Widget>[
-                              ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: _rekomendasi.length,
-                                  itemBuilder: (context, index) {
-                                    return Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          0, 0, 0, 10),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                0, 0, 0, 10),
-                                            child: Text(_rekomendasi[index]),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  })
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                  child: Text("Filter Dengan"),
-                ),
-                Column(
-                  children: [
-                    Column(
-                      children: [
-                        Text("Durasi Transit"),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: _filterDengan.length,
-                                    itemBuilder: (context, index) {
-                                      return Container(
-                                          child: Row(
-                                        children: [
-                                          new Text(
-                                            _filterDengan[index][0],
-                                            style:
-                                                TextStyle(color: Colors.black),
-                                          ),
-                                        ],
-                                      ));
-                                    })
-                              ]),
-                        ),
-                      ],
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
-        );
-      },
-    ));
-  }
-}
 
 class JadwalPesawat extends StatefulWidget {
   final List<TransportationAttributes> previousData;
@@ -529,65 +375,67 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(0)),
         ),
-        child: ToggleButtons(
-          color: Colors.black,
-          selectedColor: Colors.blue,
-          selectedBorderColor: Colors.blue,
-          fillColor: Colors.blue.withOpacity(0.08),
-          splashColor: Colors.blue.withOpacity(0.12),
-          hoverColor: Colors.blue.withOpacity(0.04),
-          borderRadius: BorderRadius.circular(18.0),
-          constraints: BoxConstraints(minHeight: 36.0),
-          isSelected: isSelected,
-          onPressed: (index) {
-            switch (index) {
-              case 0:
-                showModalBottomSheet(
-                  context: context,
-                  builder: (_) => ModalBottomSheet(),
-                );
-                break;
-              case 1:
-                print("1");
-                break;
-              default:
-                print("Error");
-            }
-            setState(() {
-              isSelected[index] = !isSelected[index];
-              if (index == 1) {
-                if (isSelected[index - 1] == true) {
-                  isSelected[index - 1] = false;
-                } else {}
-              } else {
-                if (isSelected[index + 1] == true) {
-                  isSelected[index + 1] = false;
-                }
+        child: Container(
+          child: ToggleButtons(
+            color: Colors.black,
+            selectedColor: Colors.blue,
+            selectedBorderColor: Colors.blue,
+            fillColor: Colors.blue.withOpacity(0.08),
+            splashColor: Colors.blue.withOpacity(0.12),
+            hoverColor: Colors.blue.withOpacity(0.04),
+            borderRadius: BorderRadius.circular(18.0),
+            constraints: BoxConstraints(minHeight: 36.0),
+            isSelected: isSelected,
+            onPressed: (index) {
+              switch (index) {
+                case 0:
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (_) => Filter(),
+                  );
+                  break;
+                case 1:
+                  print("1");
+                  break;
+                default:
+                  print("Error");
               }
-            });
-          },
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Container(
-                  child: Row(
-                children: [
-                  // Image.asset('images/blue_filter_1.png'),
-                  Text('Filter'),
-                ],
-              )),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Container(
-                  child: Row(
-                children: [
-                  // Image.asset('images/blue_filter_1.png'),
-                  Text('Tanggal'),
-                ],
-              )),
-            ),
-          ],
+              setState(() {
+                isSelected[index] = !isSelected[index];
+                if (index == 1) {
+                  if (isSelected[index - 1] == true) {
+                    isSelected[index - 1] = false;
+                  } else {}
+                } else {
+                  if (isSelected[index + 1] == true) {
+                    isSelected[index + 1] = false;
+                  }
+                }
+              });
+            },
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                    child: Row(
+                  children: [
+                    // Image.asset('images/blue_filter_1.png'),
+                    Text('Filter'),
+                  ],
+                )),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                    child: Row(
+                  children: [
+                    // Image.asset('images/blue_filter_1.png'),
+                    Text('Tanggal'),
+                  ],
+                )),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
