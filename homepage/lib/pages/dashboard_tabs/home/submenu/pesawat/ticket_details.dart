@@ -10,6 +10,7 @@ Future ticketDetails(BuildContext context) {
   return showModalBottomSheet(
     isScrollControlled: true,
     context: context,
+    backgroundColor: Colors.white,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(20),
@@ -33,7 +34,7 @@ Future ticketDetails(BuildContext context) {
               ),
               // TODO: asal & tujuan
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
                     children: [
@@ -42,16 +43,13 @@ Future ticketDetails(BuildContext context) {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text(
-                        "Jakarta",
-                        style: TextStyle(),
-                      ),
+                      Text("Jakarta"),
                     ],
                   ),
-                  Image.asset('images/plane_with_trail.png'),
+                  Image.asset('images/plane_with_trail.png', width: 50),
                   Column(
                     children: [
                       Text(
@@ -59,13 +57,10 @@ Future ticketDetails(BuildContext context) {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text(
-                        "Denpasar",
-                        style: TextStyle(),
-                      ),
+                      Text("Denpasar"),
                     ],
                   ),
                 ],
