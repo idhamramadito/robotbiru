@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class TabHarga extends StatelessWidget {
   const TabHarga({
@@ -7,6 +8,12 @@ class TabHarga extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List _bonusList = [
+      ['Cashback', 'Rp 2.500'],
+      ['Anggota', 'Rp 3.500'],
+      ['Retail', 'Rp 6.000'],
+    ];
+
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
@@ -49,68 +56,7 @@ class TabHarga extends StatelessWidget {
           SizedBox(height: 15),
           Divider(),
           SizedBox(height: 15),
-          Container(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Bonus',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Cashback',
-                  style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                ),
-                Text(
-                  'Rp 2.500',
-                  style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Anggota',
-                  style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                ),
-                Text(
-                  'Rp 3.500',
-                  style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Retail',
-                  style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                ),
-                Text(
-                  'Rp 6.000',
-                  style: TextStyle(fontSize: 15, color: Colors.grey[700]),
-                ),
-              ],
-            ),
-          ),
+          ReceiptCard(title: 'Bonus', dataList: _bonusList),
         ],
       ),
     );

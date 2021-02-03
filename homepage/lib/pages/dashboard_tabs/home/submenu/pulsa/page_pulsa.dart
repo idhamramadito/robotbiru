@@ -118,12 +118,12 @@ class _PagePulsaState extends State<PagePulsa> {
                 ),
                 PaketPulsaKuota(amount: _dataList.chosenPrice),
                 ReceiptCard(
-                  cardName: 'Ringkasan',
+                  title: 'Ringkasan',
                   dataList: _ringkasan,
                 ),
                 Divider(thickness: 5),
                 ReceiptCard(
-                  cardName: 'Cashback',
+                  title: 'Cashback',
                   dataList: _cashback,
                 ),
                 Divider(thickness: 5),
