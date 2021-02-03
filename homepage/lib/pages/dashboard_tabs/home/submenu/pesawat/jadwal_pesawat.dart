@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/ticket_details.dart';
 
 class JadwalPesawat extends StatefulWidget {
-  final List previousData;
+  final List<TransportationAttributes> previousData;
   JadwalPesawat({
     Key key,
-    List previousData,
+    List<TransportationAttributes> previousData,
   })  : this.previousData = previousData,
         super(key: key);
 

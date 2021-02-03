@@ -28,6 +28,7 @@ Future ticketDetails(BuildContext context) {
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ),
+              // TODO: widget untuk nama bandara asal dan tujuan
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: TabBar(
