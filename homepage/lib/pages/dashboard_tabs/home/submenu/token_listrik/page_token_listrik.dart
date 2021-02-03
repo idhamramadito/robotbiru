@@ -101,12 +101,12 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                                 }),
                               ),
                               ReceiptCard(
-                                cardName: 'Ringkasan',
+                                title: 'Ringkasan',
                                 dataList: _ringkasan,
                               ),
                               Divider(thickness: 5),
                               ReceiptCard(
-                                cardName: 'Cashback',
+                                title: 'Cashback',
                                 dataList: _cashback,
                               ),
                               Divider(thickness: 5),

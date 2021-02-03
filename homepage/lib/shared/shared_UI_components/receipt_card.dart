@@ -4,11 +4,11 @@ import 'package:homepage/models/name_and_content.dart';
 class ReceiptCard extends StatefulWidget {
   const ReceiptCard({
     Key key,
-    this.cardName,
+    this.title,
     @required this.dataList,
   }) : super(key: key);
 
-  final String cardName;
+  final String title;
   final List<NameAndContent> dataList;
 
   @override
@@ -23,12 +23,12 @@ class _ReceiptCardState extends State<ReceiptCard> {
       child: Column(
         children: [
           Visibility(
-            visible: (widget.cardName != null),
+            visible: (widget.title != null),
             child: Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.fromLTRB(25, 15, 25, 3),
               child: Text(
-                widget.cardName ?? '',
+                widget.title ?? '',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
