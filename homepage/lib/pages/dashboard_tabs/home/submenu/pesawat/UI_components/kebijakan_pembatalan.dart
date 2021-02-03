@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class KebijakanPemesanan extends StatefulWidget {
+class KebijakanPembatalan extends StatefulWidget {
   @override
-  _KebijakanPemesananState createState() => _KebijakanPemesananState();
+  _KebijakanPembatalanState createState() => _KebijakanPembatalanState();
 }
 
-class _KebijakanPemesananState extends State<KebijakanPemesanan> {
+class _KebijakanPembatalanState extends State<KebijakanPembatalan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
