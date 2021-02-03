@@ -65,8 +65,26 @@ Future ticketDetails(BuildContext context) {
                                   fontSize: 15,
                                   color: Colors.grey),
                             ),
+                            trailing: Container(
+                              width: 100,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Flexible(
+                                      child:
+                                          Image.asset('images/gray_clock.png')),
+                                  Flexible(
+                                    child: Text(
+                                      '1j 50m',
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                           Divider(),
+                          SizedBox(height: 10),
                           InkWell(
                             child: Text(
                               'Kebijakan Pembatalan',
@@ -119,6 +137,7 @@ Future ticketDetails(BuildContext context) {
                             ),
                           ),
                           Divider(),
+                          SizedBox(height: 15),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -137,7 +156,9 @@ Future ticketDetails(BuildContext context) {
                               ],
                             ),
                           ),
+                          SizedBox(height: 15),
                           Divider(),
+                          SizedBox(height: 15),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -171,6 +192,7 @@ Future ticketDetails(BuildContext context) {
                                         ],
                                       ),
                                     ),
+                                    SizedBox(height: 20),
                                     Container(
                                       width: 250,
                                       child: Row(
@@ -192,6 +214,7 @@ Future ticketDetails(BuildContext context) {
                                         ],
                                       ),
                                     ),
+                                    SizedBox(height: 20),
                                     Container(
                                       width: 250,
                                       child: Row(
@@ -213,6 +236,7 @@ Future ticketDetails(BuildContext context) {
                                         ],
                                       ),
                                     ),
+                                    SizedBox(height: 20),
                                     Container(
                                       width: 250,
                                       child: Row(
@@ -238,11 +262,129 @@ Future ticketDetails(BuildContext context) {
                                 )
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
-                    Placeholder(),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Dewasa (1x)',
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                                Text(
+                                  'Rp 435.454',
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 15),
+                          Divider(),
+                          SizedBox(height: 15),
+                          Container(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Total Pembayaran',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  'Rp 435.454',
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 15),
+                          Divider(),
+                          SizedBox(height: 15),
+                          Container(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Bonus',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Cashback',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.grey[700]),
+                                ),
+                                Text(
+                                  'Rp 2.500',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.grey[700]),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Anggota',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.grey[700]),
+                                ),
+                                Text(
+                                  'Rp 3.500',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.grey[700]),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Retail',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.grey[700]),
+                                ),
+                                Text(
+                                  'Rp 6.000',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.grey[700]),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

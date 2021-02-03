@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/kebijakan_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/jadwal_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan.dart';
@@ -30,6 +31,8 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => SearchPage(pageName: args));
       case '/invoice_pulsa':
         return MaterialPageRoute(builder: (_) => InvoicePulsa());
+      case '/kebijakan_pemesanan':
+        return MaterialPageRoute(builder: (_) => KebijakanPemesanan());
       case '/invoice_token_listrik':
         return MaterialPageRoute(builder: (_) => InvoiceTokenListrik());
       case '/pin_code':
