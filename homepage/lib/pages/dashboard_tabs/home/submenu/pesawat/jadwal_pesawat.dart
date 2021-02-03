@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_attributes.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/ticket_details.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
 class JadwalPesawat extends StatefulWidget {
   final List<TransportationAttributes> previousData;
