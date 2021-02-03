@@ -286,7 +286,9 @@ Future ticketDetails(BuildContext context) {
                     Flexible(
                       child: BigButton(
                         title: 'Beli',
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/pemesanan');
+                        },
                       ),
                     ),
                   ],
