@@ -51,6 +51,7 @@ Future ticketDetails(BuildContext context) {
                       ),
                     ],
                   ),
+                  Image.asset('images/plane_with_trail.png'),
                   Column(
                     children: [
                       Text(
