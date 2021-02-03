@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+List _fasilitas = [
+  ['images/koper_biru.png', 'Bagasi'],
+  ['images/garpu_biru.png', 'Makanan'],
+  ['images/media_biru.png', 'Hiburan'],
+  ['images/refundable.png', 'Refundable']
+];
+
 class TabFasilitas extends StatelessWidget {
   const TabFasilitas({
     Key key,
@@ -76,80 +83,34 @@ class TabFasilitas extends StatelessWidget {
                   'Fasilitas',
                   style: TextStyle(fontSize: 17),
                 ),
-                Column(
-                  children: [
-                    Container(
-                      width: 250,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Flexible(child: Image.asset('images/koper_biru.png')),
-                          SizedBox(width: 25),
-                          Flexible(
-                            child: Text(
-                              'Bagasi',
-                              style: TextStyle(fontSize: 15),
+                Container(
+                  width: 250,
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: _fasilitas.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                    child: Image.asset(_fasilitas[index][0])),
+                                SizedBox(width: 25),
+                                Flexible(
+                                  child: Text(
+                                    _fasilitas[index][1],
+                                    style: TextStyle(fontSize: 15),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 250,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Flexible(child: Image.asset('images/garpu_biru.png')),
-                          SizedBox(width: 25),
-                          Flexible(
-                            child: Text(
-                              'Makanan',
-                              style: TextStyle(fontSize: 15),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 250,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Flexible(child: Image.asset('images/media_biru.png')),
-                          SizedBox(width: 25),
-                          Flexible(
-                            child: Text(
-                              'Hiburan',
-                              style: TextStyle(fontSize: 15),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 250,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Flexible(child: Image.asset('images/refundable.png')),
-                          SizedBox(width: 25),
-                          Flexible(
-                            child: Text(
-                              'Refundable',
-                              style: TextStyle(fontSize: 15),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                            SizedBox(height: 20)
+                          ],
+                        );
+                      }),
                 )
               ],
             ),
