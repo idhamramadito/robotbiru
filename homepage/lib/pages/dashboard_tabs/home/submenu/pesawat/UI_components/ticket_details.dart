@@ -93,7 +93,7 @@ Future ticketDetails(BuildContext context) {
                             ),
                             onTap: () {
                               Navigator.of(context)
-                                  .pushNamed('/kebijakan_pemesanan');
+                                  .pushNamed('/kebijakan_pembatalan');
                             },
                           ),
                         ],
