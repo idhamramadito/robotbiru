@@ -3,7 +3,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/jadwal_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/search_page.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
