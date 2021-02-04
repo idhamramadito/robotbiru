@@ -22,7 +22,9 @@ class MainServices extends StatelessWidget {
               Text("JekBot")
             ],
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed('/pembayaran');
+          },
         ),
         InkWell(
           child: Column(
