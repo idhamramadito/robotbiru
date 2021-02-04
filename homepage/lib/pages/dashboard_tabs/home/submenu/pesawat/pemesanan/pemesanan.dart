@@ -402,6 +402,137 @@ class _PemesananState extends State<Pemesanan> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 30,
+              ),
+              Divider(
+                thickness: 10,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Perlindungan Ekstra',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 20),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(10),
+                        ),
+                      ),
+                      child: ListTile(
+                        onTap: () {
+                          // Navigator.of(context).pushNamed(routeName)
+                        },
+                        leading: Image.asset('images/shield.png'),
+                        title: Text(
+                          'Perlindungan Penuh',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Rp 29.000',
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  Text(
+                                    '/Penumpang',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Text(
+                                'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga Rp 500.000.000'),
+                          ],
+                        ),
+                        trailing: Icon(
+                          Icons.check_box_outline_blank,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.vertical(
+                          bottom: Radius.circular(10),
+                        ),
+                      ),
+                      child: ListTile(
+                        onTap: () {
+                          // Navigator.of(context).pushNamed(routeName)
+                        },
+                        leading: Image.asset('images/shield-2.png'),
+                        title: Text(
+                          'Asuransi Bagasi',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Rp 13.300',
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  Text(
+                                    '/Penumpang',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Text(
+                                'Perlindungan dari kerusakan, hilang dan terlambat hingga Rp 25.000.000'),
+                          ],
+                        ),
+                        trailing: Icon(
+                          Icons.check_box_outline_blank,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
