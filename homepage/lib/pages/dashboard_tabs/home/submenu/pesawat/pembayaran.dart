@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
+import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class Pembayaran extends StatefulWidget {
   final List<List> data;
@@ -186,34 +187,17 @@ class _PembayaranState extends State<Pembayaran> {
                   ],
                 ),
               ),
-              // ListTile(
-              //   leading: Radio(
-              //     value: _atm[1],
-              //     groupValue: selectedValue,
-              //     onChanged: (value) {
-              //       setState(() {
-              //         selectedValue = value;
-              //       });
-              //     },
-              //   ),
-              //   title: Image.asset(_atm[1]),
-              // ),
-              // SizedBox(height: 20),
-              // ListTile(
-              //   leading: Radio(
-              //     value: _atm[2],
-              //     groupValue: selectedValue,
-              //     onChanged: (value) {
-              //       setState(() {
-              //         selectedValue = value;
-              //       });
-              //     },
-              //   ),
-              //   title: Image.asset(_atm[2]),
-              // ),
-              // SizedBox(height: 20),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(10.0),
+        child: BigButton(
+          title: 'Konfirmasi Pembayaran',
+          onPressed: () {
+            // Navigator.of(context).pushNamed(routeName)
+          },
         ),
       ),
     );
