@@ -20,47 +20,99 @@ class _BagasiState extends State<Bagasi> {
           children: [
             Text(
               'Penumpang',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(),
-              padding: EdgeInsets.symmetric(),
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
+                color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     '1. Tuan Anbiya Nur Rohmat',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
-                  Text('Pergi: 0Kg')
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Pergi: 0Kg',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  )
                 ],
               ),
             ),
-            Text('Penerbangan Pergi',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Penerbangan Pergi',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
             Container(
-              margin: EdgeInsets.symmetric(),
-              padding: EdgeInsets.symmetric(),
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
+                color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      Image.asset('images/japan-airlines.png'),
-                      Text('CGK - DPS')
+                      Image.asset(
+                        'images/japan-airlines.png',
+                        width: 50,
+                      ),
+                      Text(
+                        'CGK - DPS',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      )
                     ],
                   ),
-                  Text('Kamu punya bagasi gratis 20kg'),
-                  Text('Bagasi Pergi Tambahan'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Kamu punya bagasi gratis 20kg'),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Bagasi Pergi Tambahan',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
                   Container(
-                    margin: EdgeInsets.symmetric(),
-                    padding: EdgeInsets.symmetric(),
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5),
@@ -70,14 +122,22 @@ class _BagasiState extends State<Bagasi> {
                       children: [
                         Text(
                           '0 Kg (+RP 0)',
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                         Icon(Icons.keyboard_arrow_down)
                       ],
                     ),
                   ),
                   Text(
-                      'Untuk keberangkatan kurang dari 6 jam, Anda dapat membeli bagasi di bandara.')
+                    'Untuk keberangkatan kurang dari 6 jam, Anda dapat membeli bagasi di bandara.',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  )
                 ],
               ),
             ),
