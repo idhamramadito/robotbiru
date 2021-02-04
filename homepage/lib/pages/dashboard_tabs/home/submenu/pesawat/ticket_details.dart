@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_fasilitas.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_harga.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_perjalanan.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-Future ticketDetails(BuildContext context) {
+Future ticketDetails(
+    BuildContext context,
+    List<TransportationAttributes> customerData,
+    List flightData,
+    String sourcePage) {
   return showModalBottomSheet(
     isScrollControlled: true,
     context: context,
+    backgroundColor: Colors.white,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(20),
@@ -33,38 +39,33 @@ Future ticketDetails(BuildContext context) {
               ),
               // TODO: asal & tujuan
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
                     children: [
                       Text(
-                        'CGK',
+                        '${flightData[2]}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text(
-                        "Jakarta",
-                        style: TextStyle(),
-                      ),
+                      Text("Jakarta"),
                     ],
                   ),
+                  Image.asset('images/plane_with_trail.png', width: 50),
                   Column(
                     children: [
                       Text(
-                        'DPS',
+                        '${flightData[6]}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text(
-                        "Denpasar",
-                        style: TextStyle(),
-                      ),
+                      Text("Denpasar"),
                     ],
                   ),
                 ],
@@ -90,54 +91,61 @@ Future ticketDetails(BuildContext context) {
                   ],
                 ),
               ),
-              Container(
-                height: 70,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 10, color: Colors.black.withOpacity(0.1))
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 5),
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Rp 307.000',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blue,
-                              ),
+              Visibility(
+                  visible: sourcePage == 'Jadwal Pesawat',
+                  child: Container(
+                    height: 70,
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 10,
+                            color: Colors.black.withOpacity(0.1))
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(vertical: 5),
+                            alignment: Alignment.centerLeft,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Rp 307.000',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                Text(
+                                  "per orang",
+                                  style: TextStyle(
+                                    color: Colors.grey[500],
+                                  ),
+                                ),
+                              ],
                             ),
-                            Text(
-                              "per orang",
-                              style: TextStyle(
-                                color: Colors.grey[500],
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
+                        Flexible(
+                          child: BigButton(
+                            title: 'Pesan Pesawat',
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed('/pemesanan', arguments: [
+                                customerData,
+                                flightData,
+                              ]);
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                    Flexible(
-                      child: BigButton(
-                        title: 'Pesan Pesawat',
-                        onPressed: () {
-                          Navigator.of(context).pushNamed('/pemesanan');
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  )),
             ],
           ),
         ),

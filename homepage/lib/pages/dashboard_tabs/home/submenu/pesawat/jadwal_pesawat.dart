@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
+=======
+>>>>>>> ac870ee06e3546ac5dbf453ab279c8559cc2340a
 import 'package:homepage/models/transportation_attributes.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/filter.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
+<<<<<<< HEAD
+=======
+import 'package:flutter/material.dart';
+>>>>>>> ac870ee06e3546ac5dbf453ab279c8559cc2340a
 
 class JadwalPesawat extends StatefulWidget {
   final List<TransportationAttributes> previousData;
@@ -168,7 +176,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  ticketDetails(context);
+                  ticketDetails(context, widget.previousData,
+                      _cardJadwal[index], 'Jadwal Pesawat');
                 },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -374,6 +383,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(0)),
         ),
+<<<<<<< HEAD
         child: ToggleButtons(
           color: Colors.black,
           selectedColor: Colors.blue,
@@ -408,31 +418,69 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                 if (isSelected[index + 1] == true) {
                   isSelected[index + 1] = false;
                 }
+=======
+        child: Container(
+          child: ToggleButtons(
+            color: Colors.black,
+            selectedColor: Colors.blue,
+            selectedBorderColor: Colors.blue,
+            fillColor: Colors.blue.withOpacity(0.08),
+            splashColor: Colors.blue.withOpacity(0.12),
+            hoverColor: Colors.blue.withOpacity(0.04),
+            borderRadius: BorderRadius.circular(18.0),
+            constraints: BoxConstraints(minHeight: 36.0),
+            isSelected: isSelected,
+            onPressed: (index) {
+              switch (index) {
+                case 0:
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (_) => Filter(),
+                  );
+                  break;
+                case 1:
+                  print("1");
+                  break;
+                default:
+                  print("Error");
+>>>>>>> ac870ee06e3546ac5dbf453ab279c8559cc2340a
               }
-            });
-          },
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Container(
-                  child: Row(
-                children: [
-                  // Image.asset('images/blue_filter_1.png'),
-                  Text('Filter'),
-                ],
-              )),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Container(
-                  child: Row(
-                children: [
-                  // Image.asset('images/blue_filter_1.png'),
-                  Text('Tanggal'),
-                ],
-              )),
-            ),
-          ],
+              setState(() {
+                isSelected[index] = !isSelected[index];
+                if (index == 1) {
+                  if (isSelected[index - 1] == true) {
+                    isSelected[index - 1] = false;
+                  } else {}
+                } else {
+                  if (isSelected[index + 1] == true) {
+                    isSelected[index + 1] = false;
+                  }
+                }
+              });
+            },
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                    child: Row(
+                  children: [
+                    // Image.asset('images/blue_filter_1.png'),
+                    Text('Filter'),
+                  ],
+                )),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                    child: Row(
+                  children: [
+                    // Image.asset('images/blue_filter_1.png'),
+                    Text('Tanggal'),
+                  ],
+                )),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

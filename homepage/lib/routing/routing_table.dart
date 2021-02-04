@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/kebijakan_pembatalan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/jadwal_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/search_page.dart';
 import 'package:homepage/routing/error_route.dart';
@@ -45,7 +46,9 @@ class RoutingTable {
       case '/jadwal_pesawat':
         return MaterialPageRoute(builder: (_) => JadwalPesawat());
       case '/pemesanan':
-        return MaterialPageRoute(builder: (_) => Pemesanan());
+        return MaterialPageRoute(builder: (_) => Pemesanan(data: args));
+      case '/pembayaran':
+        return MaterialPageRoute(builder: (_) => Pembayaran(data: args));
       default:
         return errorRoute();
     }
