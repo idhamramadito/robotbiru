@@ -37,7 +37,6 @@ Future ticketDetails(
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ),
-              // TODO: asal & tujuan
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
