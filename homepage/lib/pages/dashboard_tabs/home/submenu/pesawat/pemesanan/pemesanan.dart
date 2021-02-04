@@ -623,39 +623,19 @@ class _PemesananState extends State<Pemesanan> {
                           // Navigator.of(context).pushNamed(routeName)
                         },
                         leading: Image.asset('images/bagasi.png'),
-                        title: Text('Bagasi'),
-                        subtitle: Text('Tambah kapasistas barang bawaan mu.'),
-                        trailing: Text('Pesan'),
-                        // children: [
-                        //   Row(
-                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //     children: [
-                        //       Text(
-                        //         'Bagasi',
-                        //         style: TextStyle(
-                        //           fontWeight: FontWeight.bold,
-                        //           fontSize: 20,
-                        //         ),
-                        //       ),
-                        //       Text(
-                        //         'Pesan',
-                        //         style: TextStyle(
-                        //           color: Colors.blue,
-                        //           fontSize: 20,
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   ),
-                        //   Align(
-                        //     alignment: Alignment.centerLeft,
-                        //     child: Text(
-                        //       'Tambah kapasitas barang bawaanmu',
-                        //       style: TextStyle(
-                        //         fontSize: 16,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ],
+                        title: Text(
+                          'Bagasi',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text('Tambah kapasitas barang bawaanmu.'),
+                        trailing: Text(
+                          'Pesan',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
                     ),
                     Container(
@@ -667,37 +647,24 @@ class _PemesananState extends State<Pemesanan> {
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Kursi',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              Text(
-                                'Pesan',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ],
+                      child: ListTile(
+                        onTap: () {
+                          // Navigator.of(context).pushNamed(routeName)
+                        },
+                        leading: Image.asset('images/kursi.png'),
+                        title: Text(
+                          'Kursi',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text('Pilih tempat duduk di pesawat.'),
+                        trailing: Text(
+                          'Pesan',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 18,
                           ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'Pilih tempat duduk di pesawat',
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   ],
