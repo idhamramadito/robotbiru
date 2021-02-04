@@ -183,8 +183,9 @@ class _PemesananState extends State<Pemesanan> {
                         ),
                       ),
                       IconButton(
+                        iconSize: 30,
                         icon: new Icon(Icons.create),
-                        highlightColor: Colors.blue,
+                        color: Colors.blue,
                         onPressed: () {
                           showModalBottomSheet(
                               context: context,
@@ -729,9 +730,9 @@ class _PemesananState extends State<Pemesanan> {
                                     ),
                                   ),
                                   Text(
-                                    '/Penumpang',
+                                    ' /Penumpang',
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 14,
                                     ),
                                   ),
                                 ],
@@ -781,9 +782,9 @@ class _PemesananState extends State<Pemesanan> {
                                     ),
                                   ),
                                   Text(
-                                    '/Penumpang',
+                                    ' /Penumpang',
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 14,
                                     ),
                                   ),
                                 ],
