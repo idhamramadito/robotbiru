@@ -355,7 +355,7 @@ class _PemesananState extends State<Pemesanan> {
                       ),
                       child: ListTile(
                         onTap: () {
-                          // Navigator.of(context).pushNamed(routeName)
+                          Navigator.of(context).pushNamed('/bagasi');
                         },
                         leading: Image.asset('images/bagasi.png'),
                         title: Text(
