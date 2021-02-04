@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/checkout_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
+import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class Pemesanan extends StatefulWidget {
   final List<List> data;
@@ -521,6 +523,7 @@ class _PemesananState extends State<Pemesanan> {
           ),
         ),
       ),
+      bottomNavigationBar: PemesananBottomBar(),
     );
   }
 }
