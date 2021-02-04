@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/text_field.dart';
+import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 Future detailPemesanan(BuildContext context) {
+  String _selectedTitle;
+  String _countryCode = '';
+  List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
+
   return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -14,194 +20,134 @@ Future detailPemesanan(BuildContext context) {
       builder: (context) {
         return StatefulBuilder(
             builder: (BuildContext context, StateSetter mystate) {
-          return DraggableScrollableSheet(
-            expand: false,
-            builder: (context, controller) {
-              return SingleChildScrollView(
-                controller: controller,
-                child: Column(children: [
-                  Center(
-                    child: Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      height: 4,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: Color(0xffC4C4C4),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(children: [
+                SlideUpMarker(),
+                SizedBox(height: 10),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Detail Pemesanan",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(height: 5),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Kepada siapa detail pemesanan ingin Anda kirimkan?",
+                  ),
+                ),
+                SizedBox(height: 20),
+                InputTextField(displayName: "Masukkan Nama", regex: "[a-zA-Z]"),
+                SizedBox(height: 5),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Isi sesuai KTP/Paspor/SIM (tanpa tanda baca & gelar)",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Text("Title", style: TextStyle(color: Colors.grey)),
+                ),
+                DropdownButtonFormField(
+                  iconEnabledColor: Theme.of(context).primaryColor,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Detail Pemesanan",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Kepada siapa detail pemesanan ingin Anda kirimkan?",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                    child: InputTextField(
-                        displayName: "Masukkan Nama", regex: "[a-zA-Z]"),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                            "Isi sesuai KTP/Paspor/SIM (tanpa tanda baca & gelar)",
-                            style: TextStyle(
-                              color: Colors.grey,
-                            )),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(25, 10, 0, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Title"),
-                      ],
-                    ),
-                  ),
-                  Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                      child: TextFormField(
-                        readOnly: true,
-                        decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.keyboard_arrow_down),
-                            highlightColor: Colors.black,
-                            onPressed: () {
-                              print("pressed");
-                            },
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          hintText: "Title",
-                        ),
-                      )),
-                  Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                      width: 500,
-                      height: 100,
-                      child: Row(
+                  icon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+                  hint: Text('Pilih Title'),
+                  value: _selectedTitle,
+                  items: _titleList.map((element) {
+                    return DropdownMenuItem(
+                      child: Text(element),
+                      value: element,
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    _selectedTitle = value;
+                  },
+                ),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Flexible(
+                      flex: 4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
-                              flex: 4,
-                              child: Container(
-                                padding: EdgeInsets.fromLTRB(5, 5, 10, 5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 0, 0, 10),
-                                          child: Text("Kode Negara"),
-                                        ),
-                                      ],
-                                    ),
-                                    Container(
-                                        child: TextFormField(
-                                      readOnly: true,
-                                      decoration: InputDecoration(
-                                        suffixIcon: IconButton(
-                                          icon: Icon(Icons.keyboard_arrow_down),
-                                          highlightColor: Colors.black,
-                                          onPressed: () {
-                                            print("pressed");
-                                          },
-                                        ),
-                                        border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        hintText: "(+62)",
-                                      ),
-                                    )),
-                                  ],
-                                ),
-                              )),
-                          Expanded(
-                              flex: 7,
-                              child: Container(
-                                  child: InputTextField(
-                                displayName: "Masukkan No. Telp",
-                                regex: '[0-9]',
-                              )))
-                        ],
-                      )),
-                  Container(
-                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-                      child: InputTextField(
-                        displayName: "Masukkan Email",
-                        regex:
-                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
-                      )),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(25, 0, 25, 25),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("E-ticket akan dikirim ke alamat Email ini.",
-                            style: TextStyle(
-                              color: Colors.grey,
-                            )),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(10.0),
+                          Container(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Kode Negara",
+                              style: TextStyle(color: Colors.grey),
+                            ),
                           ),
-                          primary: Theme.of(context).primaryColor),
-                      child: Text(
-                        "Simpan",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: ListTile(
+                              title: Text(_countryCode),
+                              trailing: Icon(Icons.keyboard_arrow_down),
+                              onTap: () async {
+                                final result =
+                                    await Navigator.of(context).pushNamed(
+                                  '/search_page',
+                                  arguments: 'Kode Negara',
+                                );
+                                mystate(() {
+                                  _countryCode = result ?? _countryCode;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
                       ),
-                      onPressed: () {},
                     ),
-                  )
-                ]),
-              );
-            },
+                    SizedBox(width: 10),
+                    Flexible(
+                      flex: 7,
+                      child: InputTextField(
+                        displayName: "Masukkan No. Telp",
+                        regex: '[0-9]',
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                InputTextField(
+                  displayName: "Masukkan Email",
+                  regex:
+                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                ),
+                SizedBox(height: 5),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "E-ticket akan dikirim ke alamat Email ini.",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: BigButton(
+                    title: 'Simpan',
+                    onPressed: () {},
+                  ),
+                ),
+              ]),
+            ),
           );
         });
       });

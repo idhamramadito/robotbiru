@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List _tujuan = [
+List _bandara = [
   ['images/gedung.png', 'Jakarta, Indonesia', 'Semua Bandara', 'JKTC'],
   ['images/gedung.png', 'Surabaya, Indonesia', 'Semua Bandara', 'SBYC'],
   ['images/gedung.png', 'Medan, Indonesia', 'Semua Bandara', 'MESC'],
@@ -10,6 +10,12 @@ List _maskapai = [
   ['images/pesawat_kecil.png', 'American Airlines', '', ''],
   ['images/pesawat_kecil.png', 'AirAsia Malaysia', '', ''],
   ['images/pesawat_kecil.png', 'Garuda Indonesia', '', ''],
+];
+
+List _kodeNegara = [
+  ['images/indonesia.png', '+62', 'Indonesia', ''],
+  ['images/malaysia.png', '+60', 'Malaysia', ''],
+  ['images/singapura.png', '+65', 'Singapura', ''],
 ];
 
 class SearchPage extends StatefulWidget {
@@ -27,9 +33,20 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    List _sementara = (widget.pageName == 'Maskapai')
-        ? List.from(_maskapai)
-        : List.from(_tujuan);
+    List _sementara;
+    switch (widget.pageName) {
+      case 'Maskapai':
+        _sementara = List.from(_maskapai);
+        break;
+      case 'Asal':
+      case 'Destinasi':
+        _sementara = List.from(_bandara);
+        break;
+      case 'Kode Negara':
+        _sementara = List.from(_kodeNegara);
+        break;
+      default:
+    }
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -47,20 +64,11 @@ class _SearchPageState extends State<SearchPage> {
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search, size: 25),
-                      hintText: (widget.pageName == 'Maskapai')
-                          ? 'Cari Maskapai'
-                          : 'Cari Kota atau Bandara'),
+                    prefixIcon: Icon(Icons.search, size: 25),
+                    hintText: 'Cari ${widget.pageName}',
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 10),
-            Container(
-              alignment: Alignment.centerLeft,
-              margin: const EdgeInsets.fromLTRB(30, 10, 20, 0),
-              child: Text((widget.pageName == 'Maskapai')
-                  ? 'Semua Maskapai'
-                  : 'Tujuan Terpopuler'),
             ),
             SizedBox(height: 10),
             ListView.builder(
@@ -83,7 +91,7 @@ class _SearchPageState extends State<SearchPage> {
                             fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Visibility(
-                        visible: widget.pageName != 'Maskapai',
+                        visible: _sementara[index][2] != '',
                         child: Text(
                           _sementara[index][2],
                           style: TextStyle(
@@ -93,7 +101,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       ),
                       trailing: Visibility(
-                        visible: widget.pageName != 'Maskapai',
+                        visible: _sementara[index][3] != '',
                         child: Container(
                           padding:
                               EdgeInsets.symmetric(horizontal: 20, vertical: 5),

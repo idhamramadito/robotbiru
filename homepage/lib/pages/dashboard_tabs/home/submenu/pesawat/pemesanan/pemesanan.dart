@@ -140,22 +140,15 @@ class _PemesananState extends State<Pemesanan> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Divider(
-                thickness: 10,
-              ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 30),
+              Divider(thickness: 10),
+              SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Detail Pemesanan',
-                    textAlign: TextAlign.start,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ),
@@ -166,42 +159,29 @@ class _PemesananState extends State<Pemesanan> {
                   margin: EdgeInsets.only(top: 20),
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Masukkan detail pemesanan',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      IconButton(
-                        iconSize: 30,
-                        icon: new Icon(Icons.create),
+                  child: ListTile(
+                    onTap: () {
+                      detailPemesanan(context);
+                    },
+                    dense: true,
+                    title: Text(
+                      'Masukkan detail pemesanan',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                         color: Colors.blue,
-                        onPressed: () {
-                          detailPemesanan(context);
-                        },
                       ),
-                    ],
+                    ),
+                    trailing: Icon(Icons.create, color: Colors.blue),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Divider(
-                thickness: 10,
-              ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 30),
+              Divider(thickness: 10),
+              SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Column(

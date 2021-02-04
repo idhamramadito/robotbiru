@@ -46,7 +46,7 @@ class _CustomFormState extends State<CustomForm> {
             visible: (widget.prompt != null),
             child: Container(
               alignment: Alignment.centerLeft,
-              padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+              padding: EdgeInsets.symmetric(horizontal: 25),
               child: Text(
                 widget.prompt ?? '',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

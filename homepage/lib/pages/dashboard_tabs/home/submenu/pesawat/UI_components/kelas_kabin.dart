@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 List _cabinClass = ['Ekonomi', 'Premium Ekonomi', 'Bisnis', 'First'];
 
@@ -21,15 +22,7 @@ Future kelasKabin(BuildContext context) {
             controller: controller,
             child: Column(
               children: [
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-                  height: 5,
-                  width: 30,
-                  decoration: BoxDecoration(
-                    color: Color(0xffC4C4C4),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
+                SlideUpMarker(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

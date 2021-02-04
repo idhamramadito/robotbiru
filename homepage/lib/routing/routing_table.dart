@@ -5,7 +5,6 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/bagasi.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/pemesanan.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/search_page.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -14,6 +13,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/page_to
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice_token_listrik.dart';
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
+import 'package:homepage/shared/shared_pages/search_page.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
 
 class RoutingTable {

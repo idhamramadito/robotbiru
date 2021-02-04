@@ -19,8 +19,11 @@ class _InputTextFieldState extends State<InputTextField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
-            child: Text(widget.displayName),
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Text(
+              widget.displayName,
+              style: TextStyle(color: Colors.grey),
+            ),
           ),
           TextFormField(
             decoration: InputDecoration(

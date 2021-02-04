@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 Future otherServices(BuildContext context) {
   return showModalBottomSheet(
@@ -18,17 +19,7 @@ Future otherServices(BuildContext context) {
             controller: controller,
             child: Column(
               children: [
-                Center(
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    height: 4,
-                    width: 30,
-                    decoration: BoxDecoration(
-                      color: Color(0xffC4C4C4),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                ),
+                SlideUpMarker(),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: Text(
