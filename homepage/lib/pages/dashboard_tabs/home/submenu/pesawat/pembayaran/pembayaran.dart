@@ -196,7 +196,7 @@ class _PembayaranState extends State<Pembayaran> {
         child: BigButton(
           title: 'Konfirmasi Pembayaran',
           onPressed: () {
-            // Navigator.of(context).pushNamed(routeName, arguments: )
+            Navigator.of(context).pushNamed('/ringkasan');
           },
         ),
       ),

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/kebijakan_pembatalan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/jadwal_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran/pembayaran.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran/ringkasan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/bagasi.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/search_page.dart';
@@ -52,6 +53,8 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => Pemesanan(data: args));
       case '/pembayaran':
         return MaterialPageRoute(builder: (_) => Pembayaran(data: args));
+      case '/ringkasan':
+        return MaterialPageRoute(builder: (_) => Ringkasan());
       default:
         return errorRoute();
     }
