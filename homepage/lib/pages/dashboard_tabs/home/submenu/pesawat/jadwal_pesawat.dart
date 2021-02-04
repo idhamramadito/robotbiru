@@ -1,5 +1,4 @@
 import 'package:homepage/models/transportation_attributes.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/filter.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:flutter/material.dart';
 
@@ -614,7 +613,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                                       activeColor: Colors.blue,
                                                       onChanged: (value) {
                                                         mystate(() {
-                                                          _filterWaktu[index]
+                                                          _filterDengan[index]
                                                               [1] = value;
                                                         });
                                                       }),
