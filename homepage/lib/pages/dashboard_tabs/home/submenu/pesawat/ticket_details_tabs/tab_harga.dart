@@ -20,52 +20,54 @@ class TabHarga extends StatelessWidget {
       NameAndContent(name: 'Retail', content: 'Rp 6.000'),
     ];
 
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '${_price[0].name}',
-                  style: TextStyle(fontSize: 17),
-                ),
-                Text(
-                  '${_price[0].content}',
-                  style: TextStyle(fontSize: 17),
-                ),
-              ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${_price[0].name}',
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    '${_price[0].content}',
+                    style: TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 15),
-          Divider(),
-          SizedBox(height: 15),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '${_price[1].name}',
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '${_price[1].content}',
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                ),
-              ],
+            SizedBox(height: 15),
+            Divider(),
+            SizedBox(height: 15),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${_price[1].name}',
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    '${_price[1].content}',
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 15),
-          Divider(),
-          SizedBox(height: 15),
-          ReceiptCard(title: 'Bonus', dataList: _bonusList),
-        ],
+            SizedBox(height: 15),
+            Divider(),
+            SizedBox(height: 15),
+            ReceiptCard(title: 'Bonus', dataList: _bonusList),
+          ],
+        ),
       ),
     );
   }
