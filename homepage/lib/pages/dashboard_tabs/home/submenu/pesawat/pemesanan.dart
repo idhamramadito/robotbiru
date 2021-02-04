@@ -121,7 +121,7 @@ class _PemesananState extends State<Pemesanan> {
                                   size: 5,
                                 ),
                                 Text(
-                                  ' ${widget.data[0]}',
+                                  ' Ekonomi',
                                   style: TextStyle(
                                     fontSize: 16,
                                   ),
