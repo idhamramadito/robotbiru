@@ -198,10 +198,14 @@ class _PemesananState extends State<Pemesanan> {
                             fontSize: 16,
                           ),
                         ),
-                        Icon(
-                          Icons.toggle_off,
-                          size: 40,
-                        )
+                        Switch(
+                          value: _isPemesanan,
+                          onChanged: (val) {
+                            setState(() {
+                              _isPemesanan = val;
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
