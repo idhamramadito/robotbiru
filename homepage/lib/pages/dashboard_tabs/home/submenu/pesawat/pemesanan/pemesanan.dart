@@ -3,6 +3,8 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
+List _perlindungan = [false, false];
+
 class Pemesanan extends StatefulWidget {
   final List<List> data;
 
@@ -421,12 +423,11 @@ class _PemesananState extends State<Pemesanan> {
                           top: Radius.circular(10),
                         ),
                       ),
-                      child: ListTile(
-                        onTap: () {
-                          // Navigator.of(context).pushNamed(routeName)
-                        },
-                        leading: Image.asset('images/shield.png'),
-                        title: Text(
+                      child: CheckboxListTile(
+                        // onTap: () {
+                        //   Navigator.of(context).pushNamed(routeName)
+                        // },
+                        title: const Text(
                           'Perlindungan Penuh',
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
@@ -458,9 +459,13 @@ class _PemesananState extends State<Pemesanan> {
                                 'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga Rp 500.000.000'),
                           ],
                         ),
-                        trailing: Icon(
-                          Icons.check_box_outline_blank,
-                        ),
+                        value: _perlindungan[0],
+                        onChanged: (bool value) {
+                          setState(() {
+                            _perlindungan[0] = value;
+                          });
+                        },
+                        secondary: Image.asset('images/shield.png'),
                       ),
                     ),
                     Container(
@@ -473,12 +478,11 @@ class _PemesananState extends State<Pemesanan> {
                           bottom: Radius.circular(10),
                         ),
                       ),
-                      child: ListTile(
-                        onTap: () {
-                          // Navigator.of(context).pushNamed(routeName)
-                        },
-                        leading: Image.asset('images/shield-2.png'),
-                        title: Text(
+                      child: CheckboxListTile(
+                        // onTap: () {},
+                        //   Navigator.of(context).pushNamed(routeName)
+                        // },
+                        title: const Text(
                           'Asuransi Bagasi',
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
@@ -510,9 +514,13 @@ class _PemesananState extends State<Pemesanan> {
                                 'Perlindungan dari kerusakan, hilang dan terlambat hingga Rp 25.000.000'),
                           ],
                         ),
-                        trailing: Icon(
-                          Icons.check_box_outline_blank,
-                        ),
+                        value: _perlindungan[1],
+                        onChanged: (bool value) {
+                          setState(() {
+                            _perlindungan[1] = value;
+                          });
+                        },
+                        secondary: Image.asset('images/shield-2.png'),
                       ),
                     ),
                   ],
@@ -526,3 +534,55 @@ class _PemesananState extends State<Pemesanan> {
     );
   }
 }
+
+// child: ListTile(
+//   onTap: () {
+//     // Navigator.of(context).pushNamed(routeName)
+//   },
+//   leading: Image.asset('images/shield.png'),
+// title:
+//   subtitle: Column(
+//     children: [
+//       Align(
+//         alignment: Alignment.centerLeft,
+//         child: Row(
+//           children: [
+//             Text(
+//               'Rp 29.000',
+//               style: TextStyle(
+//                 color: Colors.blue,
+//                 fontWeight: FontWeight.bold,
+//                 fontSize: 20,
+//               ),
+//             ),
+//             Text(
+//               ' /Penumpang',
+//               style: TextStyle(
+//                 fontSize: 14,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//       Text(
+//           'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga Rp 500.000.000'),
+//     ],
+//   ),
+//   trailing: Icon(
+//     Icons.check_box_outline_blank,
+//   ),
+// ),
+
+// child: ListTile(
+// onTap: () {
+//   Navigator.of(context).pushNamed(routeName)
+// },
+
+// title:
+//   subtitle: Column(
+
+//   ),
+//   trailing: Icon(
+//     Icons.check_box_outline_blank,
+//   ),
+// ),
