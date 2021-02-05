@@ -23,9 +23,7 @@ class MainServices extends StatelessWidget {
               Text("JekBot")
             ],
           ),
-          onTap: () {
-            _showCupertinoDatePicker(context);
-          },
+          onTap: () {},
         ),
         InkWell(
           child: Column(
@@ -79,21 +77,5 @@ class MainServices extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  void _showCupertinoDatePicker(BuildContext context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return Container(
-            child: CupertinoDatePicker(
-              initialDateTime: DateTime.now(),
-              onDateTimeChanged: (DateTime newDate) {},
-              minimumYear: 1900,
-              maximumYear: 2021,
-              mode: CupertinoDatePickerMode.date,
-            ),
-          );
-        });
   }
 }

@@ -61,10 +61,7 @@ class _PemesananState extends State<Pemesanan> {
                             fontSize: 20,
                           ),
                         ),
-                        Icon(
-                          Icons.arrow_right_alt,
-                          size: 40,
-                        ),
+                        Icon(Icons.arrow_right_alt, size: 40),
                         Text(
                           'Denpasar - Bali',
                           style: TextStyle(
@@ -105,36 +102,21 @@ class _PemesananState extends State<Pemesanan> {
                                 children: [
                                   Text(
                                     '20 Januari 2021 ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
+                                    style: TextStyle(fontSize: 16),
                                   ),
-                                  Icon(
-                                    Icons.circle,
-                                    size: 5,
-                                  ),
+                                  Icon(Icons.circle, size: 5),
                                   Text(
                                     ' 1 Dewasa ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
+                                    style: TextStyle(fontSize: 16),
                                   ),
-                                  Icon(
-                                    Icons.circle,
-                                    size: 5,
-                                  ),
+                                  Icon(Icons.circle, size: 5),
                                   Text(
                                     ' Ekonomi',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
+                                    style: TextStyle(fontSize: 16),
                                   ),
                                 ],
                               ),
-                              Icon(
-                                Icons.keyboard_arrow_down,
-                                size: 30,
-                              ),
+                              Icon(Icons.keyboard_arrow_down, size: 30),
                             ],
                           ),
                         ],
@@ -226,7 +208,7 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                     child: ListTile(
                       onTap: () {
-                        detailPemesanan(context); // ganti jadi detail penumpang
+                        detailPenumpang(context); // ganti jadi detail penumpang
                       },
                       dense: true,
                       title: Text(
@@ -249,7 +231,7 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                     child: ListTile(
                       onTap: () {
-                        detailPemesanan(context); // ganti jadi detail penumpang
+                        detailPenumpang(context); // ganti jadi detail penumpang
                       },
                       dense: true,
                       title: Text(
@@ -272,7 +254,7 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                     child: ListTile(
                       onTap: () {
-                        detailPemesanan(context); // ganti jadi detail penumpang
+                        detailPenumpang(context); // ganti jadi detail penumpang
                       },
                       dense: true,
                       title: Text(
@@ -401,7 +383,7 @@ class _PemesananState extends State<Pemesanan> {
                         children: [
                           Align(
                             alignment: Alignment.centerLeft,
-                            child: Row(
+                            child: Wrap(
                               children: [
                                 Text(
                                   'Rp 29.000',
@@ -455,7 +437,7 @@ class _PemesananState extends State<Pemesanan> {
                         children: [
                           Align(
                             alignment: Alignment.centerLeft,
-                            child: Row(
+                            child: Wrap(
                               children: [
                                 Text(
                                   'Rp 13.300',

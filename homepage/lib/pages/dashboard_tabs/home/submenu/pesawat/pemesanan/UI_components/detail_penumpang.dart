@@ -1,11 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/tanggal_lahir.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/text_field.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
+import 'package:intl/intl.dart';
 
 Future detailPenumpang(BuildContext context) {
-  String _selectedTitle;
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
+  List dataPenumpang = [null, null, null];
 
   return showModalBottomSheet(
       context: context,
@@ -28,20 +31,20 @@ Future detailPenumpang(BuildContext context) {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Detail Pemesanan",
+                    "Detail Penumpang",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                SizedBox(height: 5),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Kepada siapa detail pemesanan ingin Anda kirimkan?",
                   ),
                 ),
                 SizedBox(height: 20),
                 InputTextField(
-                    displayName: "Masukkan Nama", regex: "[a-zA-Z\ ]"),
+                  displayName: "Masukkan Nama",
+                  regex: "[a-zA-Z\ ]",
+                  onChanged: (value) {
+                    mystate(() {
+                      dataPenumpang[0] = value;
+                    });
+                  },
+                ),
                 SizedBox(height: 5),
                 Container(
                   alignment: Alignment.centerLeft,
@@ -66,7 +69,7 @@ Future detailPenumpang(BuildContext context) {
                   ),
                   icon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
                   hint: Text('Pilih Title'),
-                  value: _selectedTitle,
+                  value: dataPenumpang[1],
                   items: _titleList.map((element) {
                     return DropdownMenuItem(
                       child: Text(element),
@@ -74,15 +77,49 @@ Future detailPenumpang(BuildContext context) {
                     );
                   }).toList(),
                   onChanged: (value) {
-                    _selectedTitle = value;
+                    mystate(() {
+                      dataPenumpang[1] = value;
+                    });
                   },
                 ),
                 SizedBox(height: 20),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text(
+                        "Tanggal Lahir",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ListTile(
+                        title: Text((dataPenumpang[2] != null)
+                            ? DateFormat('dd MMM yyyy').format(dataPenumpang[2])
+                            : 'Belum Dipilih'),
+                        trailing: Icon(Icons.calendar_today),
+                        onTap: () async {
+                          final DateTime result = await tanggalLahir(context);
+                          mystate(() {
+                            dataPenumpang[2] = result ?? dataPenumpang[2];
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: BigButton(
                     title: 'Simpan',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context, dataPenumpang);
+                    },
                   ),
                 ),
               ]),

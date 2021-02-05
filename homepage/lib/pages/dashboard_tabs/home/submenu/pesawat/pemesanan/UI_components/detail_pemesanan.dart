@@ -4,9 +4,8 @@ import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 Future detailPemesanan(BuildContext context) {
-  String _selectedTitle;
-  String _countryCode = '';
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
+  List dataPemesanan = [null, null, null, null, null];
 
   return showModalBottomSheet(
       context: context,
@@ -42,7 +41,14 @@ Future detailPemesanan(BuildContext context) {
                 ),
                 SizedBox(height: 20),
                 InputTextField(
-                    displayName: "Masukkan Nama", regex: "[a-zA-Z\ ]"),
+                  displayName: "Masukkan Nama",
+                  regex: "[a-zA-Z\ ]",
+                  onChanged: (value) {
+                    mystate(() {
+                      dataPemesanan[0] = value;
+                    });
+                  },
+                ),
                 SizedBox(height: 5),
                 Container(
                   alignment: Alignment.centerLeft,
@@ -67,7 +73,7 @@ Future detailPemesanan(BuildContext context) {
                   ),
                   icon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
                   hint: Text('Pilih Title'),
-                  value: _selectedTitle,
+                  value: dataPemesanan[1],
                   items: _titleList.map((element) {
                     return DropdownMenuItem(
                       child: Text(element),
@@ -75,7 +81,7 @@ Future detailPemesanan(BuildContext context) {
                     );
                   }).toList(),
                   onChanged: (value) {
-                    _selectedTitle = value;
+                    dataPemesanan[1] = value;
                   },
                 ),
                 SizedBox(height: 20),
@@ -99,7 +105,7 @@ Future detailPemesanan(BuildContext context) {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: ListTile(
-                              title: Text(_countryCode),
+                              title: Text(dataPemesanan[2]),
                               trailing: Icon(Icons.keyboard_arrow_down),
                               onTap: () async {
                                 final result =
@@ -108,7 +114,7 @@ Future detailPemesanan(BuildContext context) {
                                   arguments: 'Kode Negara',
                                 );
                                 mystate(() {
-                                  _countryCode = result ?? _countryCode;
+                                  dataPemesanan[2] = result ?? dataPemesanan[2];
                                 });
                               },
                             ),
@@ -122,6 +128,11 @@ Future detailPemesanan(BuildContext context) {
                       child: InputTextField(
                         displayName: "Masukkan No. Telp",
                         regex: '[0-9]',
+                        onChanged: (value) {
+                          mystate(() {
+                            dataPemesanan[3] = value;
+                          });
+                        },
                       ),
                     ),
                   ],
@@ -131,6 +142,11 @@ Future detailPemesanan(BuildContext context) {
                   displayName: "Masukkan Email",
                   regex:
                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                  onChanged: (value) {
+                    mystate(() {
+                      dataPemesanan[4] = value;
+                    });
+                  },
                 ),
                 SizedBox(height: 5),
                 Container(
@@ -144,7 +160,9 @@ Future detailPemesanan(BuildContext context) {
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: BigButton(
                     title: 'Simpan',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context, dataPemesanan);
+                    },
                   ),
                 ),
               ]),

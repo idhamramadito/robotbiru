@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-class CustomForm extends StatefulWidget {
-  const CustomForm({
+class NumberForm extends StatefulWidget {
+  const NumberForm({
     Key key,
     @required this.onChanged,
     bool clearButton,
@@ -18,10 +18,10 @@ class CustomForm extends StatefulWidget {
   final String externalPicker;
 
   @override
-  _CustomFormState createState() => _CustomFormState();
+  _NumberFormState createState() => _NumberFormState();
 }
 
-class _CustomFormState extends State<CustomForm> {
+class _NumberFormState extends State<NumberForm> {
   TextEditingController _textController;
 
   @override
