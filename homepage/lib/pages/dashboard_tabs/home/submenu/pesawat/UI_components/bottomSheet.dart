@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 List _rekomendasi = [
-  "Harga Terendah",
-  "Keberangkatan Paling Awal",
-  "Keberangkatan Paling Akhir",
-  "Kedatangan Paling Awal",
-  "Kedatangan Paling Akhir",
-  "Durasi Tercepat"
+  ["Harga Terendah", false],
+  ["Keberangkatan Paling Awal", false],
+  ["Keberangkatan Paling Akhir", false],
+  ["Kedatangan Paling Awal", false],
+  ["Kedatangan Paling Akhir", false],
+  ["Durasi Tercepat", false],
 ];
+
 List _filterDengan = [
   ["Langsung", false],
   ["1 Transit", false],
@@ -26,6 +27,8 @@ List _filterFasiitas = [
   ["Hiburan", false],
   ["USB", false],
 ];
+bool isPressed = false;
+
 Future bottomSheet(BuildContext context) {
   return showModalBottomSheet(
       context: context,
@@ -91,13 +94,21 @@ Future bottomSheet(BuildContext context) {
                                       padding: const EdgeInsets.fromLTRB(
                                           0, 0, 0, 10),
                                       child: InkWell(
-                                        child: Text(
-                                          _rekomendasi[index],
-                                          style: TextStyle(
-                                            fontSize: 15,
+                                          child: Text(
+                                            _rekomendasi[index][0],
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: _rekomendasi[index][1]
+                                                  ? Colors.blue
+                                                  : Colors.black,
+                                            ),
                                           ),
-                                        ),
-                                      ),
+                                          onTap: () {
+                                            mystate(() {
+                                              _rekomendasi[index][1] =
+                                                  !_rekomendasi[index][1];
+                                            });
+                                          }),
                                     ),
                                   ],
                                 ),
@@ -146,10 +157,15 @@ Future bottomSheet(BuildContext context) {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    _filterDengan[index][0],
-                                    style: TextStyle(
-                                      fontSize: 15,
+                                  InkWell(
+                                    child: Text(
+                                      _filterDengan[index][0],
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: isPressed
+                                            ? Colors.blue
+                                            : Colors.black,
+                                      ),
                                     ),
                                   ),
                                   Checkbox(

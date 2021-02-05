@@ -1,5 +1,6 @@
 import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/bottomSheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
@@ -64,6 +65,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
       "30.000"
     ]
   ];
+  bool isPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -385,7 +387,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                   bottomSheet(context);
                   break;
                 case 1:
-                  print("1");
+                  displayDateRangePicker(context);
                   break;
                 default:
                   print("Error");
