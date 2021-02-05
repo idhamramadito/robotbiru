@@ -28,6 +28,7 @@ List _filterFasiitas = [
   ["USB", false],
 ];
 bool isPressed = false;
+int selectedValue;
 
 Future bottomSheet(BuildContext context) {
   return showModalBottomSheet(
@@ -82,36 +83,37 @@ Future bottomSheet(BuildContext context) {
                         margin:
                             EdgeInsets.symmetric(vertical: 0, horizontal: 25),
                         child: ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: _rekomendasi.length,
                             itemBuilder: (context, index) {
                               return Padding(
                                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          0, 0, 0, 10),
-                                      child: InkWell(
+                                child: InkWell(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              0, 0, 0, 10),
                                           child: Text(
                                             _rekomendasi[index][0],
                                             style: TextStyle(
                                               fontSize: 15,
-                                              color: _rekomendasi[index][1]
+                                              color: selectedValue == index
                                                   ? Colors.blue
                                                   : Colors.black,
                                             ),
                                           ),
-                                          onTap: () {
-                                            mystate(() {
-                                              _rekomendasi[index][1] =
-                                                  !_rekomendasi[index][1];
-                                            });
-                                          }),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                    onTap: () {
+                                      mystate(() {
+                                        selectedValue = index;
+                                      });
+                                    }),
                               );
                             })),
                     Container(
@@ -147,6 +149,7 @@ Future bottomSheet(BuildContext context) {
                       ),
                     ),
                     ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: _filterDengan.length,
                         itemBuilder: (context, index) {
@@ -198,6 +201,7 @@ Future bottomSheet(BuildContext context) {
                       ),
                     ),
                     ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: _filterWaktu.length,
                         itemBuilder: (context, index) {
