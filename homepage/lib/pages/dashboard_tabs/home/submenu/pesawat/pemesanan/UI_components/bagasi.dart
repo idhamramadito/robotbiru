@@ -51,7 +51,7 @@ class _BagasiState extends State<Bagasi> {
                     height: 10,
                   ),
                   Text(
-                    'Pergi: ${number ?? ""}',
+                    'Pergi: ${number ?? "0kg (+Rp 0)"}',
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -125,7 +125,7 @@ class _BagasiState extends State<Bagasi> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              number,
+                              number ?? "0kg (+Rp 0)",
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold,
@@ -143,7 +143,7 @@ class _BagasiState extends State<Bagasi> {
                           final String result =
                               await bagasiBottomSheet(context);
                           setState(() {
-                            number = result;
+                            number = result ?? "0kg (+Rp 0)";
                           });
                         }),
                   ),
