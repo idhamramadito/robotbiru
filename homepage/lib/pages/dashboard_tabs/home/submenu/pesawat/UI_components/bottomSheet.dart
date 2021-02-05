@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
 List _rekomendasi = [
   "Harga Terendah",
   "Keberangkatan Paling Awal",

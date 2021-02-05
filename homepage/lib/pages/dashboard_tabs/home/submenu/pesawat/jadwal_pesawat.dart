@@ -19,31 +19,6 @@ class JadwalPesawat extends StatefulWidget {
 class _JadwalPesawatState extends State<JadwalPesawat> {
   List<bool> isSelected = [false, false];
   List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
-  List _rekomendasi = [
-    "Harga Terendah",
-    "Keberangkatan Paling Awal",
-    "Keberangkatan Paling Akhir",
-    "Kedatangan Paling Awal",
-    "Kedatangan Paling Akhir",
-    "Durasi Tercepat"
-  ];
-  List _filterDengan = [
-    ["Langsung", false],
-    ["1 Transit", false],
-    ["2 Transit", false],
-  ];
-  List _filterWaktu = [
-    ["00:00 - 06:00", false],
-    ["06:00 - 12:00", false],
-    ["12:00 - 18:00", false],
-  ];
-  List _filterFasiitas = [
-    ["Bagasi", false],
-    ["Makanan", false],
-    ["Wi-Fi", false],
-    ["Hiburan", false],
-    ["USB", false],
-  ];
   bool mpesachecked = false;
   List _cardJadwal = [
     [
