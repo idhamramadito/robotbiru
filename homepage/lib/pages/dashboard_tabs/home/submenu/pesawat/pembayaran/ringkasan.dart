@@ -57,23 +57,26 @@ class _RingkasanState extends State<Ringkasan> {
                       fontSize: 15,
                       fontWeight: FontWeight.bold)),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 13, right: 13),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 20),
-                  Text(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Text(
                     'Silahkan Transfer Ke',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
-                  SizedBox(height: 10),
-                  Container(
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Container(
                     height: 350,
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Colors.grey[100],
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(15)),
                     child: Column(
@@ -161,15 +164,21 @@ class _RingkasanState extends State<Ringkasan> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Divider(thickness: 10),
-                  SizedBox(height: 10),
-                  Text(
+                ),
+                SizedBox(height: 10),
+                Divider(thickness: 10),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Text(
                     'Rincian Pembayaran',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
-                  SizedBox(height: 10),
-                  Row(
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -182,8 +191,11 @@ class _RingkasanState extends State<Ringkasan> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Row(
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -196,8 +208,11 @@ class _RingkasanState extends State<Ringkasan> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Row(
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -210,10 +225,13 @@ class _RingkasanState extends State<Ringkasan> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Divider(),
-                  SizedBox(height: 10),
-                  Row(
+                ),
+                SizedBox(height: 10),
+                Divider(),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -228,142 +246,156 @@ class _RingkasanState extends State<Ringkasan> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
-                  Divider(thickness: 10),
-                  SizedBox(height: 10),
-                  Text(
+                ),
+                SizedBox(height: 10),
+                Divider(thickness: 10),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Text(
                     'Detail Penerbangan',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
-                  SizedBox(height: 10),
-                  Container(
+                ),
+                SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Container(
+                    margin: EdgeInsets.only(top: 20),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(15.0))),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Jakarta',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_right_alt,
+                          size: 40,
+                        ),
+                        Text(
+                          'Denpasar - Bali',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    // ticketDetails(
+                    //     context, widget.data[0], widget.data[1], 'Pemesanan');
+                  },
+                  child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: Container(
-                      margin: EdgeInsets.only(top: 20),
                       padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(15.0))),
-                      child: Row(
+                              bottom: Radius.circular(15.0))),
+                      child: Column(
                         children: [
-                          Text(
-                            'Jakarta',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'CGK - DPS',
+                              // '${widget.data[1][2]} - ${widget.data[1][6]}',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
                             ),
                           ),
-                          Icon(
-                            Icons.arrow_right_alt,
-                            size: 40,
-                          ),
-                          Text(
-                            'Denpasar - Bali',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    '20 Januari 2021 ',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.circle,
+                                    size: 5,
+                                  ),
+                                  Text(
+                                    ' 1 Dewasa ',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.circle,
+                                    size: 5,
+                                  ),
+                                  Text(
+                                    ' Ekonomi',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_down,
+                                size: 30,
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      // ticketDetails(
-                      //     context, widget.data[0], widget.data[1], 'Pemesanan');
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.vertical(
-                                bottom: Radius.circular(15.0))),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'CGK - DPS',
-                                // '${widget.data[1][2]} - ${widget.data[1][6]}',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      '20 Januari 2021 ',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.circle,
-                                      size: 5,
-                                    ),
-                                    Text(
-                                      ' 1 Dewasa ',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.circle,
-                                      size: 5,
-                                    ),
-                                    Text(
-                                      ' Ekonomi',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.keyboard_arrow_down,
-                                  size: 30,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Divider(thickness: 10),
-                  SizedBox(height: 10),
-                  Text(
+                ),
+                SizedBox(height: 20),
+                Divider(thickness: 10),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Text(
                     'Foto Bukti Pembayaran',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: Text(
                     'Setelah Anda selesai melakukan transfer pembayaran, Anda wajib lakukan foto bukti pembayaran.',
                     style: TextStyle(fontSize: 16),
                   ),
-                  SizedBox(height: 20),
-                  BigButton(
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: BigButton(
                     onPressed: () {},
                     title: 'Lihat Riwayat Pesan Tiket',
                   ),
-                  SizedBox(height: 10),
-                  WhiteButton(
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  child: WhiteButton(
                     onPressed: () {},
                     title: 'Ubah Metode Pembayaran',
                   ),
-                ],
-              ),
+                ),
+              ],
             )
           ],
         ),
