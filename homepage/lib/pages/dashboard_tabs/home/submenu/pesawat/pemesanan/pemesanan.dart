@@ -20,6 +20,8 @@ class Pemesanan extends StatefulWidget {
 }
 
 class _PemesananState extends State<Pemesanan> {
+  bool _isPemesanan = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,10 +215,14 @@ class _PemesananState extends State<Pemesanan> {
                               fontSize: 16,
                             ),
                           ),
-                          Icon(
-                            Icons.toggle_off,
-                            size: 40,
-                          )
+                          Switch(
+                            value: _isPemesanan,
+                            onChanged: (val) {
+                              setState(() {
+                                _isPemesanan = val;
+                              });
+                            },
+                          ),
                         ],
                       ),
                     ),
