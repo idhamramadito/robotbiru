@@ -228,7 +228,7 @@ class _PemesananState extends State<Pemesanan> {
                       onTap: () async {
                         final result = await detailPenumpang(context);
                         setState(() {
-                          listDataPenumpang[0] = result;
+                          listDataPenumpang[0] = result ?? listDataPenumpang[0];
                         });
                       },
                     ),
@@ -256,7 +256,7 @@ class _PemesananState extends State<Pemesanan> {
                       onTap: () async {
                         final result = await detailPenumpang(context);
                         setState(() {
-                          listDataPenumpang[1] = result;
+                          listDataPenumpang[1] = result ?? listDataPenumpang[1];
                         });
                       },
                     ),
@@ -284,7 +284,7 @@ class _PemesananState extends State<Pemesanan> {
                       onTap: () async {
                         final result = await detailPenumpang(context);
                         setState(() {
-                          listDataPenumpang[2] = result;
+                          listDataPenumpang[2] = result ?? listDataPenumpang[2];
                         });
                       },
                     ),
