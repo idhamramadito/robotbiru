@@ -11,6 +11,14 @@ class Pembayaran extends StatefulWidget {
 }
 
 class _PembayaranState extends State<Pembayaran> {
+  List _atm = [
+    'images/mandiri.png',
+    'images/bca.png',
+    'images/bjb.png',
+    'Saldo',
+  ];
+  var selectedValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -189,14 +197,11 @@ class _PembayaranState extends State<Pembayaran> {
         padding: EdgeInsets.all(10.0),
         child: BigButton(
           title: 'Konfirmasi Pembayaran',
-          onPressed: () {
-            Navigator.of(context).pushNamed('/ringkasan');
-          },
+          onPressed: (selectedValue == null)
+              ? null
+              : () => Navigator.of(context).pushNamed('/ringkasan'),
         ),
       ),
     );
   }
 }
-
-List _atm = ['images/mandiri.png', 'images/bca.png', 'images/bjb.png', 'Saldo'];
-var selectedValue;
