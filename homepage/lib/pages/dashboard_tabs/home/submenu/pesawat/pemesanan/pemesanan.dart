@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/checkout_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
@@ -521,6 +522,7 @@ class _PemesananState extends State<Pemesanan> {
           ),
         ),
       ),
+      bottomNavigationBar: PemesananBottomBar(),
     );
   }
 }
