@@ -336,9 +336,8 @@ class _PemesananState extends State<Pemesanan> {
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
                       onTap: () {
@@ -364,9 +363,8 @@ class _PemesananState extends State<Pemesanan> {
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
                       onTap: () {
