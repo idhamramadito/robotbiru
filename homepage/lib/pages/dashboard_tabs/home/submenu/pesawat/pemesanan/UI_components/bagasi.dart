@@ -182,7 +182,7 @@ class _BagasiState extends State<Bagasi> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                     Text(

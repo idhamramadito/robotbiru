@@ -163,7 +163,7 @@ class _PemesananState extends State<Pemesanan> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
-                                color: Colors.blue,
+                                color: Theme.of(context).primaryColor,
                               ),
                             )
                           : Text(
@@ -181,7 +181,10 @@ class _PemesananState extends State<Pemesanan> {
                               style: TextStyle(fontSize: 16),
                             )
                           : null,
-                      trailing: Icon(Icons.create, color: Colors.blue),
+                      trailing: Icon(
+                        Icons.create,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                 ],
@@ -240,11 +243,14 @@ class _PemesananState extends State<Pemesanan> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                           color: (listDataPenumpang[0].name == null)
-                              ? Colors.blue
+                              ? Theme.of(context).primaryColor
                               : Colors.black,
                         ),
                       ),
-                      trailing: Icon(Icons.create, color: Colors.blue),
+                      trailing: Icon(
+                        Icons.create,
+                        color: Theme.of(context).primaryColor,
+                      ),
                       onTap: () async {
                         final result = await detailPenumpang(context);
                         setState(() {
@@ -268,11 +274,14 @@ class _PemesananState extends State<Pemesanan> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                           color: (listDataPenumpang[1].name == null)
-                              ? Colors.blue
+                              ? Theme.of(context).primaryColor
                               : Colors.black,
                         ),
                       ),
-                      trailing: Icon(Icons.create, color: Colors.blue),
+                      trailing: Icon(
+                        Icons.create,
+                        color: Theme.of(context).primaryColor,
+                      ),
                       onTap: () async {
                         final result = await detailPenumpang(context);
                         setState(() {
@@ -296,11 +305,14 @@ class _PemesananState extends State<Pemesanan> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                           color: (listDataPenumpang[2].name == null)
-                              ? Colors.blue
+                              ? Theme.of(context).primaryColor
                               : Colors.black,
                         ),
                       ),
-                      trailing: Icon(Icons.create, color: Colors.blue),
+                      trailing: Icon(
+                        Icons.create,
+                        color: Theme.of(context).primaryColor,
+                      ),
                       onTap: () async {
                         final result = await detailPenumpang(context);
                         setState(() {
@@ -348,7 +360,7 @@ class _PemesananState extends State<Pemesanan> {
                       trailing: Text(
                         'Pesan',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 18,
                         ),
                       ),
@@ -375,7 +387,7 @@ class _PemesananState extends State<Pemesanan> {
                       trailing: Text(
                         'Pesan',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 18,
                         ),
                       ),
@@ -427,7 +439,7 @@ class _PemesananState extends State<Pemesanan> {
                                 Text(
                                   'Rp 29.000',
                                   style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Theme.of(context).primaryColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),
@@ -481,7 +493,7 @@ class _PemesananState extends State<Pemesanan> {
                                 Text(
                                   'Rp 13.300',
                                   style: TextStyle(
-                                    color: Colors.blue,
+                                    color: Theme.of(context).primaryColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),

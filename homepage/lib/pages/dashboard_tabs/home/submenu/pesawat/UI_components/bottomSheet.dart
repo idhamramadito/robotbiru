@@ -102,7 +102,8 @@ Future bottomSheet(BuildContext context) {
                                             style: TextStyle(
                                               fontSize: 15,
                                               color: selectedValue == index
-                                                  ? Colors.blue
+                                                  ? Theme.of(context)
+                                                      .primaryColor
                                                   : Colors.black,
                                             ),
                                           ),
@@ -166,14 +167,15 @@ Future bottomSheet(BuildContext context) {
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: isPressed
-                                            ? Colors.blue
+                                            ? Theme.of(context).primaryColor
                                             : Colors.black,
                                       ),
                                     ),
                                   ),
                                   Checkbox(
                                       value: _filterDengan[index][1],
-                                      activeColor: Colors.blue,
+                                      activeColor:
+                                          Theme.of(context).primaryColor,
                                       onChanged: (value) {
                                         mystate(() {
                                           _filterDengan[index][1] = value;
@@ -220,7 +222,8 @@ Future bottomSheet(BuildContext context) {
                                   ),
                                   Checkbox(
                                       value: _filterWaktu[index][1],
-                                      activeColor: Colors.blue,
+                                      activeColor:
+                                          Theme.of(context).primaryColor,
                                       onChanged: (value) {
                                         mystate(() {
                                           _filterDengan[index][1] = value;
@@ -266,7 +269,8 @@ Future bottomSheet(BuildContext context) {
                                   ),
                                   Checkbox(
                                       value: _filterFasiitas[index][1],
-                                      activeColor: Colors.blue,
+                                      activeColor:
+                                          Theme.of(context).primaryColor,
                                       onChanged: (value) {
                                         mystate(() {
                                           _filterFasiitas[index][1] = value;

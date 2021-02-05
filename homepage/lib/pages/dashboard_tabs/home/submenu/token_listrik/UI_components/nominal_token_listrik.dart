@@ -70,7 +70,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         border: Border.all(
                           width: 2,
                           color: (selectedIndex == index)
-                              ? Colors.blue
+                              ? Theme.of(context).primaryColor
                               : Colors.grey[200],
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(10.0))),

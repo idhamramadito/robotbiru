@@ -128,16 +128,18 @@ class _RingkasanState extends State<Ringkasan> {
                             Text(
                               '7772420016',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
-                                  color: Colors.blue),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
                             Text(
                               'Salin',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
-                                  color: Colors.blue),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
                           ],
                         ),

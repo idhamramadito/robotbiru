@@ -41,7 +41,7 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
                       Text(
                         'Rp 307.000',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),

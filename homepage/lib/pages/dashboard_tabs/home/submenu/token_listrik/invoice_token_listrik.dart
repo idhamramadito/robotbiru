@@ -180,7 +180,7 @@ class InvoiceTokenListrik extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(5.0)),
                               border: Border.all(
-                                color: Colors.blue, //
+                                color: Theme.of(context).primaryColor,
                                 width: 1,
                               ),
                               color: Colors.white,
@@ -194,7 +194,7 @@ class InvoiceTokenListrik extends StatelessWidget {
                                     "12344 5678 91441 1213 11111",
                                     style: TextStyle(
                                         fontSize: 22,
-                                        color: Colors.blue,
+                                        color: Theme.of(context).primaryColor,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -222,7 +222,7 @@ class InvoiceTokenListrik extends StatelessWidget {
                         height: 50,
                         decoration: new BoxDecoration(
                           borderRadius: new BorderRadius.circular(0),
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -111,7 +111,7 @@ Future ticketDetails(BuildContext context, String sourcePage) {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.blue,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               Text(

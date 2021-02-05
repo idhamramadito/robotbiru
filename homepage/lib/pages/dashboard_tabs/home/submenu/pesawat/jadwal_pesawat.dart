@@ -70,7 +70,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.of(context).primaryColor,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -328,7 +328,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.blue,
+                                        color: Theme.of(context).primaryColor,
                                       ))
                                 ]),
                                 Row(children: <Widget>[
@@ -404,8 +404,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
         child: Container(
           child: ToggleButtons(
             color: Colors.black,
-            selectedColor: Colors.blue,
-            selectedBorderColor: Colors.blue,
+            selectedColor: Theme.of(context).primaryColor,
+            selectedBorderColor: Theme.of(context).primaryColor,
             fillColor: Colors.blue.withOpacity(0.08),
             splashColor: Colors.blue.withOpacity(0.12),
             hoverColor: Colors.blue.withOpacity(0.04),

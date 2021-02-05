@@ -23,7 +23,7 @@ class _CardTokenListrikState extends State<CardTokenListrik> {
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: new BoxDecoration(
           borderRadius: new BorderRadius.circular(16.0),
-          color: Colors.blue,
+          color: Theme.of(context).primaryColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

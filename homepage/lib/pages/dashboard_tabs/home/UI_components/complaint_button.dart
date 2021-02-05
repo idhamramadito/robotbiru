@@ -32,7 +32,7 @@ class ComplaintButton extends StatelessWidget {
                 TextSpan(
                   text: 'Silahkan Lapor Di Sini',
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ],

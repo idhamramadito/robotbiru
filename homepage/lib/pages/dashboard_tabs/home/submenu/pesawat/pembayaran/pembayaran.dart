@@ -100,7 +100,7 @@ class _PembayaranState extends State<Pembayaran> {
                       'Rp 445.565',
                       style: TextStyle(
                           fontSize: 20,
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -141,7 +141,7 @@ class _PembayaranState extends State<Pembayaran> {
                         Text('1320015081202',
                             style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.blue,
+                                color: Theme.of(context).primaryColor,
                                 fontWeight: FontWeight.bold)),
                         Text(
                           'PT EDUMATIC INTERNASIONAL',
