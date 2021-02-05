@@ -7,11 +7,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_detail
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-Future ticketDetails(
-    BuildContext context,
-    List<TransportationAttributes> customerData,
-    List flightData,
-    String sourcePage) {
+Future ticketDetails(BuildContext context, String sourcePage) {
   return showModalBottomSheet(
     isScrollControlled: true,
     context: context,
@@ -43,7 +39,7 @@ Future ticketDetails(
                   Column(
                     children: [
                       Text(
-                        '${flightData[2]}',
+                        'CGK',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -57,7 +53,7 @@ Future ticketDetails(
                   Column(
                     children: [
                       Text(
-                        '${flightData[6]}',
+                        'DPS',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -133,11 +129,7 @@ Future ticketDetails(
                         child: BigButton(
                           title: 'Pesan Tiket',
                           onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed('/pemesanan', arguments: [
-                              customerData,
-                              flightData,
-                            ]);
+                            Navigator.of(context).pushNamed('/pemesanan');
                           },
                         ),
                       ),

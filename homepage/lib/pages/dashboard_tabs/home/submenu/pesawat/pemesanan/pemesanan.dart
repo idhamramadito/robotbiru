@@ -9,13 +9,9 @@ import 'package:homepage/models/order_detail_model.dart';
 List _perlindungan = [false, false];
 
 class Pemesanan extends StatefulWidget {
-  final List<List> data;
-
   Pemesanan({
     Key key,
-    List<List> data,
-  })  : this.data = data,
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _PemesananState createState() => _PemesananState();
@@ -82,8 +78,7 @@ class _PemesananState extends State<Pemesanan> {
                   ),
                   InkWell(
                     onTap: () {
-                      ticketDetails(
-                          context, widget.data[0], widget.data[1], 'Pemesanan');
+                      ticketDetails(context, 'Pemesanan');
                     },
                     child: Container(
                       padding:
@@ -97,7 +92,7 @@ class _PemesananState extends State<Pemesanan> {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              '${widget.data[1][2]} - ${widget.data[1][6]}',
+                              'CGK - DPS',
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -178,8 +173,9 @@ class _PemesananState extends State<Pemesanan> {
                                 fontSize: 16,
                               ),
                             ),
-                      subtitle: (dataPemesanan.email != null ||
-                              dataPemesanan.phoneNumber != null)
+                      subtitle: (dataPemesanan.name != null &&
+                              (dataPemesanan.email != null ||
+                                  dataPemesanan.phoneNumber != null))
                           ? Text(
                               '${dataPemesanan.email ?? 'Email Kosong'}\n${dataPemesanan.countryCode ?? ''}${dataPemesanan.phoneNumber ?? 'Nomor Telepon Kosong'}',
                               style: TextStyle(fontSize: 16),
@@ -335,9 +331,8 @@ class _PemesananState extends State<Pemesanan> {
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
                       onTap: () {
@@ -363,9 +358,8 @@ class _PemesananState extends State<Pemesanan> {
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
                       onTap: () {
