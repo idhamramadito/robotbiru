@@ -526,7 +526,6 @@ class _PemesananState extends State<Pemesanan> {
                   ],
                 ),
               ),
-              SizedBox(height: 20)
             ],
           ),
         ),
@@ -535,55 +534,3 @@ class _PemesananState extends State<Pemesanan> {
     );
   }
 }
-
-// child: ListTile(
-//   onTap: () {
-//     // Navigator.of(context).pushNamed(routeName)
-//   },
-//   leading: Image.asset('images/shield.png'),
-// title:
-//   subtitle: Column(
-//     children: [
-//       Align(
-//         alignment: Alignment.centerLeft,
-//         child: Row(
-//           children: [
-//             Text(
-//               'Rp 29.000',
-//               style: TextStyle(
-//                 color: Colors.blue,
-//                 fontWeight: FontWeight.bold,
-//                 fontSize: 20,
-//               ),
-//             ),
-//             Text(
-//               ' /Penumpang',
-//               style: TextStyle(
-//                 fontSize: 14,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//       Text(
-//           'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga Rp 500.000.000'),
-//     ],
-//   ),
-//   trailing: Icon(
-//     Icons.check_box_outline_blank,
-//   ),
-// ),
-
-// child: ListTile(
-// onTap: () {
-//   Navigator.of(context).pushNamed(routeName)
-// },
-
-// title:
-//   subtitle: Column(
-
-//   ),
-//   trailing: Icon(
-//     Icons.check_box_outline_blank,
-//   ),
-// ),
