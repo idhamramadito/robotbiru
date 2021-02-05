@@ -4,6 +4,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penumpang.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:homepage/models/passenggers_model.dart';
+import 'package:homepage/models/order_detail_model.dart';
 
 List _perlindungan = [false, false];
 
@@ -21,7 +22,8 @@ class Pemesanan extends StatefulWidget {
 }
 
 class _PemesananState extends State<Pemesanan> {
-  bool _isPemesanan = false;
+  bool _sameAsBuyer = false;
+  OrderDetailModel dataPemesanan = OrderDetailModel();
   List<PassengersModel> listDataPenumpang = [
     PassengersModel(),
     PassengersModel(),
@@ -153,18 +155,36 @@ class _PemesananState extends State<Pemesanan> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
-                      onTap: () {
-                        detailPemesanan(context);
+                      onTap: () async {
+                        final result = await detailPemesanan(context);
+                        setState(() {
+                          dataPemesanan = result ?? dataPemesanan;
+                        });
                       },
                       dense: true,
-                      title: Text(
-                        'Masukkan detail pemesanan',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.blue,
-                        ),
-                      ),
+                      title: (dataPemesanan.name == null)
+                          ? Text(
+                              'Masukkan detail pemesanan',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Colors.blue,
+                              ),
+                            )
+                          : Text(
+                              '${dataPemesanan.title ?? ''} ${dataPemesanan.name ?? ''}',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                      subtitle: (dataPemesanan.email != null ||
+                              dataPemesanan.phoneNumber != null)
+                          ? Text(
+                              '${dataPemesanan.email ?? 'Email Kosong'}\n${dataPemesanan.countryCode ?? ''}${dataPemesanan.phoneNumber ?? 'Nomor Telepon Kosong'}',
+                              style: TextStyle(fontSize: 16),
+                            )
+                          : null,
                       trailing: Icon(Icons.create, color: Colors.blue),
                     ),
                   ),
@@ -199,10 +219,10 @@ class _PemesananState extends State<Pemesanan> {
                           ),
                         ),
                         Switch(
-                          value: _isPemesanan,
+                          value: _sameAsBuyer,
                           onChanged: (val) {
                             setState(() {
-                              _isPemesanan = val;
+                              _sameAsBuyer = val;
                             });
                           },
                         ),

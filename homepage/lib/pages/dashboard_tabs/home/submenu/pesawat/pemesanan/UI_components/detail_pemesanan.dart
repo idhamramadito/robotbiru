@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/text_field.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
+import 'package:homepage/models/order_detail_model.dart';
 
 Future detailPemesanan(BuildContext context) {
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
-  List dataPemesanan = [null, null, null, null, null];
+  OrderDetailModel dataPemesanan = OrderDetailModel();
 
   return showModalBottomSheet(
       context: context,
@@ -45,7 +46,7 @@ Future detailPemesanan(BuildContext context) {
                   regex: "[a-zA-Z\ ]",
                   onChanged: (value) {
                     mystate(() {
-                      dataPemesanan[0] = value;
+                      dataPemesanan.name = value;
                     });
                   },
                 ),
@@ -73,7 +74,7 @@ Future detailPemesanan(BuildContext context) {
                   ),
                   icon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
                   hint: Text('Pilih Title'),
-                  value: dataPemesanan[1],
+                  value: dataPemesanan.title,
                   items: _titleList.map((element) {
                     return DropdownMenuItem(
                       child: Text(element),
@@ -81,7 +82,9 @@ Future detailPemesanan(BuildContext context) {
                     );
                   }).toList(),
                   onChanged: (value) {
-                    dataPemesanan[1] = value;
+                    mystate(() {
+                      dataPemesanan.title = value;
+                    });
                   },
                 ),
                 SizedBox(height: 20),
@@ -105,7 +108,7 @@ Future detailPemesanan(BuildContext context) {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: ListTile(
-                              title: Text(dataPemesanan[2]),
+                              title: Text('${dataPemesanan.countryCode ?? ''}'),
                               trailing: Icon(Icons.keyboard_arrow_down),
                               onTap: () async {
                                 final result =
@@ -114,7 +117,8 @@ Future detailPemesanan(BuildContext context) {
                                   arguments: 'Kode Negara',
                                 );
                                 mystate(() {
-                                  dataPemesanan[2] = result ?? dataPemesanan[2];
+                                  dataPemesanan.countryCode =
+                                      result ?? dataPemesanan.countryCode;
                                 });
                               },
                             ),
@@ -130,7 +134,7 @@ Future detailPemesanan(BuildContext context) {
                         regex: '[0-9]',
                         onChanged: (value) {
                           mystate(() {
-                            dataPemesanan[3] = value;
+                            dataPemesanan.phoneNumber = value;
                           });
                         },
                       ),
@@ -141,10 +145,10 @@ Future detailPemesanan(BuildContext context) {
                 InputTextField(
                   displayName: "Masukkan Email",
                   regex:
-                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$",
                   onChanged: (value) {
                     mystate(() {
-                      dataPemesanan[4] = value;
+                      dataPemesanan.email = value;
                     });
                   },
                 ),
