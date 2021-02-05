@@ -49,7 +49,7 @@ Future passengers(BuildContext context) {
                             (element[0] == 'Dewasa')
                                 ? 'Di Atas\n11 Tahun'
                                 : (element[0] == 'Anak')
-                                    ? '2-11 Tahun'
+                                    ? 'Diantara\n2-11 Tahun'
                                     : (element[0] == 'Bayi')
                                         ? 'Di Bawah\n2 Tahun'
                                         : '',

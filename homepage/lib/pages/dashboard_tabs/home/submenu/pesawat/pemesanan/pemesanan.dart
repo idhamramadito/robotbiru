@@ -421,7 +421,7 @@ class _PemesananState extends State<Pemesanan> {
                             ),
                           ),
                           Text(
-                              'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga Rp 500.000.000'),
+                              'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000'),
                         ],
                       ),
                       value: _perlindungan[0],
@@ -475,7 +475,7 @@ class _PemesananState extends State<Pemesanan> {
                             ),
                           ),
                           Text(
-                              'Perlindungan dari kerusakan, hilang dan terlambat hingga Rp 25.000.000'),
+                              'Perlindungan dari kerusakan, hilang dan terlambat hingga\nRp 25.000.000'),
                         ],
                       ),
                       value: _perlindungan[1],
