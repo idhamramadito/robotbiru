@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/checkout_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penumpang.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
 List _perlindungan = [false, false];
@@ -156,14 +157,15 @@ class _PemesananState extends State<Pemesanan> {
                   ),
                 ),
               ),
-              Container(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  margin: EdgeInsets.only(top: 10),
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[100],
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                   child: ListTile(
                     onTap: () {
@@ -219,87 +221,75 @@ class _PemesananState extends State<Pemesanan> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 20),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      margin: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                       decoration: BoxDecoration(
                         color: Colors.grey[100],
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Penumpang 1: Dewasa',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          Icon(
-                            Icons.create,
+                      child: ListTile(
+                        onTap: () {
+                          detailPenumpang(context);
+                        },
+                        dense: true,
+                        title: Text(
+                          'Penumpang 1: Dewasa',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                             color: Colors.blue,
-                            size: 30,
-                          )
-                        ],
+                          ),
+                        ),
+                        trailing: Icon(Icons.create, color: Colors.blue),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 20),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      margin: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                       decoration: BoxDecoration(
                         color: Colors.grey[100],
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Penumpang 2: Anak',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          Icon(
-                            Icons.create,
+                      child: ListTile(
+                        onTap: () {
+                          detailPenumpang(context);
+                        },
+                        dense: true,
+                        title: Text(
+                          'Penumpang 2: Anak',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                             color: Colors.blue,
-                            size: 30,
-                          )
-                        ],
+                          ),
+                        ),
+                        trailing: Icon(Icons.create, color: Colors.blue),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 20),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      margin: EdgeInsets.only(top: 10),
+                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                       decoration: BoxDecoration(
                         color: Colors.grey[100],
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Penumpang 3: Bayi',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          Icon(
-                            Icons.create,
+                      child: ListTile(
+                        onTap: () {
+                          detailPenumpang(context);
+                        },
+                        dense: true,
+                        title: Text(
+                          'Penumpang 3: Bayi',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                             color: Colors.blue,
-                            size: 30,
-                          )
-                        ],
+                          ),
+                        ),
+                        trailing: Icon(Icons.create, color: Colors.blue),
                       ),
                     ),
                   ],
