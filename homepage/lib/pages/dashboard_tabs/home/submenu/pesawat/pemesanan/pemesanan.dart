@@ -534,6 +534,7 @@ class _PemesananState extends State<Pemesanan> {
                   ],
                 ),
               ),
+              SizedBox(height: 20)
             ],
           ),
         ),
