@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class Pembayaran extends StatefulWidget {
@@ -43,7 +42,7 @@ class _PembayaranState extends State<Pembayaran> {
             children: [
               InkWell(
                 onTap: () {
-                  ticketDetails(context, 'Pemesanan');
+                  Navigator.of(context).pushNamed('/detail_penerbangan');
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20),
