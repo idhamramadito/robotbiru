@@ -34,17 +34,20 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
                   'Total',
                   style: TextStyle(fontSize: 20),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      'Rp 307.000',
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                    Icon(Icons.keyboard_arrow_down),
-                  ],
+                InkWell(
+                  onTap: () {},
+                  child: Row(
+                    children: [
+                      Text(
+                        'Rp 307.000',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
+                      Icon(Icons.keyboard_arrow_down),
+                    ],
+                  ),
                 )
               ],
             ),
