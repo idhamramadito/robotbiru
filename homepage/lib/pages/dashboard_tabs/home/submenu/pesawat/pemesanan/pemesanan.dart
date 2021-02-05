@@ -9,13 +9,9 @@ import 'package:homepage/models/order_detail_model.dart';
 List _perlindungan = [false, false];
 
 class Pemesanan extends StatefulWidget {
-  final List<List> data;
-
   Pemesanan({
     Key key,
-    List<List> data,
-  })  : this.data = data,
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _PemesananState createState() => _PemesananState();
@@ -82,8 +78,7 @@ class _PemesananState extends State<Pemesanan> {
                   ),
                   InkWell(
                     onTap: () {
-                      ticketDetails(
-                          context, widget.data[0], widget.data[1], 'Pemesanan');
+                      ticketDetails(context, 'Pemesanan');
                     },
                     child: Container(
                       padding:
@@ -97,7 +92,7 @@ class _PemesananState extends State<Pemesanan> {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              '${widget.data[1][2]} - ${widget.data[1][6]}',
+                              'CGK - DPS',
                               style: TextStyle(
                                 fontSize: 18,
                               ),

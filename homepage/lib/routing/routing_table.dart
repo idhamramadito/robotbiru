@@ -50,9 +50,9 @@ class RoutingTable {
       case '/bagasi':
         return MaterialPageRoute(builder: (_) => Bagasi());
       case '/pemesanan':
-        return MaterialPageRoute(builder: (_) => Pemesanan(data: args));
+        return MaterialPageRoute(builder: (_) => Pemesanan());
       case '/pembayaran':
-        return MaterialPageRoute(builder: (_) => Pembayaran(data: args));
+        return MaterialPageRoute(builder: (_) => Pembayaran());
       case '/ringkasan':
         return MaterialPageRoute(builder: (_) => Ringkasan());
       default:

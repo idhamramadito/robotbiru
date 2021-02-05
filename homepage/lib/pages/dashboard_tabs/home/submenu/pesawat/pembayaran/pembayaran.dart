@@ -3,13 +3,9 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_detail
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class Pembayaran extends StatefulWidget {
-  final List<List> data;
-
   Pembayaran({
     Key key,
-    List<List> data,
-  })  : this.data = data,
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _PembayaranState createState() => _PembayaranState();
@@ -47,8 +43,7 @@ class _PembayaranState extends State<Pembayaran> {
             children: [
               InkWell(
                 onTap: () {
-                  ticketDetails(
-                      context, widget.data[0], widget.data[1], 'Pemesanan');
+                  ticketDetails(context, 'Pemesanan');
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20),

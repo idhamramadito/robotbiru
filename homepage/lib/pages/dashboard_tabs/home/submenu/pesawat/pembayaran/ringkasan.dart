@@ -293,8 +293,7 @@ class _RingkasanState extends State<Ringkasan> {
                 ),
                 InkWell(
                   onTap: () {
-                    // ticketDetails(
-                    //     context, widget.data[0], widget.data[1], 'Pemesanan');
+                    ticketDetails(context, 'Pemesanan');
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 15),

@@ -161,8 +161,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  ticketDetails(context, widget.previousData,
-                      _cardJadwal[index], 'Jadwal Pesawat');
+                  ticketDetails(context, 'Jadwal Pesawat');
                 },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
