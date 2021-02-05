@@ -41,7 +41,8 @@ Future detailPemesanan(BuildContext context) {
                   ),
                 ),
                 SizedBox(height: 20),
-                InputTextField(displayName: "Masukkan Nama", regex: "[a-zA-Z]"),
+                InputTextField(
+                    displayName: "Masukkan Nama", regex: "[a-zA-Z\ ]"),
                 SizedBox(height: 5),
                 Container(
                   alignment: Alignment.centerLeft,

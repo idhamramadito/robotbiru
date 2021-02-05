@@ -19,8 +19,6 @@ class Pemesanan extends StatefulWidget {
 }
 
 class _PemesananState extends State<Pemesanan> {
-  bool _isPenumpang = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,16 +211,10 @@ class _PemesananState extends State<Pemesanan> {
                               fontSize: 16,
                             ),
                           ),
-                          Switch(
-                            value: _isPenumpang,
-                            onChanged: (val) {
-                              setState(
-                                () {
-                                  _isPenumpang = val;
-                                },
-                              );
-                            },
-                          ),
+                          Icon(
+                            Icons.toggle_off,
+                            size: 40,
+                          )
                         ],
                       ),
                     ),
@@ -457,7 +449,7 @@ class _PemesananState extends State<Pemesanan> {
                                   Text(
                                     ' /Penumpang',
                                     style: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 14,
                                     ),
                                   ),
                                 ],
@@ -512,7 +504,7 @@ class _PemesananState extends State<Pemesanan> {
                                   Text(
                                     ' /Penumpang',
                                     style: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 14,
                                     ),
                                   ),
                                 ],
@@ -534,6 +526,7 @@ class _PemesananState extends State<Pemesanan> {
                   ],
                 ),
               ),
+              SizedBox(height: 20)
             ],
           ),
         ),
