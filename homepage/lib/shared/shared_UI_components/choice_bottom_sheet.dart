@@ -47,7 +47,7 @@ Future choiceBottomSheet(BuildContext context, String pageName) {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Bagasi Pergi Tambahan",
+                        pageName,
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
@@ -75,9 +75,7 @@ Future choiceBottomSheet(BuildContext context, String pageName) {
                                             horizontal: 0, vertical: 10),
                                         child: Text(
                                           _sementara[index][0],
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
+                                          style: TextStyle(fontSize: 16),
                                         ),
                                       ),
                                       Visibility(
