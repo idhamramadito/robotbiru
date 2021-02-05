@@ -143,7 +143,7 @@ class _BagasiState extends State<Bagasi> {
                           final String result =
                               await choiceBottomSheet(context, 'Bagasi');
                           setState(() {
-                            number = result ?? "0kg (+Rp 0)";
+                            number = result ?? number;
                           });
                         }),
                   ),
