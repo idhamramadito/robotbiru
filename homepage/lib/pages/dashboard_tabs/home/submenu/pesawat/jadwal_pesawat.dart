@@ -2,6 +2,7 @@ import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/bottomSheet.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/pemesanan.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
@@ -163,7 +164,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  ticketDetails(context, 'Jadwal Pesawat');
+                  Navigator.of(context).pushNamed('/pemesanan');
                 },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -179,7 +180,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                       color: Colors.white,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 15),
                       child: Column(
                         // mainAxisAlignment: MainAxisAlignment.start,
                         //crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,24 +188,57 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 15, 15),
-                                  child:
-                                      Image.asset('images/japan-airlines.png'),
+                              ListTile(
+                                contentPadding: EdgeInsets.only(bottom: 10),
+                                leading:
+                                    Image.asset('images/japan-airlines.png'),
+                                title: Text('${_cardJadwal[index][0]}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    )),
+                                trailing: IconButton(
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    size: 30,
+                                    color: Colors.grey,
+                                  ),
+                                  onPressed: () {
+                                    ticketDetails(context, 'Jadwal Pesawat');
+                                  },
                                 ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 15, 15),
-                                  child: Text('${_cardJadwal[index][0]}',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                      )),
-                                ),
-                              ]),
+                              ),
+                              // Row(
+                              //   children: [
+                              //     Padding(
+                              //       padding:
+                              //           const EdgeInsets.fromLTRB(0, 0, 15, 15),
+                              //       child: Image.asset(
+                              //           'images/japan-airlines.png'),
+                              //     ),
+                              //     Padding(
+                              //       padding:
+                              //           const EdgeInsets.fromLTRB(0, 0, 15, 15),
+                              //       child: Text('${_cardJadwal[index][0]}',
+                              //           style: TextStyle(
+                              //             fontSize: 18,
+                              //             fontWeight: FontWeight.bold,
+                              //             color: Colors.black,
+                              //           )),
+                              //     ),
+                              //   IconButton(
+                              //     icon: Icon(
+                              //       Icons.keyboard_arrow_down,
+                              //       size: 30,
+                              //       color: Colors.grey,
+                              //     ),
+                              //     onPressed: () {
+                              //       ticketDetails(context, 'Jadwal Pesawat');
+                              //     },
+                              //   ),
+                              // ],
+                              // ),
                               Padding(
                                 padding:
                                     const EdgeInsets.fromLTRB(0, 0, 15, 20),
