@@ -5,10 +5,11 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 import 'package:intl/intl.dart';
+import 'package:homepage/models/passenggers_model.dart';
 
 Future detailPenumpang(BuildContext context) {
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
-  List dataPenumpang = [null, null, null];
+  PassengersModel dataPenumpang = PassengersModel();
 
   return showModalBottomSheet(
       context: context,
@@ -41,7 +42,7 @@ Future detailPenumpang(BuildContext context) {
                   regex: "[a-zA-Z\ ]",
                   onChanged: (value) {
                     mystate(() {
-                      dataPenumpang[0] = value;
+                      dataPenumpang.name = value;
                     });
                   },
                 ),
@@ -69,7 +70,7 @@ Future detailPenumpang(BuildContext context) {
                   ),
                   icon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
                   hint: Text('Pilih Title'),
-                  value: dataPenumpang[1],
+                  value: dataPenumpang.title,
                   items: _titleList.map((element) {
                     return DropdownMenuItem(
                       child: Text(element),
@@ -78,7 +79,7 @@ Future detailPenumpang(BuildContext context) {
                   }).toList(),
                   onChanged: (value) {
                     mystate(() {
-                      dataPenumpang[1] = value;
+                      dataPenumpang.title = value;
                     });
                   },
                 ),
@@ -99,14 +100,16 @@ Future detailPenumpang(BuildContext context) {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: ListTile(
-                        title: Text((dataPenumpang[2] != null)
-                            ? DateFormat('dd MMM yyyy').format(dataPenumpang[2])
+                        title: Text((dataPenumpang.birthDate != null)
+                            ? DateFormat('dd MMM yyyy')
+                                .format(dataPenumpang.birthDate)
                             : 'Belum Dipilih'),
                         trailing: Icon(Icons.calendar_today),
                         onTap: () async {
                           final DateTime result = await tanggalLahir(context);
                           mystate(() {
-                            dataPenumpang[2] = result ?? dataPenumpang[2];
+                            dataPenumpang.birthDate =
+                                result ?? dataPenumpang.birthDate;
                           });
                         },
                       ),

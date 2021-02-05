@@ -3,6 +3,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penumpang.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
+import 'package:homepage/models/passenggers_model.dart';
 
 List _perlindungan = [false, false];
 
@@ -21,6 +22,11 @@ class Pemesanan extends StatefulWidget {
 
 class _PemesananState extends State<Pemesanan> {
   bool _isPemesanan = false;
+  List<PassengersModel> listDataPenumpang = [
+    PassengersModel(),
+    PassengersModel(),
+    PassengersModel(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -207,12 +213,9 @@ class _PemesananState extends State<Pemesanan> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
-                      onTap: () {
-                        detailPenumpang(context); // ganti jadi detail penumpang
-                      },
                       dense: true,
                       title: Text(
-                        'Penumpang 1: Dewasa',
+                        '${listDataPenumpang[0].title ?? ''} ${listDataPenumpang[0].name ?? 'Penumpang 1: Dewasa'}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -220,6 +223,12 @@ class _PemesananState extends State<Pemesanan> {
                         ),
                       ),
                       trailing: Icon(Icons.create, color: Colors.blue),
+                      onTap: () async {
+                        final result = await detailPenumpang(context);
+                        setState(() {
+                          listDataPenumpang[0] = result;
+                        });
+                      },
                     ),
                   ),
                   SizedBox(height: 20),
@@ -230,12 +239,9 @@ class _PemesananState extends State<Pemesanan> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
-                      onTap: () {
-                        detailPenumpang(context); // ganti jadi detail penumpang
-                      },
                       dense: true,
                       title: Text(
-                        'Penumpang 2: Anak',
+                        '${listDataPenumpang[1].title ?? ''} ${listDataPenumpang[1].name ?? 'Penumpang 2: Anak'}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -243,6 +249,12 @@ class _PemesananState extends State<Pemesanan> {
                         ),
                       ),
                       trailing: Icon(Icons.create, color: Colors.blue),
+                      onTap: () async {
+                        final result = await detailPenumpang(context);
+                        setState(() {
+                          listDataPenumpang[1] = result;
+                        });
+                      },
                     ),
                   ),
                   SizedBox(height: 20),
@@ -253,12 +265,9 @@ class _PemesananState extends State<Pemesanan> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
-                      onTap: () {
-                        detailPenumpang(context); // ganti jadi detail penumpang
-                      },
                       dense: true,
                       title: Text(
-                        'Penumpang 3: Bayi',
+                        '${listDataPenumpang[2].title ?? ''} ${listDataPenumpang[2].name ?? 'Penumpang 3: Bayi'}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -266,6 +275,12 @@ class _PemesananState extends State<Pemesanan> {
                         ),
                       ),
                       trailing: Icon(Icons.create, color: Colors.blue),
+                      onTap: () async {
+                        final result = await detailPenumpang(context);
+                        setState(() {
+                          listDataPenumpang[2] = result;
+                        });
+                      },
                     ),
                   ),
                 ],
