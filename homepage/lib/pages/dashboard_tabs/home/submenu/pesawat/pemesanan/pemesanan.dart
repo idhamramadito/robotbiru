@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/checkout_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penumpang.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
 List _perlindungan = [false, false];
@@ -19,6 +20,8 @@ class Pemesanan extends StatefulWidget {
 }
 
 class _PemesananState extends State<Pemesanan> {
+  bool _isPemesanan = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

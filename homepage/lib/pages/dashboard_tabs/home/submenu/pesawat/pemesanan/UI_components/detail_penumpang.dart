@@ -3,9 +3,8 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-Future detailPemesanan(BuildContext context) {
+Future detailPenumpang(BuildContext context) {
   String _selectedTitle;
-  String _countryCode = '';
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
 
   return showModalBottomSheet(
@@ -41,8 +40,7 @@ Future detailPemesanan(BuildContext context) {
                   ),
                 ),
                 SizedBox(height: 20),
-                InputTextField(
-                    displayName: "Masukkan Nama", regex: "[a-zA-Z\ ]"),
+                InputTextField(displayName: "Masukkan Nama", regex: "[a-zA-Z]"),
                 SizedBox(height: 5),
                 Container(
                   alignment: Alignment.centerLeft,
@@ -79,67 +77,6 @@ Future detailPemesanan(BuildContext context) {
                   },
                 ),
                 SizedBox(height: 20),
-                Row(
-                  children: [
-                    Flexible(
-                      flex: 4,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Text(
-                              "Kode Negara",
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: ListTile(
-                              title: Text(_countryCode),
-                              trailing: Icon(Icons.keyboard_arrow_down),
-                              onTap: () async {
-                                final result =
-                                    await Navigator.of(context).pushNamed(
-                                  '/search_page',
-                                  arguments: 'Kode Negara',
-                                );
-                                mystate(() {
-                                  _countryCode = result ?? _countryCode;
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    Flexible(
-                      flex: 7,
-                      child: InputTextField(
-                        displayName: "Masukkan No. Telp",
-                        regex: '[0-9]',
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                InputTextField(
-                  displayName: "Masukkan Email",
-                  regex:
-                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
-                ),
-                SizedBox(height: 5),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "E-ticket akan dikirim ke alamat Email ini.",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: BigButton(
