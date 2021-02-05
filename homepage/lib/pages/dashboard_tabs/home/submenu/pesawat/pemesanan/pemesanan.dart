@@ -219,7 +219,9 @@ class _PemesananState extends State<Pemesanan> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.blue,
+                          color: (listDataPenumpang[0].name == null)
+                              ? Colors.blue
+                              : Colors.black,
                         ),
                       ),
                       trailing: Icon(Icons.create, color: Colors.blue),
@@ -245,7 +247,9 @@ class _PemesananState extends State<Pemesanan> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.blue,
+                          color: (listDataPenumpang[1].name == null)
+                              ? Colors.blue
+                              : Colors.black,
                         ),
                       ),
                       trailing: Icon(Icons.create, color: Colors.blue),
@@ -271,7 +275,9 @@ class _PemesananState extends State<Pemesanan> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.blue,
+                          color: (listDataPenumpang[2].name == null)
+                              ? Colors.blue
+                              : Colors.black,
                         ),
                       ),
                       trailing: Icon(Icons.create, color: Colors.blue),
