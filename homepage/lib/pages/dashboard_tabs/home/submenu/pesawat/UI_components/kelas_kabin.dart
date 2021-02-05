@@ -14,69 +14,53 @@ Future kelasKabin(BuildContext context) {
       ),
     ),
     builder: (context) {
-      return DraggableScrollableSheet(
-        expand: false,
-        builder: (context, controller) {
-          return SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
-            controller: controller,
-            child: Column(
-              children: [
-                SlideUpMarker(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Kelas Kabin',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 21,
+      return SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              SlideUpMarker(),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Kelas Kabin',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 21,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              ListView.separated(
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 4,
+                separatorBuilder: (context, index) => Divider(
+                  color: Colors.grey,
+                ),
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.pop(context, _cabinClass[index]);
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Text(
+                        _cabinClass[index],
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                ListView.separated(
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: 4,
-                  separatorBuilder: (context, index) => Divider(
-                    color: Colors.grey,
-                  ),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        InkWell(
-                          child: Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: Column(
-                              children: [
-                                Text(
-                                  _cabinClass[index],
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                              ],
-                            ),
-                          ),
-                          onTap: () {
-                            Navigator.pop(context, _cabinClass[index]);
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                )
-              ],
-            ),
-          );
-        },
+                  );
+                },
+              )
+            ],
+          ),
+        ),
       );
     },
   );
