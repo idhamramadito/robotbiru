@@ -13,6 +13,7 @@ List _hargaBagasi = [
   ["10kg (+Rp 330.000)", false],
   ["15kg (+Rp 495.000)", false],
 ];
+int selectedIndex;
 
 class _BagasiState extends State<Bagasi> {
   String number;
@@ -210,64 +211,51 @@ class _BagasiState extends State<Bagasi> {
                                                                       0,
                                                                       0,
                                                                       0),
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            0,
-                                                                        vertical:
-                                                                            10),
-                                                                    child:
-                                                                        InkWell(
-                                                                      child:
-                                                                          Text(
-                                                                        _hargaBagasi[index]
-                                                                            [0],
-                                                                        style: TextStyle(
-                                                                            fontSize:
-                                                                                16,
-                                                                            fontWeight:
-                                                                                FontWeight.bold),
-                                                                      ),
-                                                                      onTap:
-                                                                          () {
-                                                                        mystate(
-                                                                            () {
+                                                              child: InkWell(
+                                                                  child: Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: const EdgeInsets.symmetric(
+                                                                            horizontal:
+                                                                                0,
+                                                                            vertical:
+                                                                                10),
+                                                                        child:
+                                                                            Text(
                                                                           _hargaBagasi[index]
                                                                               [
-                                                                              1] = !_hargaBagasi[
-                                                                                  index]
+                                                                              0],
+                                                                          style: TextStyle(
+                                                                              fontSize: 16,
+                                                                              fontWeight: FontWeight.bold),
+                                                                        ),
+                                                                      ),
+                                                                      Visibility(
+                                                                        visible: selectedIndex ==
+                                                                                index
+                                                                            ? true
+                                                                            : false,
+                                                                        child: Icon(
+                                                                            Icons.check_sharp),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  onTap: () {
+                                                                    mystate(() {
+                                                                      selectedIndex =
+                                                                          index;
+                                                                    });
+                                                                    setState(
+                                                                        () {
+                                                                      number =
+                                                                          _hargaBagasi[index]
                                                                               [
-                                                                              1];
-                                                                          switch (
-                                                                              index) {
-                                                                            case 0:
-                                                                              break;
-                                                                          }
-                                                                        });
-                                                                        setState(
-                                                                            () {
-                                                                          number =
-                                                                              _hargaBagasi[index][0];
-                                                                        });
-                                                                      },
-                                                                    ),
-                                                                  ),
-                                                                  Visibility(
-                                                                    visible:
-                                                                        _hargaBagasi[index]
-                                                                            [1],
-                                                                    child: Icon(
-                                                                        Icons
-                                                                            .check_sharp),
-                                                                  ),
-                                                                ],
-                                                              ),
+                                                                              0];
+                                                                    });
+                                                                  }),
                                                             ),
                                                             Divider(),
                                                           ],

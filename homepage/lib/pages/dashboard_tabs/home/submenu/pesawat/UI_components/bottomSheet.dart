@@ -6,7 +6,7 @@ List _rekomendasi = [
   ["Keberangkatan Paling Awal", false],
   ["Keberangkatan Paling Akhir", false],
   ["Kedatangan Paling Awal", false],
-  ["Kedatangan Paling Akhir", false],
+  ["Kedatangan Paling Akhir", true],
   ["Durasi Tercepat", false],
 ];
 
