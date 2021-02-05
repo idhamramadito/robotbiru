@@ -134,144 +134,140 @@ class _BagasiState extends State<Bagasi> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          number,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
+                    child: InkWell(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              number,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                            Icon(
+                              Icons.keyboard_arrow_down,
+                              size: 20.0,
+                              color: Colors.brown[900],
+                            ),
+                          ],
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.keyboard_arrow_down,
-                            size: 20.0,
-                            color: Colors.brown[900],
-                          ),
-                          onPressed: () {
-                            showModalBottomSheet(
-                                context: context,
-                                isScrollControlled: true,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20),
-                                  ),
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
                                 ),
-                                builder: (context) {
-                                  return StatefulBuilder(builder:
-                                      (BuildContext context,
-                                          StateSetter mystate) {
-                                    return DraggableScrollableSheet(
-                                      expand: false,
-                                      builder: (context, controller) {
-                                        return SingleChildScrollView(
-                                          controller: controller,
-                                          child: Column(
-                                            children: [
-                                              SlideUpMarker(),
-                                              Container(
+                              ),
+                              builder: (context) {
+                                return StatefulBuilder(builder:
+                                    (BuildContext context,
+                                        StateSetter mystate) {
+                                  return DraggableScrollableSheet(
+                                    expand: false,
+                                    builder: (context, controller) {
+                                      return SingleChildScrollView(
+                                        controller: controller,
+                                        child: Column(
+                                          children: [
+                                            SlideUpMarker(),
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: 10, horizontal: 25),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Bagasi Pergi Tambahan",
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
                                                 margin: EdgeInsets.symmetric(
                                                     vertical: 10,
                                                     horizontal: 25),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      "Bagasi Pergi Tambahan",
-                                                      style: TextStyle(
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                  margin: EdgeInsets.symmetric(
-                                                      vertical: 10,
-                                                      horizontal: 25),
-                                                  child: ListView.builder(
-                                                      shrinkWrap: true,
-                                                      itemCount:
-                                                          _hargaBagasi.length,
-                                                      itemBuilder:
-                                                          (context, index) {
-                                                        return Column(
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                          .fromLTRB(
-                                                                      0,
-                                                                      0,
-                                                                      0,
-                                                                      0),
-                                                              child: InkWell(
-                                                                  child: Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: const EdgeInsets.symmetric(
-                                                                            horizontal:
-                                                                                0,
-                                                                            vertical:
-                                                                                10),
-                                                                        child:
-                                                                            Text(
-                                                                          _hargaBagasi[index]
-                                                                              [
-                                                                              0],
-                                                                          style: TextStyle(
-                                                                              fontSize: 16,
-                                                                              fontWeight: FontWeight.bold),
-                                                                        ),
+                                                child: ListView.builder(
+                                                    shrinkWrap: true,
+                                                    itemCount:
+                                                        _hargaBagasi.length,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return Column(
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .fromLTRB(
+                                                                    0, 0, 0, 0),
+                                                            child: InkWell(
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: const EdgeInsets
+                                                                              .symmetric(
+                                                                          horizontal:
+                                                                              0,
+                                                                          vertical:
+                                                                              10),
+                                                                      child:
+                                                                          Text(
+                                                                        _hargaBagasi[index]
+                                                                            [0],
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                16,
+                                                                            fontWeight:
+                                                                                FontWeight.bold),
                                                                       ),
-                                                                      Visibility(
-                                                                        visible: selectedIndex ==
-                                                                                index
-                                                                            ? true
-                                                                            : false,
-                                                                        child: Icon(
-                                                                            Icons.check_sharp),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  onTap: () {
-                                                                    mystate(() {
-                                                                      selectedIndex =
-                                                                          index;
-                                                                    });
-                                                                    setState(
-                                                                        () {
-                                                                      number =
-                                                                          _hargaBagasi[index]
-                                                                              [
-                                                                              0];
-                                                                    });
-                                                                  }),
-                                                            ),
-                                                            Divider(),
-                                                          ],
-                                                        );
-                                                      })),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  });
+                                                                    ),
+                                                                    Visibility(
+                                                                      visible: selectedIndex ==
+                                                                              index
+                                                                          ? true
+                                                                          : false,
+                                                                      child: Icon(
+                                                                          Icons
+                                                                              .check_sharp),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                onTap: () {
+                                                                  mystate(() {
+                                                                    selectedIndex =
+                                                                        index;
+                                                                  });
+                                                                  setState(() {
+                                                                    number =
+                                                                        _hargaBagasi[index]
+                                                                            [0];
+                                                                  });
+                                                                }),
+                                                          ),
+                                                          Divider(),
+                                                        ],
+                                                      );
+                                                    })),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
                                 });
-                          },
-                        ),
-                      ],
-                    ),
+                              });
+                        }),
                   ),
                   Text(
                     'Untuk keberangkatan kurang dari 6 jam, Anda dapat membeli bagasi di bandara.',
