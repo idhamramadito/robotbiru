@@ -144,8 +144,7 @@ Future detailPemesanan(BuildContext context) {
                 SizedBox(height: 20),
                 InputTextField(
                   displayName: "Masukkan Email",
-                  regex:
-                      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$",
+                  regex: "[a-zA-Z\ 0-9]",
                   onChanged: (value) {
                     mystate(() {
                       dataPemesanan.email = value;

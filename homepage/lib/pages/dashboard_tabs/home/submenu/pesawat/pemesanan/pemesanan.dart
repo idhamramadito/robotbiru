@@ -178,8 +178,9 @@ class _PemesananState extends State<Pemesanan> {
                                 fontSize: 16,
                               ),
                             ),
-                      subtitle: (dataPemesanan.email != null ||
-                              dataPemesanan.phoneNumber != null)
+                      subtitle: (dataPemesanan.name != null &&
+                              (dataPemesanan.email != null ||
+                                  dataPemesanan.phoneNumber != null))
                           ? Text(
                               '${dataPemesanan.email ?? 'Email Kosong'}\n${dataPemesanan.countryCode ?? ''}${dataPemesanan.phoneNumber ?? 'Nomor Telepon Kosong'}',
                               style: TextStyle(fontSize: 16),
