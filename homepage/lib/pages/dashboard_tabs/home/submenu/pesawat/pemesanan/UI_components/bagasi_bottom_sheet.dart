@@ -23,82 +23,69 @@ Future bagasiBottomSheet(BuildContext context) {
       builder: (context) {
         return StatefulBuilder(
             builder: (BuildContext context, StateSetter mystate) {
-          return DraggableScrollableSheet(
-            expand: false,
-            builder: (context, controller) {
-              return SingleChildScrollView(
-                controller: controller,
-                child: Column(
-                  children: [
-                    SlideUpMarker(),
-                    Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Bagasi Pergi Tambahan",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                SlideUpMarker(),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Bagasi Pergi Tambahan",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                        child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: _hargaBagasi.length,
-                            itemBuilder: (context, index) {
-                              return Column(
-                                children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                    child: InkWell(
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 0,
-                                                      vertical: 10),
-                                              child: Text(
-                                                _hargaBagasi[index][0],
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ),
-                                            Visibility(
-                                              visible: selectedIndex == index
-                                                  ? true
-                                                  : false,
-                                              child: Icon(Icons.check_sharp),
-                                            ),
-                                          ],
-                                        ),
-                                        onTap: () {
-                                          mystate(() {
-                                            selectedIndex = index;
-                                          });
-                                          number = _hargaBagasi[index][0];
-                                          Navigator.pop(context, number);
-                                        }),
-                                  ),
-                                  Divider(),
-                                ],
-                              );
-                            })),
-                  ],
+                    ],
+                  ),
                 ),
-              );
-            },
+                Container(
+                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: _hargaBagasi.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: InkWell(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 0, vertical: 10),
+                                          child: Text(
+                                            _hargaBagasi[index][0],
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Visibility(
+                                          visible: (selectedIndex == index),
+                                          child: Icon(Icons.check_sharp),
+                                        ),
+                                      ],
+                                    ),
+                                    onTap: () {
+                                      mystate(() {
+                                        selectedIndex = index;
+                                      });
+                                      number = _hargaBagasi[index][0];
+                                      Navigator.pop(context, number);
+                                    }),
+                              ),
+                              Divider(),
+                            ],
+                          );
+                        })),
+              ],
+            ),
           );
         });
       });
