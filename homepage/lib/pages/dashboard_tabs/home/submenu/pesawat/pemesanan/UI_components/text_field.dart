@@ -4,8 +4,13 @@ import 'package:flutter/services.dart';
 class InputTextField extends StatefulWidget {
   final String regex;
   final String displayName;
-  InputTextField({Key key, @required this.regex, @required this.displayName})
-      : super(key: key);
+  final Function onChanged;
+  InputTextField({
+    Key key,
+    @required this.regex,
+    @required this.displayName,
+    @required this.onChanged,
+  }) : super(key: key);
 
   @override
   _InputTextFieldState createState() => _InputTextFieldState();
@@ -37,6 +42,7 @@ class _InputTextFieldState extends State<InputTextField> {
                 RegExp(widget.regex),
               ),
             ],
+            onChanged: widget.onChanged,
           ),
         ],
       ),

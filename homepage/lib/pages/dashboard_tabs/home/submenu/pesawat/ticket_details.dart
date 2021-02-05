@@ -131,7 +131,7 @@ Future ticketDetails(
                       ),
                       Flexible(
                         child: BigButton(
-                          title: 'Pesan Pesawat',
+                          title: 'Pesan Tiket',
                           onPressed: () {
                             Navigator.of(context)
                                 .pushNamed('/pemesanan', arguments: [

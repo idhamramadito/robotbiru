@@ -4,7 +4,7 @@ import 'package:homepage/models/topup_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
-import 'package:homepage/shared/shared_UI_components/custom_form.dart';
+import 'package:homepage/shared/shared_UI_components/number_form.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 
@@ -75,7 +75,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        CustomForm(
+                        NumberForm(
                           prompt: 'ID Pelanggan / Nomor Meteran',
                           clearButton: true,
                           onChanged: (val) => setState(() {

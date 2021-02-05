@@ -3,7 +3,7 @@ import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_data.dart';
 import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
-import 'package:homepage/shared/shared_UI_components/custom_form.dart';
+import 'package:homepage/shared/shared_UI_components/number_form.dart';
 import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/UI_components/nominal_pulsa.dart';
@@ -93,7 +93,7 @@ class _PagePulsaState extends State<PagePulsa> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomForm(
+          NumberForm(
             prompt: 'Nomor Handphone',
             clearButton: true,
             onChanged: (val) => setState(() {
