@@ -2,9 +2,7 @@ import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/bottomSheet.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/pemesanan.dart';
 import 'package:flutter/material.dart';
-import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 class JadwalPesawat extends StatefulWidget {
   final List<TransportationAttributes> previousData;
