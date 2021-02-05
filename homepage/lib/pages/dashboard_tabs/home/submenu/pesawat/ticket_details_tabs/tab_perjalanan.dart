@@ -266,24 +266,30 @@ class TabPerjalanan extends StatelessWidget {
             ),
             Divider(thickness: 2),
             InkWell(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Kebijakan Pembatalan',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                ],
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Kebijakan Pembatalan',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_right,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ],
+                ),
               ),
               onTap: () {
                 Navigator.of(context).pushNamed('/kebijakan_pembatalan');
               },
             ),
-            Divider(thickness: 2),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),
