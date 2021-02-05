@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_attributes.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/kelas_kabin.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/passengers.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRangePicker;
+import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 
 class PagePesawat extends StatefulWidget {
   @override
@@ -59,7 +59,7 @@ class _PagePesawatState extends State<PagePesawat> {
       name: 'Kelas Kabin',
       icon: Icons.airline_seat_recline_extra,
       onPressed: (context) async {
-        var result = await kelasKabin(context);
+        var result = await choiceBottomSheet(context, "Kelas Kabin");
         return result;
       },
     ),

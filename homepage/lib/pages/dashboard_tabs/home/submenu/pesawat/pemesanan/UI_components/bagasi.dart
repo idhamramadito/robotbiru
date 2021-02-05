@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/bagasi_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 
 class Bagasi extends StatefulWidget {
   @override
@@ -141,7 +141,7 @@ class _BagasiState extends State<Bagasi> {
                         ),
                         onTap: () async {
                           final String result =
-                              await bagasiBottomSheet(context);
+                              await choiceBottomSheet(context, 'Bagasi');
                           setState(() {
                             number = result ?? "0kg (+Rp 0)";
                           });
