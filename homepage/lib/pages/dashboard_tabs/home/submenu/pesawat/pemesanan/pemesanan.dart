@@ -19,6 +19,8 @@ class Pemesanan extends StatefulWidget {
 }
 
 class _PemesananState extends State<Pemesanan> {
+  bool _isPenumpang = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -211,10 +213,16 @@ class _PemesananState extends State<Pemesanan> {
                               fontSize: 16,
                             ),
                           ),
-                          Icon(
-                            Icons.toggle_off,
-                            size: 40,
-                          )
+                          Switch(
+                            value: _isPenumpang,
+                            onChanged: (val) {
+                              setState(
+                                () {
+                                  _isPenumpang = val;
+                                },
+                              );
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -449,7 +457,7 @@ class _PemesananState extends State<Pemesanan> {
                                   Text(
                                     ' /Penumpang',
                                     style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],
@@ -504,7 +512,7 @@ class _PemesananState extends State<Pemesanan> {
                                   Text(
                                     ' /Penumpang',
                                     style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 13,
                                     ),
                                   ),
                                 ],
