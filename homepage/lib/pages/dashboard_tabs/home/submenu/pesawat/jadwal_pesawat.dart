@@ -3,6 +3,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_detail
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 import 'package:homepage/models/transportation_model.dart';
+import 'package:intl/intl.dart';
 
 class JadwalPesawat extends StatefulWidget {
   final TransportationModel previousData;
@@ -82,7 +83,9 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
-                Text("AAAAAAaa",
+                Text(
+                    "${DateFormat('dd MMM yyyy').format(widget.previousData.dateDepart)} ${(widget.previousData.isTwoWayTrip) ? '- ${DateFormat('dd MMM yyyy').format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass}",
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 13, color: Colors.white))
               ],
             ),

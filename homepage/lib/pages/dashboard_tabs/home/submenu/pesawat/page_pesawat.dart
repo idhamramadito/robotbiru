@@ -48,7 +48,7 @@ class _PagePesawatState extends State<PagePesawat> {
                       var result = await Navigator.of(context)
                           .pushNamed('/search_page', arguments: 'Asal');
                       setState(() {
-                        data.origin = result;
+                        data.origin = result ?? data.origin;
                       });
                     },
                   ),
@@ -61,7 +61,7 @@ class _PagePesawatState extends State<PagePesawat> {
                       var result = await Navigator.of(context)
                           .pushNamed('/search_page', arguments: 'Destinasi');
                       setState(() {
-                        data.destination = result;
+                        data.destination = result ?? data.destination;
                       });
                     },
                   ),
@@ -74,20 +74,21 @@ class _PagePesawatState extends State<PagePesawat> {
                         ? () async {
                             var result = await dateRangePicker(context);
                             setState(() {
-                              data.dateDepart = result[0];
-                              data.dateReturn = result[1];
+                              data.dateDepart = result[0] ?? data.dateDepart;
+                              data.dateReturn = result[1] ?? data.dateReturn;
                             });
                           }
                         : () async {
                             var result = await datePicker(context);
                             setState(() {
-                              data.dateDepart = result;
+                              data.dateDepart = result ?? data.dateDepart;
                             });
                           },
                     switchValue: data.isTwoWayTrip,
                     onSwitched: (val) {
                       setState(() {
                         data.isTwoWayTrip = val;
+                        if (val == false) data.dateReturn = null;
                       });
                     },
                   ),
@@ -101,8 +102,8 @@ class _PagePesawatState extends State<PagePesawat> {
                       onPressed: () async {
                         var result = await dateRangePicker(context);
                         setState(() {
-                          data.dateDepart = result[0];
-                          data.dateReturn = result[1];
+                          data.dateDepart = result[0] ?? data.dateDepart;
+                          data.dateReturn = result[1] ?? data.dateReturn;
                         });
                       },
                     ),
@@ -115,7 +116,7 @@ class _PagePesawatState extends State<PagePesawat> {
                     onPressed: () async {
                       var result = await passengers(context);
                       setState(() {
-                        data.passengers = result;
+                        data.passengers = result ?? data.passengers;
                       });
                     },
                   ),
@@ -128,7 +129,7 @@ class _PagePesawatState extends State<PagePesawat> {
                       var result =
                           await choiceBottomSheet(context, "Kelas Kabin");
                       setState(() {
-                        data.cabinClass = result;
+                        data.cabinClass = result ?? data.cabinClass;
                       });
                     },
                   ),
@@ -141,7 +142,7 @@ class _PagePesawatState extends State<PagePesawat> {
                       final result = await Navigator.of(context)
                           .pushNamed('/search_page', arguments: 'Maskapai');
                       setState(() {
-                        data.airline = result;
+                        data.airline = result ?? data.airline;
                       });
                     },
                   ),
@@ -151,7 +152,6 @@ class _PagePesawatState extends State<PagePesawat> {
                       data.origin,
                       data.destination,
                       data.dateDepart,
-                      data.dateReturn,
                       data.passengers,
                       data.cabinClass,
                       data.airline,
