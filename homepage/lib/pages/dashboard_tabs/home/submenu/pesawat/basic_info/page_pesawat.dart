@@ -43,31 +43,65 @@ class _PagePesawatState extends State<PagePesawat> {
               ),
               child: Column(
                 children: [
-                  BasicInfoListTile(
-                    data: data.origin,
-                    name: 'Asal',
-                    icon: Icons.flight_takeoff,
-                    onPressed: () async {
-                      var result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Asal');
-                      setState(() {
-                        data.origin = result ?? data.origin;
-                      });
-                    },
-                  ),
+                  (data.transportationType == 'Pesawat')
+                      ? BasicInfoListTile(
+                          data: data.origin,
+                          name: 'Bandara Asal',
+                          icon: Icons.flight_takeoff,
+                          onPressed: () async {
+                            var result = await Navigator.of(context).pushNamed(
+                                '/search_page',
+                                arguments: 'Bandara Asal');
+                            setState(() {
+                              data.origin = result ?? data.origin;
+                            });
+                          },
+                        )
+                      : (data.transportationType == 'Kereta')
+                          ? BasicInfoListTile(
+                              data: data.origin,
+                              name: 'Stasiun Asal',
+                              icon: Icons.train,
+                              onPressed: () async {
+                                var result = await Navigator.of(context)
+                                    .pushNamed('/search_page',
+                                        arguments: 'Stasiun Asal');
+                                setState(() {
+                                  data.origin = result ?? data.origin;
+                                });
+                              },
+                            )
+                          : Container(),
                   Divider(),
-                  BasicInfoListTile(
-                    data: data.destination,
-                    name: 'Destinasi',
-                    icon: Icons.flight_land,
-                    onPressed: () async {
-                      var result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Destinasi');
-                      setState(() {
-                        data.destination = result ?? data.destination;
-                      });
-                    },
-                  ),
+                  (data.transportationType == 'Pesawat')
+                      ? BasicInfoListTile(
+                          data: data.destination,
+                          name: 'Bandara Destinasi',
+                          icon: Icons.flight_land,
+                          onPressed: () async {
+                            var result = await Navigator.of(context).pushNamed(
+                                '/search_page',
+                                arguments: 'Bandara Destinasi');
+                            setState(() {
+                              data.destination = result ?? data.destination;
+                            });
+                          },
+                        )
+                      : (data.transportationType == 'Kereta')
+                          ? BasicInfoListTile(
+                              data: data.destination,
+                              name: 'Stasiun Destinasi',
+                              icon: Icons.train,
+                              onPressed: () async {
+                                var result = await Navigator.of(context)
+                                    .pushNamed('/search_page',
+                                        arguments: 'Stasiun Destinasi');
+                                setState(() {
+                                  data.destination = result ?? data.destination;
+                                });
+                              },
+                            )
+                          : Container(),
                   Divider(),
                   BasicInfoListTile(
                     data: data.dateDepart,
@@ -150,17 +184,20 @@ class _PagePesawatState extends State<PagePesawat> {
                     },
                   ),
                   Divider(),
-                  BasicInfoListTile(
-                    data: data.airline,
-                    name: 'Maskapai',
-                    icon: Icons.airplanemode_active,
-                    onPressed: () async {
-                      final result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Maskapai');
-                      setState(() {
-                        data.airline = result ?? data.airline;
-                      });
-                    },
+                  Visibility(
+                    visible: data.transportationType == 'Pesawat',
+                    child: BasicInfoListTile(
+                      data: data.airline,
+                      name: 'Maskapai',
+                      icon: Icons.airplanemode_active,
+                      onPressed: () async {
+                        final result = await Navigator.of(context)
+                            .pushNamed('/search_page', arguments: 'Maskapai');
+                        setState(() {
+                          data.airline = result ?? data.airline;
+                        });
+                      },
+                    ),
                   ),
                   BigButton(
                     title: 'Cari Penerbangan',

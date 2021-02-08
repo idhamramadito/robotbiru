@@ -38,8 +38,8 @@ class _SearchPageState extends State<SearchPage> {
       case 'Maskapai':
         _sementara = List.from(_maskapai);
         break;
-      case 'Asal':
-      case 'Destinasi':
+      case 'Bandara Asal':
+      case 'Bandara Destinasi':
         _sementara = List.from(_bandara);
         break;
       case 'Kode Negara':
