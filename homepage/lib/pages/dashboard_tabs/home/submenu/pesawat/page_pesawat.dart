@@ -88,23 +88,21 @@ class _PagePesawatState extends State<PagePesawat> {
                           },
                   ),
                   Divider(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Pulang Pergi?',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Switch(
-                        value: data.isTwoWayTrip,
-                        onChanged: (val) {
-                          setState(() {
-                            data.isTwoWayTrip = val ?? data.isTwoWayTrip;
-                            if (val == false) data.dateReturn = null;
-                          });
-                        },
-                      ),
-                    ],
+                  ListTile(
+                    dense: true,
+                    title: Text(
+                      'Pulang Pergi?',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    trailing: Switch(
+                      value: data.isTwoWayTrip,
+                      onChanged: (val) {
+                        setState(() {
+                          data.isTwoWayTrip = val ?? data.isTwoWayTrip;
+                          if (val == false) data.dateReturn = null;
+                        });
+                      },
+                    ),
                   ),
                   Visibility(
                     visible: data.isTwoWayTrip,
