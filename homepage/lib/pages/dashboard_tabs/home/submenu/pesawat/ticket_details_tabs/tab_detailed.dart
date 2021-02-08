@@ -241,19 +241,62 @@ class TabDetailed extends StatelessWidget {
                         ),
                       ),
                       Divider(thickness: 2),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                '20 Januari 2021 ',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ],
-                          ),
-                        ],
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'images/koper_biru.png',
+                                ),
+                                Text(
+                                  ' Bagasi 20Kg',
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'images/tv_biru.png',
+                                ),
+                                Text(
+                                  ' Hiburan',
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'images/makan_01.png',
+                                ),
+                                Text(
+                                  ' Makanan',
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'images/money_01.png',
+                                ),
+                                Text(
+                                  ' Refundable',
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
