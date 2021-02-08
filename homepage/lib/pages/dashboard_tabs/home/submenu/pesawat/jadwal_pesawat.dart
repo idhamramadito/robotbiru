@@ -78,7 +78,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Jakarta (CGK) > Denpasar - Bali (DPS) ",
+                Text(
+                    "${widget.previousData.origin} > ${widget.previousData.destination}",
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
