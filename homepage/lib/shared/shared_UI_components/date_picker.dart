@@ -8,7 +8,7 @@ Future dateRangePicker(BuildContext context) async {
       initialLastDate: DateTime.now().add(Duration(days: 2)),
       firstDate: new DateTime.now().subtract(Duration(days: 1)),
       lastDate: new DateTime(DateTime.now().year + 50));
-  if (picked != null && picked.length <= 2) {
+  if (picked != null && picked.length == 2) {
     return picked;
   }
 }

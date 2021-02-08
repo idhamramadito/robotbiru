@@ -73,10 +73,12 @@ class _PagePesawatState extends State<PagePesawat> {
                     onPressed: (data.isTwoWayTrip)
                         ? () async {
                             var result = await dateRangePicker(context);
-                            setState(() {
-                              data.dateDepart = result[0] ?? data.dateDepart;
-                              data.dateReturn = result[1] ?? data.dateReturn;
-                            });
+                            if (result != null) {
+                              setState(() {
+                                data.dateDepart = result[0] ?? data.dateDepart;
+                                data.dateReturn = result[1] ?? data.dateReturn;
+                              });
+                            }
                           }
                         : () async {
                             var result = await datePicker(context);
@@ -87,7 +89,7 @@ class _PagePesawatState extends State<PagePesawat> {
                     switchValue: data.isTwoWayTrip,
                     onSwitched: (val) {
                       setState(() {
-                        data.isTwoWayTrip = val;
+                        data.isTwoWayTrip = val ?? data.isTwoWayTrip;
                         if (val == false) data.dateReturn = null;
                       });
                     },
@@ -101,10 +103,12 @@ class _PagePesawatState extends State<PagePesawat> {
                       icon: Icons.calendar_today,
                       onPressed: () async {
                         var result = await dateRangePicker(context);
-                        setState(() {
-                          data.dateDepart = result[0] ?? data.dateDepart;
-                          data.dateReturn = result[1] ?? data.dateReturn;
-                        });
+                        if (result != null) {
+                          setState(() {
+                            data.dateDepart = result[0] ?? data.dateDepart;
+                            data.dateReturn = result[1] ?? data.dateReturn;
+                          });
+                        }
                       },
                     ),
                   ),
@@ -149,13 +153,15 @@ class _PagePesawatState extends State<PagePesawat> {
                   BigButton(
                     title: 'Cari Penerbangan',
                     onPressed: ([
-                      data.origin,
-                      data.destination,
-                      data.dateDepart,
-                      data.passengers,
-                      data.cabinClass,
-                      data.airline,
-                    ].contains(null))
+                              data.origin,
+                              data.destination,
+                              data.dateDepart,
+                              data.passengers,
+                              data.cabinClass,
+                              data.airline,
+                            ].contains(null) ||
+                            (data.isTwoWayTrip == true &&
+                                data.dateReturn == null))
                         ? null
                         : () {
                             Navigator.of(context).pushNamed(

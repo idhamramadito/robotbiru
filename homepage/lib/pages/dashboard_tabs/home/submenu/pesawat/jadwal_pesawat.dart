@@ -72,24 +72,18 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                    "${widget.previousData.origin} > ${widget.previousData.destination}",
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)),
-                Text(
-                    "${DateFormat('dd MMM yyyy').format(widget.previousData.dateDepart)} ${(widget.previousData.isTwoWayTrip) ? '- ${DateFormat('dd MMM yyyy').format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass}",
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 13, color: Colors.white))
-              ],
-            ),
+            Text(
+                "${widget.previousData.origin} > ${widget.previousData.destination}",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
+            Text(
+                "${DateFormat('dd MMM yyyy').format(widget.previousData.dateDepart)} ${(widget.previousData.isTwoWayTrip) ? '- ${DateFormat('dd MMM yyyy').format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass}",
+                style: TextStyle(fontSize: 13, color: Colors.white))
           ],
         ),
       ),
