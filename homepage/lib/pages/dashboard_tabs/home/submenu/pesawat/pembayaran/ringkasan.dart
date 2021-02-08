@@ -204,7 +204,11 @@ class _RingkasanState extends State<Ringkasan> {
                 SizedBox(height: 10),
                 Divider(thickness: 10),
                 SizedBox(height: 10),
-                PenerbanganDetail(),
+                PenerbanganDetail(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/detail_penerbangan');
+                  },
+                ),
                 SizedBox(height: 20),
                 Divider(thickness: 10),
                 SizedBox(height: 10),

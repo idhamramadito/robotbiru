@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
 class PenerbanganDetail extends StatefulWidget {
+  PenerbanganDetail({
+    Key key,
+    this.onTap,
+  }) : super(key: key);
+  final Function onTap;
   @override
   _PenerbanganDetailState createState() => _PenerbanganDetailState();
 }
@@ -50,7 +55,7 @@ class _PenerbanganDetailState extends State<PenerbanganDetail> {
           ),
           InkWell(
             onTap: () {
-              ticketDetails(context, 'Pemesanan');
+              widget.onTap();
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
