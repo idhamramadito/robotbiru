@@ -130,8 +130,7 @@ class InvoicePulsa extends StatelessWidget {
                 Divider(),
                 SizedBox(height: 10),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: new Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -144,7 +143,10 @@ class InvoicePulsa extends StatelessWidget {
                         )
                       ]),
                 ),
-                ReceiptCard(dataList: _boxDetailPesanan),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: ReceiptCard(dataList: _boxDetailPesanan),
+                ),
                 SizedBox(height: 10),
                 Container(
                   child: Image.asset('images/barcode.png'),

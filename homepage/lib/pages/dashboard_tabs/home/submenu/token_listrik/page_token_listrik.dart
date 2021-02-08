@@ -100,14 +100,20 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                                   _dataList.chosenPrice = val;
                                 }),
                               ),
-                              ReceiptCard(
-                                title: 'Ringkasan',
-                                dataList: _ringkasan,
+                              Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: ReceiptCard(
+                                  title: 'Ringkasan',
+                                  dataList: _ringkasan,
+                                ),
                               ),
                               Divider(thickness: 5),
-                              ReceiptCard(
-                                title: 'Cashback',
-                                dataList: _cashback,
+                              Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: ReceiptCard(
+                                  title: 'Cashback',
+                                  dataList: _cashback,
+                                ),
                               ),
                               Divider(thickness: 5),
                             ],
@@ -127,7 +133,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          routeName: '/invoice__token_listrik',
+          routeName: '/invoice_token_listrik',
           currency: _currency,
           data: _dataList,
         ),

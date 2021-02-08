@@ -25,106 +25,100 @@ class TabPrice extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Jakarta',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Jakarta',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
-                      Icon(
-                        Icons.arrow_right_alt,
-                        size: 30,
-                      ),
-                      Text(
-                        'Denpasar - Bali',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '${_price[3].name}',
-                      style: TextStyle(fontSize: 15, color: Colors.grey[400]),
                     ),
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '${_price[0].name}',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        '${_price[0].content}',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 30),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '${_price[4].name}',
-                      style: TextStyle(fontSize: 15, color: Colors.grey[400]),
+                    Icon(
+                      Icons.arrow_right_alt,
+                      size: 30,
                     ),
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '${_price[1].name}',
-                        style: TextStyle(fontSize: 17),
+                    Text(
+                      'Denpasar - Bali',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
-                      Text(
-                        '${_price[1].content}',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                    ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${_price[3].name}',
+                    style: TextStyle(fontSize: 15, color: Colors.grey[400]),
                   ),
-                ],
-              ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '${_price[0].name}',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    Text(
+                      '${_price[0].content}',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${_price[4].name}',
+                    style: TextStyle(fontSize: 15, color: Colors.grey[400]),
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '${_price[1].name}',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    Text(
+                      '${_price[1].content}',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                  ],
+                ),
+              ],
             ),
             SizedBox(height: 15),
             Divider(),
             SizedBox(height: 15),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '${_price[2].name}',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    '${_price[2].content}',
-                    style: TextStyle(
-                        fontSize: 19,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue),
-                  ),
-                ],
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '${_price[2].name}',
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '${_price[2].content}',
+                  style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue),
+                ),
+              ],
             ),
             SizedBox(height: 15),
             Divider(),

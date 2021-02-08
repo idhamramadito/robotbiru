@@ -184,9 +184,12 @@ class _RingkasanState extends State<Ringkasan> {
                 ),
                 SizedBox(height: 10),
                 Divider(thickness: 10),
-                ReceiptCard(
-                  title: 'Rincian Pembayaran',
-                  dataList: _paymentDetails,
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: ReceiptCard(
+                    title: 'Rincian Pembayaran',
+                    dataList: _paymentDetails,
+                  ),
                 ),
                 Divider(),
                 SizedBox(height: 10),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class TotalPembayaran extends StatefulWidget {
   @override
@@ -6,6 +8,12 @@ class TotalPembayaran extends StatefulWidget {
 }
 
 class _TotalPembayaranState extends State<TotalPembayaran> {
+  List<NameAndContent> _bonusList = [
+    NameAndContent(name: 'Cashback'),
+    NameAndContent(name: 'Anggota'),
+    NameAndContent(name: 'Retail'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +71,9 @@ class _TotalPembayaranState extends State<TotalPembayaran> {
                     'Jakarta',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
+                  SizedBox(width: 10),
                   Icon(Icons.sync_alt),
+                  SizedBox(width: 10),
                   Text(
                     'Denpasar - Bali',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -148,43 +158,7 @@ class _TotalPembayaranState extends State<TotalPembayaran> {
               SizedBox(height: 15),
               Divider(),
               SizedBox(height: 15),
-              Text(
-                'Bonus',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Cashback',
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                  Text('Rp 2.500')
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Anggota',
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                  Text('Rp 3.500')
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Retail',
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                  Text('Rp 6.000')
-                ],
-              ),
+              ReceiptCard(title: 'Bonus', dataList: _bonusList),
             ],
           ),
         ),

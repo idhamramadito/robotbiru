@@ -22,45 +22,39 @@ class TabHarga extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(25.0),
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '${_price[0].name}',
-                    style: TextStyle(fontSize: 17),
-                  ),
-                  Text(
-                    '${_price[0].content}',
-                    style: TextStyle(fontSize: 17),
-                  ),
-                ],
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '${_price[0].name}',
+                  style: TextStyle(fontSize: 17),
+                ),
+                Text(
+                  '${_price[0].content}',
+                  style: TextStyle(fontSize: 17),
+                ),
+              ],
             ),
             SizedBox(height: 15),
             Divider(),
             SizedBox(height: 15),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '${_price[1].name}',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    '${_price[1].content}',
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '${_price[1].name}',
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '${_price[1].content}',
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
             SizedBox(height: 15),
             Divider(),

@@ -299,8 +299,11 @@ class InvoiceTokenListrik extends StatelessWidget {
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     children: [
-                      ReceiptCard(
-                        dataList: _boxDetailPesanan,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: ReceiptCard(
+                          dataList: _boxDetailPesanan,
+                        ),
                       )
                     ],
                   ),
@@ -313,8 +316,11 @@ class InvoiceTokenListrik extends StatelessWidget {
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     children: [
-                      ReceiptCard(
-                        dataList: _boxDetailTransaksi,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: ReceiptCard(
+                          dataList: _boxDetailTransaksi,
+                        ),
                       )
                     ],
                   ),

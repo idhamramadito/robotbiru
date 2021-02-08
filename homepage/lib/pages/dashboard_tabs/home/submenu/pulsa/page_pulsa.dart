@@ -117,14 +117,20 @@ class _PagePulsaState extends State<PagePulsa> {
                   }),
                 ),
                 PaketPulsaKuota(amount: _dataList.chosenPrice),
-                ReceiptCard(
-                  title: 'Ringkasan',
-                  dataList: _ringkasan,
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: ReceiptCard(
+                    title: 'Ringkasan',
+                    dataList: _ringkasan,
+                  ),
                 ),
                 Divider(thickness: 5),
-                ReceiptCard(
-                  title: 'Cashback',
-                  dataList: _cashback,
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: ReceiptCard(
+                    title: 'Cashback',
+                    dataList: _cashback,
+                  ),
                 ),
                 Divider(thickness: 5),
               ],
