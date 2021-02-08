@@ -6,6 +6,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:homepage/models/passenggers_model.dart';
 import 'package:homepage/models/order_detail_model.dart';
+import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 
 List _perlindungan = [false, false];
 
@@ -37,7 +38,7 @@ class _PemesananState extends State<Pemesanan> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            DetailPenerbangan(),
+            PenerbanganDetail(),
             // Container(
             //   padding: EdgeInsets.all(20),
             //   child: Column(

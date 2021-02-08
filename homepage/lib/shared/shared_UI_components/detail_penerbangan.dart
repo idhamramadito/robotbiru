@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
-class DetailPenerbangan extends StatefulWidget {
+class PenerbanganDetail extends StatefulWidget {
   @override
-  _DetailPenerbanganState createState() => _DetailPenerbanganState();
+  _PenerbanganDetailState createState() => _PenerbanganDetailState();
 }
 
-class _DetailPenerbanganState extends State<DetailPenerbangan> {
+class _PenerbanganDetailState extends State<PenerbanganDetail> {
   @override
   Widget build(BuildContext context) {
     return Container(
