@@ -2,13 +2,9 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
-<<<<<<< HEAD
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
-=======
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
->>>>>>> 90362d2010fa15b9291fd3ed7bbc97c58bd7cc3c
 import 'package:homepage/shared/shared_UI_components/white_button.dart';
-import '../ticket_details.dart';
 
 class Ringkasan extends StatefulWidget {
   final List<List> data;
