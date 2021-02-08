@@ -2,7 +2,6 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/white_button.dart';
-import 'package:homepage/shared/shared_pages/choose_picture.dart';
 import '../ticket_details.dart';
 
 class Ringkasan extends StatefulWidget {
