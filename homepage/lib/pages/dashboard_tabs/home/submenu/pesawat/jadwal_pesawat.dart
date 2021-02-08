@@ -82,7 +82,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
             Text(
-                '${DateFormat('dd MMM yyyy').format(widget.previousData.dateDepart)} ${(widget.previousData.isTwoWayTrip) ? '- ${DateFormat('dd MMM yyyy').format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengers[0][1] > 0) ? '${widget.previousData.passengers[0][1]} ${widget.previousData.passengers[0][0]}' : ''} ${(widget.previousData.passengers[1][1] > 0) ? '${widget.previousData.passengers[1][1]} ${widget.previousData.passengers[1][0]}' : ''} ${(widget.previousData.passengers[2][1] > 0) ? '${widget.previousData.passengers[2][1]} ${widget.previousData.passengers[2][0]}' : ''}',
+                '${DateFormat('dd MMM yyyy').format(widget.previousData.dateDepart)} ${(widget.previousData.isTwoWayTrip) ? '- ${DateFormat('dd MMM yyyy').format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengers[0][1] > 0) ? '${widget.previousData.passengers[0][1]} ${widget.previousData.passengers[0][0]}' : ''}${(widget.previousData.passengers[1][1] > 0) ? ', ${widget.previousData.passengers[1][1]} ${widget.previousData.passengers[1][0]}' : ''}${(widget.previousData.passengers[2][1] > 0) ? ', ${widget.previousData.passengers[2][1]} ${widget.previousData.passengers[2][0]}' : ''}',
                 style: TextStyle(fontSize: 13, color: Colors.white))
           ],
         ),
