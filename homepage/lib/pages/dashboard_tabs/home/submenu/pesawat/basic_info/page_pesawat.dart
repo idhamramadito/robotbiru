@@ -13,7 +13,7 @@ class PagePesawat extends StatefulWidget {
 
 class _PagePesawatState extends State<PagePesawat> {
   TransportationModel data = TransportationModel(
-    transportationType: 'Pesawat',
+    transportationType: 'Kereta Api',
     isTwoWayTrip: false,
   ); // sisanya masih null
 
@@ -43,7 +43,7 @@ class _PagePesawatState extends State<PagePesawat> {
               ),
               child: Column(
                 children: [
-                  (data.transportationType == 'Pesawat')
+                  (data.transportationType.contains('Pesawat'))
                       ? BasicInfoListTile(
                           data: data.origin,
                           name: 'Bandara Asal',
@@ -57,7 +57,7 @@ class _PagePesawatState extends State<PagePesawat> {
                             });
                           },
                         )
-                      : (data.transportationType == 'Kereta')
+                      : (data.transportationType.contains('Kereta'))
                           ? BasicInfoListTile(
                               data: data.origin,
                               name: 'Stasiun Asal',
@@ -73,7 +73,7 @@ class _PagePesawatState extends State<PagePesawat> {
                             )
                           : Container(),
                   Divider(),
-                  (data.transportationType == 'Pesawat')
+                  (data.transportationType.contains('Pesawat'))
                       ? BasicInfoListTile(
                           data: data.destination,
                           name: 'Bandara Destinasi',
@@ -87,7 +87,7 @@ class _PagePesawatState extends State<PagePesawat> {
                             });
                           },
                         )
-                      : (data.transportationType == 'Kereta')
+                      : (data.transportationType.contains('Kereta'))
                           ? BasicInfoListTile(
                               data: data.destination,
                               name: 'Stasiun Destinasi',
