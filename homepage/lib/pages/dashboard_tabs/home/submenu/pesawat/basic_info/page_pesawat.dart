@@ -185,7 +185,7 @@ class _PagePesawatState extends State<PagePesawat> {
                   ),
                   Divider(),
                   Visibility(
-                    visible: data.transportationType == 'Pesawat',
+                    visible: data.transportationType.contains('Pesawat'),
                     child: BasicInfoListTile(
                       data: data.airline,
                       name: 'Maskapai',
@@ -199,26 +199,48 @@ class _PagePesawatState extends State<PagePesawat> {
                       },
                     ),
                   ),
-                  BigButton(
-                    title: 'Cari Penerbangan',
-                    onPressed: ([
-                              data.origin,
-                              data.destination,
-                              data.dateDepart,
-                              data.passengers,
-                              data.cabinClass,
-                              data.airline,
-                            ].contains(null) ||
-                            (data.isTwoWayTrip == true &&
-                                data.dateReturn == null))
-                        ? null
-                        : () {
-                            Navigator.of(context).pushNamed(
-                              '/jadwal_pesawat',
-                              arguments: data,
-                            );
-                          },
-                  ),
+                  data.transportationType.contains('Pesawat')
+                      ? BigButton(
+                          title: 'Cari Penerbangan',
+                          onPressed: ([
+                                    data.origin,
+                                    data.destination,
+                                    data.dateDepart,
+                                    data.passengers,
+                                    data.cabinClass,
+                                    data.airline,
+                                  ].contains(null) ||
+                                  (data.isTwoWayTrip == true &&
+                                      data.dateReturn == null))
+                              ? null
+                              : () {
+                                  Navigator.of(context).pushNamed(
+                                    '/jadwal_pesawat',
+                                    arguments: data,
+                                  );
+                                },
+                        )
+                      : (data.transportationType.contains('Kereta'))
+                          ? BigButton(
+                              title: 'Cari Kereta',
+                              onPressed: ([
+                                        data.origin,
+                                        data.destination,
+                                        data.dateDepart,
+                                        data.passengers,
+                                        data.cabinClass,
+                                      ].contains(null) ||
+                                      (data.isTwoWayTrip == true &&
+                                          data.dateReturn == null))
+                                  ? null
+                                  : () {
+                                      Navigator.of(context).pushNamed(
+                                        '/jadwal_kereta',
+                                        arguments: data,
+                                      );
+                                    },
+                            )
+                          : Container(),
                 ],
               ),
             ),
