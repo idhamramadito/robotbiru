@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
@@ -5,6 +7,8 @@ import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/white_button.dart';
+import 'package:homepage/shared/shared_pages/get_picture.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Ringkasan extends StatefulWidget {
   final List<List> data;
@@ -25,6 +29,9 @@ class _RingkasanState extends State<Ringkasan> {
     NameAndContent(name: 'Total Bayar', content: '485.000'),
     NameAndContent(name: 'Total', content: '485.000'),
   ];
+
+  PickedFile imagFile;
+  File croppedImageFile;
 
   @override
   Widget build(BuildContext context) {
@@ -236,7 +243,11 @@ class _RingkasanState extends State<Ringkasan> {
                     children: [
                       Expanded(
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () async {
+                            var result =
+                                await getPicture(context, ImageSource.camera);
+                            setState(() => croppedImageFile = result);
+                          },
                           child: DottedBorder(
                             dashPattern: [5, 5],
                             color: Colors.grey[300],
@@ -262,7 +273,11 @@ class _RingkasanState extends State<Ringkasan> {
                       SizedBox(width: 5),
                       Expanded(
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () async {
+                            var result =
+                                await getPicture(context, ImageSource.gallery);
+                            setState(() => croppedImageFile = result);
+                          },
                           child: DottedBorder(
                             dashPattern: [5, 5],
                             color: Colors.grey[300],
@@ -286,6 +301,15 @@ class _RingkasanState extends State<Ringkasan> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Center(
+                    child: (croppedImageFile == null)
+                        ? Text('No image selected')
+                        : Image.file(croppedImageFile, width: double.infinity),
                   ),
                 ),
                 SizedBox(height: 20),
