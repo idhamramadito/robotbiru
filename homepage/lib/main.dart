@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:homepage/routing/routing_table.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  runApp(RobotBiruApp());
+  await initializeDateFormatting('id_ID', null)
+      .then((_) => runApp(RobotBiruApp()));
 }
 
 class RobotBiruApp extends StatelessWidget {

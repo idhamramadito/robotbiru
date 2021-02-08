@@ -22,7 +22,7 @@ class _PagePesawatState extends State<PagePesawat> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('Pesawat'),
+        title: Text('${data.transportationType}'),
       ),
       body: SingleChildScrollView(
         child: Stack(

@@ -101,7 +101,7 @@ Future passengerDetailsSheet(BuildContext context) {
                       ),
                       child: ListTile(
                         title: Text((dataPenumpang.birthDate != null)
-                            ? DateFormat('dd MMM yyyy')
+                            ? DateFormat("EEEE, d MMMM yyyy", "id_ID")
                                 .format(dataPenumpang.birthDate)
                             : 'Belum Dipilih'),
                         trailing: Icon(Icons.calendar_today),
