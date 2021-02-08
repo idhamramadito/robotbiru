@@ -66,24 +66,18 @@ Future filterList(BuildContext context) {
                         ],
                       ),
                     ),
-                    Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      child: ExpansionTile(
+                        expandedAlignment: Alignment.centerLeft,
+                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                        title: Text(
+                          'Urutkan',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
                         children: [
-                          Text(
-                            "Urutkan",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 25),
-                        child: ListView.builder(
+                          ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: _rekomendasi.length,
@@ -91,33 +85,36 @@ Future filterList(BuildContext context) {
                               return Padding(
                                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                                 child: InkWell(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 0, 0, 10),
-                                          child: Text(
-                                            _rekomendasi[index][0],
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: selectedValue == index
-                                                  ? Theme.of(context)
-                                                      .primaryColor
-                                                  : Colors.black,
-                                            ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            0, 0, 0, 10),
+                                        child: Text(
+                                          _rekomendasi[index][0],
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: selectedValue == index
+                                                ? Theme.of(context).primaryColor
+                                                : Colors.black,
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    onTap: () {
-                                      mystate(() {
-                                        selectedValue = index;
-                                      });
-                                    }),
+                                      ),
+                                    ],
+                                  ),
+                                  onTap: () {
+                                    mystate(() {
+                                      selectedValue = index;
+                                    });
+                                  },
+                                ),
                               );
-                            })),
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                     Container(
                         margin:
                             EdgeInsets.symmetric(vertical: 0, horizontal: 25),
