@@ -8,16 +8,12 @@ class BasicInfoListTile extends StatefulWidget {
     @required this.name,
     @required this.icon,
     @required this.onPressed,
-    this.switchValue,
-    this.onSwitched,
   }) : super(key: key);
 
   final data;
   final String name;
   final IconData icon;
   final Function onPressed;
-  final bool switchValue;
-  final Function onSwitched;
 
   @override
   _BasicInfoListTileState createState() => _BasicInfoListTileState();
@@ -51,15 +47,6 @@ class _BasicInfoListTileState extends State<BasicInfoListTile> {
           fontSize: 15,
           fontWeight: FontWeight.bold,
           color: (widget.data == null) ? Colors.grey[300] : Colors.black,
-        ),
-      ),
-      trailing: Visibility(
-        visible: widget.switchValue != null,
-        child: Switch(
-          value: widget.switchValue,
-          onChanged: (val) {
-            widget.onSwitched(val);
-          },
         ),
       ),
     );

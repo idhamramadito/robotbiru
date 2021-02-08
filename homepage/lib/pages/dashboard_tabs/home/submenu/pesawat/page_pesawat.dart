@@ -86,15 +86,26 @@ class _PagePesawatState extends State<PagePesawat> {
                               data.dateDepart = result ?? data.dateDepart;
                             });
                           },
-                    switchValue: data.isTwoWayTrip,
-                    onSwitched: (val) {
-                      setState(() {
-                        data.isTwoWayTrip = val ?? data.isTwoWayTrip;
-                        if (val == false) data.dateReturn = null;
-                      });
-                    },
                   ),
                   Divider(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Pulang Pergi?',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Switch(
+                        value: data.isTwoWayTrip,
+                        onChanged: (val) {
+                          setState(() {
+                            data.isTwoWayTrip = val ?? data.isTwoWayTrip;
+                            if (val == false) data.dateReturn = null;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
                   Visibility(
                     visible: data.isTwoWayTrip,
                     child: BasicInfoListTile(
