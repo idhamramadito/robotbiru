@@ -2,9 +2,13 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
+import 'package:homepage/models/transportation_model.dart';
 
 class JadwalPesawat extends StatefulWidget {
+  final TransportationModel previousData;
+
   JadwalPesawat({
+    this.previousData,
     Key key,
   }) : super(key: key);
 

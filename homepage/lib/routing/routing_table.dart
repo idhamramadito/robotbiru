@@ -48,7 +48,8 @@ class RoutingTable {
       case '/contacts_picker':
         return MaterialPageRoute(builder: (_) => ContactsPicker());
       case '/jadwal_pesawat':
-        return MaterialPageRoute(builder: (_) => JadwalPesawat());
+        return MaterialPageRoute(
+            builder: (_) => JadwalPesawat(previousData: args));
       case '/bagasi':
         return MaterialPageRoute(builder: (_) => Bagasi());
       case '/detail_penerbangan':
