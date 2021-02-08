@@ -25,18 +25,32 @@ class _TotalPembayaranState extends State<TotalPembayaran> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    decoration: BoxDecoration(color: Colors.blue[100]),
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlue[50],
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     child: Text(
                       'Pergi',
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   SizedBox(width: 10),
                   Container(
-                    decoration: BoxDecoration(color: Colors.blue[100]),
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlue[50],
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     child: Text(
                       'Pulang',
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
