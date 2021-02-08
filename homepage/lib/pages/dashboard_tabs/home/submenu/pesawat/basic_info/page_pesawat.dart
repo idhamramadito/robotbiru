@@ -13,7 +13,7 @@ class PagePesawat extends StatefulWidget {
 
 class _PagePesawatState extends State<PagePesawat> {
   TransportationModel data = TransportationModel(
-    transportationType: 'Kereta Api',
+    transportationType: 'Pesawat',
     isTwoWayTrip: false,
   ); // sisanya masih null
 
