@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TransportationAttributes {
+class AttributesModel {
   String id;
   String name;
   IconData icon;
   var content;
   Function onPressed;
-  TransportationAttributes({
+  AttributesModel({
     String id,
     String name,
     IconData icon,

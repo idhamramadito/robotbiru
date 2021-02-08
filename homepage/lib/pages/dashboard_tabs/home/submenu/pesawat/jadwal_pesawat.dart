@@ -1,17 +1,12 @@
-import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/filter_list.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:flutter/material.dart';
-import 'package:homepage/shared/shared_UI_components/date_range_picker.dart';
+import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 
 class JadwalPesawat extends StatefulWidget {
-  final List<TransportationAttributes> previousData;
   JadwalPesawat({
     Key key,
-    List<TransportationAttributes> previousData,
-  })  : this.previousData = previousData,
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _JadwalPesawatState createState() => _JadwalPesawatState();
