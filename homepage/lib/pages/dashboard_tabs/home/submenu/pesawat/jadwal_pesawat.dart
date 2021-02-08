@@ -82,7 +82,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
             Text(
-                "${DateFormat('dd MMM yyyy').format(widget.previousData.dateDepart)} ${(widget.previousData.isTwoWayTrip) ? '- ${DateFormat('dd MMM yyyy').format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass}",
+                "${DateFormat('dd MMM yyyy').format(widget.previousData.dateDepart)} ${(widget.previousData.isTwoWayTrip) ? '- ${DateFormat('dd MMM yyyy').format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${widget.previousData.passengers[0][1]} ${widget.previousData.passengers[0][0]}, ${widget.previousData.passengers[1][1]} ${widget.previousData.passengers[1][0]}, ${widget.previousData.passengers[2][1]} ${widget.previousData.passengers[2][0]}",
                 style: TextStyle(fontSize: 13, color: Colors.white))
           ],
         ),
@@ -91,65 +91,61 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
         Center(
           child: Container(
             height: 60,
-            child: Row(
-              children: [
-                Container(
-                  width: 392,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 4,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
+            child: Container(
+              width: 392,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 4,
+                    offset: Offset(0, 3), // changes position of shadow
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: RaisedButton(
-                            onPressed: () {},
-                            color: Colors.grey[200],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.grey[300])),
-                            child: new Text(
-                              '${_filterButton[0]}',
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: RaisedButton(
-                            onPressed: () {},
-                            color: Colors.grey[200],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.grey[300])),
-                            child: new Text(
-                              '${_filterButton[1]}',
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: RaisedButton(
-                          onPressed: () {},
-                          color: Colors.grey[200],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(color: Colors.grey[300])),
-                          child: new Text(
-                            '${_filterButton[2]}',
-                          ),
-                        ),
-                      )
-                    ],
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: RaisedButton(
+                        onPressed: () {},
+                        color: Colors.grey[200],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.grey[300])),
+                        child: new Text(
+                          '${_filterButton[0]}',
+                        )),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: RaisedButton(
+                        onPressed: () {},
+                        color: Colors.grey[200],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.grey[300])),
+                        child: new Text(
+                          '${_filterButton[1]}',
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: RaisedButton(
+                      onPressed: () {},
+                      color: Colors.grey[200],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.grey[300])),
+                      child: new Text(
+                        '${_filterButton[2]}',
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -320,7 +316,6 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                             child: Column(
                               children: <Widget>[
                                 Row(children: <Widget>[
-                                  Text(""),
                                   Spacer(),
                                   Text("Rp" + '${_cardJadwal[index][8]}',
                                       style: TextStyle(
