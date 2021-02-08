@@ -1,5 +1,6 @@
 class TransportationModel {
   String id;
+  String transportationType;
   bool isTwoWayTrip;
   String origin;
   String destination;
@@ -11,6 +12,7 @@ class TransportationModel {
 
   TransportationModel({
     String id,
+    String transportationType,
     bool isTwoWayTrip,
     String origin,
     String destination,
@@ -20,6 +22,7 @@ class TransportationModel {
     String cabinClass,
     String airline,
   })  : this.id = id,
+        this.transportationType = transportationType,
         this.isTwoWayTrip = isTwoWayTrip,
         this.origin = origin,
         this.destination = destination,

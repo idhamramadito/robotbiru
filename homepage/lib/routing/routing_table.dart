@@ -24,22 +24,11 @@ class RoutingTable {
     final args = settings.arguments;
 
     switch (settings.name) {
+      // Shared
       case '/':
         return MaterialPageRoute(builder: (_) => Dashboard());
-      case '/pulsa':
-        return MaterialPageRoute(builder: (_) => PagePulsa());
-      case '/token_listrik':
-        return MaterialPageRoute(builder: (_) => PageTokenListrik());
-      case '/pesawat':
-        return MaterialPageRoute(builder: (_) => PagePesawat());
       case '/search_page':
         return MaterialPageRoute(builder: (_) => SearchPage(pageName: args));
-      case '/invoice_pulsa':
-        return MaterialPageRoute(builder: (_) => InvoicePulsa());
-      case '/kebijakan_pembatalan':
-        return MaterialPageRoute(builder: (_) => KebijakanPembatalan());
-      case '/invoice_token_listrik':
-        return MaterialPageRoute(builder: (_) => InvoiceTokenListrik());
       case '/pin_code':
         return MaterialPageRoute(builder: (_) => PinCode(routeName: args));
       case '/trans_completed':
@@ -47,9 +36,27 @@ class RoutingTable {
             builder: (_) => TransCompleted(routeName: args));
       case '/contacts_picker':
         return MaterialPageRoute(builder: (_) => ContactsPicker());
+
+      // khusus pulsa
+      case '/pulsa':
+        return MaterialPageRoute(builder: (_) => PagePulsa());
+      case '/invoice_pulsa':
+        return MaterialPageRoute(builder: (_) => InvoicePulsa());
+
+      // khusus token listrik
+      case '/token_listrik':
+        return MaterialPageRoute(builder: (_) => PageTokenListrik());
+      case '/invoice_token_listrik':
+        return MaterialPageRoute(builder: (_) => InvoiceTokenListrik());
+
+      //khusus tiket pesawat
+      case '/pesawat':
+        return MaterialPageRoute(builder: (_) => PagePesawat());
       case '/jadwal_pesawat':
         return MaterialPageRoute(
             builder: (_) => JadwalPesawat(previousData: args));
+      case '/kebijakan_pembatalan':
+        return MaterialPageRoute(builder: (_) => KebijakanPembatalan());
       case '/bagasi':
         return MaterialPageRoute(builder: (_) => Bagasi());
       case '/detail_penerbangan':

@@ -12,7 +12,10 @@ class PagePesawat extends StatefulWidget {
 }
 
 class _PagePesawatState extends State<PagePesawat> {
-  TransportationModel data = TransportationModel(isTwoWayTrip: false);
+  TransportationModel data = TransportationModel(
+    transportationType: 'Pesawat',
+    isTwoWayTrip: false,
+  ); // sisanya masih null
 
   @override
   Widget build(BuildContext context) {
