@@ -106,24 +106,24 @@ class InvoiceTokenListrik extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(15, 0, 10, 15),
                             child: Container(
-                                width: 52,
-                                height: 27,
-                                decoration: new BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5.0)),
-                                  color: Colors.grey[300],
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(0),
-                                  child: Center(
-                                    child: Text(
-                                      "Listrik",
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.grey[700]),
-                                    ),
+                              width: 52,
+                              height: 27,
+                              decoration: new BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.0)),
+                                color: Colors.grey[300],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(0),
+                                child: Center(
+                                  child: Text(
+                                    "Listrik",
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.grey[700]),
                                   ),
-                                )),
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
