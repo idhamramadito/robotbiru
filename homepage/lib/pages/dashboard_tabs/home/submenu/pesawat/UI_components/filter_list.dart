@@ -30,7 +30,7 @@ List _filterFasiitas = [
 bool isPressed = false;
 int selectedValue;
 
-Future bottomSheet(BuildContext context) {
+Future filterList(BuildContext context) {
   return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -44,6 +44,7 @@ Future bottomSheet(BuildContext context) {
         return StatefulBuilder(
             builder: (BuildContext context, StateSetter mystate) {
           return DraggableScrollableSheet(
+            initialChildSize: 0.9,
             expand: false,
             builder: (context, controller) {
               return SingleChildScrollView(

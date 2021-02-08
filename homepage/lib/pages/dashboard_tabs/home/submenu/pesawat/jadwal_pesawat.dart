@@ -1,8 +1,9 @@
 import 'package:homepage/models/transportation_attributes.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/bottomSheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/filter_list.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:flutter/material.dart';
+import 'package:homepage/shared/shared_UI_components/date_range_picker.dart';
 
 class JadwalPesawat extends StatefulWidget {
   final List<TransportationAttributes> previousData;
@@ -395,71 +396,54 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
           ),
         ),
       ]),
-      floatingActionButton: Container(
-        padding: EdgeInsets.zero,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(0)),
-        ),
-        child: Container(
-          child: ToggleButtons(
-            color: Colors.black,
-            selectedColor: Theme.of(context).primaryColor,
-            selectedBorderColor: Theme.of(context).primaryColor,
-            fillColor: Colors.blue.withOpacity(0.08),
-            splashColor: Colors.blue.withOpacity(0.12),
-            hoverColor: Colors.blue.withOpacity(0.04),
-            borderRadius: BorderRadius.circular(18.0),
-            constraints: BoxConstraints(minHeight: 36.0),
-            isSelected: isSelected,
-            onPressed: (index) {
-              switch (index) {
-                case 0:
-                  bottomSheet(context);
-                  break;
-                case 1:
-                  displayDateRangePicker(context);
-                  break;
-                default:
-                  print("Error");
-              }
-              setState(() {
-                isSelected[index] = !isSelected[index];
-                if (index == 1) {
-                  if (isSelected[index - 1] == true) {
-                    isSelected[index - 1] = false;
-                  } else {}
-                } else {
-                  if (isSelected[index + 1] == true) {
-                    isSelected[index + 1] = false;
-                  }
-                }
-              });
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton.extended(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50.0),
+                bottomLeft: Radius.circular(50.0),
+              ),
+            ),
+            icon: Icon(
+              Icons.filter_list,
+              color: Theme.of(context).primaryColor,
+            ),
+            label: Text(
+              'Filter',
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            onPressed: () {
+              filterList(context);
             },
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
-                    child: Row(
-                  children: [
-                    // Image.asset('images/blue_filter_1.png'),
-                    Text('Filter'),
-                  ],
-                )),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
-                    child: Row(
-                  children: [
-                    // Image.asset('images/blue_filter_1.png'),
-                    Text('Tanggal'),
-                  ],
-                )),
-              ),
-            ],
           ),
-        ),
+          FloatingActionButton.extended(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50.0),
+                bottomRight: Radius.circular(50.0),
+              ),
+            ),
+            icon: Icon(
+              Icons.calendar_today,
+              color: Theme.of(context).primaryColor,
+            ),
+            label: Text(
+              'Tanggal',
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            onPressed: () {
+              dateRangePicker(context);
+            },
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

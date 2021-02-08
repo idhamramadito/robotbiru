@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_attributes.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/passengers.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
-import 'package:date_range_picker/date_range_picker.dart' as DateRangePicker;
 import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
+import 'package:homepage/shared/shared_UI_components/date_range_picker.dart';
 
 class PagePesawat extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class _PagePesawatState extends State<PagePesawat> {
       name: 'Tanggal Pergi',
       icon: Icons.calendar_today,
       onPressed: (context) async {
-        var result = await displayDateRangePicker(context);
+        var result = await dateRangePicker(context);
         return result;
       },
     ),
@@ -43,7 +43,7 @@ class _PagePesawatState extends State<PagePesawat> {
       name: 'Tanggal Pulang',
       icon: Icons.calendar_today,
       onPressed: (context) async {
-        var result = await displayDateRangePicker(context);
+        var result = await dateRangePicker(context);
         return result;
       },
     ),
@@ -188,19 +188,5 @@ class _PagePesawatState extends State<PagePesawat> {
         ),
       ),
     );
-  }
-}
-
-Future displayDateRangePicker(BuildContext context) async {
-  final List<DateTime> picked = await DateRangePicker.showDatePicker(
-      context: context,
-      initialFirstDate: DateTime.now(),
-      initialLastDate: DateTime.now().add(Duration(days: 0)),
-      firstDate: new DateTime(DateTime.now().year - 50),
-      lastDate: new DateTime(DateTime.now().year + 50));
-  if (picked != null && picked.length == 1) {
-    return picked[0];
-  } else if (picked != null && picked.length == 2) {
-    return picked;
   }
 }
