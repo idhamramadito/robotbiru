@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 import 'package:homepage/shared/shared_UI_components/white_button.dart';
 import '../ticket_details.dart';
 
@@ -252,116 +253,7 @@ class _RingkasanState extends State<Ringkasan> {
                 SizedBox(height: 10),
                 Divider(thickness: 10),
                 SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
-                  child: Text(
-                    'Detail Penerbangan',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                  ),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: Container(
-                    margin: EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(15.0))),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Jakarta',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_right_alt,
-                          size: 40,
-                        ),
-                        Text(
-                          'Denpasar - Bali',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    ticketDetails(context, 'Pemesanan');
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.vertical(
-                              bottom: Radius.circular(15.0))),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'CGK - DPS',
-                              // '${widget.data[1][2]} - ${widget.data[1][6]}',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '20 Januari 2021 ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.circle,
-                                    size: 5,
-                                  ),
-                                  Text(
-                                    ' 1 Dewasa ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.circle,
-                                    size: 5,
-                                  ),
-                                  Text(
-                                    ' Ekonomi',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.keyboard_arrow_down,
-                                size: 30,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                PenerbanganDetail(),
                 SizedBox(height: 20),
                 Divider(thickness: 10),
                 SizedBox(height: 10),
