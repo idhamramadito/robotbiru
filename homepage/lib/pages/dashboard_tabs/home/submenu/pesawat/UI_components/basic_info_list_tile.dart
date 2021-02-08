@@ -45,7 +45,7 @@ class _BasicInfoListTileState extends State<BasicInfoListTile> {
                 ? '${widget.data[0][1]} ${widget.data[0][0]}, ${widget.data[1][1]} ${widget.data[1][0]}, ${widget.data[2][1]} ${widget.data[2][0]}'
                 : (widget.name == 'Tanggal Pergi' ||
                         widget.name == 'Tanggal Pulang')
-                    ? DateFormat('MMMM d yyyy').format(widget.data)
+                    ? DateFormat('EEEE, MMMM d yyyy').format(widget.data)
                     : '${widget.data}',
         style: TextStyle(
           fontSize: 15,
