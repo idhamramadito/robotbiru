@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 
 class PenerbanganDetail extends StatefulWidget {
   PenerbanganDetail({
