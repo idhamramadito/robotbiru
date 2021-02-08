@@ -129,18 +129,16 @@ class _PembayaranState extends State<Pembayaran> {
                 itemExtent: 100,
                 itemCount: 3,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Radio(
-                      value: _atm[index],
-                      groupValue: selectedValue,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedValue = value;
-                        });
-                      },
-                    ),
+                  return RadioListTile(
+                    value: _atm[index],
+                    groupValue: selectedValue,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedValue = value;
+                      });
+                    },
                     title: Image.asset(_atm[index]),
-                    trailing: Column(
+                    secondary: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -164,23 +162,21 @@ class _PembayaranState extends State<Pembayaran> {
                   );
                 },
               ),
-              ListTile(
-                leading: Radio(
-                  value: 'Saldo',
-                  groupValue: selectedValue,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedValue = value;
-                    });
-                  },
-                ),
+              RadioListTile(
+                value: 'Saldo',
+                groupValue: selectedValue,
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value;
+                  });
+                },
                 title: Text(
                   'Saldo',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(
                     'Saldo Anda akan otomatis terpotong untuk pembayaran Tiket Pesawat'),
-                trailing: Column(
+                secondary: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
