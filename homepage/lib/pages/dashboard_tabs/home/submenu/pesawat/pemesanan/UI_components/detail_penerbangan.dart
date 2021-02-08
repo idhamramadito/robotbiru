@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_harga.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_detail.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_detailed.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 class DetailPenerbangan extends StatefulWidget {
@@ -76,7 +76,7 @@ class _DetailPenerbanganState extends State<DetailPenerbangan> {
               Flexible(
                 child: TabBarView(
                   children: [
-                    TabDetail(),
+                    TabDetailed(),
                     TabHarga(),
                   ],
                 ),
