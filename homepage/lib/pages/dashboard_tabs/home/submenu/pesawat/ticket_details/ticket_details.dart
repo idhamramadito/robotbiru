@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_fasilitas.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_harga.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_perjalanan.dart';
-import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/UI_components/ticket_details_bottom_bar.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_fasilitas.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_harga.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_perjalanan.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 Future ticketDetails(BuildContext context, String sourcePage) {
@@ -85,57 +85,7 @@ Future ticketDetails(BuildContext context, String sourcePage) {
                   ],
                 ),
               ),
-              Visibility(
-                visible: sourcePage == 'Jadwal Pesawat',
-                child: Container(
-                  height: 70,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 10, color: Colors.black.withOpacity(0.1))
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Flexible(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Rp 307.000',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                              Text(
-                                "per orang",
-                                style: TextStyle(
-                                  color: Colors.grey[500],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Flexible(
-                        child: BigButton(
-                          title: 'Pesan Tiket',
-                          onPressed: () {
-                            Navigator.of(context).pushNamed('/pemesanan');
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              TicketDetailsBottomBar(sourcePage: sourcePage),
             ],
           ),
         ),

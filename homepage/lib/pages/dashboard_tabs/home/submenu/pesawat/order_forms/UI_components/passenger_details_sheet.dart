@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/tanggal_lahir.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/text_field.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/birthdate_sheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/text_field.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 import 'package:intl/intl.dart';
 import 'package:homepage/models/passenggers_model.dart';
 
-Future detailPenumpang(BuildContext context) {
+Future passengerDetailsSheet(BuildContext context) {
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
   PassengersModel dataPenumpang = PassengersModel();
 
@@ -106,7 +106,7 @@ Future detailPenumpang(BuildContext context) {
                             : 'Belum Dipilih'),
                         trailing: Icon(Icons.calendar_today),
                         onTap: () async {
-                          final DateTime result = await tanggalLahir(context);
+                          final DateTime result = await birthdateSheet(context);
                           mystate(() {
                             dataPenumpang.birthDate =
                                 result ?? dataPenumpang.birthDate;

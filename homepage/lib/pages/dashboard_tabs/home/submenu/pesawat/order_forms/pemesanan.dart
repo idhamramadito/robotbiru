@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/bottom_pemesanan.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penumpang.dart';
 import 'package:homepage/models/passenggers_model.dart';
 import 'package:homepage/models/order_detail_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/order_details_sheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/passenger_details_sheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/pemesanan_bottom_bar.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 
 List _perlindungan = [false, false];
@@ -64,7 +64,7 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                     child: ListTile(
                       onTap: () async {
-                        final result = await detailPemesanan(context);
+                        final result = await orderDetailsSheet(context);
                         setState(() {
                           dataPemesanan = result ?? dataPemesanan;
                         });
@@ -165,7 +165,7 @@ class _PemesananState extends State<Pemesanan> {
                         color: Theme.of(context).primaryColor,
                       ),
                       onTap: () async {
-                        final result = await detailPenumpang(context);
+                        final result = await passengerDetailsSheet(context);
                         setState(() {
                           listDataPenumpang[0] = result ?? listDataPenumpang[0];
                         });
@@ -196,7 +196,7 @@ class _PemesananState extends State<Pemesanan> {
                         color: Theme.of(context).primaryColor,
                       ),
                       onTap: () async {
-                        final result = await detailPenumpang(context);
+                        final result = await passengerDetailsSheet(context);
                         setState(() {
                           listDataPenumpang[1] = result ?? listDataPenumpang[1];
                         });
@@ -227,7 +227,7 @@ class _PemesananState extends State<Pemesanan> {
                         color: Theme.of(context).primaryColor,
                       ),
                       onTap: () async {
-                        final result = await detailPenumpang(context);
+                        final result = await passengerDetailsSheet(context);
                         setState(() {
                           listDataPenumpang[2] = result ?? listDataPenumpang[2];
                         });

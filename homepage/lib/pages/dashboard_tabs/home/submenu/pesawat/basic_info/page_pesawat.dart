@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/passengers.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/UI_components/basic_info_list_tile.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/UI_components/passengers_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/basic_info_list_tile.dart';
 
 class PagePesawat extends StatefulWidget {
   @override
@@ -127,7 +127,7 @@ class _PagePesawatState extends State<PagePesawat> {
                     name: 'Jumlah Penumpang',
                     icon: Icons.person,
                     onPressed: () async {
-                      var result = await passengers(context);
+                      var result = await passengersBottomSheet(context);
                       setState(() {
                         data.passengers = result ?? data.passengers;
                       });

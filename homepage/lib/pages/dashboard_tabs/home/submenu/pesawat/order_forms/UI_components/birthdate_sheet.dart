@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-Future tanggalLahir(BuildContext context) {
+Future birthdateSheet(BuildContext context) {
   DateTime result;
 
   return showModalBottomSheet(

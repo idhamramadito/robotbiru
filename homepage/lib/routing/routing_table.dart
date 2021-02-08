@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/kebijakan_pembatalan.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/jadwal_pesawat.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran/pembayaran.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran/ringkasan.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/bagasi.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penerbangan.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/total_pembayaran.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/pemesanan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/page_pesawat.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/jadwal_pesawat.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/ticket_details_page.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/total_pembayaran.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/pemesanan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/pembayaran.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/ringkasan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/kebijakan_pembatalan.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -53,7 +53,7 @@ class RoutingTable {
       case '/bagasi':
         return MaterialPageRoute(builder: (_) => Bagasi());
       case '/detail_penerbangan':
-        return MaterialPageRoute(builder: (_) => DetailPenerbangan());
+        return MaterialPageRoute(builder: (_) => TicketDetailsPage());
       case '/pemesanan':
         return MaterialPageRoute(builder: (_) => Pemesanan());
       case '/pembayaran':

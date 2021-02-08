@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-Future passengers(BuildContext context) {
+Future passengersBottomSheet(BuildContext context) {
   List passengerList = [
     ['Dewasa', 0],
     ['Anak', 0],
