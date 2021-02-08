@@ -250,7 +250,7 @@ class TabDetailed extends StatelessWidget {
                                 SizedBox(height: 20),
                                 Row(
                                   children: [
-                                    Image.asset('images/makan_01.png'),
+                                    Image.asset('images/garpu_biru.png'),
                                     Text(' Makanan'),
                                   ],
                                 ),
@@ -261,14 +261,14 @@ class TabDetailed extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Image.asset('images/tv_biru.png'),
+                                    Image.asset('images/media_biru.png'),
                                     Text(' Hiburan'),
                                   ],
                                 ),
                                 SizedBox(height: 20),
                                 Row(
                                   children: [
-                                    Image.asset('images/money_01.png'),
+                                    Image.asset('images/refundable.png'),
                                     Text(' Refundable'),
                                   ],
                                 ),
