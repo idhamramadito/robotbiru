@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_harga.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_price.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details_tabs/tab_detailed.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
@@ -25,9 +25,16 @@ class _DetailPenerbanganState extends State<DetailPenerbangan> {
               SlideUpMarker(),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                child: Text(
-                  'Detail Tiket',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Detail Penerbangan',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 ),
               ),
               Row(
@@ -77,7 +84,7 @@ class _DetailPenerbanganState extends State<DetailPenerbangan> {
                 child: TabBarView(
                   children: [
                     TabDetailed(),
-                    TabHarga(),
+                    TabPrice(),
                   ],
                 ),
               ),
