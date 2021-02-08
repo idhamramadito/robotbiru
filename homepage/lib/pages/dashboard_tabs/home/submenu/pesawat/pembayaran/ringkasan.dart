@@ -392,7 +392,9 @@ class _RingkasanState extends State<Ringkasan> {
                 Padding(
                   padding: const EdgeInsets.only(left: 13, right: 13),
                   child: WhiteButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/pembayaran');
+                    },
                     title: 'Ubah Metode Pembayaran',
                   ),
                 ),
