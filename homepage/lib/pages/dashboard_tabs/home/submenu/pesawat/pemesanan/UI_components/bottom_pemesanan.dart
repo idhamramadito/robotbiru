@@ -35,7 +35,9 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
                   style: TextStyle(fontSize: 20),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/total_pembayaran');
+                  },
                   child: Row(
                     children: [
                       Text(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/bottom_pemesanan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_pemesanan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penerbangan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penumpang.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details.dart';
 import 'package:homepage/models/passenggers_model.dart';
@@ -36,99 +37,100 @@ class _PemesananState extends State<Pemesanan> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Detail Penerbangan',
-                      textAlign: TextAlign.start,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(15.0))),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Jakarta',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        Icon(Icons.arrow_right_alt, size: 40),
-                        Text(
-                          'Denpasar - Bali',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      ticketDetails(context, 'Pemesanan');
-                    },
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.vertical(
-                              bottom: Radius.circular(15.0))),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'CGK - DPS',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '20 Januari 2021 ',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                  Icon(Icons.circle, size: 5),
-                                  Text(
-                                    ' 1 Dewasa ',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                  Icon(Icons.circle, size: 5),
-                                  Text(
-                                    ' Ekonomi',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                ],
-                              ),
-                              Icon(Icons.keyboard_arrow_down, size: 30),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            DetailPenerbangan(),
+            // Container(
+            //   padding: EdgeInsets.all(20),
+            //   child: Column(
+            //     children: [
+            //       Align(
+            //         alignment: Alignment.centerLeft,
+            //         child: Text(
+            //           'Detail Penerbangan',
+            //           textAlign: TextAlign.start,
+            //           style:
+            //               TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            //         ),
+            //       ),
+            //       SizedBox(height: 20),
+            //       Container(
+            //         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            //         decoration: BoxDecoration(
+            //             border: Border.all(color: Colors.grey),
+            //             borderRadius:
+            //                 BorderRadius.vertical(top: Radius.circular(15.0))),
+            //         child: Row(
+            //           children: [
+            //             Text(
+            //               'Jakarta',
+            //               style: TextStyle(
+            //                 fontWeight: FontWeight.bold,
+            //                 fontSize: 20,
+            //               ),
+            //             ),
+            //             Icon(Icons.arrow_right_alt, size: 40),
+            //             Text(
+            //               'Denpasar - Bali',
+            //               style: TextStyle(
+            //                 fontWeight: FontWeight.bold,
+            //                 fontSize: 20,
+            //               ),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //       InkWell(
+            //         onTap: () {
+            //           ticketDetails(context, 'Pemesanan');
+            //         },
+            //         child: Container(
+            //           padding:
+            //               EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            //           decoration: BoxDecoration(
+            //               border: Border.all(color: Colors.grey),
+            //               borderRadius: BorderRadius.vertical(
+            //                   bottom: Radius.circular(15.0))),
+            //           child: Column(
+            //             children: [
+            //               Align(
+            //                 alignment: Alignment.centerLeft,
+            //                 child: Text(
+            //                   'CGK - DPS',
+            //                   style: TextStyle(
+            //                     fontSize: 18,
+            //                   ),
+            //                 ),
+            //               ),
+            //               Row(
+            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //                 children: [
+            //                   Row(
+            //                     children: [
+            //                       Text(
+            //                         '20 Januari 2021 ',
+            //                         style: TextStyle(fontSize: 16),
+            //                       ),
+            //                       Icon(Icons.circle, size: 5),
+            //                       Text(
+            //                         ' 1 Dewasa ',
+            //                         style: TextStyle(fontSize: 16),
+            //                       ),
+            //                       Icon(Icons.circle, size: 5),
+            //                       Text(
+            //                         ' Ekonomi',
+            //                         style: TextStyle(fontSize: 16),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                   Icon(Icons.keyboard_arrow_down, size: 30),
+            //                 ],
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Divider(thickness: 10),
             Container(
               padding: EdgeInsets.all(20),

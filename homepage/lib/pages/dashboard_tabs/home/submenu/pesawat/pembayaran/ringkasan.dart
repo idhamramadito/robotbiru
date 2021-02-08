@@ -1,7 +1,9 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/white_button.dart';
-
 import '../ticket_details.dart';
 
 class Ringkasan extends StatefulWidget {
@@ -18,6 +20,12 @@ class Ringkasan extends StatefulWidget {
 }
 
 class _RingkasanState extends State<Ringkasan> {
+  List<NameAndContent> _paymentDetails = [
+    NameAndContent(name: 'Status', content: 'UNPAID'),
+    NameAndContent(name: 'Total Bayar', content: '485.000'),
+    NameAndContent(name: 'Total', content: '485.000'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +71,7 @@ class _RingkasanState extends State<Ringkasan> {
               children: [
                 SizedBox(height: 20),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     'Silahkan Transfer Ke',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
@@ -71,7 +79,7 @@ class _RingkasanState extends State<Ringkasan> {
                 ),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Container(
                     height: 350,
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -169,70 +177,14 @@ class _RingkasanState extends State<Ringkasan> {
                 ),
                 SizedBox(height: 10),
                 Divider(thickness: 10),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
-                  child: Text(
-                    'Rincian Pembayaran',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                  ),
+                ReceiptCard(
+                  title: 'Rincian Pembayaran',
+                  dataList: _paymentDetails,
                 ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Status',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      Text(
-                        'UNPAID',
-                        style: TextStyle(color: Colors.grey[400], fontSize: 15),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Total Bayar',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      Text(
-                        '485.000',
-                        style: TextStyle(color: Colors.grey[400], fontSize: 15),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Total',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      Text(
-                        '485.000',
-                        style: TextStyle(color: Colors.grey[400], fontSize: 15),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
                 Divider(),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -253,7 +205,7 @@ class _RingkasanState extends State<Ringkasan> {
                 Divider(thickness: 10),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     'Detail Penerbangan',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
@@ -366,7 +318,7 @@ class _RingkasanState extends State<Ringkasan> {
                 Divider(thickness: 10),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     'Foto Bukti Pembayaran',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
@@ -374,15 +326,76 @@ class _RingkasanState extends State<Ringkasan> {
                 ),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     'Setelah Anda selesai melakukan transfer pembayaran, Anda wajib lakukan foto bukti pembayaran.',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
                 SizedBox(height: 20),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  height: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {},
+                          child: DottedBorder(
+                            dashPattern: [5, 5],
+                            color: Colors.grey[300],
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.camera_alt,
+                                    size: 50,
+                                    color: Colors.grey[300],
+                                  ),
+                                  Text(
+                                    'Kamera',
+                                    style: TextStyle(color: Colors.grey[300]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {},
+                          child: DottedBorder(
+                            dashPattern: [5, 5],
+                            color: Colors.grey[300],
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.photo,
+                                    size: 50,
+                                    color: Colors.grey[300],
+                                  ),
+                                  Text(
+                                    'Pilih Foto',
+                                    style: TextStyle(color: Colors.grey[300]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: BigButton(
                     onPressed: () {},
                     title: 'Lihat Riwayat Pesan Tiket',
@@ -390,10 +403,10 @@ class _RingkasanState extends State<Ringkasan> {
                 ),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: WhiteButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/pembayaran');
+                      Navigator.of(context).pop();
                     },
                     title: 'Ubah Metode Pembayaran',
                   ),

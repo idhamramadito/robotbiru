@@ -6,6 +6,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran/pe
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pembayaran/ringkasan.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/bagasi.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/detail_penerbangan.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/UI_components/total_pembayaran.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/pemesanan/pemesanan.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
@@ -58,6 +59,8 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => Pembayaran());
       case '/ringkasan':
         return MaterialPageRoute(builder: (_) => Ringkasan());
+      case '/total_pembayaran':
+        return MaterialPageRoute(builder: (_) => TotalPembayaran());
       default:
         return errorRoute();
     }
