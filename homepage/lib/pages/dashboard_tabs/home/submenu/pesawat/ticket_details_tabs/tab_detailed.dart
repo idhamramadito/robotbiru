@@ -179,15 +179,9 @@ class TabDetailed extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
+                Divider(thickness: 2),
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -235,68 +229,54 @@ class TabDetailed extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'CGK - DPS',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
+                          style: TextStyle(fontSize: 18),
                         ),
                       ),
                       Divider(thickness: 2),
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Row(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset(
-                                  'images/koper_biru.png',
+                                Row(
+                                  children: [
+                                    Image.asset('images/koper_biru.png'),
+                                    Text(' Bagasi 20Kg'),
+                                  ],
                                 ),
-                                Text(
-                                  ' Bagasi 20Kg',
+                                SizedBox(height: 20),
+                                Row(
+                                  children: [
+                                    Image.asset('images/makan_01.png'),
+                                    Text(' Makanan'),
+                                  ],
                                 ),
                               ],
                             ),
-                            Row(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset(
-                                  'images/tv_biru.png',
+                                Row(
+                                  children: [
+                                    Image.asset('images/tv_biru.png'),
+                                    Text(' Hiburan'),
+                                  ],
                                 ),
-                                Text(
-                                  ' Hiburan',
+                                SizedBox(height: 20),
+                                Row(
+                                  children: [
+                                    Image.asset('images/money_01.png'),
+                                    Text(' Refundable'),
+                                  ],
                                 ),
                               ],
-                            ),
+                            )
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'images/makan_01.png',
-                                ),
-                                Text(
-                                  ' Makanan',
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'images/money_01.png',
-                                ),
-                                Text(
-                                  ' Refundable',
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
                     ],
                   ),
                 ),
