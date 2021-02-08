@@ -433,9 +433,25 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                 color: Theme.of(context).primaryColor,
               ),
             ),
-            onPressed: () {
-              dateRangePicker(context);
-            },
+            onPressed: (widget.previousData.isTwoWayTrip)
+                ? () async {
+                    var result = await dateRangePicker(context);
+                    if (result != null) {
+                      setState(() {
+                        widget.previousData.dateDepart =
+                            result[0] ?? widget.previousData.dateDepart;
+                        widget.previousData.dateReturn =
+                            result[1] ?? widget.previousData.dateReturn;
+                      });
+                    }
+                  }
+                : () async {
+                    var result = await datePicker(context);
+                    setState(() {
+                      widget.previousData.dateDepart =
+                          result ?? widget.previousData.dateDepart;
+                    });
+                  },
           ),
         ],
       ),
