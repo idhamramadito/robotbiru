@@ -1,7 +1,8 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/white_button.dart';
-
+import 'package:homepage/shared/shared_pages/choose_picture.dart';
 import '../ticket_details.dart';
 
 class Ringkasan extends StatefulWidget {
@@ -378,6 +379,67 @@ class _RingkasanState extends State<Ringkasan> {
                   child: Text(
                     'Setelah Anda selesai melakukan transfer pembayaran, Anda wajib lakukan foto bukti pembayaran.',
                     style: TextStyle(fontSize: 16),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  padding: const EdgeInsets.only(left: 13, right: 13),
+                  height: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {},
+                          child: DottedBorder(
+                            dashPattern: [5, 5],
+                            color: Colors.grey[300],
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.camera_alt,
+                                    size: 50,
+                                    color: Colors.grey[300],
+                                  ),
+                                  Text(
+                                    'Kamera',
+                                    style: TextStyle(color: Colors.grey[300]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {},
+                          child: DottedBorder(
+                            dashPattern: [5, 5],
+                            color: Colors.grey[300],
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.photo,
+                                    size: 50,
+                                    color: Colors.grey[300],
+                                  ),
+                                  Text(
+                                    'Pilih Foto',
+                                    style: TextStyle(color: Colors.grey[300]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 20),
