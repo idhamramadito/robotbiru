@@ -400,6 +400,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FloatingActionButton.extended(
+            heroTag: 'filterButton',
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -422,6 +423,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
             },
           ),
           FloatingActionButton.extended(
+            heroTag: 'dateButton',
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
