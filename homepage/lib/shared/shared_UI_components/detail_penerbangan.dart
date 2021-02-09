@@ -46,11 +46,14 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                     fontSize: 20,
                   ),
                 ),
+                SizedBox(width: 10),
                 Icon(
-                    (widget.previousData.isTwoWayTrip == false)
-                        ? Icons.arrow_right_alt
-                        : Icons.sync_alt,
-                    size: 40),
+                  (widget.previousData.isTwoWayTrip)
+                      ? Icons.sync_alt
+                      : Icons.arrow_right_alt,
+                  size: 30,
+                ),
+                SizedBox(width: 10),
                 Text(
                   widget.previousData.destination,
                   style: TextStyle(

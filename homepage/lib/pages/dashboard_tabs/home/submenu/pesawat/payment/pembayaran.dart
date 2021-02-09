@@ -67,19 +67,24 @@ class _PembayaranState extends State<Pembayaran> {
                       Row(
                         children: [
                           Image.asset('images/pesawat_kecil.png'),
+                          SizedBox(width: 10),
                           Text(
-                            'Jakarta',
+                            widget.previousData.origin,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                             ),
                           ),
+                          SizedBox(width: 10),
                           Icon(
-                            Icons.arrow_right_alt,
+                            (widget.previousData.isTwoWayTrip)
+                                ? Icons.sync_alt
+                                : Icons.arrow_right_alt,
                             size: 30,
                           ),
+                          SizedBox(width: 10),
                           Text(
-                            'Denpasar - Bali',
+                            widget.previousData.destination,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -87,7 +92,7 @@ class _PembayaranState extends State<Pembayaran> {
                           ),
                         ],
                       ),
-                      Icon(Icons.keyboard_arrow_down, size: 30)
+                      Icon(Icons.keyboard_arrow_down, size: 30),
                     ],
                   ),
                 ),
