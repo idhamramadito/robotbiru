@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/page_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/jadwal_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/ticket_details_page.dart';
@@ -69,6 +70,11 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => Ringkasan());
       case '/total_pembayaran':
         return MaterialPageRoute(builder: (_) => TotalPembayaran());
+
+      //khusus tiket pesawat
+      case '/kereta':
+        return MaterialPageRoute(builder: (_) => PageKereta());
+
       default:
         return errorRoute();
     }

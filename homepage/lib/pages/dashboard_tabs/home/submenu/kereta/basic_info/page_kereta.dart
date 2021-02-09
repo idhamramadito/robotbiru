@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/UI_components/basic_info_list_tile.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/UI_components/passengers_bottom_sheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/UI_components/basic_info_list_tile.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/UI_components/passengers_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
-import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
+// import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 
 class PageKereta extends StatefulWidget {
@@ -106,19 +106,22 @@ class _PageKeretaState extends State<PageKereta> {
                       });
                     },
                   ),
-                  BasicInfoListTile(
-                    data: data.dateReturn,
-                    name: 'Tanggal Pulang',
-                    icon: Icons.calendar_today,
-                    onPressed: () async {
-                      var result = await dateRangePicker(context);
-                      if (result != null) {
-                        setState(() {
-                          data.dateDepart = result[0] ?? data.dateDepart;
-                          data.dateReturn = result[1] ?? data.dateReturn;
-                        });
-                      }
-                    },
+                  Visibility(
+                    visible: data.isTwoWayTrip,
+                    child: BasicInfoListTile(
+                      data: data.dateReturn,
+                      name: 'Tanggal Pulang',
+                      icon: Icons.calendar_today,
+                      onPressed: () async {
+                        var result = await dateRangePicker(context);
+                        if (result != null) {
+                          setState(() {
+                            data.dateDepart = result[0] ?? data.dateDepart;
+                            data.dateReturn = result[1] ?? data.dateReturn;
+                          });
+                        }
+                      },
+                    ),
                   ),
                   Divider(),
                   BasicInfoListTile(
@@ -133,18 +136,18 @@ class _PageKeretaState extends State<PageKereta> {
                     },
                   ),
                   Divider(),
-                  BasicInfoListTile(
-                    data: data.cabinClass,
-                    name: 'Kelas Kabin',
-                    icon: Icons.airline_seat_recline_extra,
-                    onPressed: () async {
-                      var result =
-                          await choiceBottomSheet(context, "Kelas Kabin");
-                      setState(() {
-                        data.cabinClass = result ?? data.cabinClass;
-                      });
-                    },
-                  ),
+                  // BasicInfoListTile(
+                  //   data: data.cabinClass,
+                  //   name: 'Kelas Kabin',
+                  //   icon: Icons.airline_seat_recline_extra,
+                  //   onPressed: () async {
+                  //     var result =
+                  //         await choiceBottomSheet(context, "Kelas Kabin");
+                  //     setState(() {
+                  //       data.cabinClass = result ?? data.cabinClass;
+                  //     });
+                  //   },
+                  // ),
                   BigButton(
                     title: 'Cari Kereta',
                     onPressed: ([
@@ -152,7 +155,7 @@ class _PageKeretaState extends State<PageKereta> {
                               data.destination,
                               data.dateDepart,
                               data.passengers,
-                              data.cabinClass,
+                              // data.cabinClass,
                             ].contains(null) ||
                             (data.isTwoWayTrip == true &&
                                 data.dateReturn == null))

@@ -247,7 +247,9 @@ Future otherServices(BuildContext context) {
                           Text("Kereta")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/kereta');
+                      },
                     ),
                     InkWell(
                       child: Column(

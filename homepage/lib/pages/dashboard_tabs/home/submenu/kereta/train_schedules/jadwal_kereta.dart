@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/filter_list.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/train_schedules/filter_list.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/ticket_details/ticket_details.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:intl/intl.dart';
