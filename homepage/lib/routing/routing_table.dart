@@ -74,7 +74,7 @@ class RoutingTable {
       case '/total_pembayaran':
         return MaterialPageRoute(builder: (_) => TotalPembayaran());
 
-      //khusus tiket pesawat
+      //khusus tiket kereta
       case '/kereta':
         return MaterialPageRoute(builder: (_) => PageKereta());
 
