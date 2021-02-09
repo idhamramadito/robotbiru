@@ -284,7 +284,6 @@ class _PemesananState extends State<Pemesanan> {
                             .pushNamed('/bagasi', arguments: widget.prevData);
                         setState(() {
                           widget.prevData.luggageSize = result;
-                          print(result);
                         });
                       },
                       leading: Image.asset('images/bagasi.png'),
