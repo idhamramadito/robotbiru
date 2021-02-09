@@ -165,7 +165,7 @@ class TabFasilitas extends StatelessWidget {
                                   child: Image.asset('images/gray_clock.png')),
                               Flexible(
                                 child: Text(
-                                  '1j 50m',
+                                  '${data.chosenReturnSchedule.flightTime}',
                                   style: TextStyle(color: Colors.grey),
                                 ),
                               ),

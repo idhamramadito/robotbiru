@@ -42,7 +42,7 @@ class PulangTab extends StatelessWidget {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '1j 50m',
+                        '${prevData.chosenReturnSchedule.flightTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
