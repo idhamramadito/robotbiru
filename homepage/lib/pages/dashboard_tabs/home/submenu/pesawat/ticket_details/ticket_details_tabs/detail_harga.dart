@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
-class TabPrice extends StatelessWidget {
-  const TabPrice({
+class HargaTab extends StatelessWidget {
+  const HargaTab({
     Key key,
   }) : super(key: key);
 

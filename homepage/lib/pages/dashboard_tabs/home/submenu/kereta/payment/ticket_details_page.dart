@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/tab_detailed.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/tab_price.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/ticket_details/ticket_details_tabs/tab_detailed.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/ticket_details/ticket_details_tabs/tab_price.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 class TicketDetailsPage extends StatefulWidget {

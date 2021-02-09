@@ -265,7 +265,8 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                     child: ListTile(
                       onTap: () {
-                        Navigator.of(context).pushNamed('/bagasi');
+                        Navigator.of(context).pushNamed('/bagasi',
+                            arguments: widget.previousData);
                       },
                       leading: Image.asset('images/bagasi.png'),
                       title: Text(
@@ -443,7 +444,8 @@ class _PemesananState extends State<Pemesanan> {
           ],
         ),
       ),
-      bottomNavigationBar: PemesananBottomBar(),
+      bottomNavigationBar:
+          PemesananBottomBar(previousData: widget.previousData),
     );
   }
 }
