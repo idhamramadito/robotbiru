@@ -3,11 +3,11 @@ import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class PemesananBottomBar extends StatefulWidget {
-  final TransportationModel previousData;
+  final TransportationModel prevData;
 
   const PemesananBottomBar({
     Key key,
-    this.previousData,
+    this.prevData,
   }) : super(key: key);
 
   @override
@@ -62,7 +62,7 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
               title: 'Lanjut Pembayaran',
               onPressed: () {
                 Navigator.of(context)
-                    .pushNamed('/pembayaran', arguments: widget.previousData);
+                    .pushNamed('/pembayaran', arguments: widget.prevData);
               }),
         ],
       ),

@@ -9,11 +9,11 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_detail
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 
 class Pemesanan extends StatefulWidget {
-  final TransportationModel previousData;
+  final TransportationModel prevData;
 
   Pemesanan({
     Key key,
-    this.previousData,
+    this.prevData,
   }) : super(key: key);
 
   @override
@@ -21,14 +21,21 @@ class Pemesanan extends StatefulWidget {
 }
 
 class _PemesananState extends State<Pemesanan> {
-  bool _sameAsBuyer = false;
-  OrderDetailModel dataPemesanan = OrderDetailModel();
-  List<PassengersModel> listDataPenumpang = [
-    PassengersModel(),
-    PassengersModel(),
-    PassengersModel(),
-  ];
-  List _perlindungan = [false, false];
+  @override
+  void initState() {
+    widget.prevData.orderDetails = OrderDetailModel();
+    widget.prevData.passengersDetails = [
+      PassengersModel(),
+      PassengersModel(),
+      PassengersModel(),
+    ];
+    widget.prevData.sameAsBuyer = false;
+    widget.prevData.fullProtection = false;
+    widget.prevData.luggageInsurance = false;
+    widget.prevData.luggageSize = ["0kg", "0kg"];
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +48,9 @@ class _PemesananState extends State<Pemesanan> {
         child: Column(
           children: [
             DetailPenerbangan(
-              previousData: widget.previousData,
+              previousData: widget.prevData,
               onTap: () {
-                ticketDetails(context, 'Pemesanan', widget.previousData);
+                ticketDetails(context, 'Pemesanan', widget.prevData);
               },
             ),
             Divider(thickness: 10),
@@ -70,11 +77,12 @@ class _PemesananState extends State<Pemesanan> {
                       onTap: () async {
                         final result = await orderDetailsSheet(context);
                         setState(() {
-                          dataPemesanan = result ?? dataPemesanan;
+                          widget.prevData.orderDetails =
+                              result ?? widget.prevData.orderDetails;
                         });
                       },
                       dense: true,
-                      title: (dataPemesanan.name == null)
+                      title: (widget.prevData.orderDetails.name == null)
                           ? Text(
                               'Masukkan detail pemesanan',
                               style: TextStyle(
@@ -84,17 +92,18 @@ class _PemesananState extends State<Pemesanan> {
                               ),
                             )
                           : Text(
-                              '${dataPemesanan.title ?? ''} ${dataPemesanan.name ?? ''}',
+                              '${widget.prevData.orderDetails.title ?? ''} ${widget.prevData.orderDetails.name ?? ''}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ),
                             ),
-                      subtitle: (dataPemesanan.name != null &&
-                              (dataPemesanan.email != null ||
-                                  dataPemesanan.phoneNumber != null))
+                      subtitle: (widget.prevData.orderDetails.name != null &&
+                              (widget.prevData.orderDetails.email != null ||
+                                  widget.prevData.orderDetails.phoneNumber !=
+                                      null))
                           ? Text(
-                              '${dataPemesanan.email ?? 'Email Kosong'}\n${dataPemesanan.countryCode ?? ''}${dataPemesanan.phoneNumber ?? 'Nomor Telepon Kosong'}',
+                              '${widget.prevData.orderDetails.email ?? 'Email Kosong'}\n${widget.prevData.orderDetails.countryCode ?? ''}${widget.prevData.orderDetails.phoneNumber ?? 'Nomor Telepon Kosong'}',
                               style: TextStyle(fontSize: 16),
                             )
                           : null,
@@ -135,10 +144,10 @@ class _PemesananState extends State<Pemesanan> {
                           ),
                         ),
                         Switch(
-                          value: _sameAsBuyer,
+                          value: widget.prevData.sameAsBuyer,
                           onChanged: (val) {
                             setState(() {
-                              _sameAsBuyer = val;
+                              widget.prevData.sameAsBuyer = val;
                             });
                           },
                         ),
@@ -155,11 +164,12 @@ class _PemesananState extends State<Pemesanan> {
                     child: ListTile(
                       dense: true,
                       title: Text(
-                        '${listDataPenumpang[0].title ?? ''} ${listDataPenumpang[0].name ?? 'Penumpang 1: Dewasa'}',
+                        '${widget.prevData.passengersDetails[0].title ?? ''} ${widget.prevData.passengersDetails[0].name ?? 'Penumpang 1: Dewasa'}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: (listDataPenumpang[0].name == null)
+                          color: (widget.prevData.passengersDetails[0].name ==
+                                  null)
                               ? Theme.of(context).primaryColor
                               : Colors.black,
                         ),
@@ -171,7 +181,8 @@ class _PemesananState extends State<Pemesanan> {
                       onTap: () async {
                         final result = await passengerDetailsSheet(context);
                         setState(() {
-                          listDataPenumpang[0] = result ?? listDataPenumpang[0];
+                          widget.prevData.passengersDetails[0] =
+                              result ?? widget.prevData.passengersDetails[0];
                         });
                       },
                     ),
@@ -186,11 +197,12 @@ class _PemesananState extends State<Pemesanan> {
                     child: ListTile(
                       dense: true,
                       title: Text(
-                        '${listDataPenumpang[1].title ?? ''} ${listDataPenumpang[1].name ?? 'Penumpang 2: Anak'}',
+                        '${widget.prevData.passengersDetails[1].title ?? ''} ${widget.prevData.passengersDetails[1].name ?? 'Penumpang 2: Anak'}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: (listDataPenumpang[1].name == null)
+                          color: (widget.prevData.passengersDetails[1].name ==
+                                  null)
                               ? Theme.of(context).primaryColor
                               : Colors.black,
                         ),
@@ -202,7 +214,8 @@ class _PemesananState extends State<Pemesanan> {
                       onTap: () async {
                         final result = await passengerDetailsSheet(context);
                         setState(() {
-                          listDataPenumpang[1] = result ?? listDataPenumpang[1];
+                          widget.prevData.passengersDetails[1] =
+                              result ?? widget.prevData.passengersDetails[1];
                         });
                       },
                     ),
@@ -217,11 +230,12 @@ class _PemesananState extends State<Pemesanan> {
                     child: ListTile(
                       dense: true,
                       title: Text(
-                        '${listDataPenumpang[2].title ?? ''} ${listDataPenumpang[2].name ?? 'Penumpang 3: Bayi'}',
+                        '${widget.prevData.passengersDetails[2].title ?? ''} ${widget.prevData.passengersDetails[2].name ?? 'Penumpang 3: Bayi'}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: (listDataPenumpang[2].name == null)
+                          color: (widget.prevData.passengersDetails[2].name ==
+                                  null)
                               ? Theme.of(context).primaryColor
                               : Colors.black,
                         ),
@@ -233,7 +247,8 @@ class _PemesananState extends State<Pemesanan> {
                       onTap: () async {
                         final result = await passengerDetailsSheet(context);
                         setState(() {
-                          listDataPenumpang[2] = result ?? listDataPenumpang[2];
+                          widget.prevData.passengersDetails[2] =
+                              result ?? widget.prevData.passengersDetails[2];
                         });
                       },
                     ),
@@ -264,9 +279,13 @@ class _PemesananState extends State<Pemesanan> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
-                      onTap: () {
-                        Navigator.of(context).pushNamed('/bagasi',
-                            arguments: widget.previousData);
+                      onTap: () async {
+                        var result = await Navigator.of(context)
+                            .pushNamed('/bagasi', arguments: widget.prevData);
+                        setState(() {
+                          widget.prevData.luggageSize = result;
+                          print(result);
+                        });
                       },
                       leading: Image.asset('images/bagasi.png'),
                       title: Text(
@@ -375,10 +394,10 @@ class _PemesananState extends State<Pemesanan> {
                               'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000'),
                         ],
                       ),
-                      value: _perlindungan[0],
+                      value: widget.prevData.fullProtection,
                       onChanged: (bool value) {
                         setState(() {
-                          _perlindungan[0] = value;
+                          widget.prevData.fullProtection = value;
                         });
                       },
                       secondary: Image.asset('images/shield.png'),
@@ -429,10 +448,10 @@ class _PemesananState extends State<Pemesanan> {
                               'Perlindungan dari kerusakan, hilang dan terlambat hingga\nRp 25.000.000'),
                         ],
                       ),
-                      value: _perlindungan[1],
+                      value: widget.prevData.luggageInsurance,
                       onChanged: (bool value) {
                         setState(() {
-                          _perlindungan[1] = value;
+                          widget.prevData.luggageInsurance = value;
                         });
                       },
                       secondary: Image.asset('images/shield-2.png'),
@@ -444,8 +463,7 @@ class _PemesananState extends State<Pemesanan> {
           ],
         ),
       ),
-      bottomNavigationBar:
-          PemesananBottomBar(previousData: widget.previousData),
+      bottomNavigationBar: PemesananBottomBar(prevData: widget.prevData),
     );
   }
 }

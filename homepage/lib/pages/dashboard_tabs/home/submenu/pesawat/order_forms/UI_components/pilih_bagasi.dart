@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PilihBagasi extends StatelessWidget {
+class PilihBagasi extends StatefulWidget {
   const PilihBagasi({
     Key key,
     @required this.number,
@@ -9,6 +9,12 @@ class PilihBagasi extends StatelessWidget {
 
   final String number;
   final Function onTap;
+
+  @override
+  _PilihBagasiState createState() => _PilihBagasiState();
+}
+
+class _PilihBagasiState extends State<PilihBagasi> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,31 +63,28 @@ class PilihBagasi extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 10),
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            padding: EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
               borderRadius: BorderRadius.circular(5),
             ),
-            child: InkWell(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      number ?? "0kg (+Rp 0)",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_down,
-                      size: 20.0,
-                      color: Colors.brown[900],
-                    ),
-                  ],
+            child: ListTile(
+              dense: true,
+              onTap: widget.onTap,
+              title: Text(
+                widget.number ?? "0kg",
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
                 ),
-                onTap: onTap),
+              ),
+              trailing: Icon(
+                Icons.keyboard_arrow_down,
+                size: 20.0,
+                color: Colors.brown[900],
+              ),
+            ),
           ),
           Text(
             'Untuk keberangkatan kurang dari 6 jam, Anda dapat membeli bagasi di bandara.',

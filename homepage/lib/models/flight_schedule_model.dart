@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class FlightScheduleModel {
   String iconAirline;
   String id;

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 List _cabinClass = [
-  ['Ekonomi', false],
-  ['Premium Ekonomi', false],
-  ['Bisnis', false],
-  ['First', false],
+  ['Ekonomi', '', false],
+  ['Premium Ekonomi', '', false],
+  ['Bisnis', '', false],
+  ['First', '', false],
 ];
 List _hargaBagasi = [
-  ["0kg (+Rp 0)", false],
-  ["5kg (+Rp 165.000)", false],
-  ["10kg (+Rp 330.000)", false],
-  ["15kg (+Rp 495.000)", false],
+  ["0kg", "(+Rp 0)", false],
+  ["5kg", "(+Rp 165.000)", false],
+  ["10kg", "(+Rp 330.000)", false],
+  ["15kg", "(+Rp 495.000)", false],
 ];
 
 Future choiceBottomSheet(BuildContext context, String pageName) {
@@ -61,51 +61,31 @@ Future choiceBottomSheet(BuildContext context, String pageName) {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: _sementara.length,
                       itemBuilder: (context, index) {
-                        return Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: InkWell(
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 0, vertical: 10),
-                                        child: Text(
-                                          _sementara[index][0],
-                                          style: TextStyle(fontSize: 16),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: (_sementara[index][1] == true),
-                                        child: Icon(Icons.check_sharp),
-                                      ),
-                                    ],
-                                  ),
-                                  onTap: () {
-                                    mystate(() {
-                                      for (var item in _sementara)
-                                        item[1] = false;
-                                      _sementara[index][1] = true;
-                                      switch (pageName) {
-                                        case 'Kelas Kabin':
-                                          _cabinClass = List.from(_sementara);
-                                          break;
-                                        case 'Bagasi':
-                                          _hargaBagasi = List.from(_sementara);
-                                          break;
-                                        default:
-                                      }
-                                    });
-                                    Navigator.pop(
-                                        context, _sementara[index][0]);
-                                  }),
+                        return ListTile(
+                            title: Text(
+                              '${_sementara[index][0]} ${_sementara[index][1] ?? ''}',
+                              style: TextStyle(fontSize: 16),
                             ),
-                            Divider(),
-                          ],
-                        );
+                            trailing: Visibility(
+                              visible: (_sementara[index][2] == true),
+                              child: Icon(Icons.check_sharp),
+                            ),
+                            onTap: () {
+                              mystate(() {
+                                for (var item in _sementara) item[2] = false;
+                                _sementara[index][2] = true;
+                                switch (pageName) {
+                                  case 'Kelas Kabin':
+                                    _cabinClass = List.from(_sementara);
+                                    break;
+                                  case 'Bagasi':
+                                    _hargaBagasi = List.from(_sementara);
+                                    break;
+                                  default:
+                                }
+                              });
+                              Navigator.pop(context, _sementara[index][0]);
+                            });
                       }),
                 ),
               ],

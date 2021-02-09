@@ -17,8 +17,7 @@ class Bagasi extends StatefulWidget {
 }
 
 class _BagasiState extends State<Bagasi> {
-  String pergi;
-  String pulang;
+  List<String> luggageSize = ["0kg", "0kg"];
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +62,7 @@ class _BagasiState extends State<Bagasi> {
                       height: 10,
                     ),
                     Text(
-                      'Pergi: ${pergi ?? "0kg (+Rp 0)"}',
+                      'Pergi: ${luggageSize[0] ?? "0kg"}',
                       style: TextStyle(
                         fontSize: 16,
                       ),
@@ -71,7 +70,7 @@ class _BagasiState extends State<Bagasi> {
                     Visibility(
                       visible: widget.datasebelum.isTwoWayTrip,
                       child: Text(
-                        'Pulang: ${pulang ?? "0kg (+Rp 0)"}',
+                        'Pulang: ${luggageSize[1] ?? "0kg"}',
                         style: TextStyle(
                           fontSize: 16,
                         ),
@@ -91,12 +90,12 @@ class _BagasiState extends State<Bagasi> {
                 ),
               ),
               PilihBagasi(
-                number: pergi,
+                number: luggageSize[0],
                 onTap: () async {
                   final String result =
                       await choiceBottomSheet(context, 'Bagasi');
                   setState(() {
-                    pergi = result ?? pergi;
+                    luggageSize[0] = result ?? luggageSize[0];
                   });
                 },
               ),
@@ -112,12 +111,12 @@ class _BagasiState extends State<Bagasi> {
                         ),
                       ),
                       PilihBagasi(
-                        number: pulang,
+                        number: luggageSize[1],
                         onTap: () async {
                           final String result =
                               await choiceBottomSheet(context, 'Bagasi');
                           setState(() {
-                            pulang = result ?? pulang;
+                            luggageSize[1] = result ?? luggageSize[1];
                           });
                         },
                       ),
@@ -146,17 +145,17 @@ class _BagasiState extends State<Bagasi> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
+                      "Subtotal",
+                      style: TextStyle(
+                        color: Colors.grey[500],
+                      ),
+                    ),
+                    Text(
                       'Rp 307.000',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    Text(
-                      "per orang",
-                      style: TextStyle(
-                        color: Colors.grey[500],
                       ),
                     ),
                   ],
@@ -165,14 +164,8 @@ class _BagasiState extends State<Bagasi> {
             ),
             Flexible(
               child: BigButton(
-                title: 'Pesan Pesawat',
-                onPressed: () {
-                  // Navigator.of(context)
-                  //     .pushNamed('/pemesanan', arguments: [
-                  //   customerData,
-                  //   flightData,
-                  // ]);
-                },
+                title: 'Simpan',
+                onPressed: () => Navigator.pop(context, luggageSize),
               ),
             ),
           ],

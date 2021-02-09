@@ -139,13 +139,13 @@ class _PageKeretaState extends State<PageKereta> {
                   ),
                   Divider(),
                   BasicInfoListTile(
-                    data: data.passengers,
+                    data: data.passengersAmount,
                     name: 'Jumlah Penumpang',
                     icon: Icons.person,
                     onPressed: () async {
                       var result = await passengersBottomSheet(context);
                       setState(() {
-                        data.passengers = result ?? data.passengers;
+                        data.passengersAmount = result ?? data.passengersAmount;
                       });
                     },
                   ),
@@ -168,7 +168,7 @@ class _PageKeretaState extends State<PageKereta> {
                               data.origin,
                               data.destination,
                               data.dateDepart,
-                              data.passengers,
+                              data.passengersAmount,
                               // data.cabinClass,
                             ].contains(null) ||
                             (data.isTwoWayTrip == true &&

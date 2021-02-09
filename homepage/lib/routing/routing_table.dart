@@ -67,7 +67,7 @@ class RoutingTable {
         return MaterialPageRoute(
             builder: (_) => TicketDetailsPage(previousData: arg));
       case '/pemesanan':
-        return MaterialPageRoute(builder: (_) => Pemesanan(previousData: arg));
+        return MaterialPageRoute(builder: (_) => Pemesanan(prevData: arg));
       case '/pembayaran':
         return MaterialPageRoute(builder: (_) => Pembayaran(previousData: arg));
       case '/ringkasan':

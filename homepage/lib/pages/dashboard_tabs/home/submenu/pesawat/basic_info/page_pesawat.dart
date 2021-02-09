@@ -145,13 +145,13 @@ class _PagePesawatState extends State<PagePesawat> {
                   ),
                   Divider(),
                   BasicInfoListTile(
-                    data: data.passengers,
+                    data: data.passengersAmount,
                     name: 'Jumlah Penumpang',
                     icon: Icons.person,
                     onPressed: () async {
                       var result = await passengersBottomSheet(context);
                       setState(() {
-                        data.passengers = result ?? data.passengers;
+                        data.passengersAmount = result ?? data.passengersAmount;
                       });
                     },
                   ),
@@ -191,7 +191,7 @@ class _PagePesawatState extends State<PagePesawat> {
                               data.origin,
                               data.destination,
                               data.dateDepart,
-                              data.passengers,
+                              data.passengersAmount,
                               data.cabinClass,
                               data.airline,
                             ].contains(null) ||
