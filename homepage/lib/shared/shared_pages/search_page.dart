@@ -1,36 +1,14 @@
 import 'package:flutter/material.dart';
 
-List _bandara = [
-  ['images/gedung.png', 'Jakarta, Indonesia', 'Semua Bandara', 'JKTC'],
-  ['images/gedung.png', 'Surabaya, Indonesia', 'Semua Bandara', 'SBYC'],
-  ['images/gedung.png', 'Medan, Indonesia', 'Semua Bandara', 'MESC'],
-];
-
-List _stasiun = [
-  ['images/stasiun_blue-01.png', 'Stasiun Gambir', 'Jakarta', 'GMR'],
-  ['images/stasiun_blue-01.png', 'Stasiun Bandung', 'Bandung', 'BD'],
-  ['images/stasiun_blue-01.png', 'Stasiun Kiaracondong', 'Bandung', 'KAC'],
-];
-
-List _maskapai = [
-  ['images/pesawat_kecil.png', 'American Airlines', '', ''],
-  ['images/pesawat_kecil.png', 'AirAsia Malaysia', '', ''],
-  ['images/pesawat_kecil.png', 'Garuda Indonesia', '', ''],
-];
-
-List _kodeNegara = [
-  ['images/indonesia.png', '+62', 'Indonesia', ''],
-  ['images/malaysia.png', '+60', 'Malaysia', ''],
-  ['images/singapura.png', '+65', 'Singapura', ''],
-];
-
 class SearchPage extends StatefulWidget {
+  final String pageName;
+  final List dataList;
+
   SearchPage({
     Key key,
     this.pageName,
+    this.dataList,
   }) : super(key: key);
-
-  final String pageName;
 
   @override
   _SearchPageState createState() => _SearchPageState();
@@ -39,24 +17,8 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    List _sementara;
-    switch (widget.pageName) {
-      case 'Maskapai':
-        _sementara = List.from(_maskapai);
-        break;
-      case 'Bandara Asal':
-      case 'Bandara Destinasi':
-        _sementara = List.from(_bandara);
-        break;
-      case 'Stasiun Asal':
-      case 'Stasiun Destinasi':
-        _sementara = List.from(_stasiun);
-        break;
-      case 'Kode Negara':
-        _sementara = List.from(_kodeNegara);
-        break;
-      default:
-    }
+    List _sementara = List.from(widget.dataList);
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

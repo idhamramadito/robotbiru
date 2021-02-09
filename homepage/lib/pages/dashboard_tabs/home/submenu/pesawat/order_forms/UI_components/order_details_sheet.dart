@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/text_field.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/order_forms/UI_components/text_field.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 import 'package:homepage/models/order_detail_model.dart';
+import 'package:homepage/shared/shared_pages/search_page.dart';
 
 Future orderDetailsSheet(BuildContext context) {
+  List _kodeNegara = [
+    ['images/indonesia.png', '+62', 'Indonesia', ''],
+    ['images/malaysia.png', '+60', 'Malaysia', ''],
+    ['images/singapura.png', '+65', 'Singapura', ''],
+  ];
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
   OrderDetailModel dataPemesanan = OrderDetailModel();
 
@@ -122,7 +128,10 @@ Future orderDetailsSheet(BuildContext context) {
                                     final result =
                                         await Navigator.of(context).pushNamed(
                                       '/search_page',
-                                      arguments: 'Kode Negara',
+                                      arguments: SearchPage(
+                                        pageName: 'Kode Negara',
+                                        dataList: _kodeNegara,
+                                      ),
                                     );
                                     mystate(() {
                                       dataPemesanan.countryCode =

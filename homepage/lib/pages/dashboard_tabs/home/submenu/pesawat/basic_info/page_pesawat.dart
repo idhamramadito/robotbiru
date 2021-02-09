@@ -5,6 +5,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/UI
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
+import 'package:homepage/shared/shared_pages/search_page.dart';
 
 class PagePesawat extends StatefulWidget {
   @override
@@ -12,6 +13,18 @@ class PagePesawat extends StatefulWidget {
 }
 
 class _PagePesawatState extends State<PagePesawat> {
+  List _bandara = [
+    ['images/gedung.png', 'Jakarta, Indonesia', 'Semua Bandara', 'JKTC'],
+    ['images/gedung.png', 'Surabaya, Indonesia', 'Semua Bandara', 'SBYC'],
+    ['images/gedung.png', 'Medan, Indonesia', 'Semua Bandara', 'MESC'],
+  ];
+
+  List _maskapai = [
+    ['images/pesawat_kecil.png', 'American Airlines', '', ''],
+    ['images/pesawat_kecil.png', 'AirAsia Malaysia', '', ''],
+    ['images/pesawat_kecil.png', 'Garuda Indonesia', '', ''],
+  ];
+
   TransportationModel data = TransportationModel(
     transportationType: 'Pesawat',
     isTwoWayTrip: false,
@@ -48,8 +61,12 @@ class _PagePesawatState extends State<PagePesawat> {
                     name: 'Bandara Asal',
                     icon: Icons.flight_takeoff,
                     onPressed: () async {
-                      var result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Bandara Asal');
+                      var result =
+                          await Navigator.of(context).pushNamed('/search_page',
+                              arguments: SearchPage(
+                                pageName: 'Bandara Asal',
+                                dataList: _bandara,
+                              ));
                       setState(() {
                         data.origin = result ?? data.origin;
                       });
@@ -61,9 +78,12 @@ class _PagePesawatState extends State<PagePesawat> {
                     name: 'Bandara Destinasi',
                     icon: Icons.flight_land,
                     onPressed: () async {
-                      var result = await Navigator.of(context).pushNamed(
-                          '/search_page',
-                          arguments: 'Bandara Destinasi');
+                      var result =
+                          await Navigator.of(context).pushNamed('/search_page',
+                              arguments: SearchPage(
+                                pageName: 'Bandara Destinasi',
+                                dataList: _bandara,
+                              ));
                       setState(() {
                         data.destination = result ?? data.destination;
                       });
@@ -154,8 +174,12 @@ class _PagePesawatState extends State<PagePesawat> {
                     name: 'Maskapai',
                     icon: Icons.airplanemode_active,
                     onPressed: () async {
-                      final result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Maskapai');
+                      final result =
+                          await Navigator.of(context).pushNamed('/search_page',
+                              arguments: SearchPage(
+                                pageName: 'Maskapai',
+                                dataList: _maskapai,
+                              ));
                       setState(() {
                         data.airline = result ?? data.airline;
                       });

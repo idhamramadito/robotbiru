@@ -5,6 +5,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/UI_
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 // import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
+import 'package:homepage/shared/shared_pages/search_page.dart';
 
 class PageKereta extends StatefulWidget {
   @override
@@ -12,6 +13,12 @@ class PageKereta extends StatefulWidget {
 }
 
 class _PageKeretaState extends State<PageKereta> {
+  List _stasiun = [
+    ['images/stasiun_blue-01.png', 'Stasiun Gambir', 'Jakarta', 'GMR'],
+    ['images/stasiun_blue-01.png', 'Stasiun Bandung', 'Bandung', 'BD'],
+    ['images/stasiun_blue-01.png', 'Stasiun Kiaracondong', 'Bandung', 'KAC'],
+  ];
+
   TransportationModel data = TransportationModel(
     transportationType: 'Kereta',
     isTwoWayTrip: false,
@@ -48,8 +55,12 @@ class _PageKeretaState extends State<PageKereta> {
                     name: 'Stasiun Asal',
                     icon: Icons.train,
                     onPressed: () async {
-                      var result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Stasiun Asal');
+                      var result =
+                          await Navigator.of(context).pushNamed('/search_page',
+                              arguments: SearchPage(
+                                pageName: 'Stasiun Asal',
+                                dataList: _stasiun,
+                              ));
                       setState(() {
                         data.origin = result ?? data.origin;
                       });
@@ -61,9 +72,12 @@ class _PageKeretaState extends State<PageKereta> {
                     name: 'Stasiun Destinasi',
                     icon: Icons.train,
                     onPressed: () async {
-                      var result = await Navigator.of(context).pushNamed(
-                          '/search_page',
-                          arguments: 'Stasiun Destinasi');
+                      var result =
+                          await Navigator.of(context).pushNamed('/search_page',
+                              arguments: SearchPage(
+                                pageName: 'Stasiun Destinasi',
+                                dataList: _stasiun,
+                              ));
                       setState(() {
                         data.destination = result ?? data.destination;
                       });
