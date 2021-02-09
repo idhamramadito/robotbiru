@@ -197,40 +197,11 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                     color: Colors.grey,
                                   ),
                                   onPressed: () {
-                                    ticketDetails(context, 'Jadwal Pesawat');
+                                    ticketDetails(context, 'Jadwal Pesawat',
+                                        widget.previousData);
                                   },
                                 ),
                               ),
-                              // Row(
-                              //   children: [
-                              //     Padding(
-                              //       padding:
-                              //           const EdgeInsets.fromLTRB(0, 0, 15, 15),
-                              //       child: Image.asset(
-                              //           'images/japan-airlines.png'),
-                              //     ),
-                              //     Padding(
-                              //       padding:
-                              //           const EdgeInsets.fromLTRB(0, 0, 15, 15),
-                              //       child: Text('${_cardJadwal[index][0]}',
-                              //           style: TextStyle(
-                              //             fontSize: 18,
-                              //             fontWeight: FontWeight.bold,
-                              //             color: Colors.black,
-                              //           )),
-                              //     ),
-                              //   IconButton(
-                              //     icon: Icon(
-                              //       Icons.keyboard_arrow_down,
-                              //       size: 30,
-                              //       color: Colors.grey,
-                              //     ),
-                              //     onPressed: () {
-                              //       ticketDetails(context, 'Jadwal Pesawat');
-                              //     },
-                              //   ),
-                              // ],
-                              // ),
                               Padding(
                                 padding:
                                     const EdgeInsets.fromLTRB(0, 0, 15, 20),

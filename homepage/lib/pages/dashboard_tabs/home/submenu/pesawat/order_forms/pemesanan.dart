@@ -39,7 +39,7 @@ class _PemesananState extends State<Pemesanan> {
           children: [
             PenerbanganDetail(
               onTap: () {
-                ticketDetails(context, 'Pemesanan');
+                // ticketDetails(context, 'Pemesanan');
               },
             ),
             Divider(thickness: 10),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/UI_components/ticket_details_bottom_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_fasilitas.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_harga.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_perjalanan.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-Future ticketDetails(BuildContext context, String sourcePage) {
+Future ticketDetails(
+    BuildContext context, String sourcePage, TransportationModel data) {
   return showModalBottomSheet(
     isScrollControlled: true,
     context: context,
@@ -79,9 +81,9 @@ Future ticketDetails(BuildContext context, String sourcePage) {
               Flexible(
                 child: TabBarView(
                   children: [
-                    TabPerjalanan(),
-                    TabFasilitas(),
-                    TabHarga(),
+                    TabPerjalanan(input: data),
+                    TabFasilitas(input: data),
+                    TabHarga(input: data),
                   ],
                 ),
               ),

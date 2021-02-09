@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
 
 List _fasilitas = [
   ['images/koper_biru.png', 'Bagasi'],
@@ -10,6 +11,7 @@ List _fasilitas = [
 class TabFasilitas extends StatelessWidget {
   const TabFasilitas({
     Key key,
+    TransportationModel input,
   }) : super(key: key);
 
   @override

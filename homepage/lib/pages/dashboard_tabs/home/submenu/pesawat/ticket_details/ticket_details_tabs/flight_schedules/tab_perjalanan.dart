@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
 
 class TabPerjalanan extends StatelessWidget {
+  final TransportationModel input;
+
   const TabPerjalanan({
     Key key,
+    this.input,
   }) : super(key: key);
 
   @override
@@ -124,32 +128,35 @@ class TabPerjalanan extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            Container(
-              alignment: Alignment.center,
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              padding: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              child: RichText(
-                text: TextSpan(
-                  text: '0j 50m  ',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'transit di Surabaya (SBY)',
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: Colors.grey,
-                      ),
+            Visibility(
+              visible: input.isTwoWayTrip,
+              child: Container(
+                alignment: Alignment.center,
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                child: RichText(
+                  text: TextSpan(
+                    text: '0j 50m  ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
                     ),
-                  ],
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'transit di Surabaya (SBY)',
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
