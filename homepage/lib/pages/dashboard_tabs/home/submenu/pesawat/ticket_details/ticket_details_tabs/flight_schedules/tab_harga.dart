@@ -4,9 +4,11 @@ import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class TabHarga extends StatelessWidget {
+  final TransportationModel input;
+
   const TabHarga({
     Key key,
-    TransportationModel input,
+    this.input,
   }) : super(key: key);
 
   @override
