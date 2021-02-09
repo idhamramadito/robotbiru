@@ -26,6 +26,9 @@ class TransportationModel {
   bool luggageInsurance;
   List luggageSize;
 
+  // diisi di halaman pembayaran
+  List paymentMethod;
+
   TransportationModel({
     String id,
     String transportationType,
@@ -45,6 +48,7 @@ class TransportationModel {
     bool fullProtection,
     bool luggageInsurance,
     List luggageSize,
+    List paymentMethod,
   })  : this.id = id,
         this.transportationType = transportationType,
         this.isTwoWayTrip = isTwoWayTrip,
@@ -62,5 +66,6 @@ class TransportationModel {
         this.sameAsBuyer = sameAsBuyer,
         this.fullProtection = fullProtection,
         this.luggageInsurance = luggageInsurance,
-        this.luggageSize = luggageSize;
+        this.luggageSize = luggageSize,
+        this.paymentMethod = paymentMethod;
 }

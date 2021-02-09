@@ -161,7 +161,7 @@ Future orderDetailsSheet(BuildContext context) {
                     SizedBox(height: 20),
                     InputTextField(
                       displayName: "Masukkan Email",
-                      regex: "[a-zA-Z\ 0-9]",
+                      regex: '33',
                       onChanged: (value) {
                         mystate(() {
                           dataPemesanan.email = value;

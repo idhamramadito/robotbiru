@@ -38,9 +38,13 @@ class _InputTextFieldState extends State<InputTextField> {
               hintText: widget.displayName ?? '',
             ),
             inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.allow(
-                RegExp(widget.regex),
-              ),
+              (widget.displayName.contains('Email'))
+                  ? FilteringTextInputFormatter.deny(
+                      RegExp(widget.regex),
+                    )
+                  : FilteringTextInputFormatter.allow(
+                      RegExp(widget.regex),
+                    ),
             ],
             onChanged: widget.onChanged,
           ),

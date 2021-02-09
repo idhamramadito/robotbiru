@@ -13,12 +13,26 @@ class Pembayaran extends StatefulWidget {
 
 class _PembayaranState extends State<Pembayaran> {
   List _atm = [
-    'images/mandiri.png',
-    'images/bca.png',
-    'images/bjb.png',
-    'Saldo',
+    [
+      'images/mandiri.png',
+      'Bank Mandiri',
+      '1320015081202',
+      'PT EDUMATIC INTERNASIONAL'
+    ],
+    [
+      'images/bca.png',
+      'Bank BCA',
+      '1320015081203',
+      'PT EDUMATIC INTERNASIONAL'
+    ],
+    [
+      'images/bjb.png',
+      'Bank BJB',
+      '1320015081204',
+      'PT EDUMATIC INTERNASIONAL'
+    ],
+    ['images/dompet.png', 'Saldo Robot Biru', 'Rp 50.000', ''],
   ];
-  var selectedValue;
 
   @override
   Widget build(BuildContext context) {
@@ -137,32 +151,34 @@ class _PembayaranState extends State<Pembayaran> {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemExtent: 100,
-                itemCount: 3,
+                itemCount: _atm.length,
                 itemBuilder: (context, index) {
                   return RadioListTile(
                     value: _atm[index],
-                    groupValue: selectedValue,
+                    groupValue: widget.previousData.paymentMethod,
                     onChanged: (value) {
                       setState(() {
-                        selectedValue = value;
+                        widget.previousData.paymentMethod = value;
                       });
                     },
-                    title: Image.asset(_atm[index]),
+                    title: Image.asset(_atm[index][0]),
                     secondary: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Transfer Bank Mandiri',
+                        Text('Transfer ${_atm[index][1]}',
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text('1320015081202',
+                        Text('${_atm[index][2]}',
                             style: TextStyle(
                                 fontSize: 12,
                                 color: Theme.of(context).primaryColor,
                                 fontWeight: FontWeight.bold)),
-                        Text(
-                          'PT EDUMATIC INTERNASIONAL',
-                          style: TextStyle(fontSize: 12),
-                        ),
+                        if (_atm[index][3] != '')
+                          Text(
+                            '${_atm[index][3]}',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 12),
+                          ),
                         Text(
                           'Jam Operasional 05:00:00-22:30:00 WIB',
                           style: TextStyle(fontSize: 10),
@@ -172,29 +188,6 @@ class _PembayaranState extends State<Pembayaran> {
                   );
                 },
               ),
-              RadioListTile(
-                value: 'Saldo',
-                groupValue: selectedValue,
-                onChanged: (value) {
-                  setState(() {
-                    selectedValue = value;
-                  });
-                },
-                title: Text(
-                  'Saldo',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                    'Saldo Anda akan otomatis terpotong untuk pembayaran Tiket Pesawat'),
-                secondary: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Rp 50.000',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
@@ -203,7 +196,7 @@ class _PembayaranState extends State<Pembayaran> {
         padding: EdgeInsets.all(10.0),
         child: BigButton(
           title: 'Konfirmasi Pembayaran',
-          onPressed: (selectedValue == null)
+          onPressed: (widget.previousData.paymentMethod == null)
               ? null
               : () => Navigator.of(context)
                   .pushNamed('/ringkasan', arguments: widget.previousData),

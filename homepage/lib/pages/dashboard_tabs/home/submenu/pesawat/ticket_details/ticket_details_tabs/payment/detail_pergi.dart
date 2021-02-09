@@ -188,37 +188,43 @@ class PergiTab extends StatelessWidget {
                 SizedBox(height: 10),
                 Divider(thickness: 2),
                 SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '1. Tuan Anbiya Nur Rohmat',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    Container(
-                      width: 60,
-                      height: 27,
-                      decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                        color: Colors.grey[200],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(0),
-                        child: Center(
-                          child: Text(
-                            "Dewasa",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey[500],
-                                fontWeight: FontWeight.bold),
+                ListView.builder(
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: prevData.passengersDetails.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        dense: true,
+                        title: Text(
+                          '${prevData.passengersDetails[index].title ?? ''} ${prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}'}',
+                          style: TextStyle(
+                            fontSize: 16,
                           ),
                         ),
-                      ),
-                    ),
-                  ],
-                ),
+                        trailing: Container(
+                          width: 60,
+                          height: 27,
+                          decoration: new BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5.0)),
+                            color: Colors.grey[200],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(0),
+                            child: Center(
+                              child: Text(
+                                "${prevData.passengersDetails[index].ageType ?? ''}",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey[500],
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
                 SizedBox(
                   height: 20,
                 ),

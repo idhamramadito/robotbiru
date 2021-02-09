@@ -126,7 +126,6 @@ class _NumberFormState extends State<NumberForm> {
       if (!mounted) return;
       setState(() {
         _textController.text = barcode ?? _textController.text;
-        print(_textController.text);
       });
     } on PlatformException {
       // display error message

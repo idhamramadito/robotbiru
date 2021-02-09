@@ -43,7 +43,7 @@ class _RingkasanState extends State<Ringkasan> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Bank BCA',
+              '${widget.previousData.paymentMethod[1]}',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
@@ -104,11 +104,15 @@ class _RingkasanState extends State<Ringkasan> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'BCA',
+                              '${widget.previousData.paymentMethod[1]}',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 17),
                             ),
-                            Image.asset('images/bca.png')
+                            if (widget.previousData.paymentMethod[0] != '')
+                              Image.asset(
+                                '${widget.previousData.paymentMethod[0]}',
+                                height: 25,
+                              )
                           ],
                         ),
                         Divider(),
@@ -120,7 +124,7 @@ class _RingkasanState extends State<Ringkasan> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'PT EDUMATIC INTERNASIONAL',
+                          '${widget.previousData.paymentMethod[3]}',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 17),
                         ),
@@ -138,7 +142,7 @@ class _RingkasanState extends State<Ringkasan> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              '7772420016',
+                              '${widget.previousData.paymentMethod[2]}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 17,

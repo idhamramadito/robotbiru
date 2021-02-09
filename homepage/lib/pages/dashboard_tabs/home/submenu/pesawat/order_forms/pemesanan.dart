@@ -75,7 +75,8 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                     child: ListTile(
                       onTap: () async {
-                        final result = await orderDetailsSheet(context);
+                        OrderDetailModel result =
+                            await orderDetailsSheet(context);
                         setState(() {
                           widget.prevData.orderDetails =
                               result ?? widget.prevData.orderDetails;
@@ -183,6 +184,8 @@ class _PemesananState extends State<Pemesanan> {
                         setState(() {
                           widget.prevData.passengersDetails[0] =
                               result ?? widget.prevData.passengersDetails[0];
+                          widget.prevData.passengersDetails[0].ageType =
+                              'Dewasa';
                         });
                       },
                     ),
@@ -216,6 +219,7 @@ class _PemesananState extends State<Pemesanan> {
                         setState(() {
                           widget.prevData.passengersDetails[1] =
                               result ?? widget.prevData.passengersDetails[1];
+                          widget.prevData.passengersDetails[1].ageType = 'Anak';
                         });
                       },
                     ),
@@ -249,6 +253,7 @@ class _PemesananState extends State<Pemesanan> {
                         setState(() {
                           widget.prevData.passengersDetails[2] =
                               result ?? widget.prevData.passengersDetails[2];
+                          widget.prevData.passengersDetails[2].ageType = 'Bayi';
                         });
                       },
                     ),

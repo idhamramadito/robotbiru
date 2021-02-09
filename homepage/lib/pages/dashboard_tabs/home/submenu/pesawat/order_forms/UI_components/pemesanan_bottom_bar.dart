@@ -59,11 +59,19 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
             ),
           ),
           BigButton(
-              title: 'Lanjut Pembayaran',
-              onPressed: () {
-                Navigator.of(context)
-                    .pushNamed('/pembayaran', arguments: widget.prevData);
-              }),
+            title: 'Lanjut Pembayaran',
+            onPressed: ([
+              widget.prevData.orderDetails.name,
+              widget.prevData.passengersDetails[0].name,
+              widget.prevData.passengersDetails[1].name,
+              widget.prevData.passengersDetails[2].name,
+            ].contains(null))
+                ? null
+                : () {
+                    Navigator.of(context)
+                        .pushNamed('/pembayaran', arguments: widget.prevData);
+                  },
+          ),
         ],
       ),
     );
