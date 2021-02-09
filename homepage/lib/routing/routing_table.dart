@@ -22,19 +22,22 @@ import 'package:homepage/shared/shared_pages/trans_completed.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final arg = settings.arguments;
 
     switch (settings.name) {
       // Shared
       case '/':
         return MaterialPageRoute(builder: (_) => Dashboard());
       case '/search_page':
-        return MaterialPageRoute(builder: (_) => SearchPage(pageName: args));
+        SearchPage args = settings.arguments;
+        return MaterialPageRoute(
+            builder: (_) =>
+                SearchPage(pageName: args.pageName, dataList: args.dataList));
       case '/pin_code':
-        return MaterialPageRoute(builder: (_) => PinCode(routeName: args));
+        return MaterialPageRoute(builder: (_) => PinCode(routeName: arg));
       case '/trans_completed':
         return MaterialPageRoute(
-            builder: (_) => TransCompleted(routeName: args));
+            builder: (_) => TransCompleted(routeName: arg));
       case '/contacts_picker':
         return MaterialPageRoute(builder: (_) => ContactsPicker());
 
@@ -55,7 +58,7 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => PagePesawat());
       case '/jadwal_pesawat':
         return MaterialPageRoute(
-            builder: (_) => JadwalPesawat(previousData: args));
+            builder: (_) => JadwalPesawat(previousData: arg));
       case '/kebijakan_pembatalan':
         return MaterialPageRoute(builder: (_) => KebijakanPembatalan());
       case '/bagasi':
