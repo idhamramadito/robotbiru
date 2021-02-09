@@ -6,6 +6,12 @@ List _bandara = [
   ['images/gedung.png', 'Medan, Indonesia', 'Semua Bandara', 'MESC'],
 ];
 
+List _stasiun = [
+  ['images/stasiun_blue-01.png', 'Stasiun Gambir', 'Jakarta', 'GMR'],
+  ['images/stasiun_blue-01.png', 'Stasiun Bandung', 'Bandung', 'BD'],
+  ['images/stasiun_blue-01.png', 'Stasiun Kiaracondong', 'Bandung', 'KAC'],
+];
+
 List _maskapai = [
   ['images/pesawat_kecil.png', 'American Airlines', '', ''],
   ['images/pesawat_kecil.png', 'AirAsia Malaysia', '', ''],
@@ -41,6 +47,10 @@ class _SearchPageState extends State<SearchPage> {
       case 'Bandara Asal':
       case 'Bandara Destinasi':
         _sementara = List.from(_bandara);
+        break;
+      case 'Stasiun Asal':
+      case 'Stasiun Destinasi':
+        _sementara = List.from(_stasiun);
         break;
       case 'Kode Negara':
         _sementara = List.from(_kodeNegara);
