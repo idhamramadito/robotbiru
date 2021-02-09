@@ -9,20 +9,17 @@ class ScheduleCard extends StatelessWidget {
     Key key,
     @required this.flightSchedule,
     this.previousData,
+    this.onTap,
   }) : super(key: key);
 
   final FlightScheduleModel flightSchedule;
   final TransportationModel previousData;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed(
-          '/pemesanan',
-          arguments: previousData,
-        );
-      },
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: Container(
@@ -81,7 +78,7 @@ class ScheduleCard extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     )),
-                                Text('${flightSchedule.depAirport}',
+                                Text('${flightSchedule.depAirportCode}',
                                     style: TextStyle(
                                       fontSize: 15,
                                       color: Colors.black,
@@ -123,7 +120,7 @@ class ScheduleCard extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     )),
-                                Text('${flightSchedule.arrAirport}',
+                                Text('${flightSchedule.arrAirportCode}',
                                     style: TextStyle(
                                       fontSize: 15,
                                       color: Colors.black,

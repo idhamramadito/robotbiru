@@ -106,10 +106,8 @@ class _PagePulsaState extends State<PagePulsa> {
               _rememberNumber = !_rememberNumber;
             }),
           ),
-          Visibility(
-            visible: (_dataList.targetNumber != null &&
-                _dataList.targetNumber != ''),
-            child: Column(
+          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+            Column(
               children: [
                 NominalPulsa(
                   onChanged: (val) => setState(() {
@@ -135,7 +133,6 @@ class _PagePulsaState extends State<PagePulsa> {
                 Divider(thickness: 5),
               ],
             ),
-          ),
         ],
       ),
     );

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
 
 class PergiTab extends StatelessWidget {
+  final TransportationModel prevData;
   const PergiTab({
     Key key,
+    this.prevData,
   }) : super(key: key);
 
   @override
@@ -15,9 +18,10 @@ class PergiTab extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ListTile(
               dense: true,
-              leading: Image.asset('images/japan_airlines.png'),
+              leading: Image.asset(
+                  '${prevData.chosenDepartSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
               title: Text(
-                'Japan Airlines',
+                '${prevData.chosenDepartSchedule.airlineName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -38,7 +42,7 @@ class PergiTab extends StatelessWidget {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '1j 50m',
+                        '${prevData.chosenDepartSchedule.flightTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -71,7 +75,7 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '05:00',
+                                '${prevData.chosenDepartSchedule.depTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -80,10 +84,11 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                'Jakarta (CGK)',
+                                '${prevData.chosenDepartSchedule.depCity} (${prevData.chosenDepartSchedule.depAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text('Soekarno Hatta'),
+                              subtitle: Text(
+                                  '${prevData.chosenDepartSchedule.depAirport}'),
                             ),
                           ),
                         ],
@@ -93,7 +98,7 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '1j 50m',
+                                '${prevData.chosenDepartSchedule.flightTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -106,7 +111,7 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '07:00',
+                                '${prevData.chosenDepartSchedule.arrTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -115,12 +120,13 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                'Denpasar (DPS)',
+                                '${prevData.chosenDepartSchedule.arrCity} (${prevData.chosenDepartSchedule.arrAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text('Ngurah Rai'),
+                              subtitle: Text(
+                                  '${prevData.chosenDepartSchedule.arrAirport}'),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],

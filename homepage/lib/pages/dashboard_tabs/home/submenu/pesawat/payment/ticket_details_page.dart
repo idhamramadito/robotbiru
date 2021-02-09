@@ -6,11 +6,11 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_detail
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/detail_pulang.dart';
 
 class TicketDetailsPage extends StatefulWidget {
-  final TransportationModel previousData;
+  final TransportationModel prevData;
 
   const TicketDetailsPage({
     Key key,
-    this.previousData,
+    this.prevData,
   }) : super(key: key);
 
   @override
@@ -22,10 +22,10 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ORDER ID : 348348348'),
+        title: Text('ORDER ID : ${widget.prevData.id}'),
       ),
       body: DefaultTabController(
-        length: (widget.previousData.isTwoWayTrip == false) ? 2 : 3,
+        length: (widget.prevData.isTwoWayTrip == false) ? 2 : 3,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.9,
           child: Column(
@@ -50,28 +50,28 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                   Column(
                     children: [
                       Text(
-                        'CGK',
+                        '${widget.prevData.chosenDepartSchedule.depAirportCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text("Jakarta"),
+                      Text('${widget.prevData.chosenDepartSchedule.depCity}'),
                     ],
                   ),
                   Image.asset('images/plane_with_trail.png', width: 50),
                   Column(
                     children: [
                       Text(
-                        'DPS',
+                        '${widget.prevData.chosenDepartSchedule.arrAirportCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text("Denpasar"),
+                      Text('${widget.prevData.chosenDepartSchedule.arrCity}'),
                     ],
                   ),
                 ],
@@ -83,7 +83,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                   unselectedLabelColor: Colors.grey,
                   tabs: [
                     Tab(text: "Pergi"),
-                    if (widget.previousData.isTwoWayTrip) Tab(text: "Pulang"),
+                    if (widget.prevData.isTwoWayTrip) Tab(text: "Pulang"),
                     Tab(text: "Harga"),
                   ],
                 ),
@@ -91,9 +91,10 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
               Flexible(
                 child: TabBarView(
                   children: [
-                    PergiTab(),
-                    if (widget.previousData.isTwoWayTrip) PulangTab(),
-                    HargaTab(),
+                    PergiTab(prevData: widget.prevData),
+                    if (widget.prevData.isTwoWayTrip)
+                      PulangTab(prevData: widget.prevData),
+                    HargaTab(prevData: widget.prevData),
                   ],
                 ),
               ),

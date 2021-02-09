@@ -40,28 +40,28 @@ Future ticketDetails(
                   Column(
                     children: [
                       Text(
-                        'CGK',
+                        '${data.chosenDepartSchedule.depAirportCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text("Jakarta"),
+                      Text('${data.chosenDepartSchedule.depCity}'),
                     ],
                   ),
                   Image.asset('images/plane_with_trail.png', width: 50),
                   Column(
                     children: [
                       Text(
-                        'DPS',
+                        '${data.chosenDepartSchedule.arrAirportCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text("Denpasar"),
+                      Text('${data.chosenDepartSchedule.arrCity}'),
                     ],
                   ),
                 ],
@@ -81,9 +81,9 @@ Future ticketDetails(
               Flexible(
                 child: TabBarView(
                   children: [
-                    TabPerjalanan(input: data),
-                    TabFasilitas(input: data),
-                    TabHarga(input: data),
+                    TabPerjalanan(data: data),
+                    TabFasilitas(data: data),
+                    TabHarga(data: data),
                   ],
                 ),
               ),

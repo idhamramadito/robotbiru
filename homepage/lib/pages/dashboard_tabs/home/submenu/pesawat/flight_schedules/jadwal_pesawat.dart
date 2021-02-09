@@ -19,58 +19,76 @@ class JadwalPesawat extends StatefulWidget {
 }
 
 class _JadwalPesawatState extends State<JadwalPesawat> {
-  List<bool> isSelected = [false, false];
   List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
-  bool mpesachecked = false;
-  var formatter = NumberFormat('###,000');
   List<FlightScheduleModel> _jadwalPenerbangan = [
     FlightScheduleModel(
-        iconAirline: "images/japan-airlines.png",
-        id: "",
-        airlineName: "Jakarta Airlines",
-        depTime: "05.00",
-        depAirport: "CGK",
-        flightTime: "10J",
-        flightType: "Langsung",
-        arrTime: "15.00",
-        arrAirport: "DPS",
-        chairLeft: 2,
-        ticketPrice: 315000,
-        cashback: 2500,
-        anggota: 2500,
-        retail: 2500),
+      iconAirline: "images/japan-airlines.png",
+      id: "",
+      airlineName: "Jakarta Airlines",
+      depTime: "05.00",
+      depAirportCode: "CGK",
+      depAirport: 'Soekarno Hatta',
+      depCity: 'Jakarta',
+      flightTime: "10J",
+      flightType: "Langsung",
+      arrTime: "15.00",
+      arrAirportCode: "DPS",
+      arrAirport: 'Ngurah Rai',
+      arrCity: 'Denpasar - Bali',
+      chairLeft: 2,
+      ticketPrice: 315000,
+      cashback: 2500,
+      anggota: 2500,
+      retail: 2500,
+    ),
     FlightScheduleModel(
-        iconAirline: "images/japan-airlines.png",
-        id: "",
-        airlineName: "Garduda Indonesia",
-        depTime: "05.00",
-        depAirport: "CGK",
-        flightTime: "10J",
-        flightType: "Langsung",
-        arrTime: "15.00",
-        arrAirport: "DPS",
-        chairLeft: 2,
-        ticketPrice: 315000,
-        cashback: 2500,
-        anggota: 2500,
-        retail: 2500),
+      iconAirline: "images/japan-airlines.png",
+      id: "",
+      airlineName: "Jakarta Airlines",
+      depTime: "05.00",
+      depAirportCode: "CGK",
+      depAirport: 'Soekarno Hatta',
+      depCity: 'Jakarta',
+      flightTime: "10J",
+      flightType: "Langsung",
+      arrTime: "15.00",
+      arrAirportCode: "DPS",
+      arrAirport: 'Ngurah Rai',
+      arrCity: 'Denpasar - Bali',
+      chairLeft: 2,
+      ticketPrice: 315000,
+      cashback: 2500,
+      anggota: 2500,
+      retail: 2500,
+    ),
     FlightScheduleModel(
-        iconAirline: "images/japan-airlines.png",
-        id: "",
-        airlineName: "Japansese Airlines",
-        depTime: "05.00",
-        depAirport: "CGK",
-        flightTime: "10J",
-        flightType: "Langsung",
-        arrTime: "15.00",
-        arrAirport: "DPS",
-        chairLeft: 2,
-        ticketPrice: 315000,
-        cashback: 2500,
-        anggota: 2500,
-        retail: 2500),
+      iconAirline: "images/japan-airlines.png",
+      id: "",
+      airlineName: "Jakarta Airlines",
+      depTime: "05.00",
+      depAirportCode: "CGK",
+      depAirport: 'Soekarno Hatta',
+      depCity: 'Jakarta',
+      flightTime: "10J",
+      flightType: "Langsung",
+      arrTime: "15.00",
+      arrAirportCode: "DPS",
+      arrAirport: 'Ngurah Rai',
+      arrCity: 'Denpasar - Bali',
+      chairLeft: 2,
+      ticketPrice: 315000,
+      cashback: 2500,
+      anggota: 2500,
+      retail: 2500,
+    ),
   ];
-  bool isPressed = false;
+
+  @override
+  void initState() {
+    widget.previousData.chosenDepartSchedule = null;
+    widget.previousData.chosenReturnSchedule = null;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,111 +110,154 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
           ],
         ),
       ),
-      body: Column(children: [
-        Container(
-          color: Colors.blue[50],
-          child: ListTile(
-            leading: Image.asset('images/pesawat_biru.png'),
-            title: Text(
-              'Japan Airlines',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            subtitle: Row(
-              children: [
-                Text(
-                  'Rp 305.200',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
+      body: Column(
+        children: [
+          if (widget.previousData.isTwoWayTrip == true &&
+              widget.previousData.chosenDepartSchedule != null)
+            Container(
+              color: Colors.blue[50],
+              child: ListTile(
+                leading: Image.asset(
+                    '${widget.previousData.chosenDepartSchedule.iconAirline}'),
+                title: Text(
+                  '${widget.previousData.chosenDepartSchedule.airlineName}',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-                Text('/Orang'),
-              ],
-            ),
-            trailing: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.blue,
-                  side: BorderSide(color: Colors.blue),
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)))),
-              child: Text('Ubah'),
-              onPressed: () {},
-            ),
-          ),
-        ),
-        Center(
-          child: Container(
-            width: 392,
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 4,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: RaisedButton(
-                      onPressed: () {},
-                      color: Colors.grey[200],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.grey[300])),
-                      child: new Text(
-                        '${_filterButton[0]}',
-                      )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: RaisedButton(
-                      onPressed: () {},
-                      color: Colors.grey[200],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.grey[300])),
-                      child: new Text(
-                        '${_filterButton[1]}',
-                      )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: RaisedButton(
-                    onPressed: () {},
-                    color: Colors.grey[200],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        side: BorderSide(color: Colors.grey[300])),
-                    child: new Text(
-                      '${_filterButton[2]}',
+                subtitle: Row(
+                  children: [
+                    Text(
+                      '${widget.previousData.chosenDepartSchedule.ticketPrice}',
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
                     ),
+                    Text('/Orang'),
+                  ],
+                ),
+                trailing: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      onPrimary: Colors.blue,
+                      side: BorderSide(color: Colors.blue),
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)))),
+                  child: Text('Ubah'),
+                  onPressed: () {
+                    setState(() {
+                      widget.previousData.chosenDepartSchedule = null;
+                    });
+                  },
+                ),
+              ),
+            ),
+          Center(
+            child: Container(
+              width: 392,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 4,
+                    offset: Offset(0, 3), // changes position of shadow
                   ),
-                )
-              ],
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: RaisedButton(
+                        onPressed: () {},
+                        color: Colors.grey[200],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.grey[300])),
+                        child: new Text(
+                          '${_filterButton[0]}',
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: RaisedButton(
+                        onPressed: () {},
+                        color: Colors.grey[200],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.grey[300])),
+                        child: new Text(
+                          '${_filterButton[1]}',
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: RaisedButton(
+                      onPressed: () {},
+                      color: Colors.grey[200],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.grey[300])),
+                      child: new Text(
+                        '${_filterButton[2]}',
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: _jadwalPenerbangan.length,
-            itemBuilder: (context, index) {
-              return ScheduleCard(
-                flightSchedule: _jadwalPenerbangan[index],
-                previousData: widget.previousData,
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: _jadwalPenerbangan.length,
+              itemBuilder: (context, index) {
+                return ScheduleCard(
+                  flightSchedule: _jadwalPenerbangan[index],
+                  previousData: widget.previousData,
+                  onTap: (widget.previousData.isTwoWayTrip == false)
+                      ? () {
+                          setState(() {
+                            widget.previousData.chosenDepartSchedule =
+                                _jadwalPenerbangan[index] ??
+                                    widget.previousData.chosenDepartSchedule;
+                          });
+                          Navigator.of(context).pushNamed(
+                            '/pemesanan',
+                            arguments: widget.previousData,
+                          );
+                        }
+                      : (widget.previousData.chosenDepartSchedule == null)
+                          ? () {
+                              setState(() {
+                                widget.previousData.chosenDepartSchedule =
+                                    _jadwalPenerbangan[index] ??
+                                        widget
+                                            .previousData.chosenDepartSchedule;
+                              });
+                            }
+                          // TODO: ganti schedule list dari yg pergi ke yg pulang
+                          : () {
+                              setState(() {
+                                widget.previousData.chosenReturnSchedule =
+                                    _jadwalPenerbangan[index] ??
+                                        widget
+                                            .previousData.chosenReturnSchedule;
+                              });
+                              Navigator.of(context).pushNamed(
+                                '/pemesanan',
+                                arguments: widget.previousData,
+                              );
+                            },
+                );
+              },
+            ),
           ),
-        ),
-      ]),
+        ],
+      ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

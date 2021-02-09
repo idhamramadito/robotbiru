@@ -78,7 +78,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
               onTap: widget.onTap,
               dense: true,
               title: Text(
-                'CGK - DPS', // TODO: harus diganti dengan kode bandara
+                '${widget.previousData.chosenDepartSchedule.depAirportCode} - ${widget.previousData.chosenDepartSchedule.arrAirportCode}', // TODO: harus diganti dengan kode bandara
                 style: TextStyle(
                   fontSize: 18,
                 ),

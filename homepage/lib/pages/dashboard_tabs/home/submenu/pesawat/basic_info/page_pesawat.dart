@@ -126,9 +126,8 @@ class _PagePesawatState extends State<PagePesawat> {
                       });
                     },
                   ),
-                  Visibility(
-                    visible: data.isTwoWayTrip,
-                    child: BasicInfoListTile(
+                  if (data.isTwoWayTrip)
+                    BasicInfoListTile(
                       data: data.dateReturn,
                       name: 'Tanggal Pulang',
                       icon: Icons.calendar_today,
@@ -142,7 +141,6 @@ class _PagePesawatState extends State<PagePesawat> {
                         }
                       },
                     ),
-                  ),
                   Divider(),
                   BasicInfoListTile(
                     data: data.passengersAmount,

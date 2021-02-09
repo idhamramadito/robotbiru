@@ -67,15 +67,13 @@ class _BagasiState extends State<Bagasi> {
                         fontSize: 16,
                       ),
                     ),
-                    Visibility(
-                      visible: widget.datasebelum.isTwoWayTrip,
-                      child: Text(
+                    if (widget.datasebelum.isTwoWayTrip)
+                      Text(
                         'Pulang: ${luggageSize[1] ?? "0kg"}',
                         style: TextStyle(
                           fontSize: 16,
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -99,29 +97,28 @@ class _BagasiState extends State<Bagasi> {
                   });
                 },
               ),
-              Visibility(
-                  visible: widget.datasebelum.isTwoWayTrip,
-                  child: Column(
-                    children: [
-                      Text(
-                        'Penerbangan Pulang',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
+              if (widget.datasebelum.isTwoWayTrip)
+                Column(
+                  children: [
+                    Text(
+                      'Penerbangan Pulang',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
-                      PilihBagasi(
-                        number: luggageSize[1],
-                        onTap: () async {
-                          final String result =
-                              await choiceBottomSheet(context, 'Bagasi');
-                          setState(() {
-                            luggageSize[1] = result ?? luggageSize[1];
-                          });
-                        },
-                      ),
-                    ],
-                  ))
+                    ),
+                    PilihBagasi(
+                      number: luggageSize[1],
+                      onTap: () async {
+                        final String result =
+                            await choiceBottomSheet(context, 'Bagasi');
+                        setState(() {
+                          luggageSize[1] = result ?? luggageSize[1];
+                        });
+                      },
+                    ),
+                  ],
+                )
             ],
           ),
         ),

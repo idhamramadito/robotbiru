@@ -33,12 +33,9 @@ class _PembayaranState extends State<Pembayaran> {
               'Pembayaran',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            Visibility(
-              visible: true,
-              child: Text(
-                'Order ID : 348348348',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
-              ),
+            Text(
+              'Order ID : 348348348',
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
             ),
           ],
         ),

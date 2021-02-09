@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
 
 class PulangTab extends StatelessWidget {
+  final TransportationModel prevData;
   const PulangTab({
     Key key,
+    this.prevData,
   }) : super(key: key);
 
   @override
@@ -15,9 +18,10 @@ class PulangTab extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ListTile(
               dense: true,
-              leading: Image.asset('images/japan_airlines.png'),
+              leading: Image.asset(
+                  '${prevData.chosenReturnSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
               title: Text(
-                'Japan Airlines',
+                '${prevData.chosenReturnSchedule.airlineName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -71,7 +75,7 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '05:00',
+                                '${prevData.chosenReturnSchedule.depTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -80,10 +84,11 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                'Jakarta (CGK)',
+                                '${prevData.chosenReturnSchedule.depCity} (${prevData.chosenReturnSchedule.depAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text('Soekarno Hatta'),
+                              subtitle: Text(
+                                  '${prevData.chosenReturnSchedule.depAirport}'),
                             ),
                           ),
                         ],
@@ -93,7 +98,7 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '1j 50m',
+                                '${prevData.chosenReturnSchedule.flightTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -106,7 +111,7 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '07:00',
+                                '${prevData.chosenReturnSchedule.arrTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -115,12 +120,13 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                'Denpasar (DPS)',
+                                '${prevData.chosenReturnSchedule.arrCity} (${prevData.chosenReturnSchedule.arrAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text('Ngurah Rai'),
+                              subtitle: Text(
+                                  '${prevData.chosenReturnSchedule.arrAirport}'),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],

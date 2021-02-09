@@ -42,9 +42,8 @@ class _NumberFormState extends State<NumberForm> {
     return Container(
       child: Column(
         children: [
-          Visibility(
-            visible: (widget.prompt != null),
-            child: Container(
+          if (widget.prompt != null)
+            Container(
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.symmetric(horizontal: 25),
               child: Text(
@@ -52,7 +51,6 @@ class _NumberFormState extends State<NumberForm> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
-          ),
           SizedBox(height: 5),
           Padding(
             padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
@@ -87,9 +85,8 @@ class _NumberFormState extends State<NumberForm> {
                     ),
                   ),
                 ),
-                Visibility(
-                  visible: (widget.externalPicker != null),
-                  child: Padding(
+                if (widget.externalPicker != null)
+                  Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: (widget.externalPicker == 'contacts')
                         ? IconButton(
@@ -103,7 +100,6 @@ class _NumberFormState extends State<NumberForm> {
                               )
                             : Container(),
                   ),
-                ),
               ],
             ),
           ),

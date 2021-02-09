@@ -88,10 +88,9 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                             _rememberNumber = !_rememberNumber;
                           }),
                         ),
-                        Visibility(
-                          visible: (_dataList.targetNumber != null &&
-                              _dataList.targetNumber != ''),
-                          child: Column(
+                        if (_dataList.targetNumber != null &&
+                            _dataList.targetNumber != '')
+                          Column(
                             children: [
                               CardTokenListrik(
                                   idNumber: _dataList.targetNumber),
@@ -118,7 +117,6 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                               Divider(thickness: 5),
                             ],
                           ),
-                        ),
                       ],
                     ),
                   ),

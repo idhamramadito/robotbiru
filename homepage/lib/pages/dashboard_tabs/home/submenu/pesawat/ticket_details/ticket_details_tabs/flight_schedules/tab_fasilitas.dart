@@ -9,11 +9,11 @@ List _fasilitas = [
 ];
 
 class TabFasilitas extends StatelessWidget {
-  final TransportationModel input;
+  final TransportationModel data;
 
   const TabFasilitas({
     Key key,
-    this.input,
+    this.data,
   }) : super(key: key);
 
   @override
@@ -28,9 +28,10 @@ class TabFasilitas extends StatelessWidget {
               children: [
                 ListTile(
                   dense: true,
-                  leading: Image.asset('images/japan_airlines.png'),
+                  leading: Image.asset(
+                      '${data.chosenDepartSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
                   title: Text(
-                    'Japan Airlines',
+                    '${data.chosenDepartSchedule.airlineName}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
@@ -51,7 +52,7 @@ class TabFasilitas extends StatelessWidget {
                         Flexible(child: Image.asset('images/gray_clock.png')),
                         Flexible(
                           child: Text(
-                            '1j 50m',
+                            '${data.chosenDepartSchedule.flightTime}',
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),
@@ -128,9 +129,8 @@ class TabFasilitas extends StatelessWidget {
               ],
             ),
           ),
-          Visibility(
-            visible: input.isTwoWayTrip,
-            child: Column(
+          if (data.isTwoWayTrip)
+            Column(
               children: [
                 Divider(thickness: 7, color: Colors.grey[200]),
                 Padding(
@@ -140,9 +140,10 @@ class TabFasilitas extends StatelessWidget {
                     children: [
                       ListTile(
                         dense: true,
-                        leading: Image.asset('images/japan_airlines.png'),
+                        leading: Image.asset(
+                            '${data.chosenReturnSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
                         title: Text(
-                          'Japan Airlines',
+                          '${data.chosenReturnSchedule.airlineName}',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 17,
@@ -244,7 +245,6 @@ class TabFasilitas extends StatelessWidget {
                 ),
               ],
             ),
-          ),
         ],
       ),
     );

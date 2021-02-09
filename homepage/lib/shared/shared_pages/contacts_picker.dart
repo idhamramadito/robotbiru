@@ -130,13 +130,12 @@ class _ContactsPickerState extends State<ContactsPicker> {
                 Color color2 = baseColor[400];
                 return Column(
                   children: [
-                    Visibility(
-                      visible: index == 0 ||
-                          contact.initials()[0] !=
-                              (isSearching == true
-                                  ? contactsFiltered[index - 1].initials()[0]
-                                  : contacts[index - 1].initials()[0]),
-                      child: Container(
+                    if (index == 0 ||
+                        contact.initials()[0] !=
+                            (isSearching == true
+                                ? contactsFiltered[index - 1].initials()[0]
+                                : contacts[index - 1].initials()[0]))
+                      Container(
                         alignment: Alignment.centerLeft,
                         color: Colors.grey[200],
                         padding:
@@ -146,7 +145,6 @@ class _ContactsPickerState extends State<ContactsPicker> {
                           style: TextStyle(color: Colors.grey),
                         ),
                       ),
-                    ),
                     ListTile(
                       onTap: () => Navigator.pop(
                         context,

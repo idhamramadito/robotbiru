@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
 class HargaTab extends StatelessWidget {
+  final TransportationModel prevData;
   const HargaTab({
     Key key,
+    this.prevData,
   }) : super(key: key);
 
   @override

@@ -65,10 +65,9 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
             ),
           ),
           Divider(thickness: 2),
-          Visibility(
-            visible: (widget.data.targetNumber != null &&
-                widget.data.targetNumber != ''),
-            child: Container(
+          if (widget.data.targetNumber != null &&
+              widget.data.targetNumber != '')
+            Container(
               padding: EdgeInsets.symmetric(vertical: 5),
               alignment: Alignment.centerLeft,
               child: RichText(
@@ -88,7 +87,6 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                 ),
               ),
             ),
-          ),
           BigButton(
             title: 'Beli',
             onPressed: (widget.data.targetNumber != null &&

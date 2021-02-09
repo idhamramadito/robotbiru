@@ -20,9 +20,8 @@ class _ReceiptCardState extends State<ReceiptCard> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Visibility(
-          visible: (widget.title != null),
-          child: Container(
+        if (widget.title != null)
+          Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.only(bottom: 8),
             child: Text(
@@ -30,7 +29,6 @@ class _ReceiptCardState extends State<ReceiptCard> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
-        ),
         ListView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),

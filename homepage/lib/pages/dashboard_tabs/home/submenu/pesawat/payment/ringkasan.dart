@@ -46,12 +46,9 @@ class _RingkasanState extends State<Ringkasan> {
               'Bank BCA',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            Visibility(
-              visible: true,
-              child: Text(
-                'Order ID : 348348348',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
-              ),
+            Text(
+              'Order ID : 348348348',
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
             ),
           ],
         ),
