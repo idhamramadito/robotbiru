@@ -12,15 +12,12 @@ import 'package:homepage/shared/shared_pages/get_picture.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Ringkasan extends StatefulWidget {
-  final List<List> data;
   final TransportationModel previousData;
 
   Ringkasan({
     Key key,
-    List<List> data,
     this.previousData,
-  })  : this.data = data,
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _RingkasanState createState() => _RingkasanState();
@@ -218,6 +215,7 @@ class _RingkasanState extends State<Ringkasan> {
                 Divider(thickness: 10),
                 SizedBox(height: 10),
                 DetailPenerbangan(
+                  previousData: widget.previousData,
                   onTap: () {
                     Navigator.of(context).pushNamed('/detail_penerbangan',
                         arguments: widget.previousData);

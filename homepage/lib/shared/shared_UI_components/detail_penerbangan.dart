@@ -7,8 +7,8 @@ class DetailPenerbangan extends StatefulWidget {
 
   DetailPenerbangan({
     Key key,
-    this.onTap,
-    this.previousData,
+    @required this.onTap,
+    @required this.previousData,
   }) : super(key: key);
   final Function onTap;
   @override
@@ -46,7 +46,11 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                     fontSize: 20,
                   ),
                 ),
-                Icon(Icons.arrow_right_alt, size: 40),
+                Icon(
+                    (widget.previousData.isTwoWayTrip == false)
+                        ? Icons.arrow_right_alt
+                        : Icons.sync_alt,
+                    size: 40),
                 Text(
                   widget.previousData.destination,
                   style: TextStyle(
@@ -57,39 +61,26 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
               ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              widget.onTap();
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(15.0))),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'CGK - DPS',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengers[0][1] > 0) ? '${widget.previousData.passengers[0][1]} ${widget.previousData.passengers[0][0]}' : ''}${(widget.previousData.passengers[1][1] > 0) ? ', ${widget.previousData.passengers[1][1]} ${widget.previousData.passengers[1][0]}' : ''}${(widget.previousData.passengers[2][1] > 0) ? ', ${widget.previousData.passengers[2][1]} ${widget.previousData.passengers[2][0]}' : ''}',
-                        style: TextStyle(fontSize: 13, color: Colors.white),
-                      ),
-                      Icon(Icons.keyboard_arrow_down, size: 30),
-                    ],
-                  ),
-                ],
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(15.0))),
+            child: ListTile(
+              onTap: widget.onTap,
+              dense: true,
+              title: Text(
+                'CGK - DPS', // TODO: harus diganti dengan kode bandara
+                style: TextStyle(
+                  fontSize: 18,
+                ),
               ),
+              subtitle: Text(
+                '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengers[0][1] > 0) ? '${widget.previousData.passengers[0][1]} ${widget.previousData.passengers[0][0]}' : ''}${(widget.previousData.passengers[1][1] > 0) ? ', ${widget.previousData.passengers[1][1]} ${widget.previousData.passengers[1][0]}' : ''}${(widget.previousData.passengers[2][1] > 0) ? ', ${widget.previousData.passengers[2][1]} ${widget.previousData.passengers[2][0]}' : ''}',
+                style: TextStyle(fontSize: 16),
+              ),
+              trailing: Icon(Icons.keyboard_arrow_down, size: 30),
             ),
           ),
         ],

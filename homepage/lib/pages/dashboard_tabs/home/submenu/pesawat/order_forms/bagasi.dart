@@ -19,6 +19,7 @@ class Bagasi extends StatefulWidget {
 class _BagasiState extends State<Bagasi> {
   String pergi;
   String pulang;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

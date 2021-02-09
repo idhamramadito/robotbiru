@@ -88,112 +88,94 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
         ),
       ),
       body: Column(children: [
-        Card(
+        Container(
           color: Colors.blue[50],
           child: ListTile(
-              leading: Image.asset('images/pesawat_biru.png'),
-              title: Text(
-                'Japan Airlines',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              subtitle: Row(
-                children: [
-                  Text(
-                    'Rp 305.200',
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
-                  ),
-                  Text('/Orang'),
-                ],
-              ),
-              trailing: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.blue,
-                    side: BorderSide(color: Colors.blue),
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)))),
-                child: Text('Ubah'),
-                onPressed: () {},
-              )
-              // Container(
-              //   width: 65,
-              //   height: 23,
-              //   decoration: new BoxDecoration(
-              //       borderRadius: BorderRadius.all(Radius.circular(15.0)),
-              //       border: Border.all(color: Colors.blue)),
-              //   child: Center(
-              //     child: Text(
-              //       "Ubah",
-              //       style: TextStyle(
-              //         fontSize: 14,
-              //         color: Colors.blue,
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              ),
+            leading: Image.asset('images/pesawat_biru.png'),
+            title: Text(
+              'Japan Airlines',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            subtitle: Row(
+              children: [
+                Text(
+                  'Rp 305.200',
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
+                Text('/Orang'),
+              ],
+            ),
+            trailing: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  onPrimary: Colors.blue,
+                  side: BorderSide(color: Colors.blue),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)))),
+              child: Text('Ubah'),
+              onPressed: () {},
+            ),
+          ),
         ),
         Center(
           child: Container(
+            width: 392,
             height: 60,
-            child: Container(
-              width: 392,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 4,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.grey[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.grey[300])),
-                        child: new Text(
-                          '${_filterButton[0]}',
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.grey[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.grey[300])),
-                        child: new Text(
-                          '${_filterButton[1]}',
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 4,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: RaisedButton(
                       onPressed: () {},
                       color: Colors.grey[200],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           side: BorderSide(color: Colors.grey[300])),
                       child: new Text(
-                        '${_filterButton[2]}',
-                      ),
+                        '${_filterButton[0]}',
+                      )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: RaisedButton(
+                      onPressed: () {},
+                      color: Colors.grey[200],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.grey[300])),
+                      child: new Text(
+                        '${_filterButton[1]}',
+                      )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: Colors.grey[200],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        side: BorderSide(color: Colors.grey[300])),
+                    child: new Text(
+                      '${_filterButton[2]}',
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ),

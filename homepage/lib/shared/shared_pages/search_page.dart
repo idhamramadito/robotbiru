@@ -17,8 +17,6 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    List _sementara = List.from(widget.dataList);
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -45,7 +43,7 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(height: 10),
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
-              itemCount: _sementara.length,
+              itemCount: widget.dataList.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Column(
@@ -53,19 +51,20 @@ class _SearchPageState extends State<SearchPage> {
                   children: [
                     ListTile(
                       onTap: () {
-                        Navigator.pop(context, _sementara[index][1]);
+                        Navigator.pop(context, widget.dataList[index][1]);
                       },
                       dense: true,
-                      leading: Image.asset(_sementara[index][0], width: 40),
+                      leading:
+                          Image.asset(widget.dataList[index][0], width: 40),
                       title: Text(
-                        _sementara[index][1],
+                        widget.dataList[index][1],
                         style: TextStyle(
                             fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Visibility(
-                        visible: _sementara[index][2] != '',
+                        visible: widget.dataList[index][2] != '',
                         child: Text(
-                          _sementara[index][2],
+                          widget.dataList[index][2],
                           style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.normal,
@@ -73,7 +72,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       ),
                       trailing: Visibility(
-                        visible: _sementara[index][3] != '',
+                        visible: widget.dataList[index][3] != '',
                         child: Container(
                           padding:
                               EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -81,7 +80,7 @@ class _SearchPageState extends State<SearchPage> {
                               color: Colors.grey[200],
                               borderRadius: BorderRadius.circular(10)),
                           child: Text(
-                            _sementara[index][3],
+                            widget.dataList[index][3],
                             style: TextStyle(
                               color: Colors.grey[700],
                             ),
