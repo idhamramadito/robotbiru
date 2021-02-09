@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/flight_schedule_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/filter_list.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
@@ -64,6 +65,54 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
       "20.000",
       "30.000"
     ]
+  ];
+  var formatter = NumberFormat('###,000');
+  List<FlightScheduleModel> _jadwalPenerbangan = [
+    FlightScheduleModel(
+        iconAirline: "images/japan-airlines.png",
+        id: "",
+        airlineName: "Jakarta Airlines",
+        depTime: "05.00",
+        depAirport: "CGK",
+        flightTime: "10J",
+        flightType: "Langsung",
+        arrTime: "15.00",
+        arrAirport: "DPS",
+        chairLeft: 2,
+        ticketPrice: 315000,
+        cashback: 2500,
+        anggota: 2500,
+        retail: 2500),
+    FlightScheduleModel(
+        iconAirline: "images/japan-airlines.png",
+        id: "",
+        airlineName: "Garduda Indonesia",
+        depTime: "05.00",
+        depAirport: "CGK",
+        flightTime: "10J",
+        flightType: "Langsung",
+        arrTime: "15.00",
+        arrAirport: "DPS",
+        chairLeft: 2,
+        ticketPrice: 315000,
+        cashback: 2500,
+        anggota: 2500,
+        retail: 2500),
+    FlightScheduleModel(
+        iconAirline: "images/japan-airlines.png",
+        id: "",
+        airlineName: "Japansese Airlines",
+        depTime: "05.00",
+        depAirport: "CGK",
+        flightTime: "10J",
+        flightType: "Langsung",
+        arrTime: "15.00",
+        arrAirport: "DPS",
+        chairLeft: 2,
+        ticketPrice: 315000,
+        cashback: 2500,
+        anggota: 2500,
+        retail: 2500),
   ];
   bool isPressed = false;
 
@@ -200,7 +249,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
         Expanded(
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: _cardJadwal.length,
+            itemCount: _jadwalPenerbangan.length,
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
@@ -233,9 +282,10 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                             children: [
                               ListTile(
                                 contentPadding: EdgeInsets.only(bottom: 10),
-                                leading:
-                                    Image.asset('images/japan-airlines.png'),
-                                title: Text('${_cardJadwal[index][0]}',
+                                leading: Image.asset(
+                                    _jadwalPenerbangan[index].iconAirline),
+                                title: Text(
+                                    '${_jadwalPenerbangan[index].airlineName}',
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
@@ -266,13 +316,15 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Text('${_cardJadwal[index][1]}',
+                                          Text(
+                                              '${_jadwalPenerbangan[index].depTime}',
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black,
                                               )),
-                                          Text('${_cardJadwal[index][2]}',
+                                          Text(
+                                              '${_jadwalPenerbangan[index].depAirport}',
                                               style: TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.black,
@@ -289,13 +341,15 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Text('${_cardJadwal[index][3]}',
+                                          Text(
+                                              '${_jadwalPenerbangan[index].flightTime}',
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black,
                                               )),
-                                          Text('${_cardJadwal[index][4]}',
+                                          Text(
+                                              '${_jadwalPenerbangan[index].flightType}',
                                               style: TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.grey[600],
@@ -312,13 +366,15 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Text('${_cardJadwal[index][5]}',
+                                          Text(
+                                              '${_jadwalPenerbangan[index].arrTime}',
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black,
                                               )),
-                                          Text('${_cardJadwal[index][6]}',
+                                          Text(
+                                              '${_jadwalPenerbangan[index].arrAirport}',
                                               style: TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.black,
@@ -339,7 +395,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                               children: <Widget>[
                                 Row(children: <Widget>[
                                   Spacer(),
-                                  Text("Rp" + '${_cardJadwal[index][8]}',
+                                  Text(
+                                      '${NumberFormat.simpleCurrency(locale: 'id', decimalDigits: 0).format(_jadwalPenerbangan[index].ticketPrice)}',
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -347,7 +404,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                       ))
                                 ]),
                                 Row(children: <Widget>[
-                                  Text("Sisa ${_cardJadwal[index][7]} kursi",
+                                  Text(
+                                      "Sisa ${_jadwalPenerbangan[index].chairLeft} kursi",
                                       style: TextStyle(
                                         fontSize: 17,
                                       )),
@@ -370,7 +428,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                   fontSize: 11,
                                 ),
                               ),
-                              Text('${_cardJadwal[index][9]}',
+                              Text(
+                                  '${NumberFormat.simpleCurrency(locale: 'id', decimalDigits: 0).format(_jadwalPenerbangan[index].cashback)}',
                                   style: TextStyle(
                                     fontSize: 11,
                                   )),
@@ -382,7 +441,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                   style: TextStyle(
                                     fontSize: 11,
                                   )),
-                              Text('${_cardJadwal[index][10]}',
+                              Text(
+                                  '${NumberFormat.simpleCurrency(locale: 'id', decimalDigits: 0).format(_jadwalPenerbangan[index].anggota)}',
                                   style: TextStyle(
                                     fontSize: 11,
                                   )),
@@ -394,7 +454,8 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                   style: TextStyle(
                                     fontSize: 11,
                                   )),
-                              Text('${_cardJadwal[index][11]}',
+                              Text(
+                                  '${NumberFormat.simpleCurrency(locale: 'id', decimalDigits: 0).format(_jadwalPenerbangan[index].retail)}',
                                   style: TextStyle(
                                     fontSize: 11,
                                   )),
