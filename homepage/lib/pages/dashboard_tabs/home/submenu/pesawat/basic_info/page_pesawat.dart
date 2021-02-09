@@ -14,9 +14,9 @@ class PagePesawat extends StatefulWidget {
 
 class _PagePesawatState extends State<PagePesawat> {
   List _bandara = [
-    ['images/gedung.png', 'Jakarta, Indonesia', 'Semua Bandara', 'JKTC'],
-    ['images/gedung.png', 'Surabaya, Indonesia', 'Semua Bandara', 'SBYC'],
-    ['images/gedung.png', 'Medan, Indonesia', 'Semua Bandara', 'MESC'],
+    ['images/gedung.png', 'Jakarta', 'Semua Bandara', 'JKTC'],
+    ['images/gedung.png', 'Surabaya', 'Semua Bandara', 'SBYC'],
+    ['images/gedung.png', 'Medan', 'Semua Bandara', 'MESC'],
   ];
 
   List _maskapai = [

@@ -25,7 +25,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
         title: Text('ORDER ID : 348348348'),
       ),
       body: DefaultTabController(
-        length: (widget.previousData.isTwoWayTrip == false) ? 2 : 3,
+        length: 3,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.9,
           child: Column(
