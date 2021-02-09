@@ -28,7 +28,7 @@ class _PagePulsaState extends State<PagePulsa> {
   );
 
   List<NameAndContent> _cashback = [
-    NameAndContent(name: 'Pemilik Retail'),
+    NameAndContent(name: 'Pemilik Retail', content: "2000"),
     NameAndContent(name: 'Badan Koperasi'),
     NameAndContent(name: 'Anggota Koperasi'),
     NameAndContent(name: 'Anggota Retail'),

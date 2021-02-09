@@ -224,7 +224,7 @@ Future filterList(BuildContext context) {
                                           Theme.of(context).primaryColor,
                                       onChanged: (value) {
                                         mystate(() {
-                                          _filterDengan[index][1] = value;
+                                          _filterWaktu[index][1] = value;
                                         });
                                       }),
                                 ],
