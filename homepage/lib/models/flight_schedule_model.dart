@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FlightScheduleModel {
-  String id;
   Icon iconAirline;
+  String id;
   String airlineName;
   String depTime;
   String depAirport;
@@ -17,8 +17,8 @@ class FlightScheduleModel {
   double retail;
 
   FlightScheduleModel({
-    String id,
     Icon iconAirline,
+    String id,
     String airlineName,
     String depTime,
     String depAirport,
@@ -31,8 +31,8 @@ class FlightScheduleModel {
     double cashback,
     double anggota,
     double retail,
-  })  : this.id = id,
-        this.iconAirline = iconAirline,
+  })  : this.iconAirline = iconAirline,
+        this.id = id,
         this.airlineName = airlineName,
         this.depTime = depTime,
         this.depAirport = depAirport,
