@@ -39,11 +39,13 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                     BorderRadius.vertical(top: Radius.circular(15.0))),
             child: Row(
               children: [
-                Text(
-                  widget.previousData.origin,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                Flexible(
+                  child: Text(
+                    widget.previousData.origin,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
                 SizedBox(width: 10),
@@ -54,11 +56,13 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                   size: 30,
                 ),
                 SizedBox(width: 10),
-                Text(
-                  widget.previousData.destination,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                Flexible(
+                  child: Text(
+                    widget.previousData.destination,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ],
