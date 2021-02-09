@@ -25,7 +25,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
         title: Text('ORDER ID : 348348348'),
       ),
       body: DefaultTabController(
-        length: 3,
+        length: (widget.previousData.isTwoWayTrip == false) ? 2 : 3,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.9,
           child: Column(
@@ -83,9 +83,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                   unselectedLabelColor: Colors.grey,
                   tabs: [
                     Tab(text: "Pergi"),
-                    Visibility(
-                        visible: widget.previousData.isTwoWayTrip,
-                        child: Tab(text: "Pulang")),
+                    if (widget.previousData.isTwoWayTrip) Tab(text: "Pulang"),
                     Tab(text: "Harga"),
                   ],
                 ),
@@ -94,10 +92,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                 child: TabBarView(
                   children: [
                     PergiTab(),
-                    Visibility(
-                      visible: widget.previousData.isTwoWayTrip,
-                      child: PulangTab(),
-                    ),
+                    if (widget.previousData.isTwoWayTrip) PulangTab(),
                     HargaTab(),
                   ],
                 ),

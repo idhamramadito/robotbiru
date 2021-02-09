@@ -88,16 +88,15 @@ class _PinCodeState extends State<PinCode> {
               },
             ),
           ),
-          (wrongInput)
-              ? Text(
-                  'Pin Tidak Sesuai',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red,
-                    fontSize: 20,
-                  ),
-                )
-              : Container(),
+          if (wrongInput)
+            Text(
+              'Pin Tidak Sesuai',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+                fontSize: 20,
+              ),
+            ),
         ],
       ),
     );

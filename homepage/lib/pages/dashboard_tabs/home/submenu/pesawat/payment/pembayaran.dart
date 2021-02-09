@@ -64,30 +64,41 @@ class _PembayaranState extends State<Pembayaran> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset('images/pesawat_kecil.png'),
-                          Text(
-                            'Jakarta',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                      Flexible(
+                        child: Row(
+                          children: [
+                            Image.asset('images/pesawat_kecil.png'),
+                            SizedBox(width: 10),
+                            Flexible(
+                              child: Text(
+                                widget.previousData.origin,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_right_alt,
-                            size: 30,
-                          ),
-                          Text(
-                            'Denpasar - Bali',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                            SizedBox(width: 10),
+                            Icon(
+                              (widget.previousData.isTwoWayTrip)
+                                  ? Icons.sync_alt
+                                  : Icons.arrow_right_alt,
+                              size: 30,
                             ),
-                          ),
-                        ],
+                            SizedBox(width: 10),
+                            Flexible(
+                              child: Text(
+                                widget.previousData.destination,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      Icon(Icons.keyboard_arrow_down, size: 30)
+                      Icon(Icons.keyboard_arrow_down, size: 30),
                     ],
                   ),
                 ),
