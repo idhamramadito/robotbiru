@@ -62,15 +62,16 @@ class RoutingTable {
       case '/kebijakan_pembatalan':
         return MaterialPageRoute(builder: (_) => KebijakanPembatalan());
       case '/bagasi':
-        return MaterialPageRoute(builder: (_) => Bagasi());
+        return MaterialPageRoute(builder: (_) => Bagasi(datasebelum: arg));
       case '/detail_penerbangan':
-        return MaterialPageRoute(builder: (_) => TicketDetailsPage());
+        return MaterialPageRoute(
+            builder: (_) => TicketDetailsPage(previousData: arg));
       case '/pemesanan':
         return MaterialPageRoute(builder: (_) => Pemesanan(previousData: arg));
       case '/pembayaran':
-        return MaterialPageRoute(builder: (_) => Pembayaran());
+        return MaterialPageRoute(builder: (_) => Pembayaran(previousData: arg));
       case '/ringkasan':
-        return MaterialPageRoute(builder: (_) => Ringkasan());
+        return MaterialPageRoute(builder: (_) => Ringkasan(previousData: arg));
       case '/total_pembayaran':
         return MaterialPageRoute(builder: (_) => TotalPembayaran());
 

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class Pembayaran extends StatefulWidget {
-  Pembayaran({
-    Key key,
-  }) : super(key: key);
+  final TransportationModel previousData;
+
+  Pembayaran({Key key, this.previousData}) : super(key: key);
 
   @override
   _PembayaranState createState() => _PembayaranState();
@@ -50,7 +51,8 @@ class _PembayaranState extends State<Pembayaran> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/detail_penerbangan');
+                  Navigator.of(context).pushNamed('/detail_penerbangan',
+                      arguments: widget.previousData);
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20),
@@ -195,7 +197,8 @@ class _PembayaranState extends State<Pembayaran> {
           title: 'Konfirmasi Pembayaran',
           onPressed: (selectedValue == null)
               ? null
-              : () => Navigator.of(context).pushNamed('/ringkasan'),
+              : () => Navigator.of(context)
+                  .pushNamed('/ringkasan', arguments: widget.previousData),
         ),
       ),
     );
