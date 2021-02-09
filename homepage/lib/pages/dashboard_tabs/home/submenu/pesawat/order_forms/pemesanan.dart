@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/passenggers_model.dart';
 import 'package:homepage/models/order_detail_model.dart';
+import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/order_details_sheet.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/passenger_details_sheet.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/pemesanan_bottom_bar.dart';
@@ -10,8 +11,11 @@ import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 List _perlindungan = [false, false];
 
 class Pemesanan extends StatefulWidget {
+  final TransportationModel previousData;
+
   Pemesanan({
     Key key,
+    this.previousData,
   }) : super(key: key);
 
   @override
@@ -39,7 +43,7 @@ class _PemesananState extends State<Pemesanan> {
           children: [
             PenerbanganDetail(
               onTap: () {
-                // ticketDetails(context, 'Pemesanan');
+                ticketDetails(context, 'Pemesanan', widget.previousData);
               },
             ),
             Divider(thickness: 10),

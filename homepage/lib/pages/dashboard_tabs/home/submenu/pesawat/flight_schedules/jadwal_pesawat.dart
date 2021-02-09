@@ -156,7 +156,10 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/pemesanan');
+                  Navigator.of(context).pushNamed(
+                    '/pemesanan',
+                    arguments: widget.previousData,
+                  );
                 },
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
