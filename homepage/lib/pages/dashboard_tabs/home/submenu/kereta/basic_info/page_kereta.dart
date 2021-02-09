@@ -6,14 +6,14 @@ import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 
-class PagePesawat extends StatefulWidget {
+class PageKereta extends StatefulWidget {
   @override
-  _PagePesawatState createState() => _PagePesawatState();
+  _PageKeretaState createState() => _PageKeretaState();
 }
 
-class _PagePesawatState extends State<PagePesawat> {
+class _PageKeretaState extends State<PageKereta> {
   TransportationModel data = TransportationModel(
-    transportationType: 'Pesawat',
+    transportationType: 'Kereta',
     isTwoWayTrip: false,
   ); // sisanya masih null
 
@@ -45,11 +45,11 @@ class _PagePesawatState extends State<PagePesawat> {
                 children: [
                   BasicInfoListTile(
                     data: data.origin,
-                    name: 'Bandara Asal',
-                    icon: Icons.flight_takeoff,
+                    name: 'Stasiun Asal',
+                    icon: Icons.train,
                     onPressed: () async {
                       var result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Bandara Asal');
+                          .pushNamed('/search_page', arguments: 'Stasiun Asal');
                       setState(() {
                         data.origin = result ?? data.origin;
                       });
@@ -58,12 +58,12 @@ class _PagePesawatState extends State<PagePesawat> {
                   Divider(),
                   BasicInfoListTile(
                     data: data.destination,
-                    name: 'Bandara Destinasi',
-                    icon: Icons.flight_land,
+                    name: 'Stasiun Destinasi',
+                    icon: Icons.train,
                     onPressed: () async {
                       var result = await Navigator.of(context).pushNamed(
                           '/search_page',
-                          arguments: 'Bandara Destinasi');
+                          arguments: 'Stasiun Destinasi');
                       setState(() {
                         data.destination = result ?? data.destination;
                       });
@@ -106,22 +106,19 @@ class _PagePesawatState extends State<PagePesawat> {
                       });
                     },
                   ),
-                  Visibility(
-                    visible: data.isTwoWayTrip,
-                    child: BasicInfoListTile(
-                      data: data.dateReturn,
-                      name: 'Tanggal Pulang',
-                      icon: Icons.calendar_today,
-                      onPressed: () async {
-                        var result = await dateRangePicker(context);
-                        if (result != null) {
-                          setState(() {
-                            data.dateDepart = result[0] ?? data.dateDepart;
-                            data.dateReturn = result[1] ?? data.dateReturn;
-                          });
-                        }
-                      },
-                    ),
+                  BasicInfoListTile(
+                    data: data.dateReturn,
+                    name: 'Tanggal Pulang',
+                    icon: Icons.calendar_today,
+                    onPressed: () async {
+                      var result = await dateRangePicker(context);
+                      if (result != null) {
+                        setState(() {
+                          data.dateDepart = result[0] ?? data.dateDepart;
+                          data.dateReturn = result[1] ?? data.dateReturn;
+                        });
+                      }
+                    },
                   ),
                   Divider(),
                   BasicInfoListTile(
@@ -148,35 +145,21 @@ class _PagePesawatState extends State<PagePesawat> {
                       });
                     },
                   ),
-                  Divider(),
-                  BasicInfoListTile(
-                    data: data.airline,
-                    name: 'Maskapai',
-                    icon: Icons.airplanemode_active,
-                    onPressed: () async {
-                      final result = await Navigator.of(context)
-                          .pushNamed('/search_page', arguments: 'Maskapai');
-                      setState(() {
-                        data.airline = result ?? data.airline;
-                      });
-                    },
-                  ),
                   BigButton(
-                    title: 'Cari Penerbangan',
+                    title: 'Cari Kereta',
                     onPressed: ([
                               data.origin,
                               data.destination,
                               data.dateDepart,
                               data.passengers,
                               data.cabinClass,
-                              data.airline,
                             ].contains(null) ||
                             (data.isTwoWayTrip == true &&
                                 data.dateReturn == null))
                         ? null
                         : () {
                             Navigator.of(context).pushNamed(
-                              '/jadwal_pesawat',
+                              '/jadwal_kereta',
                               arguments: data,
                             );
                           },
