@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/tab_detailed.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/tab_price.dart';
-import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
+import 'package:homepage/models/transportation_model.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/detail_harga.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/detail_pergi.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/detail_pulang.dart';
 
 class TicketDetailsPage extends StatefulWidget {
+  final TransportationModel previousData;
+
+  const TicketDetailsPage({
+    Key key,
+    this.previousData,
+  }) : super(key: key);
+
   @override
   _TicketDetailsPageState createState() => _TicketDetailsPageState();
 }
@@ -17,12 +25,11 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
         title: Text('ORDER ID : 348348348'),
       ),
       body: DefaultTabController(
-        length: 2,
+        length: 3,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.9,
           child: Column(
             children: [
-              SlideUpMarker(),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Padding(
@@ -75,7 +82,10 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                   labelColor: Colors.black,
                   unselectedLabelColor: Colors.grey,
                   tabs: [
-                    Tab(text: "Detail"),
+                    Tab(text: "Pergi"),
+                    Visibility(
+                        visible: widget.previousData.isTwoWayTrip,
+                        child: Tab(text: "Pulang")),
                     Tab(text: "Harga"),
                   ],
                 ),
@@ -83,8 +93,12 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
               Flexible(
                 child: TabBarView(
                   children: [
-                    TabDetailed(),
-                    TabPrice(),
+                    PergiTab(),
+                    Visibility(
+                      visible: widget.previousData.isTwoWayTrip,
+                      child: PulangTab(),
+                    ),
+                    HargaTab(),
                   ],
                 ),
               ),

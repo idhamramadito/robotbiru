@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
+import 'package:intl/intl.dart';
 
-class PenerbanganDetail extends StatefulWidget {
-  PenerbanganDetail({
+class DetailPenerbangan extends StatefulWidget {
+  final TransportationModel previousData;
+
+  DetailPenerbangan({
     Key key,
     this.onTap,
+    this.previousData,
   }) : super(key: key);
   final Function onTap;
   @override
   _PenerbanganDetailState createState() => _PenerbanganDetailState();
 }
 
-class _PenerbanganDetailState extends State<PenerbanganDetail> {
+class _PenerbanganDetailState extends State<DetailPenerbangan> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,7 +40,7 @@ class _PenerbanganDetailState extends State<PenerbanganDetail> {
             child: Row(
               children: [
                 Text(
-                  'Jakarta',
+                  widget.previousData.origin,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -43,7 +48,7 @@ class _PenerbanganDetailState extends State<PenerbanganDetail> {
                 ),
                 Icon(Icons.arrow_right_alt, size: 40),
                 Text(
-                  'Denpasar - Bali',
+                  widget.previousData.destination,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -76,23 +81,9 @@ class _PenerbanganDetailState extends State<PenerbanganDetail> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            '20 Januari 2021 ',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          Icon(Icons.circle, size: 5),
-                          Text(
-                            ' 1 Dewasa ',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          Icon(Icons.circle, size: 5),
-                          Text(
-                            ' Ekonomi',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
+                      Text(
+                        '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengers[0][1] > 0) ? '${widget.previousData.passengers[0][1]} ${widget.previousData.passengers[0][0]}' : ''}${(widget.previousData.passengers[1][1] > 0) ? ', ${widget.previousData.passengers[1][1]} ${widget.previousData.passengers[1][0]}' : ''}${(widget.previousData.passengers[2][1] > 0) ? ', ${widget.previousData.passengers[2][1]} ${widget.previousData.passengers[2][0]}' : ''}',
+                        style: TextStyle(fontSize: 13, color: Colors.white),
                       ),
                       Icon(Icons.keyboard_arrow_down, size: 30),
                     ],

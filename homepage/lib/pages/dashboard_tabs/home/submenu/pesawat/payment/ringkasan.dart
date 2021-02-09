@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
@@ -12,10 +13,12 @@ import 'package:image_picker/image_picker.dart';
 
 class Ringkasan extends StatefulWidget {
   final List<List> data;
+  final TransportationModel previousData;
 
   Ringkasan({
     Key key,
     List<List> data,
+    this.previousData,
   })  : this.data = data,
         super(key: key);
 
@@ -214,9 +217,10 @@ class _RingkasanState extends State<Ringkasan> {
                 SizedBox(height: 10),
                 Divider(thickness: 10),
                 SizedBox(height: 10),
-                PenerbanganDetail(
+                DetailPenerbangan(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/detail_penerbangan');
+                    Navigator.of(context).pushNamed('/detail_penerbangan',
+                        arguments: widget.previousData);
                   },
                 ),
                 SizedBox(height: 20),

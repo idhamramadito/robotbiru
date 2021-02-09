@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TabDetailed extends StatelessWidget {
-  const TabDetailed({
+class PulangTab extends StatelessWidget {
+  const PulangTab({
     Key key,
   }) : super(key: key);
 

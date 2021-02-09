@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class PemesananBottomBar extends StatefulWidget {
+  final TransportationModel previousData;
+
   const PemesananBottomBar({
     Key key,
+    this.previousData,
   }) : super(key: key);
 
   @override
@@ -57,7 +61,8 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
           BigButton(
               title: 'Lanjut Pembayaran',
               onPressed: () {
-                Navigator.of(context).pushNamed('/pembayaran');
+                Navigator.of(context)
+                    .pushNamed('/pembayaran', arguments: widget.previousData);
               }),
         ],
       ),

@@ -88,6 +88,54 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
         ),
       ),
       body: Column(children: [
+        Card(
+          color: Colors.blue[50],
+          child: ListTile(
+              leading: Image.asset('images/pesawat_biru.png'),
+              title: Text(
+                'Japan Airlines',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Row(
+                children: [
+                  Text(
+                    'Rp 305.200',
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  Text('/Orang'),
+                ],
+              ),
+              trailing: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.blue,
+                    side: BorderSide(color: Colors.blue),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15)))),
+                child: Text('Ubah'),
+                onPressed: () {},
+              )
+              // Container(
+              //   width: 65,
+              //   height: 23,
+              //   decoration: new BoxDecoration(
+              //       borderRadius: BorderRadius.all(Radius.circular(15.0)),
+              //       border: Border.all(color: Colors.blue)),
+              //   child: Center(
+              //     child: Text(
+              //       "Ubah",
+              //       style: TextStyle(
+              //         fontSize: 14,
+              //         color: Colors.blue,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              ),
+        ),
         Center(
           child: Container(
             height: 60,

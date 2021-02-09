@@ -8,8 +8,6 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/U
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 
-List _perlindungan = [false, false];
-
 class Pemesanan extends StatefulWidget {
   final TransportationModel previousData;
 
@@ -30,6 +28,7 @@ class _PemesananState extends State<Pemesanan> {
     PassengersModel(),
     PassengersModel(),
   ];
+  List _perlindungan = [false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,8 @@ class _PemesananState extends State<Pemesanan> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            PenerbanganDetail(
+            DetailPenerbangan(
+              previousData: widget.previousData,
               onTap: () {
                 ticketDetails(context, 'Pemesanan', widget.previousData);
               },
@@ -265,7 +265,8 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                     child: ListTile(
                       onTap: () {
-                        Navigator.of(context).pushNamed('/bagasi');
+                        Navigator.of(context).pushNamed('/bagasi',
+                            arguments: widget.previousData);
                       },
                       leading: Image.asset('images/bagasi.png'),
                       title: Text(
@@ -443,7 +444,8 @@ class _PemesananState extends State<Pemesanan> {
           ],
         ),
       ),
-      bottomNavigationBar: PemesananBottomBar(),
+      bottomNavigationBar:
+          PemesananBottomBar(previousData: widget.previousData),
     );
   }
 }

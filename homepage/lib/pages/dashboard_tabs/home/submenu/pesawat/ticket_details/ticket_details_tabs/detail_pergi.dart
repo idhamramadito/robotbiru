@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TabDetailed extends StatelessWidget {
-  const TabDetailed({
+class PergiTab extends StatelessWidget {
+  const PergiTab({
     Key key,
   }) : super(key: key);
 
