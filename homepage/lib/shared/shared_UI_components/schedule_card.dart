@@ -162,7 +162,20 @@ class ScheduleCard extends StatelessWidget {
                             ))
                       ]),
                       Row(children: <Widget>[
-                        Text("Sisa ${flightSchedule.chairLeft} kursi",
+                        Visibility(
+                            visible:
+                                previousData.transportationType == 'Pesawat'
+                                    ? true
+                                    : false,
+                            child: Icon(Icons.airline_seat_recline_extra,
+                                color: Colors.blue)),
+                        SizedBox(
+                          width: 1,
+                        ),
+                        Text(
+                            previousData.transportationType == 'Pesawat'
+                                ? "Sisa ${flightSchedule.chairLeft} kursi"
+                                : flightSchedule.chairClass,
                             style: TextStyle(
                               fontSize: 17,
                             )),

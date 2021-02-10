@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/train_schedules/filter_list.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/train_schedules/UI_components/schedule_card.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/filter_list.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
+import 'package:homepage/shared/shared_UI_components/schedule_card.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:intl/intl.dart';
 
@@ -19,10 +19,9 @@ class JadwalKereta extends StatefulWidget {
 }
 
 class _JadwalKeretaState extends State<JadwalKereta> {
-  List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
   List<FlightScheduleModel> _jadwalPenerbangan = [
     FlightScheduleModel(
-      iconAirline: "images/japan-airlines.png",
+      iconAirline: "images/logo_kereta.png",
       id: "",
       airlineName: "Jakarta Airlines",
       depTime: "05.00",
@@ -40,46 +39,7 @@ class _JadwalKeretaState extends State<JadwalKereta> {
       cashback: 2500,
       anggota: 2500,
       retail: 2500,
-    ),
-    FlightScheduleModel(
-      iconAirline: "images/japan-airlines.png",
-      id: "",
-      airlineName: "Jakarta Airlines",
-      depTime: "05.00",
-      depAirportCode: "CGK",
-      depAirport: 'Soekarno Hatta',
-      depCity: 'Jakarta',
-      flightTime: "10J",
-      flightType: "Langsung",
-      arrTime: "15.00",
-      arrAirportCode: "DPS",
-      arrAirport: 'Ngurah Rai',
-      arrCity: 'Denpasar - Bali',
-      chairLeft: 2,
-      ticketPrice: 315000,
-      cashback: 2500,
-      anggota: 2500,
-      retail: 2500,
-    ),
-    FlightScheduleModel(
-      iconAirline: "images/japan-airlines.png",
-      id: "",
-      airlineName: "Jakarta Airlines",
-      depTime: "05.00",
-      depAirportCode: "CGK",
-      depAirport: 'Soekarno Hatta',
-      depCity: 'Jakarta',
-      flightTime: "10J",
-      flightType: "Langsung",
-      arrTime: "15.00",
-      arrAirportCode: "DPS",
-      arrAirport: 'Ngurah Rai',
-      arrCity: 'Denpasar - Bali',
-      chairLeft: 2,
-      ticketPrice: 315000,
-      cashback: 2500,
-      anggota: 2500,
-      retail: 2500,
+      chairClass: "Economy (Subclass C)",
     ),
   ];
 
@@ -151,65 +111,6 @@ class _JadwalKeretaState extends State<JadwalKereta> {
                 ),
               ),
             ),
-          Center(
-            child: Container(
-              width: 392,
-              height: 60,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 4,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.grey[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.grey[300])),
-                        child: new Text(
-                          '${_filterButton[0]}',
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.grey[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.grey[300])),
-                        child: new Text(
-                          '${_filterButton[1]}',
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                      onPressed: () {},
-                      color: Colors.grey[200],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.grey[300])),
-                      child: new Text(
-                        '${_filterButton[2]}',
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
