@@ -336,6 +336,15 @@ class _RingkasanState extends State<Ringkasan> {
                     title: 'Ubah Metode Pembayaran',
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: WhiteButton(
+                    onPressed: () {
+                      Navigator.of(context).popUntil((route) => route.isFirst);
+                    },
+                    title: 'Kembali Ke Menu',
+                  ),
+                ),
               ],
             )
           ],
