@@ -63,7 +63,8 @@ class _PemesananState extends State<Pemesanan> {
             DetailPenerbangan(
               previousData: widget.prevData,
               onTap: () {
-                ticketDetails(context, 'Pemesanan', widget.prevData);
+                ticketDetails(context, 'Pemesanan',
+                    widget.prevData.chosenDepartSchedule, widget.prevData);
               },
             ),
             Divider(thickness: 10),

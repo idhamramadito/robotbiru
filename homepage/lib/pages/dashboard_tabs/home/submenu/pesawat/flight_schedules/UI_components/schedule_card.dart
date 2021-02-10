@@ -57,8 +57,8 @@ class ScheduleCard extends StatelessWidget {
                           color: Colors.grey,
                         ),
                         onPressed: () {
-                          ticketDetails(
-                              context, 'Jadwal Pesawat', previousData);
+                          ticketDetails(context, 'Jadwal Pesawat',
+                              flightSchedule, previousData);
                         },
                       ),
                     ),
