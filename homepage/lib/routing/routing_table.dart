@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/page_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
+
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -9,15 +10,15 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/invoice_pulsa.d
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/page_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice_token_listrik.dart';
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
-import 'package:homepage/shared/shared_pages/kebijakan_pembatalan.dart';
-import 'package:homepage/shared/shared_pages/list_jadwal_kendaraan.dart';
-import 'package:homepage/shared/shared_pages/payment/pembayaran.dart';
-import 'package:homepage/shared/shared_pages/payment/ringkasan.dart';
-import 'package:homepage/shared/shared_pages/payment/ticket_details_page.dart';
-import 'package:homepage/shared/shared_pages/pemesanan.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
-import 'package:homepage/shared/shared_pages/total_pembayaran.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/kebijakan_pembatalan.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/list_jadwal_kendaraan.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/pembayaran.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ringkasan.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ticket_details_page.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/pemesanan.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/total_pembayaran.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
 
 class RoutingTable {

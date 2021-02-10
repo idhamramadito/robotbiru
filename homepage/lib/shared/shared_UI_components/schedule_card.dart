@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
 import 'package:homepage/models/transportation_model.dart';
-import 'package:homepage/shared/shared_pages/ticket_details/ticket_details.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details.dart';
 import 'package:intl/intl.dart';
 
 class ScheduleCard extends StatelessWidget {
