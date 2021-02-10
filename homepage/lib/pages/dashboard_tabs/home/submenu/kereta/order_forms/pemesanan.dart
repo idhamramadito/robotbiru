@@ -5,8 +5,8 @@ import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/order_details_sheet.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/passenger_details_sheet.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/pemesanan_bottom_bar.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
+import 'package:homepage/shared/shared_pages/ticket_details/ticket_details.dart';
 
 class Pemesanan extends StatefulWidget {
   final TransportationModel prevData;
