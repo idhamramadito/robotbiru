@@ -72,7 +72,25 @@ class _PagePesawatState extends State<PagePesawat> {
                       });
                     },
                   ),
-                  Divider(),
+                  Row(
+                    children: [
+                      Expanded(child: Divider()),
+                      RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            String temp = data.origin;
+                            data.origin = data.destination;
+                            data.destination = temp;
+                          });
+                        },
+                        color: Colors.white,
+                        textColor: Colors.blue,
+                        child: Icon(Icons.sync),
+                        padding: EdgeInsets.all(10),
+                        shape: CircleBorder(),
+                      ),
+                    ],
+                  ),
                   BasicInfoListTile(
                     data: data.destination,
                     name: 'Bandara Destinasi',
@@ -111,7 +129,6 @@ class _PagePesawatState extends State<PagePesawat> {
                             });
                           },
                   ),
-                  Divider(),
                   SwitchListTile(
                     dense: true,
                     title: Text(
