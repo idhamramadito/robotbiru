@@ -130,7 +130,7 @@ class TabFasilitas extends StatelessWidget {
             ),
           ),
           Divider(thickness: 5),
-          if (flightSchedule.flightType == 'Transit')
+          if (flightSchedule.flightType.contains('Transit'))
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(

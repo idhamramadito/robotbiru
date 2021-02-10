@@ -128,7 +128,7 @@ class TabPerjalanan extends StatelessWidget {
                 ),
               ],
             ),
-            if (flightSchedule.flightType == 'Transit')
+            if (flightSchedule.flightType.contains('Transit'))
               Column(
                 children: [
                   Container(
