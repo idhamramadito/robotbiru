@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/transportation_model.dart';
+import 'package:homepage/models/flight_schedule_model.dart';
 
 class TabPerjalanan extends StatelessWidget {
-  final TransportationModel data;
-
   const TabPerjalanan({
     Key key,
-    this.data,
+    @required this.flightSchedule,
   }) : super(key: key);
+
+  final FlightScheduleModel flightSchedule;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class TabPerjalanan extends StatelessWidget {
             ListTile(
               dense: true,
               leading: Image.asset(
-                  '${data.chosenDepartSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                  '${flightSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
               title: Text(
-                '${data.chosenDepartSchedule.airlineName}',
+                '${flightSchedule.airlineName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -43,7 +43,7 @@ class TabPerjalanan extends StatelessWidget {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '${data.chosenDepartSchedule.flightTime}',
+                        '${flightSchedule.flightTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -71,7 +71,7 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${data.chosenDepartSchedule.depTime}',
+                                '${flightSchedule.depTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -80,11 +80,10 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${data.chosenDepartSchedule.depCity} (${data.chosenDepartSchedule.depAirportCode})',
+                                '${flightSchedule.depCity} (${flightSchedule.depAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text(
-                                  '${data.chosenDepartSchedule.depAirport}'),
+                              subtitle: Text('${flightSchedule.depAirport}'),
                             ),
                           ),
                         ],
@@ -94,7 +93,7 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${data.chosenDepartSchedule.flightTime}',
+                                '${flightSchedule.flightTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -107,7 +106,7 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${data.chosenDepartSchedule.arrTime}',
+                                '${flightSchedule.arrTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -116,11 +115,10 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${data.chosenDepartSchedule.arrCity} (${data.chosenDepartSchedule.arrAirportCode})',
+                                '${flightSchedule.arrCity} (${flightSchedule.arrAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text(
-                                  '${data.chosenDepartSchedule.arrAirport}'),
+                              subtitle: Text('${flightSchedule.arrAirport}'),
                             ),
                           ),
                         ],
@@ -130,8 +128,7 @@ class TabPerjalanan extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            if (data.isTwoWayTrip)
+            if (flightSchedule.isTransit == true)
               Column(
                 children: [
                   Container(
@@ -145,7 +142,6 @@ class TabPerjalanan extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
-                        // TODO: masih hardcoding
                         text: '0j 50m  ',
                         style: TextStyle(
                           color: Colors.black,
@@ -164,13 +160,12 @@ class TabPerjalanan extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
                   ListTile(
                     dense: true,
                     leading: Image.asset(
-                        '${data.chosenDepartSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                        '${flightSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
                     title: Text(
-                      '${data.chosenDepartSchedule.airlineName}',
+                      '${flightSchedule.airlineName}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -191,7 +186,7 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(child: Image.asset('images/gray_clock.png')),
                           Flexible(
                             child: Text(
-                              '${data.chosenDepartSchedule.flightTime}',
+                              '${flightSchedule.flightTime}',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
@@ -219,7 +214,7 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${data.chosenReturnSchedule.depTime}',
+                                      '${flightSchedule.depTime}',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -229,12 +224,12 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${data.chosenReturnSchedule.depCity} (${data.chosenReturnSchedule.depAirportCode})',
+                                      '${flightSchedule.depCity} (${flightSchedule.depAirportCode})',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    subtitle: Text(
-                                        '${data.chosenReturnSchedule.depAirport}'),
+                                    subtitle:
+                                        Text('${flightSchedule.depAirport}'),
                                   ),
                                 ),
                               ],
@@ -244,7 +239,7 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${data.chosenReturnSchedule.flightTime}',
+                                      '${flightSchedule.flightTime}',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -258,7 +253,7 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${data.chosenReturnSchedule.arrTime}',
+                                      '${flightSchedule.arrTime}',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -268,12 +263,12 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${data.chosenReturnSchedule.arrCity} (${data.chosenReturnSchedule.arrAirportCode})',
+                                      '${flightSchedule.arrCity} (${flightSchedule.arrAirportCode})',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    subtitle: Text(
-                                        '${data.chosenReturnSchedule.arrAirport}'),
+                                    subtitle:
+                                        Text('${flightSchedule.arrAirport}'),
                                   ),
                                 ),
                               ],
@@ -283,7 +278,6 @@ class TabPerjalanan extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Divider(thickness: 2),
                 ],
               ),
             InkWell(

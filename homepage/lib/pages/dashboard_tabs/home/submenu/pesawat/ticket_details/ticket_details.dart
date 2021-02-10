@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:homepage/models/flight_schedule_model.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/UI_components/ticket_details_bottom_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_fasilitas.dart';
@@ -7,8 +8,8 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_detail
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_perjalanan.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-Future ticketDetails(
-    BuildContext context, String sourcePage, TransportationModel data) {
+Future ticketDetails(BuildContext context, String sourcePage,
+    FlightScheduleModel flightSchedule, TransportationModel data) {
   return showModalBottomSheet(
     isScrollControlled: true,
     context: context,
@@ -40,28 +41,28 @@ Future ticketDetails(
                   Column(
                     children: [
                       Text(
-                        '${data.chosenDepartSchedule.depAirportCode}',
+                        '${flightSchedule.depAirportCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text('${data.chosenDepartSchedule.depCity}'),
+                      Text('${flightSchedule.depCity}'),
                     ],
                   ),
                   Image.asset('images/plane_with_trail.png', width: 50),
                   Column(
                     children: [
                       Text(
-                        '${data.chosenDepartSchedule.arrAirportCode}',
+                        '${flightSchedule.arrAirportCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
                       ),
-                      Text('${data.chosenDepartSchedule.arrCity}'),
+                      Text('${flightSchedule.arrCity}'),
                     ],
                   ),
                 ],
@@ -81,13 +82,14 @@ Future ticketDetails(
               Flexible(
                 child: TabBarView(
                   children: [
-                    TabPerjalanan(data: data),
-                    TabFasilitas(data: data),
-                    TabHarga(data: data),
+                    TabPerjalanan(flightSchedule: flightSchedule),
+                    TabFasilitas(flightSchedule: flightSchedule),
+                    TabHarga(flightSchedule: flightSchedule),
                   ],
                 ),
               ),
-              TicketDetailsBottomBar(sourcePage: sourcePage),
+              // TicketDetailsBottomBar(sourcePage: sourcePage),
+              // TODO: MASIH BUGGY, HARUS DIPERBAIKI
             ],
           ),
         ),
