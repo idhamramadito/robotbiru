@@ -72,7 +72,7 @@ class TabFasilitas extends StatelessWidget {
                       ),
                       SizedBox(width: 25),
                       Text(
-                        '7Kg',
+                        '7Kg', //TODO: masih hardcoding
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 17),
                       ),
@@ -185,7 +185,7 @@ class TabFasilitas extends StatelessWidget {
                             ),
                             SizedBox(width: 25),
                             Text(
-                              '7Kg',
+                              '7Kg', //TODO: masih hardcoding
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 17),
                             ),

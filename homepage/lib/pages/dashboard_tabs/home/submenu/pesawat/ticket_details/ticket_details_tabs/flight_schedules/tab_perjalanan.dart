@@ -145,6 +145,7 @@ class TabPerjalanan extends StatelessWidget {
                     ),
                     child: RichText(
                       text: TextSpan(
+                        // TODO: masih hardcoding
                         text: '0j 50m  ',
                         style: TextStyle(
                           color: Colors.black,

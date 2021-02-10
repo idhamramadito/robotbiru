@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/filter_list.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/schedule_card.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/UI_components/schedule_card.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:intl/intl.dart';
@@ -239,7 +239,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                             .previousData.chosenDepartSchedule;
                               });
                             }
-                          // TODO: ganti schedule list dari yg pergi ke yg pulang
+                          // TODO: ganti list flightSchedule dari yg pergi ke yg pulang
                           : () {
                               setState(() {
                                 widget.previousData.chosenReturnSchedule =
