@@ -62,9 +62,8 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
             title: 'Lanjut Pembayaran',
             onPressed: ([
               widget.prevData.orderDetails.name,
-              widget.prevData.passengersDetails[0].name,
-              widget.prevData.passengersDetails[1].name,
-              widget.prevData.passengersDetails[2].name,
+              for (var element in widget.prevData.passengersDetails)
+                element.name
             ].contains(null))
                 ? null
                 : () {

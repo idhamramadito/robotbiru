@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_model.dart';
 
-class PergiTab extends StatelessWidget {
+class PergiTab extends StatefulWidget {
   final TransportationModel prevData;
   const PergiTab({
     Key key,
     this.prevData,
   }) : super(key: key);
+
+  @override
+  _PergiTabState createState() => _PergiTabState();
+}
+
+class _PergiTabState extends State<PergiTab> {
+  @override
+  void initState() {
+    print('${widget.prevData.passengersDetails[0].ageType ?? 'kosong'}');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +30,9 @@ class PergiTab extends StatelessWidget {
             child: ListTile(
               dense: true,
               leading: Image.asset(
-                  '${prevData.chosenDepartSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                  '${widget.prevData.chosenDepartSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
               title: Text(
-                '${prevData.chosenDepartSchedule.airlineName}',
+                '${widget.prevData.chosenDepartSchedule.airlineName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -42,7 +53,7 @@ class PergiTab extends StatelessWidget {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '${prevData.chosenDepartSchedule.flightTime}',
+                        '${widget.prevData.chosenDepartSchedule.flightTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -75,7 +86,7 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenDepartSchedule.depTime}',
+                                '${widget.prevData.chosenDepartSchedule.depTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -84,11 +95,11 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenDepartSchedule.depCity} (${prevData.chosenDepartSchedule.depAirportCode})',
+                                '${widget.prevData.chosenDepartSchedule.depCity} (${widget.prevData.chosenDepartSchedule.depAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${prevData.chosenDepartSchedule.depAirport}'),
+                                  '${widget.prevData.chosenDepartSchedule.depAirport}'),
                             ),
                           ),
                         ],
@@ -98,7 +109,7 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenDepartSchedule.flightTime}',
+                                '${widget.prevData.chosenDepartSchedule.flightTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -111,7 +122,7 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenDepartSchedule.arrTime}',
+                                '${widget.prevData.chosenDepartSchedule.arrTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -120,11 +131,11 @@ class PergiTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenDepartSchedule.arrCity} (${prevData.chosenDepartSchedule.arrAirportCode})',
+                                '${widget.prevData.chosenDepartSchedule.arrCity} (${widget.prevData.chosenDepartSchedule.arrAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${prevData.chosenDepartSchedule.arrAirport}'),
+                                  '${widget.prevData.chosenDepartSchedule.arrAirport}'),
                             ),
                           ),
                         ],
@@ -192,12 +203,12 @@ class PergiTab extends StatelessWidget {
                     shrinkWrap: true,
                     padding: EdgeInsets.zero,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: prevData.passengersDetails.length,
+                    itemCount: widget.prevData.passengersDetails.length,
                     itemBuilder: (context, index) {
                       return ListTile(
                         dense: true,
                         title: Text(
-                          '${prevData.passengersDetails[index].title ?? ''} ${prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}'}',
+                          '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}'}',
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -214,7 +225,7 @@ class PergiTab extends StatelessWidget {
                             padding: const EdgeInsets.all(0),
                             child: Center(
                               child: Text(
-                                "${prevData.passengersDetails[index].ageType ?? ''}",
+                                "${widget.prevData.passengersDetails[index].ageType}",
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey[500],
