@@ -1,34 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-List _rekomendasi = [
-  ["Harga Terendah", false],
-  ["Keberangkatan Paling Awal", false],
-  ["Keberangkatan Paling Akhir", false],
-  ["Kedatangan Paling Awal", false],
-  ["Kedatangan Paling Akhir", true],
-  ["Durasi Tercepat", false],
-];
-
-List _filterDengan = [
-  ["Langsung", false],
-  ["1 Transit", false],
-  ["2 Transit", false],
-];
-List _filterWaktu = [
+List _waktuPergi = [
   ["00:00 - 06:00", false],
   ["06:00 - 12:00", false],
   ["12:00 - 18:00", false],
+  ["18:00 - 24:00", false],
 ];
-List _filterFasiitas = [
-  ["Bagasi", false],
-  ["Makanan", false],
-  ["Wi-Fi", false],
-  ["Hiburan", false],
-  ["USB", false],
+
+List _waktuTiba = [
+  ["00:00 - 06:00", false],
+  ["06:00 - 12:00", false],
+  ["12:00 - 18:00", false],
+  ["18:00 - 24:00", false],
+];
+List _kelas = [
+  ["Ekonomi", false],
+  ["Eksekutif", false],
+  ["First Class", false],
+];
+List _namaKereta = [
+  ["Argo Parahyangan", false],
+  ["Serayu", false],
+  ["Thomas", false],
+];
+
+List _urutkanDengan = [
+  "Harga Terendah",
+  "Keberangkatan Paling Awal",
+  "Keberangkatan Paling Akhir",
+  "Kedatangan Paling Awal",
+  "Kedatangan Paling Akhir",
+  "Durasi Tercepat",
 ];
 bool isPressed = false;
 int selectedValue;
+String temp = _urutkanDengan[1];
 
 Future filterList(BuildContext context) {
   return showModalBottomSheet(
@@ -61,96 +68,29 @@ Future filterList(BuildContext context) {
                           Text(
                             "Urutkan dan Filter",
                             style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25),
-                      child: ExpansionTile(
-                        expandedAlignment: Alignment.centerLeft,
-                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                        title: Text(
-                          'Urutkan',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
-                        ),
-                        children: [
-                          ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: _rekomendasi.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                child: InkWell(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            0, 0, 0, 10),
-                                        child: Text(
-                                          _rekomendasi[index][0],
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: selectedValue == index
-                                                ? Theme.of(context).primaryColor
-                                                : Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  onTap: () {
-                                    mystate(() {
-                                      selectedValue = index;
-                                    });
-                                  },
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 25),
-                        child: Divider()),
                     Container(
                       margin:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "Filter Dengan",
+                            "Urutkan",
                             style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                                fontSize: 17, fontWeight: FontWeight.bold),
                           ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 25),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Durasi Transit",
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          )
                         ],
                       ),
                     ),
                     ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: _filterDengan.length,
+                        itemCount: _urutkanDengan.length,
                         itemBuilder: (context, index) {
                           return Container(
                               margin: EdgeInsets.symmetric(
@@ -161,24 +101,24 @@ Future filterList(BuildContext context) {
                                 children: [
                                   InkWell(
                                     child: Text(
-                                      _filterDengan[index][0],
+                                      _urutkanDengan[index],
                                       style: TextStyle(
                                         fontSize: 15,
-                                        color: isPressed
+                                        color: temp == _urutkanDengan[index]
                                             ? Theme.of(context).primaryColor
-                                            : Colors.black,
+                                            : Colors.grey[500],
                                       ),
                                     ),
                                   ),
-                                  Checkbox(
-                                      value: _filterDengan[index][1],
-                                      activeColor:
-                                          Theme.of(context).primaryColor,
-                                      onChanged: (value) {
-                                        mystate(() {
-                                          _filterDengan[index][1] = value;
-                                        });
-                                      }),
+                                  Radio(
+                                    value: _urutkanDengan[index],
+                                    groupValue: temp,
+                                    onChanged: (value) {
+                                      mystate(() {
+                                        temp = value;
+                                      });
+                                    },
+                                  ),
                                 ],
                               ));
                         }),
@@ -193,7 +133,21 @@ Future filterList(BuildContext context) {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "Waktu Transit",
+                            "Filter",
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Waktu Pergi",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -203,7 +157,7 @@ Future filterList(BuildContext context) {
                     ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: _filterWaktu.length,
+                        itemCount: _waktuPergi.length,
                         itemBuilder: (context, index) {
                           return Container(
                               margin: EdgeInsets.symmetric(
@@ -213,18 +167,19 @@ Future filterList(BuildContext context) {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    _filterWaktu[index][0],
+                                    _waktuPergi[index][0],
                                     style: TextStyle(
                                       fontSize: 15,
+                                      color: Colors.grey[500],
                                     ),
                                   ),
                                   Checkbox(
-                                      value: _filterWaktu[index][1],
+                                      value: _waktuPergi[index][1],
                                       activeColor:
                                           Theme.of(context).primaryColor,
                                       onChanged: (value) {
                                         mystate(() {
-                                          _filterWaktu[index][1] = value;
+                                          _waktuPergi[index][1] = value;
                                         });
                                       }),
                                 ],
@@ -241,7 +196,7 @@ Future filterList(BuildContext context) {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "Fasilitas",
+                            "Waktu Tiba",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
@@ -249,8 +204,9 @@ Future filterList(BuildContext context) {
                       ),
                     ),
                     ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: _filterFasiitas.length,
+                        itemCount: _waktuTiba.length,
                         itemBuilder: (context, index) {
                           return Container(
                               margin: EdgeInsets.symmetric(
@@ -260,23 +216,122 @@ Future filterList(BuildContext context) {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    _filterFasiitas[index][0],
+                                    _waktuTiba[index][0],
                                     style: TextStyle(
                                       fontSize: 15,
+                                      color: Colors.grey[500],
                                     ),
                                   ),
                                   Checkbox(
-                                      value: _filterFasiitas[index][1],
+                                      value: _waktuTiba[index][1],
                                       activeColor:
                                           Theme.of(context).primaryColor,
                                       onChanged: (value) {
                                         mystate(() {
-                                          _filterFasiitas[index][1] = value;
+                                          _waktuTiba[index][1] = value;
                                         });
                                       }),
                                 ],
                               ));
-                        })
+                        }),
+                    Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 25),
+                        child: Divider()),
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Kelas",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: _kelas.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 25),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    _kelas[index][0],
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.grey[500],
+                                    ),
+                                  ),
+                                  Checkbox(
+                                      value: _kelas[index][1],
+                                      activeColor:
+                                          Theme.of(context).primaryColor,
+                                      onChanged: (value) {
+                                        mystate(() {
+                                          _kelas[index][1] = value;
+                                        });
+                                      }),
+                                ],
+                              ));
+                        }),
+                    Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 25),
+                        child: Divider()),
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Nama Kereta",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: _namaKereta.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 25),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    _namaKereta[index][0],
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.grey[500],
+                                    ),
+                                  ),
+                                  Checkbox(
+                                      value: _namaKereta[index][1],
+                                      activeColor:
+                                          Theme.of(context).primaryColor,
+                                      onChanged: (value) {
+                                        mystate(() {
+                                          _namaKereta[index][1] = value;
+                                        });
+                                      }),
+                                ],
+                              ));
+                        }),
                   ],
                 ),
               );
