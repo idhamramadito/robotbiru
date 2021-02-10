@@ -13,6 +13,7 @@ class FlightScheduleModel {
   String arrAirport;
   String arrCity;
   int chairLeft;
+  String chairClass;
   double ticketPrice;
   double cashback;
   double anggota;
@@ -36,6 +37,7 @@ class FlightScheduleModel {
     String arrAirportCode,
     String arrCity,
     int chairLeft,
+    String chairClass,
     double ticketPrice,
     double cashback,
     double anggota,
@@ -55,6 +57,7 @@ class FlightScheduleModel {
         this.arrAirport = arrAirport,
         this.arrCity = arrCity,
         this.chairLeft = chairLeft,
+        this.chairClass = chairClass,
         this.ticketPrice = ticketPrice,
         this.cashback = cashback,
         this.anggota = anggota,

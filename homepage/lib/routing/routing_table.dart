@@ -19,6 +19,7 @@ import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/jadwal_kereta.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -78,6 +79,8 @@ class RoutingTable {
       //khusus tiket kereta
       case '/kereta':
         return MaterialPageRoute(builder: (_) => PageKereta());
+      case '/jadwal_kereta':
+        return MaterialPageRoute(builder: (_) => JadwalKereta());
 
       default:
         return errorRoute();
