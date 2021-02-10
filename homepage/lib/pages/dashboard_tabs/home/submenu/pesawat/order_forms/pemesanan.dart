@@ -24,15 +24,19 @@ class _PemesananState extends State<Pemesanan> {
   @override
   void initState() {
     widget.prevData.orderDetails = OrderDetailModel();
-    widget.prevData.passengersDetails = [
-      PassengersModel(),
-      PassengersModel(),
-      PassengersModel(),
-    ];
+    widget.prevData.passengersDetails = [];
+    for (var i = 0; i < widget.prevData.passengersAmount[0][1]; i++) {
+      widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Dewasa'));
+    }
+    for (var i = 0; i < widget.prevData.passengersAmount[1][1]; i++) {
+      widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Anak'));
+    }
+    for (var i = 0; i < widget.prevData.passengersAmount[2][1]; i++) {
+      widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Bayi'));
+    }
     widget.prevData.sameAsBuyer = false;
     widget.prevData.fullProtection = false;
     widget.prevData.luggageInsurance = false;
-    widget.prevData.luggageSize = ["0kg", "0kg"];
 
     super.initState();
   }
@@ -156,108 +160,48 @@ class _PemesananState extends State<Pemesanan> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListTile(
-                      dense: true,
-                      title: Text(
-                        '${widget.prevData.passengersDetails[0].title ?? ''} ${widget.prevData.passengersDetails[0].name ?? 'Penumpang 1: Dewasa'}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: (widget.prevData.passengersDetails[0].name ==
-                                  null)
-                              ? Theme.of(context).primaryColor
-                              : Colors.black,
-                        ),
-                      ),
-                      trailing: Icon(
-                        Icons.create,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      onTap: () async {
-                        final result = await passengerDetailsSheet(context);
-                        setState(() {
-                          widget.prevData.passengersDetails[0] =
-                              result ?? widget.prevData.passengersDetails[0];
-                          widget.prevData.passengersDetails[0].ageType =
-                              'Dewasa';
-                        });
-                      },
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListTile(
-                      dense: true,
-                      title: Text(
-                        '${widget.prevData.passengersDetails[1].title ?? ''} ${widget.prevData.passengersDetails[1].name ?? 'Penumpang 2: Anak'}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: (widget.prevData.passengersDetails[1].name ==
-                                  null)
-                              ? Theme.of(context).primaryColor
-                              : Colors.black,
-                        ),
-                      ),
-                      trailing: Icon(
-                        Icons.create,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      onTap: () async {
-                        final result = await passengerDetailsSheet(context);
-                        setState(() {
-                          widget.prevData.passengersDetails[1] =
-                              result ?? widget.prevData.passengersDetails[1];
-                          widget.prevData.passengersDetails[1].ageType = 'Anak';
-                        });
-                      },
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListTile(
-                      dense: true,
-                      title: Text(
-                        '${widget.prevData.passengersDetails[2].title ?? ''} ${widget.prevData.passengersDetails[2].name ?? 'Penumpang 3: Bayi'}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: (widget.prevData.passengersDetails[2].name ==
-                                  null)
-                              ? Theme.of(context).primaryColor
-                              : Colors.black,
-                        ),
-                      ),
-                      trailing: Icon(
-                        Icons.create,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      onTap: () async {
-                        final result = await passengerDetailsSheet(context);
-                        setState(() {
-                          widget.prevData.passengersDetails[2] =
-                              result ?? widget.prevData.passengersDetails[2];
-                          widget.prevData.passengersDetails[2].ageType = 'Bayi';
-                        });
-                      },
-                    ),
-                  ),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: widget.prevData.passengersDetails.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          margin: EdgeInsets.symmetric(vertical: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: ListTile(
+                            dense: true,
+                            title: Text(
+                              '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}: ${widget.prevData.passengersDetails[index].ageType}'}',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: (widget.prevData.passengersDetails[index]
+                                            .name ==
+                                        null)
+                                    ? Theme.of(context).primaryColor
+                                    : Colors.black,
+                              ),
+                            ),
+                            trailing: Icon(
+                              Icons.create,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            onTap: () async {
+                              final result =
+                                  await passengerDetailsSheet(context);
+                              setState(() {
+                                widget.prevData.passengersDetails[index] =
+                                    result ??
+                                        widget
+                                            .prevData.passengersDetails[index];
+                              });
+                            },
+                          ),
+                        );
+                      }),
                 ],
               ),
             ),
@@ -297,7 +241,9 @@ class _PemesananState extends State<Pemesanan> {
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text('Tambah kapasitas barang bawaanmu.'),
+                      subtitle: Text((widget.prevData.luggageSize == null)
+                          ? 'Tambah kapasitas barang bawaanmu.'
+                          : 'Pergi: ${widget.prevData.luggageSize[0]}, Pulang: ${widget.prevData.luggageSize[1] ?? '-'}'),
                       trailing: Text(
                         'Pesan',
                         style: TextStyle(
