@@ -3,7 +3,7 @@ import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/UI_components/basic_info_list_tile.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/UI_components/passengers_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
-// import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
+import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
 
@@ -166,18 +166,18 @@ class _PageKeretaState extends State<PageKereta> {
                     },
                   ),
                   Divider(),
-                  // BasicInfoListTile(
-                  //   data: data.cabinClass,
-                  //   name: 'Kelas Kabin',
-                  //   icon: Icons.airline_seat_recline_extra,
-                  //   onPressed: () async {
-                  //     var result =
-                  //         await choiceBottomSheet(context, "Kelas Kabin");
-                  //     setState(() {
-                  //       data.cabinClass = result ?? data.cabinClass;
-                  //     });
-                  //   },
-                  // ),
+                  BasicInfoListTile(
+                    data: data.cabinClass,
+                    name: 'Kelas Kabin',
+                    icon: Icons.airline_seat_recline_extra,
+                    onPressed: () async {
+                      var result =
+                          await choiceBottomSheet(context, "Kelas Kabin");
+                      setState(() {
+                        data.cabinClass = result ?? data.cabinClass;
+                      });
+                    },
+                  ),
                   BigButton(
                     title: 'Cari Kereta',
                     onPressed: ([

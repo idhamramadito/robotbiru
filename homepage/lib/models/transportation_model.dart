@@ -1,3 +1,4 @@
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/order_detail_model.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
 
@@ -10,7 +11,7 @@ class TransportationModel {
   String destination;
   DateTime dateDepart;
   DateTime dateReturn;
-  List passengersAmount;
+  List<NameAndContent> passengersAmount;
   String cabinClass;
   String airline;
 
@@ -37,7 +38,7 @@ class TransportationModel {
     String destination,
     DateTime dateDepart,
     DateTime dateReturn,
-    List passengersAmount,
+    List<NameAndContent> passengersAmount,
     String cabinClass,
     String airline,
     FlightScheduleModel chosenDepartSchedule,
