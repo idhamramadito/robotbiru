@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
 Future passengersBottomSheet(BuildContext context) {
-  List passengerList = [
-    ['Dewasa', 0],
-    ['Bayi', 0],
+  List<NameAndContent> passengerList = [
+    NameAndContent(name: 'Dewasa', content: 0),
+    NameAndContent(name: 'Bayi', content: 0),
   ];
 
   return showModalBottomSheet(
@@ -41,15 +42,15 @@ Future passengersBottomSheet(BuildContext context) {
                           ListTile(
                             dense: true,
                             title: Text(
-                              '${element[0]}',
+                              '${element.name}',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text(
-                              (element[0] == 'Dewasa')
+                              (element.name == 'Dewasa')
                                   ? 'Di Atas 3 Tahun'
-                                  : (element[0] == 'Bayi')
+                                  : (element.name == 'Bayi')
                                       ? 'Di Bawah 3 Tahun'
                                       : '',
                               textAlign: TextAlign.center,
@@ -62,7 +63,7 @@ Future passengersBottomSheet(BuildContext context) {
                             child: CupertinoPicker.builder(
                               itemExtent: 50,
                               onSelectedItemChanged: (int i) => myState(() {
-                                element[1] = i;
+                                element.content = i;
                               }),
                               itemBuilder: (context, index) => (index >= 0)
                                   ? Text(
@@ -81,7 +82,7 @@ Future passengersBottomSheet(BuildContext context) {
                 padding: const EdgeInsets.all(20.0),
                 child: BigButton(
                   title: 'Simpan',
-                  onPressed: (passengerList[0][1] != 0)
+                  onPressed: (passengerList[0].content > 0)
                       ? () => Navigator.pop(context, passengerList)
                       : null,
                 ),

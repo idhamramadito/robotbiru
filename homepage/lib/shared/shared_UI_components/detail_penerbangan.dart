@@ -77,7 +77,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                     style: TextStyle(fontSize: 18),
                   ),
                   subtitle: Text(
-                    '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengersAmount[0][1] > 0) ? '${widget.previousData.passengersAmount[0][1]} ${widget.previousData.passengersAmount[0][0]}' : ''}${(widget.previousData.passengersAmount[1][1] > 0) ? ', ${widget.previousData.passengersAmount[1][1]} ${widget.previousData.passengersAmount[1][0]}' : ''}${(widget.previousData.passengersAmount[2][1] > 0) ? ', ${widget.previousData.passengersAmount[2][1]} ${widget.previousData.passengersAmount[2][0]}' : ''}',
+                    '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${widget.previousData.passengersAmount.map((element) => (element.content > 0) ? '${element.content} ${element.name}' : '').toString()}',
                     style: TextStyle(fontSize: 16),
                   ),
                   trailing: Icon(Icons.keyboard_arrow_down, size: 30),
@@ -93,7 +93,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                       style: TextStyle(fontSize: 18),
                     ),
                     subtitle: Text(
-                      '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengersAmount[0][1] > 0) ? '${widget.previousData.passengersAmount[0][1]} ${widget.previousData.passengersAmount[0][0]}' : ''}${(widget.previousData.passengersAmount[1][1] > 0) ? ', ${widget.previousData.passengersAmount[1][1]} ${widget.previousData.passengersAmount[1][0]}' : ''}${(widget.previousData.passengersAmount[2][1] > 0) ? ', ${widget.previousData.passengersAmount[2][1]} ${widget.previousData.passengersAmount[2][0]}' : ''}',
+                      '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${widget.previousData.passengersAmount.map((element) => (element.content > 0) ? '${element.content} ${element.name}' : '').toString()}',
                       style: TextStyle(fontSize: 16),
                     ),
                     trailing: Icon(Icons.keyboard_arrow_down, size: 30),

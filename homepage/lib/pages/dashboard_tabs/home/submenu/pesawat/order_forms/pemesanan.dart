@@ -25,21 +25,13 @@ class _PemesananState extends State<Pemesanan> {
   void initState() {
     widget.prevData.orderDetails = OrderDetailModel();
     widget.prevData.passengersDetails = [];
-    if (widget.prevData.passengersAmount[0][1] > 0) {
-      for (var i = 0; i < widget.prevData.passengersAmount[0][1]; i++) {
-        widget.prevData.passengersDetails
-            .add(PassengersModel(ageType: 'Dewasa'));
-      }
-    }
-    if (widget.prevData.passengersAmount[1][1] > 0) {
-      for (var i = 0; i < widget.prevData.passengersAmount[1][1]; i++) {
-        widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Anak'));
-      }
-    }
 
-    if (widget.prevData.passengersAmount[2][1] > 0) {
-      for (var i = 0; i < widget.prevData.passengersAmount[2][1]; i++) {
-        widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Bayi'));
+    for (int i = 0; i < widget.prevData.passengersAmount.length; i++) {
+      if (widget.prevData.passengersAmount[i].content > 0) {
+        for (int j = 0; j < widget.prevData.passengersAmount[i].content; j++) {
+          widget.prevData.passengersDetails
+              .add(PassengersModel(ageType: 'Dewasa'));
+        }
       }
     }
 
