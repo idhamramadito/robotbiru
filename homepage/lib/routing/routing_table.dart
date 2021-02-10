@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/page_kereta.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/train_schedules/jadwal_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/jadwal_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/ticket_details_page.dart';
@@ -19,7 +20,6 @@ import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/jadwal_kereta.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
