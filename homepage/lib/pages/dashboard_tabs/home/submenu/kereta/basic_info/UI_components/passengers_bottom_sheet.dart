@@ -7,7 +7,6 @@ import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 Future passengersBottomSheet(BuildContext context) {
   List<NameAndContent> passengerList = [
     NameAndContent(name: 'Dewasa', content: 0),
-    NameAndContent(name: 'Anak', content: 0),
     NameAndContent(name: 'Bayi', content: 0),
   ];
 
