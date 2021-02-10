@@ -40,7 +40,6 @@ class _JadwalKeretaState extends State<JadwalKereta> {
       cashback: 2500,
       anggota: 2500,
       retail: 2500,
-      isTransit: false,
     ),
     FlightScheduleModel(
       iconAirline: "images/japan-airlines.png",
@@ -61,7 +60,6 @@ class _JadwalKeretaState extends State<JadwalKereta> {
       cashback: 2500,
       anggota: 2500,
       retail: 2500,
-      isTransit: false,
     ),
     FlightScheduleModel(
       iconAirline: "images/japan-airlines.png",
@@ -82,7 +80,6 @@ class _JadwalKeretaState extends State<JadwalKereta> {
       cashback: 2500,
       anggota: 2500,
       retail: 2500,
-      isTransit: false,
     ),
   ];
 
