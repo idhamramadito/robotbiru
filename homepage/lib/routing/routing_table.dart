@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/page_kereta.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/order_forms/pemesanan_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/train_schedules/jadwal_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/jadwal_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/pemesanan_pesawat.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -17,6 +15,7 @@ import 'package:homepage/shared/shared_pages/kebijakan_pembatalan.dart';
 import 'package:homepage/shared/shared_pages/payment/pembayaran.dart';
 import 'package:homepage/shared/shared_pages/payment/ringkasan.dart';
 import 'package:homepage/shared/shared_pages/payment/ticket_details_page.dart';
+import 'package:homepage/shared/shared_pages/pemesanan.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
 import 'package:homepage/shared/shared_pages/total_pembayaran.dart';
@@ -61,6 +60,8 @@ class RoutingTable {
       case '/ticket_details_page':
         return MaterialPageRoute(
             builder: (_) => TicketDetailsPage(prevData: arg));
+      case '/pemesanan':
+        return MaterialPageRoute(builder: (_) => Pemesanan(prevData: arg));
       case '/pembayaran':
         return MaterialPageRoute(builder: (_) => Pembayaran(previousData: arg));
       case '/ringkasan':
@@ -76,9 +77,6 @@ class RoutingTable {
             builder: (_) => JadwalPesawat(previousData: arg));
       case '/bagasi':
         return MaterialPageRoute(builder: (_) => Bagasi(datasebelum: arg));
-      case '/pemesanan_pesawat':
-        return MaterialPageRoute(
-            builder: (_) => PemesananPesawat(prevData: arg));
 
       // khusus tiket kereta
       case '/kereta':
@@ -86,9 +84,6 @@ class RoutingTable {
       case '/jadwal_kereta':
         return MaterialPageRoute(
             builder: (_) => JadwalKereta(previousData: arg));
-      case '/pemesanan_kereta':
-        return MaterialPageRoute(
-            builder: (_) => PemesananKereta(prevData: arg));
 
       default:
         return errorRoute();

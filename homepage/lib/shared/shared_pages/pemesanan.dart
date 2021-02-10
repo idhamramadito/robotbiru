@@ -8,10 +8,10 @@ import 'package:homepage/shared/shared_UI_components/passenger_details_sheet.dar
 import 'package:homepage/shared/shared_UI_components/pemesanan_bottom_bar.dart';
 import 'package:homepage/shared/shared_pages/ticket_details/ticket_details.dart';
 
-class PemesananPesawat extends StatefulWidget {
+class Pemesanan extends StatefulWidget {
   final TransportationModel prevData;
 
-  PemesananPesawat({
+  Pemesanan({
     Key key,
     this.prevData,
   }) : super(key: key);
@@ -20,7 +20,7 @@ class PemesananPesawat extends StatefulWidget {
   _PemesananState createState() => _PemesananState();
 }
 
-class _PemesananState extends State<PemesananPesawat> {
+class _PemesananState extends State<Pemesanan> {
   @override
   void initState() {
     widget.prevData.orderDetails = OrderDetailModel();
@@ -212,84 +212,88 @@ class _PemesananState extends State<PemesananPesawat> {
                 ],
               ),
             ),
-            Divider(thickness: 10),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Fasilitas Ekstra',
-                      textAlign: TextAlign.start,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListTile(
-                      onTap: () async {
-                        var result = await Navigator.of(context)
-                            .pushNamed('/bagasi', arguments: widget.prevData);
-                        setState(() {
-                          widget.prevData.luggageSize = result;
-                        });
-                      },
-                      leading: Image.asset('images/bagasi.png'),
-                      title: Text(
-                        'Bagasi',
+            if (widget.prevData.transportationType.contains('Pesawat'))
+              Divider(thickness: 10),
+            if (widget.prevData.transportationType.contains('Pesawat'))
+              Container(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Fasilitas Ekstra',
+                        textAlign: TextAlign.start,
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
-                      subtitle: Text((widget.prevData.luggageSize == null)
-                          ? 'Tambah kapasitas barang bawaanmu.'
-                          : 'Pergi: ${widget.prevData.luggageSize[0]}, Pulang: ${widget.prevData.luggageSize[1] ?? '-'}'),
-                      trailing: Text(
-                        'Pesan',
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 18,
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ListTile(
+                        onTap: () async {
+                          var result = await Navigator.of(context)
+                              .pushNamed('/bagasi', arguments: widget.prevData);
+                          setState(() {
+                            widget.prevData.luggageSize = result;
+                          });
+                        },
+                        leading: Image.asset('images/bagasi.png'),
+                        title: Text(
+                          'Bagasi',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text((widget.prevData.luggageSize == null)
+                            ? 'Tambah kapasitas barang bawaanmu.'
+                            : 'Pergi: ${widget.prevData.luggageSize[0]}, Pulang: ${widget.prevData.luggageSize[1] ?? '-'}'),
+                        trailing: Text(
+                          'Pesan',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListTile(
-                      onTap: () {
-                        // Navigator.of(context).pushNamed(routeName)
-                      },
-                      leading: Image.asset('images/kursi.png'),
-                      title: Text(
-                        'Kursi',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                    SizedBox(height: 20),
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      subtitle: Text('Pilih tempat duduk di pesawat.'),
-                      trailing: Text(
-                        'Pesan',
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 18,
+                      child: ListTile(
+                        onTap: () {
+                          // Navigator.of(context).pushNamed(routeName)
+                        },
+                        leading: Image.asset('images/kursi.png'),
+                        title: Text(
+                          'Kursi',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text('Pilih tempat duduk di pesawat.'),
+                        trailing: Text(
+                          'Pesan',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
             Divider(thickness: 10),
             Container(
               padding: EdgeInsets.all(20),
