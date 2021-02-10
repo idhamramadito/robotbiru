@@ -145,9 +145,7 @@ class ScheduleCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 Expanded(
                   child: Column(
                     children: <Widget>[
@@ -162,13 +160,8 @@ class ScheduleCard extends StatelessWidget {
                             ))
                       ]),
                       Row(children: <Widget>[
-                        Visibility(
-                            visible:
-                                previousData.transportationType == 'Pesawat'
-                                    ? true
-                                    : false,
-                            child: Icon(Icons.airline_seat_recline_extra,
-                                color: Colors.blue)),
+                        Icon(Icons.airline_seat_recline_extra,
+                            color: Colors.blue),
                         SizedBox(
                           width: 1,
                         ),

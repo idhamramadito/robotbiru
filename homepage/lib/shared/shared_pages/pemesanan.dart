@@ -315,107 +315,98 @@ class _PemesananState extends State<Pemesanan> {
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
                       border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(10),
-                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
-                    child: CheckboxListTile(
-                      // onTap: () {
-                      //   Navigator.of(context).pushNamed(routeName)
-                      // },
-                      title: const Text(
-                        'Perlindungan Penuh',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Wrap(
+                    child: Column(
+                      children: [
+                        CheckboxListTile(
+                          title: const Text(
+                            'Perlindungan Penuh',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Wrap(
+                                  children: [
+                                    Text(
+                                      'Rp 29.000',
+                                      style: TextStyle(
+                                        color: Theme.of(context).primaryColor,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    Text(
+                                      ' /Penumpang',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Text(
+                                  'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000'),
+                            ],
+                          ),
+                          value: widget.prevData.fullProtection,
+                          onChanged: (bool value) {
+                            setState(() {
+                              widget.prevData.fullProtection = value;
+                            });
+                          },
+                          secondary: Image.asset('images/shield.png'),
+                        ),
+                        if (widget.prevData.transportationType
+                            .contains('Pesawat'))
+                          Divider(thickness: 2),
+                        if (widget.prevData.transportationType
+                            .contains('Pesawat'))
+                          CheckboxListTile(
+                            title: const Text(
+                              'Asuransi Bagasi',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Column(
                               children: [
-                                Text(
-                                  'Rp 29.000',
-                                  style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Wrap(
+                                    children: [
+                                      Text(
+                                        'Rp 13.300',
+                                        style: TextStyle(
+                                          color: Theme.of(context).primaryColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                      Text(
+                                        ' /Penumpang',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 Text(
-                                  ' /Penumpang',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  ),
-                                ),
+                                    'Perlindungan dari kerusakan, hilang dan terlambat hingga\nRp 25.000.000'),
                               ],
                             ),
+                            value: widget.prevData.luggageInsurance,
+                            onChanged: (bool value) {
+                              setState(() {
+                                widget.prevData.luggageInsurance = value;
+                              });
+                            },
+                            secondary: Image.asset('images/shield-2.png'),
                           ),
-                          Text(
-                              'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000'),
-                        ],
-                      ),
-                      value: widget.prevData.fullProtection,
-                      onChanged: (bool value) {
-                        setState(() {
-                          widget.prevData.fullProtection = value;
-                        });
-                      },
-                      secondary: Image.asset('images/shield.png'),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.vertical(
-                        bottom: Radius.circular(10),
-                      ),
-                    ),
-                    child: CheckboxListTile(
-                      // onTap: () {},
-                      //   Navigator.of(context).pushNamed(routeName)
-                      // },
-                      title: const Text(
-                        'Asuransi Bagasi',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Wrap(
-                              children: [
-                                Text(
-                                  'Rp 13.300',
-                                  style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                Text(
-                                  ' /Penumpang',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Text(
-                              'Perlindungan dari kerusakan, hilang dan terlambat hingga\nRp 25.000.000'),
-                        ],
-                      ),
-                      value: widget.prevData.luggageInsurance,
-                      onChanged: (bool value) {
-                        setState(() {
-                          widget.prevData.luggageInsurance = value;
-                        });
-                      },
-                      secondary: Image.asset('images/shield-2.png'),
+                      ],
                     ),
                   ),
                 ],
