@@ -25,15 +25,24 @@ class _PemesananState extends State<Pemesanan> {
   void initState() {
     widget.prevData.orderDetails = OrderDetailModel();
     widget.prevData.passengersDetails = [];
-    for (var i = 0; i < widget.prevData.passengersAmount[0][1]; i++) {
-      widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Dewasa'));
+    if (widget.prevData.passengersAmount[0][1] > 0) {
+      for (var i = 0; i < widget.prevData.passengersAmount[0][1]; i++) {
+        widget.prevData.passengersDetails
+            .add(PassengersModel(ageType: 'Dewasa'));
+      }
     }
-    for (var i = 0; i < widget.prevData.passengersAmount[1][1]; i++) {
-      widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Anak'));
+    if (widget.prevData.passengersAmount[1][1] > 0) {
+      for (var i = 0; i < widget.prevData.passengersAmount[1][1]; i++) {
+        widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Anak'));
+      }
     }
-    for (var i = 0; i < widget.prevData.passengersAmount[2][1]; i++) {
-      widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Bayi'));
+
+    if (widget.prevData.passengersAmount[2][1] > 0) {
+      for (var i = 0; i < widget.prevData.passengersAmount[2][1]; i++) {
+        widget.prevData.passengersDetails.add(PassengersModel(ageType: 'Bayi'));
+      }
     }
+
     widget.prevData.sameAsBuyer = false;
     widget.prevData.fullProtection = false;
     widget.prevData.luggageInsurance = false;
