@@ -6,7 +6,6 @@ import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 Future passengersBottomSheet(BuildContext context) {
   List passengerList = [
     ['Dewasa', 0],
-    ['Anak', 0],
     ['Bayi', 0],
   ];
 
@@ -47,12 +46,10 @@ Future passengersBottomSheet(BuildContext context) {
                           ),
                           subtitle: Text(
                             (element[0] == 'Dewasa')
-                                ? 'Di Atas\n11 Tahun'
-                                : (element[0] == 'Anak')
-                                    ? 'Diantara\n2-11 Tahun'
-                                    : (element[0] == 'Bayi')
-                                        ? 'Di Bawah\n2 Tahun'
-                                        : '',
+                                ? 'Di Atas 3 Tahun'
+                                : (element[0] == 'Bayi')
+                                    ? 'Di Bawah 3 Tahun'
+                                    : '',
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 14),
                           ),
