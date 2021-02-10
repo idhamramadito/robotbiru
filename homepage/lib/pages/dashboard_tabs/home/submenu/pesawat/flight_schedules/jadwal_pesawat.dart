@@ -206,7 +206,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                     widget.previousData.chosenDepartSchedule;
                           });
                           Navigator.of(context).pushNamed(
-                            '/pemesanan',
+                            '/pemesanan_pesawat',
                             arguments: widget.previousData,
                           );
                         }
@@ -228,7 +228,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                                             .previousData.chosenReturnSchedule;
                               });
                               Navigator.of(context).pushNamed(
-                                '/pemesanan',
+                                '/pemesanan_pesawat',
                                 arguments: widget.previousData,
                               );
                             },

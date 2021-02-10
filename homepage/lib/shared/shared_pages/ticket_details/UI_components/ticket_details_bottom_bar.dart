@@ -49,14 +49,15 @@ class TicketDetailsBottomBar extends StatelessWidget {
                 ),
               ),
             ),
-            Flexible(
-              child: BigButton(
-                title: 'Pesan Tiket',
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/pemesanan');
-                },
-              ),
-            ),
+            // Flexible(
+            //   child: BigButton(
+            //     title: 'Pesan Tiket',
+            //     onPressed: () {
+            //       Navigator.of(context).pushNamed('/pemesanan');
+            //     },
+            //   ),
+            // ),
+            // TODO: MASIH BUGGY, HARUS DIPERBAIKI
           ],
         ),
       ),

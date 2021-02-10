@@ -218,7 +218,7 @@ class _RingkasanState extends State<Ringkasan> {
                 DetailPenerbangan(
                   previousData: widget.previousData,
                   onTap: () {
-                    Navigator.of(context).pushNamed('/detail_penerbangan',
+                    Navigator.of(context).pushNamed('/ticket_details_page',
                         arguments: widget.previousData);
                   },
                 ),

@@ -62,7 +62,7 @@ class _PembayaranState extends State<Pembayaran> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/detail_penerbangan',
+                  Navigator.of(context).pushNamed('/ticket_details_page',
                       arguments: widget.previousData);
                 },
                 child: Container(

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/passenggers_model.dart';
 import 'package:homepage/models/order_detail_model.dart';
 import 'package:homepage/models/transportation_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/order_details_sheet.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/passenger_details_sheet.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/UI_components/pemesanan_bottom_bar.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
+import 'package:homepage/shared/shared_UI_components/order_details_sheet.dart';
+import 'package:homepage/shared/shared_UI_components/passenger_details_sheet.dart';
+import 'package:homepage/shared/shared_UI_components/pemesanan_bottom_bar.dart';
 import 'package:homepage/shared/shared_pages/ticket_details/ticket_details.dart';
 
-class Pemesanan extends StatefulWidget {
+class PemesananKereta extends StatefulWidget {
   final TransportationModel prevData;
 
-  Pemesanan({
+  PemesananKereta({
     Key key,
     this.prevData,
   }) : super(key: key);
@@ -20,7 +20,7 @@ class Pemesanan extends StatefulWidget {
   _PemesananState createState() => _PemesananState();
 }
 
-class _PemesananState extends State<Pemesanan> {
+class _PemesananState extends State<PemesananKereta> {
   @override
   void initState() {
     widget.prevData.orderDetails = OrderDetailModel();
@@ -209,84 +209,6 @@ class _PemesananState extends State<Pemesanan> {
                           ),
                         );
                       }),
-                ],
-              ),
-            ),
-            Divider(thickness: 10),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Fasilitas Ekstra',
-                      textAlign: TextAlign.start,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListTile(
-                      onTap: () async {
-                        var result = await Navigator.of(context)
-                            .pushNamed('/bagasi', arguments: widget.prevData);
-                        setState(() {
-                          widget.prevData.luggageSize = result;
-                        });
-                      },
-                      leading: Image.asset('images/bagasi.png'),
-                      title: Text(
-                        'Bagasi',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text((widget.prevData.luggageSize == null)
-                          ? 'Tambah kapasitas barang bawaanmu.'
-                          : 'Pergi: ${widget.prevData.luggageSize[0]}, Pulang: ${widget.prevData.luggageSize[1] ?? '-'}'),
-                      trailing: Text(
-                        'Pesan',
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ListTile(
-                      onTap: () {
-                        // Navigator.of(context).pushNamed(routeName)
-                      },
-                      leading: Image.asset('images/kursi.png'),
-                      title: Text(
-                        'Kursi',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text('Pilih tempat duduk di pesawat.'),
-                      trailing: Text(
-                        'Pesan',
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),

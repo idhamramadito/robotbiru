@@ -127,7 +127,7 @@ class _JadwalKeretaState extends State<JadwalKereta> {
                                     widget.previousData.chosenDepartSchedule;
                           });
                           Navigator.of(context).pushNamed(
-                            '/pemesanan',
+                            '/pemesanan_kereta',
                             arguments: widget.previousData,
                           );
                         }
@@ -149,7 +149,7 @@ class _JadwalKeretaState extends State<JadwalKereta> {
                                             .previousData.chosenReturnSchedule;
                               });
                               Navigator.of(context).pushNamed(
-                                '/pemesanan',
+                                '/pemesanan_kereta',
                                 arguments: widget.previousData,
                               );
                             },
