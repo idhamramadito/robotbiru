@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
-class TotalPembayaran extends StatefulWidget {
+class HargaDetail extends StatefulWidget {
   @override
-  _TotalPembayaranState createState() => _TotalPembayaranState();
+  _HargaDetailState createState() => _HargaDetailState();
 }
 
-class _TotalPembayaranState extends State<TotalPembayaran> {
+class _HargaDetailState extends State<HargaDetail> {
   List<NameAndContent> _bonusList = [
     NameAndContent(name: 'Cashback'),
     NameAndContent(name: 'Anggota'),
