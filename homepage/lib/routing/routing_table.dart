@@ -80,7 +80,8 @@ class RoutingTable {
       case '/kereta':
         return MaterialPageRoute(builder: (_) => PageKereta());
       case '/jadwal_kereta':
-        return MaterialPageRoute(builder: (_) => JadwalKereta());
+        return MaterialPageRoute(
+            builder: (_) => JadwalKereta(previousData: arg));
 
       default:
         return errorRoute();

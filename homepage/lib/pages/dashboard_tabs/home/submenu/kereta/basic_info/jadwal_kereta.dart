@@ -104,7 +104,7 @@ class _JadwalKeretaState extends State<JadwalKereta> {
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             Text(
-              '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengersAmount[0][1] > 0) ? '${widget.previousData.passengersAmount[0][1]} ${widget.previousData.passengersAmount[0][0]}' : ''}${(widget.previousData.passengersAmount[1][1] > 0) ? ', ${widget.previousData.passengersAmount[1][1]} ${widget.previousData.passengersAmount[1][0]}' : ''}${(widget.previousData.passengersAmount[2][1] > 0) ? ', ${widget.previousData.passengersAmount[2][1]} ${widget.previousData.passengersAmount[2][0]}' : ''}',
+              '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengersAmount[0][1] > 0) ? '${widget.previousData.passengersAmount[0][1]} ${widget.previousData.passengersAmount[0][0]}' : ''}${(widget.previousData.passengersAmount[1][1] > 0) ? ', ${widget.previousData.passengersAmount[1][1]} ${widget.previousData.passengersAmount[1][0]}' : ''}',
               style: TextStyle(fontSize: 13, color: Colors.white),
             ),
           ],
