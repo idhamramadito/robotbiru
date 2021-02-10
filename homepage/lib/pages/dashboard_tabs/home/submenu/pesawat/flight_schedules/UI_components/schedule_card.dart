@@ -86,8 +86,14 @@ class ScheduleCard extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Icon(Icons.radio_button_unchecked),
-                          Icon(Icons.remove_sharp),
+                          Icon(
+                            Icons.radio_button_unchecked,
+                            color: Colors.blue,
+                          ),
+                          Icon(
+                            Icons.remove_sharp,
+                            color: Colors.blue,
+                          ),
                           Padding(
                             padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                             child: Column(
@@ -107,8 +113,14 @@ class ScheduleCard extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Icon(Icons.remove_sharp),
-                          Icon(Icons.stop_circle),
+                          Icon(
+                            Icons.remove_sharp,
+                            color: Colors.blue,
+                          ),
+                          Icon(
+                            Icons.stop_circle,
+                            color: Colors.blue,
+                          ),
                           Padding(
                             padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                             child: Column(
