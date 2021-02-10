@@ -12,13 +12,13 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/kebijakan_pembatalan.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/list_jadwal_kendaraan.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/order_forms/order_forms.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/harga_detail.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/pembayaran.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ringkasan.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ticket_details_page.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/pemesanan.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/total_pembayaran.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/schedule_list/schedule_list.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/kebijakan_pembatalan.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
 
 class RoutingTable {
@@ -61,16 +61,16 @@ class RoutingTable {
         return MaterialPageRoute(
             builder: (_) => TicketDetailsPage(prevData: arg));
       case '/pemesanan':
-        return MaterialPageRoute(builder: (_) => Pemesanan(prevData: arg));
+        return MaterialPageRoute(builder: (_) => OrderForms(prevData: arg));
       case '/pembayaran':
         return MaterialPageRoute(builder: (_) => Pembayaran(previousData: arg));
       case '/ringkasan':
         return MaterialPageRoute(builder: (_) => Ringkasan(previousData: arg));
       case '/total_pembayaran':
-        return MaterialPageRoute(builder: (_) => TotalPembayaran());
+        return MaterialPageRoute(builder: (_) => HargaDetail());
       case '/list_jadwal_kendaraan':
         return MaterialPageRoute(
-            builder: (_) => ListJadwalKendaraan(previousData: arg));
+            builder: (_) => ScheduleList(previousData: arg));
 
       // khusus tiket pesawat
       case '/pesawat':
