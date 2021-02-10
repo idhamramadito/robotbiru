@@ -18,6 +18,9 @@ class FlightScheduleModel {
   double anggota;
   double retail;
 
+  // data transit
+  bool isTransit;
+
   FlightScheduleModel({
     String iconAirline,
     String id,
@@ -37,6 +40,7 @@ class FlightScheduleModel {
     double cashback,
     double anggota,
     double retail,
+    bool isTransit,
   })  : this.iconAirline = iconAirline,
         this.id = id,
         this.airlineName = airlineName,
@@ -54,5 +58,6 @@ class FlightScheduleModel {
         this.ticketPrice = ticketPrice,
         this.cashback = cashback,
         this.anggota = anggota,
-        this.retail = retail;
+        this.retail = retail,
+        this.isTransit = isTransit;
 }

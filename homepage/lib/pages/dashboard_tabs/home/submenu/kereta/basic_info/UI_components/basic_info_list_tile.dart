@@ -38,7 +38,7 @@ class _BasicInfoListTileState extends State<BasicInfoListTile> {
         (widget.data == null)
             ? 'Belum Dipilih'
             : (widget.name == 'Jumlah Penumpang')
-                ? '${(widget.data[0][1] > 0) ? '${widget.data[0][1]} ${widget.data[0][0]}' : ''}${(widget.data[1][1] > 0) ? ' ${widget.data[1][1]} ${widget.data[1][0]}' : ''}${(widget.data[2][1] > 0) ? ', ${widget.data[2][1]} ${widget.data[2][0]}' : ''}'
+                ? '${(widget.data[0][1] > 0) ? '${widget.data[0][1]} ${widget.data[0][0]}' : ''}${(widget.data[1][1] > 0) ? ' ${widget.data[1][1]} ${widget.data[1][0]}' : ''}'
                 : (widget.name == 'Tanggal Pergi' ||
                         widget.name == 'Tanggal Pulang')
                     ? DateFormat("EEEE, d MMMM yyyy", "id_ID")
