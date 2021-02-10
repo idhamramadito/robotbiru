@@ -54,5 +54,5 @@ class FlightScheduleModel {
         this.ticketPrice = ticketPrice,
         this.cashback = cashback,
         this.anggota = anggota,
-        this.retail = retail,
+        this.retail = retail;
 }
