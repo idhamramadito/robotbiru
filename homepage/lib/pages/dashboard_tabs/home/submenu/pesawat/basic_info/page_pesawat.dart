@@ -215,7 +215,7 @@ class _PagePesawatState extends State<PagePesawat> {
                         ? null
                         : () {
                             Navigator.of(context).pushNamed(
-                              '/jadwal_pesawat',
+                              '/list_jadwal_kendaraan',
                               arguments: data,
                             );
                           },

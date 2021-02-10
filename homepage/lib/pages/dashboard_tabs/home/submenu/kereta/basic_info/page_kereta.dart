@@ -192,7 +192,7 @@ class _PageKeretaState extends State<PageKereta> {
                         ? null
                         : () {
                             Navigator.of(context).pushNamed(
-                              '/jadwal_kereta',
+                              '/list_jadwal_kendaraan',
                               arguments: data,
                             );
                           },

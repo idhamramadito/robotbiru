@@ -6,20 +6,21 @@ import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:intl/intl.dart';
 
-class JadwalPesawat extends StatefulWidget {
+class ListJadwalKendaraan extends StatefulWidget {
   final TransportationModel previousData;
 
-  JadwalPesawat({
+  ListJadwalKendaraan({
     this.previousData,
     Key key,
   }) : super(key: key);
 
   @override
-  _JadwalPesawatState createState() => _JadwalPesawatState();
+  _ListJadwalKendaraanState createState() => _ListJadwalKendaraanState();
 }
 
-class _JadwalPesawatState extends State<JadwalPesawat> {
+class _ListJadwalKendaraanState extends State<ListJadwalKendaraan> {
   List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
+  List _sementara;
   List<FlightScheduleModel> _jadwalPenerbangan = [
     FlightScheduleModel(
       iconAirline: "images/japan-airlines.png",
@@ -63,10 +64,44 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
     ),
   ];
 
+  List<FlightScheduleModel> _jadwalKereta = [
+    FlightScheduleModel(
+      iconAirline: "images/logo_kereta.png",
+      id: "",
+      airlineName: "Jakarta Airlines",
+      depTime: "05.00",
+      depAirportCode: "CGK",
+      depAirport: 'Soekarno Hatta',
+      depCity: 'Jakarta',
+      flightTime: "10J",
+      flightType: "Langsung",
+      arrTime: "15.00",
+      arrAirportCode: "DPS",
+      arrAirport: 'Ngurah Rai',
+      arrCity: 'Denpasar - Bali',
+      chairLeft: 2,
+      ticketPrice: 315000,
+      cashback: 2500,
+      anggota: 2500,
+      retail: 2500,
+      chairClass: "Economy (Subclass C)",
+    ),
+  ];
+
   @override
   void initState() {
     widget.previousData.chosenDepartSchedule = null;
     widget.previousData.chosenReturnSchedule = null;
+
+    switch (widget.previousData.transportationType) {
+      case 'Pesawat':
+        _sementara = List.from(_jadwalPenerbangan);
+        break;
+      case 'Kereta':
+        _sementara = List.from(_jadwalKereta);
+        break;
+      default:
+    }
     super.initState();
   }
 
@@ -131,78 +166,79 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                 ),
               ),
             ),
-          Center(
-            child: Container(
-              width: 392,
-              height: 60,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 4,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.grey[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.grey[300])),
-                        child: new Text(
-                          '${_filterButton[0]}',
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                        onPressed: () {},
-                        color: Colors.grey[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.grey[300])),
-                        child: new Text(
-                          '${_filterButton[1]}',
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: RaisedButton(
-                      onPressed: () {},
-                      color: Colors.grey[200],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.grey[300])),
-                      child: new Text(
-                        '${_filterButton[2]}',
-                      ),
+          if (widget.previousData.transportationType.contains('Pesawat'))
+            Center(
+              child: Container(
+                width: 392,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: Offset(0, 3), // changes position of shadow
                     ),
-                  )
-                ],
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RaisedButton(
+                          onPressed: () {},
+                          color: Colors.grey[200],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: BorderSide(color: Colors.grey[300])),
+                          child: new Text(
+                            '${_filterButton[0]}',
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RaisedButton(
+                          onPressed: () {},
+                          color: Colors.grey[200],
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: BorderSide(color: Colors.grey[300])),
+                          child: new Text(
+                            '${_filterButton[1]}',
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RaisedButton(
+                        onPressed: () {},
+                        color: Colors.grey[200],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.grey[300])),
+                        child: new Text(
+                          '${_filterButton[2]}',
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: _jadwalPenerbangan.length,
+              itemCount: _sementara.length,
               itemBuilder: (context, index) {
                 return ScheduleCard(
-                  flightSchedule: _jadwalPenerbangan[index],
+                  flightSchedule: _sementara[index],
                   previousData: widget.previousData,
                   onTap: (widget.previousData.isTwoWayTrip == false)
                       ? () {
                           setState(() {
                             widget.previousData.chosenDepartSchedule =
-                                _jadwalPenerbangan[index] ??
+                                _sementara[index] ??
                                     widget.previousData.chosenDepartSchedule;
                           });
                           Navigator.of(context).pushNamed(
@@ -214,7 +250,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                           ? () {
                               setState(() {
                                 widget.previousData.chosenDepartSchedule =
-                                    _jadwalPenerbangan[index] ??
+                                    _sementara[index] ??
                                         widget
                                             .previousData.chosenDepartSchedule;
                               });
@@ -223,7 +259,7 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
                           : () {
                               setState(() {
                                 widget.previousData.chosenReturnSchedule =
-                                    _jadwalPenerbangan[index] ??
+                                    _sementara[index] ??
                                         widget
                                             .previousData.chosenReturnSchedule;
                               });
