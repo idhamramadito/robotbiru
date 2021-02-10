@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
 import 'package:homepage/models/transportation_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/UI_components/ticket_details_bottom_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_fasilitas.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_harga.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/ticket_details/ticket_details_tabs/flight_schedules/tab_perjalanan.dart';

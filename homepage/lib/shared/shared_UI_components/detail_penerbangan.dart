@@ -19,7 +19,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      margin: EdgeInsets.all(20),
       child: Column(
         children: [
           Align(
@@ -35,59 +35,70 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
-                borderRadius:
-                    BorderRadius.vertical(top: Radius.circular(15.0))),
-            child: Row(
+                borderRadius: BorderRadius.all(Radius.circular(15.0))),
+            child: Column(
               children: [
-                Flexible(
-                  child: Text(
-                    widget.previousData.origin,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        widget.previousData.origin,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Icon(
-                  (widget.previousData.isTwoWayTrip)
-                      ? Icons.sync_alt
-                      : Icons.arrow_right_alt,
-                  size: 30,
-                ),
-                SizedBox(width: 10),
-                Flexible(
-                  child: Text(
-                    widget.previousData.destination,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                    SizedBox(width: 10),
+                    Icon(
+                      (widget.previousData.isTwoWayTrip)
+                          ? Icons.sync_alt
+                          : Icons.arrow_right_alt,
+                      size: 30,
                     ),
-                  ),
+                    SizedBox(width: 10),
+                    Flexible(
+                      child: Text(
+                        widget.previousData.destination,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+                Divider(color: Colors.black),
+                ListTile(
+                  onTap: () => widget.onTap(0),
+                  dense: true,
+                  title: Text(
+                    '${widget.previousData.chosenDepartSchedule.depAirportCode} - ${widget.previousData.chosenDepartSchedule.arrAirportCode}',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  subtitle: Text(
+                    '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengersAmount[0][1] > 0) ? '${widget.previousData.passengersAmount[0][1]} ${widget.previousData.passengersAmount[0][0]}' : ''}${(widget.previousData.passengersAmount[1][1] > 0) ? ', ${widget.previousData.passengersAmount[1][1]} ${widget.previousData.passengersAmount[1][0]}' : ''}${(widget.previousData.passengersAmount[2][1] > 0) ? ', ${widget.previousData.passengersAmount[2][1]} ${widget.previousData.passengersAmount[2][0]}' : ''}',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  trailing: Icon(Icons.keyboard_arrow_down, size: 30),
+                ),
+                if (widget.previousData.isTwoWayTrip)
+                  Divider(color: Colors.black),
+                if (widget.previousData.isTwoWayTrip)
+                  ListTile(
+                    onTap: () => widget.onTap(1),
+                    dense: true,
+                    title: Text(
+                      '${widget.previousData.chosenReturnSchedule.depAirportCode} - ${widget.previousData.chosenReturnSchedule.arrAirportCode}',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    subtitle: Text(
+                      '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengersAmount[0][1] > 0) ? '${widget.previousData.passengersAmount[0][1]} ${widget.previousData.passengersAmount[0][0]}' : ''}${(widget.previousData.passengersAmount[1][1] > 0) ? ', ${widget.previousData.passengersAmount[1][1]} ${widget.previousData.passengersAmount[1][0]}' : ''}${(widget.previousData.passengersAmount[2][1] > 0) ? ', ${widget.previousData.passengersAmount[2][1]} ${widget.previousData.passengersAmount[2][0]}' : ''}',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    trailing: Icon(Icons.keyboard_arrow_down, size: 30),
+                  )
               ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(15.0))),
-            child: ListTile(
-              onTap: widget.onTap,
-              dense: true,
-              title: Text(
-                '${widget.previousData.chosenDepartSchedule.depAirportCode} - ${widget.previousData.chosenDepartSchedule.arrAirportCode}',
-                style: TextStyle(
-                  fontSize: 18,
-                ),
-              ),
-              subtitle: Text(
-                '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${(widget.previousData.passengersAmount[0][1] > 0) ? '${widget.previousData.passengersAmount[0][1]} ${widget.previousData.passengersAmount[0][0]}' : ''}${(widget.previousData.passengersAmount[1][1] > 0) ? ', ${widget.previousData.passengersAmount[1][1]} ${widget.previousData.passengersAmount[1][0]}' : ''}${(widget.previousData.passengersAmount[2][1] > 0) ? ', ${widget.previousData.passengersAmount[2][1]} ${widget.previousData.passengersAmount[2][0]}' : ''}',
-                style: TextStyle(fontSize: 16),
-              ),
-              trailing: Icon(Icons.keyboard_arrow_down, size: 30),
             ),
           ),
         ],

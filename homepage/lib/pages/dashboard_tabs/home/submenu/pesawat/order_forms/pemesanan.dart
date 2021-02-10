@@ -62,9 +62,14 @@ class _PemesananState extends State<Pemesanan> {
           children: [
             DetailPenerbangan(
               previousData: widget.prevData,
-              onTap: () {
-                ticketDetails(context, 'Pemesanan',
-                    widget.prevData.chosenDepartSchedule, widget.prevData);
+              onTap: (index) {
+                if (index == 0) {
+                  ticketDetails(context, 'Pemesanan',
+                      widget.prevData.chosenDepartSchedule, widget.prevData);
+                } else if (index == 1) {
+                  ticketDetails(context, 'Pemesanan',
+                      widget.prevData.chosenReturnSchedule, widget.prevData);
+                }
               },
             ),
             Divider(thickness: 10),
