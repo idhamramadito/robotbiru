@@ -67,7 +67,7 @@ class _PembayaranState extends State<Pembayaran> {
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                       borderRadius:
@@ -77,10 +77,17 @@ class _PembayaranState extends State<Pembayaran> {
                     children: [
                       Flexible(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Image.asset('images/pesawat_kecil.png'),
+                            if (widget.previousData.transportationType ==
+                                'Pesawat')
+                              Image.asset('images/pesawat_kecil.png'),
+                            if (widget.previousData.transportationType ==
+                                'Kereta')
+                              Icon(Icons.train,
+                                  color: Theme.of(context).primaryColor),
                             SizedBox(width: 10),
-                            Flexible(
+                            Expanded(
                               child: Text(
                                 widget.previousData.origin,
                                 style: TextStyle(
@@ -89,15 +96,15 @@ class _PembayaranState extends State<Pembayaran> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 10),
+                            SizedBox(width: 5),
                             Icon(
                               (widget.previousData.isTwoWayTrip)
                                   ? Icons.sync_alt
                                   : Icons.arrow_right_alt,
                               size: 30,
                             ),
-                            SizedBox(width: 10),
-                            Flexible(
+                            SizedBox(width: 5),
+                            Expanded(
                               child: Text(
                                 widget.previousData.destination,
                                 style: TextStyle(

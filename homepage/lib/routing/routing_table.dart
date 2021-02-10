@@ -3,12 +3,9 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/pag
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/train_schedules/jadwal_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/flight_schedules/jadwal_pesawat.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/ticket_details_page.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/total_pembayaran.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/pemesanan.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/pembayaran.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/payment/ringkasan.dart';
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -17,6 +14,9 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/page_to
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice_token_listrik.dart';
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/kebijakan_pembatalan.dart';
+import 'package:homepage/shared/shared_pages/payment/pembayaran.dart';
+import 'package:homepage/shared/shared_pages/payment/ringkasan.dart';
+import 'package:homepage/shared/shared_pages/payment/ticket_details_page.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
