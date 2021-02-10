@@ -83,14 +83,11 @@ Future passengersBottomSheet(BuildContext context) {
               Container(
                 padding: const EdgeInsets.all(20.0),
                 child: BigButton(
-                    title: 'Simpan',
-                    onPressed: (passengerList[0][1] == 0 &&
-                            passengerList[1][1] == 0 &&
-                            passengerList[2][1] == 0)
-                        ? null
-                        : () {
-                            Navigator.pop(context, passengerList);
-                          }),
+                  title: 'Simpan',
+                  onPressed: (passengerList[0][1] != 0)
+                      ? () => Navigator.pop(context, passengerList)
+                      : null,
+                ),
               ),
             ],
           ),

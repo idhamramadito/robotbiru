@@ -210,7 +210,6 @@ class _PagePesawatState extends State<PagePesawat> {
                               data.cabinClass,
                               data.airline,
                             ].contains(null) ||
-                            (data.passengersAmount[0][1] <= 0) ||
                             (data.isTwoWayTrip == true &&
                                 data.dateReturn == null))
                         ? null
