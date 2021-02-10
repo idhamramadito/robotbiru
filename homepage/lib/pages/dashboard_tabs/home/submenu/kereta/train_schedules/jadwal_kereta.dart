@@ -64,7 +64,7 @@ class _JadwalKeretaState extends State<JadwalKereta> {
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             Text(
-              '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.passengersAmount.map((element) => (element.content > 0) ? '${element.content} ${element.name}' : '').toString()}',
+              '${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateDepart)}${(widget.previousData.isTwoWayTrip) ? ' - ${DateFormat("d MMM yy", "id_ID").format(widget.previousData.dateReturn)}' : ''} ${String.fromCharCode(0x2022)} ${widget.previousData.cabinClass} ${String.fromCharCode(0x2022)} ${widget.previousData.passengersAmount.map((element) => (element.content > 0) ? '${element.content} ${element.name}' : '').toString()}',
               style: TextStyle(fontSize: 13, color: Colors.white),
             ),
           ],
