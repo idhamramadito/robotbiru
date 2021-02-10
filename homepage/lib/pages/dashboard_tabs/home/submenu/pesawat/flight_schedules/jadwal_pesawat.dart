@@ -40,7 +40,6 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
       cashback: 2500,
       anggota: 2500,
       retail: 2500,
-      isTransit: false,
     ),
     FlightScheduleModel(
       iconAirline: "images/japan-airlines.png",
@@ -61,7 +60,6 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
       cashback: 2500,
       anggota: 2500,
       retail: 2500,
-      isTransit: false,
     ),
     FlightScheduleModel(
       iconAirline: "images/japan-airlines.png",
@@ -82,7 +80,26 @@ class _JadwalPesawatState extends State<JadwalPesawat> {
       cashback: 2500,
       anggota: 2500,
       retail: 2500,
-      isTransit: false,
+    ),
+    FlightScheduleModel(
+      iconAirline: "images/japan-airlines.png",
+      id: "",
+      airlineName: "Sukabumi Airlines",
+      depTime: "05.00",
+      depAirportCode: "SMI",
+      depAirport: 'Murah Rai',
+      depCity: 'Sukabumi',
+      flightTime: "10J",
+      flightType: "Transit",
+      arrTime: "15.00",
+      arrAirportCode: "DPS",
+      arrAirport: 'Ngurah Rai',
+      arrCity: 'Denpasar - Bali',
+      chairLeft: 2,
+      ticketPrice: 315000,
+      cashback: 2500,
+      anggota: 2500,
+      retail: 2500,
     ),
   ];
 
