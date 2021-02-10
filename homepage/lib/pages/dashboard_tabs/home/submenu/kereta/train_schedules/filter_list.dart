@@ -95,31 +95,23 @@ Future filterList(BuildContext context) {
                           return Container(
                               margin: EdgeInsets.symmetric(
                                   vertical: 0, horizontal: 25),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  InkWell(
-                                    child: Text(
-                                      _urutkanDengan[index],
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: temp == _urutkanDengan[index]
-                                            ? Theme.of(context).primaryColor
-                                            : Colors.grey[500],
-                                      ),
-                                    ),
+                              child: RadioListTile(
+                                title: Text(
+                                  _urutkanDengan[index],
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: temp == _urutkanDengan[index]
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.grey[500],
                                   ),
-                                  Radio(
-                                    value: _urutkanDengan[index],
-                                    groupValue: temp,
-                                    onChanged: (value) {
-                                      mystate(() {
-                                        temp = value;
-                                      });
-                                    },
-                                  ),
-                                ],
+                                ),
+                                value: _urutkanDengan[index],
+                                groupValue: temp,
+                                onChanged: (value) {
+                                  mystate(() {
+                                    temp = value;
+                                  });
+                                },
                               ));
                         }),
                     Container(

@@ -21,7 +21,7 @@ Future ticketDetails(BuildContext context, String sourcePage,
     ),
     builder: (context) {
       return DefaultTabController(
-        length: 3,
+        length: (data.transportationType.contains('Pesawat')) ? 3 : 2,
         child: Container(
           height: MediaQuery.of(context).size.height * 0.9,
           child: Column(
@@ -73,7 +73,8 @@ Future ticketDetails(BuildContext context, String sourcePage,
                   unselectedLabelColor: Colors.grey,
                   tabs: [
                     Tab(text: "Perjalanan"),
-                    Tab(text: "Fasilitas"),
+                    if (data.transportationType.contains('Pesawat'))
+                      Tab(text: "Fasilitas"),
                     Tab(text: "Harga"),
                   ],
                 ),
@@ -82,7 +83,8 @@ Future ticketDetails(BuildContext context, String sourcePage,
                 child: TabBarView(
                   children: [
                     TabPerjalanan(flightSchedule: flightSchedule),
-                    TabFasilitas(flightSchedule: flightSchedule),
+                    if (data.transportationType.contains('Pesawat'))
+                      TabFasilitas(flightSchedule: flightSchedule),
                     TabHarga(flightSchedule: flightSchedule),
                   ],
                 ),
