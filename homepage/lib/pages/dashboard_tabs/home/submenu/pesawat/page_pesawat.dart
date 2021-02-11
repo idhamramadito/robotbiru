@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/UI_components/basic_info_list_tile.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/UI_components/passengers_bottom_sheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/basic_info_list_tile.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/passengers_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
@@ -58,13 +58,13 @@ class _PagePesawatState extends State<PagePesawat> {
                 children: [
                   BasicInfoListTile(
                     data: data.origin,
-                    name: 'Bandara Asal',
+                    name: 'Bandara Keberangkatan',
                     icon: Icons.flight_takeoff,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Bandara Asal',
+                                pageName: 'Bandara Keberangkatan',
                                 dataList: _bandara,
                               ));
                       setState(() {
@@ -93,13 +93,13 @@ class _PagePesawatState extends State<PagePesawat> {
                   ),
                   BasicInfoListTile(
                     data: data.destination,
-                    name: 'Bandara Destinasi',
+                    name: 'Bandara Tujuan',
                     icon: Icons.flight_land,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Bandara Destinasi',
+                                pageName: 'Bandara Tujuan',
                                 dataList: _bandara,
                               ));
                       setState(() {

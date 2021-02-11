@@ -79,11 +79,11 @@ class _PembayaranState extends State<Pembayaran> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            if (widget.previousData.transportationType ==
-                                'Pesawat')
+                            if (widget.previousData.transportationType
+                                .contains('Pesawat'))
                               Image.asset('images/pesawat_kecil.png'),
-                            if (widget.previousData.transportationType ==
-                                'Kereta')
+                            if (widget.previousData.transportationType
+                                .contains('Kereta'))
                               Icon(Icons.train,
                                   color: Theme.of(context).primaryColor),
                             SizedBox(width: 10),

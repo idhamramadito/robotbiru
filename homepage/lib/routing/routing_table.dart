@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/page_kereta.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/basic_info/page_pesawat.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
-
 import 'package:homepage/routing/error_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';

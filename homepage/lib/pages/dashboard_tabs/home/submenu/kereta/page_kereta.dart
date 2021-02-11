@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/UI_components/basic_info_list_tile.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/basic_info/UI_components/passengers_bottom_sheet.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/UI_components/basic_info_list_tile.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/UI_components/passengers_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/choice_bottom_sheet.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
@@ -52,13 +52,13 @@ class _PageKeretaState extends State<PageKereta> {
                 children: [
                   BasicInfoListTile(
                     data: data.origin,
-                    name: 'Stasiun Asal',
+                    name: 'Stasiun Keberangkatan',
                     icon: Icons.train,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Stasiun Asal',
+                                pageName: 'Stasiun Keberangkatan',
                                 dataList: _stasiun,
                               ));
                       setState(() {
@@ -87,13 +87,13 @@ class _PageKeretaState extends State<PageKereta> {
                   ),
                   BasicInfoListTile(
                     data: data.destination,
-                    name: 'Stasiun Destinasi',
+                    name: 'Stasiun Tujuan',
                     icon: Icons.train,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Stasiun Destinasi',
+                                pageName: 'Stasiun Tujuan',
                                 dataList: _stasiun,
                               ));
                       setState(() {

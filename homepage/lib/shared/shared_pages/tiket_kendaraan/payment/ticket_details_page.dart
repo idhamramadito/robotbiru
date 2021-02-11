@@ -45,7 +45,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
                     children: [
@@ -60,7 +60,10 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                       Text('${widget.prevData.chosenDepartSchedule.depCity}'),
                     ],
                   ),
-                  Image.asset('images/plane_with_trail.png', width: 50),
+                  if (widget.prevData.transportationType.contains('Pesawat'))
+                    Image.asset('images/plane_with_trail.png', width: 50),
+                  if (widget.prevData.transportationType.contains('Kereta'))
+                    Image.asset('images/train_with_trail.png', width: 50),
                   Column(
                     children: [
                       Text(

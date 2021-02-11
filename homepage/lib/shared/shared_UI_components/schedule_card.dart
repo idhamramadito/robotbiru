@@ -166,7 +166,7 @@ class ScheduleCard extends StatelessWidget {
                           width: 1,
                         ),
                         Text(
-                            previousData.transportationType == 'Pesawat'
+                            previousData.transportationType.contains('Pesawat')
                                 ? "Sisa ${flightSchedule.chairLeft} kursi"
                                 : flightSchedule.chairClass,
                             style: TextStyle(
