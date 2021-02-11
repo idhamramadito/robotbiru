@@ -195,8 +195,9 @@ class _OrderFormsState extends State<OrderForms> {
                               color: Theme.of(context).primaryColor,
                             ),
                             onTap: () async {
-                              final result =
-                                  await passengerDetailsSheet(context);
+                              final result = await passengerDetailsSheet(
+                                  context,
+                                  widget.prevData.passengersDetails[index]);
                               setState(() {
                                 widget.prevData.passengersDetails[index] =
                                     result ??

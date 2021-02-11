@@ -7,9 +7,9 @@ import 'package:homepage/shared/shared_UI_components/text_field.dart';
 import 'package:intl/intl.dart';
 import 'package:homepage/models/passenggers_model.dart';
 
-Future passengerDetailsSheet(BuildContext context) {
+Future passengerDetailsSheet(
+    BuildContext context, PassengersModel dataPenumpang) {
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
-  PassengersModel dataPenumpang = PassengersModel();
 
   return showModalBottomSheet(
       context: context,
