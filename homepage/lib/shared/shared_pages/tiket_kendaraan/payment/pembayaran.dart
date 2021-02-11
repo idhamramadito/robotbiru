@@ -5,7 +5,10 @@ import 'package:homepage/shared/shared_UI_components/big_button.dart';
 class Pembayaran extends StatefulWidget {
   final TransportationModel previousData;
 
-  Pembayaran({Key key, this.previousData}) : super(key: key);
+  Pembayaran({
+    Key key,
+    this.previousData,
+  }) : super(key: key);
 
   @override
   _PembayaranState createState() => _PembayaranState();

@@ -217,7 +217,7 @@ class _RingkasanState extends State<Ringkasan> {
                 SizedBox(height: 10),
                 DetailPenerbangan(
                   previousData: widget.previousData,
-                  onTap: () {
+                  onTap: (index) {
                     Navigator.of(context).pushNamed('/ticket_details_page',
                         arguments: widget.previousData);
                   },
