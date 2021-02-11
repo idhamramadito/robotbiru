@@ -45,7 +45,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     children: [
