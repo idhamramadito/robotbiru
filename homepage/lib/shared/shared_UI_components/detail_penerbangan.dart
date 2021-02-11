@@ -89,7 +89,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                     onTap: () => widget.onTap(1),
                     dense: true,
                     title: Text(
-                      '${widget.previousData.chosenReturnSchedule.depCode} - ${widget.previousData.chosenReturnSchedule.depCode}',
+                      '${widget.previousData.chosenReturnSchedule.depCode} - ${widget.previousData.chosenReturnSchedule.arrCode}',
                       style: TextStyle(fontSize: 18),
                     ),
                     subtitle: Text(
