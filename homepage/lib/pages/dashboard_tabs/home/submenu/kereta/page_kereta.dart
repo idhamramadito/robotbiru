@@ -52,13 +52,13 @@ class _PageKeretaState extends State<PageKereta> {
                 children: [
                   BasicInfoListTile(
                     data: data.origin,
-                    name: 'Stasiun Asal',
+                    name: 'Stasiun Keberangkatan',
                     icon: Icons.train,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Stasiun Asal',
+                                pageName: 'Stasiun Keberangkatan',
                                 dataList: _stasiun,
                               ));
                       setState(() {
@@ -87,13 +87,13 @@ class _PageKeretaState extends State<PageKereta> {
                   ),
                   BasicInfoListTile(
                     data: data.destination,
-                    name: 'Stasiun Destinasi',
+                    name: 'Stasiun Tujuan',
                     icon: Icons.train,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Stasiun Destinasi',
+                                pageName: 'Stasiun Tujuan',
                                 dataList: _stasiun,
                               ));
                       setState(() {

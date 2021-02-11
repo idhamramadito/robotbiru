@@ -58,13 +58,13 @@ class _PagePesawatState extends State<PagePesawat> {
                 children: [
                   BasicInfoListTile(
                     data: data.origin,
-                    name: 'Bandara Asal',
+                    name: 'Bandara Keberangkatan',
                     icon: Icons.flight_takeoff,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Bandara Asal',
+                                pageName: 'Bandara Keberangkatan',
                                 dataList: _bandara,
                               ));
                       setState(() {
@@ -93,13 +93,13 @@ class _PagePesawatState extends State<PagePesawat> {
                   ),
                   BasicInfoListTile(
                     data: data.destination,
-                    name: 'Bandara Destinasi',
+                    name: 'Bandara Tujuan',
                     icon: Icons.flight_land,
                     onPressed: () async {
                       var result =
                           await Navigator.of(context).pushNamed('/search_page',
                               arguments: SearchPage(
-                                pageName: 'Bandara Destinasi',
+                                pageName: 'Bandara Tujuan',
                                 dataList: _bandara,
                               ));
                       setState(() {
