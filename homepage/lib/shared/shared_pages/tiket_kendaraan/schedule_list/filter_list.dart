@@ -237,6 +237,7 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                             ),
                             ListView.builder(
                                 shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
                                 itemCount: _filterFasiitas.length,
                                 itemBuilder: (context, index) {
                                   return Row(
@@ -275,6 +276,7 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                             ),
                             ListView.builder(
                                 shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
                                 itemCount: _kelas.length,
                                 itemBuilder: (context, index) {
                                   return Row(
@@ -307,6 +309,7 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                             ),
                             ListView.builder(
                                 shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
                                 itemCount: _namaKereta.length,
                                 itemBuilder: (context, index) {
                                   return Row(
