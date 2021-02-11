@@ -29,8 +29,8 @@ class _OrderFormsState extends State<OrderForms> {
     for (int i = 0; i < widget.prevData.passengersAmount.length; i++) {
       if (widget.prevData.passengersAmount[i].content > 0) {
         for (int j = 0; j < widget.prevData.passengersAmount[i].content; j++) {
-          widget.prevData.passengersDetails
-              .add(PassengersModel(ageType: 'Dewasa'));
+          widget.prevData.passengersDetails.add(PassengersModel(
+              ageType: widget.prevData.passengersAmount[i].name));
         }
       }
     }
