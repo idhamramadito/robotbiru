@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/schedule_model.dart';
+import 'package:homepage/models/transportation_model.dart';
 
 class TabPerjalanan extends StatelessWidget {
+  final ScheduleModel flightSchedule;
+  final TransportationModel prevData;
   const TabPerjalanan({
     Key key,
     @required this.flightSchedule,
+    @required this.prevData,
   }) : super(key: key);
-
-  final ScheduleModel flightSchedule;
 
   @override
   Widget build(BuildContext context) {
@@ -280,28 +282,29 @@ class TabPerjalanan extends StatelessWidget {
                   ),
                 ],
               ),
-            InkWell(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Kebijakan Pembatalan',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ],
+            if (prevData.transportationType.contains('Pesawat'))
+              InkWell(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Kebijakan Pembatalan',
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ],
+                  ),
                 ),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/kebijakan_pembatalan');
+                },
               ),
-              onTap: () {
-                Navigator.of(context).pushNamed('/kebijakan_pembatalan');
-              },
-            ),
             SizedBox(
               height: 20,
             ),

@@ -85,10 +85,19 @@ Future ticketDetails(BuildContext context, String sourcePage,
               Flexible(
                 child: TabBarView(
                   children: [
-                    TabPerjalanan(flightSchedule: flightSchedule),
+                    TabPerjalanan(
+                      flightSchedule: flightSchedule,
+                      prevData: data,
+                    ),
                     if (data.transportationType.contains('Pesawat'))
-                      TabFasilitas(flightSchedule: flightSchedule),
-                    TabHarga(flightSchedule: flightSchedule),
+                      TabFasilitas(
+                        flightSchedule: flightSchedule,
+                        prevData: data,
+                      ),
+                    TabHarga(
+                      flightSchedule: flightSchedule,
+                      prevData: data,
+                    ),
                   ],
                 ),
               ),

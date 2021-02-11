@@ -144,31 +144,32 @@ class _PulangTabState extends State<PulangTab> {
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Divider(thickness: 2)),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: InkWell(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Kebijakan Pembatalan',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ],
+          if (widget.prevData.transportationType.contains('Pesawat'))
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: InkWell(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Kebijakan Pembatalan',
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ],
+                  ),
                 ),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/kebijakan_pembatalan');
+                },
               ),
-              onTap: () {
-                Navigator.of(context).pushNamed('/kebijakan_pembatalan');
-              },
             ),
-          ),
           SizedBox(
             height: 20,
           ),

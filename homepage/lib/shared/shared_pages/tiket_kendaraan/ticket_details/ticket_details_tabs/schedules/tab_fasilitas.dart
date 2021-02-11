@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/schedule_model.dart';
+import 'package:homepage/models/transportation_model.dart';
 
 List _fasilitas = [
   ['images/koper_biru.png', 'Bagasi'],
@@ -9,12 +10,13 @@ List _fasilitas = [
 ];
 
 class TabFasilitas extends StatelessWidget {
+  final ScheduleModel flightSchedule;
+  final TransportationModel prevData;
   const TabFasilitas({
     Key key,
     @required this.flightSchedule,
+    @required this.prevData,
   }) : super(key: key);
-
-  final ScheduleModel flightSchedule;
 
   @override
   Widget build(BuildContext context) {
