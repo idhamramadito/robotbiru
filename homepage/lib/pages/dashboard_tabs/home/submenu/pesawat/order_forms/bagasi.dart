@@ -90,8 +90,8 @@ class _BagasiState extends State<Bagasi> {
               PilihBagasi(
                 number: luggageSize[0],
                 onTap: () async {
-                  final String result =
-                      await choiceBottomSheet(context, 'Bagasi');
+                  final String result = await choiceBottomSheet(
+                      context, 'Bagasi', widget.datasebelum);
                   setState(() {
                     luggageSize[0] = result ?? luggageSize[0];
                   });
@@ -110,8 +110,8 @@ class _BagasiState extends State<Bagasi> {
                     PilihBagasi(
                       number: luggageSize[1],
                       onTap: () async {
-                        final String result =
-                            await choiceBottomSheet(context, 'Bagasi');
+                        final String result = await choiceBottomSheet(
+                            context, 'Bagasi', widget.datasebelum);
                         setState(() {
                           luggageSize[1] = result ?? luggageSize[1];
                         });
