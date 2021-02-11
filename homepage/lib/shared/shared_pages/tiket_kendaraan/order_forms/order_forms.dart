@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/passenggers_model.dart';
 import 'package:homepage/models/order_detail_model.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
@@ -171,7 +170,7 @@ class _OrderFormsState extends State<OrderForms> {
                           child: ListTile(
                             dense: true,
                             title: Text(
-                              '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}: ${widget.prevData.passengersAmount[index].name}'}',
+                              '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}: ${widget.prevData.passengersDetails[index].ageType}'}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,

@@ -1,6 +1,7 @@
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/order_detail_model.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
+import 'package:homepage/models/passenggers_model.dart';
 
 class TransportationModel {
   // diisi di halaman basic_info
@@ -21,7 +22,7 @@ class TransportationModel {
 
   // diisi di halaman pemesanan
   OrderDetailModel orderDetails;
-  List passengersDetails;
+  List<PassengersModel> passengersDetails;
   bool sameAsBuyer;
   bool fullProtection;
   bool luggageInsurance;

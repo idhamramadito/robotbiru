@@ -194,45 +194,43 @@ class _PergiTabState extends State<PergiTab> {
                 Divider(thickness: 2),
                 SizedBox(height: 10),
                 ListView.builder(
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: widget.prevData.passengersDetails.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        dense: true,
-                        title: Text(
-                          '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}'}',
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: widget.prevData.passengersDetails.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      dense: true,
+                      title: Text(
+                        '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}'}',
+                        style: TextStyle(
+                          fontSize: 16,
                         ),
-                        trailing: Container(
-                          width: 60,
-                          height: 27,
-                          decoration: new BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(5.0)),
-                            color: Colors.grey[200],
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(0),
-                            child: Center(
-                              child: Text(
-                                "${widget.prevData.passengersAmount[index].name}",
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.grey[500],
-                                    fontWeight: FontWeight.bold),
-                              ),
+                      ),
+                      trailing: Container(
+                        width: 60,
+                        height: 27,
+                        decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                          color: Colors.grey[200],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(0),
+                          child: Center(
+                            child: Text(
+                              "${widget.prevData.passengersDetails[index].ageType}",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey[500],
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
-                      );
-                    }),
-                SizedBox(
-                  height: 20,
+                      ),
+                    );
+                  },
                 ),
+                SizedBox(height: 20),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   decoration: BoxDecoration(

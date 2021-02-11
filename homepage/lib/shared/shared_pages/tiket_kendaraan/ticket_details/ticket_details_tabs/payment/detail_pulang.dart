@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/transportation_model.dart';
 
-class PulangTab extends StatelessWidget {
+class PulangTab extends StatefulWidget {
   final TransportationModel prevData;
   const PulangTab({
     Key key,
     this.prevData,
   }) : super(key: key);
 
+  @override
+  _PulangTabState createState() => _PulangTabState();
+}
+
+class _PulangTabState extends State<PulangTab> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -19,9 +24,9 @@ class PulangTab extends StatelessWidget {
             child: ListTile(
               dense: true,
               leading: Image.asset(
-                  '${prevData.chosenReturnSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                  '${widget.prevData.chosenReturnSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
               title: Text(
-                '${prevData.chosenReturnSchedule.airlineName}',
+                '${widget.prevData.chosenReturnSchedule.airlineName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -42,7 +47,7 @@ class PulangTab extends StatelessWidget {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '${prevData.chosenReturnSchedule.flightTime}',
+                        '${widget.prevData.chosenReturnSchedule.flightTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -75,7 +80,7 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.depTime}',
+                                '${widget.prevData.chosenReturnSchedule.depTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -84,11 +89,11 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.depCity} (${prevData.chosenReturnSchedule.depAirportCode})',
+                                '${widget.prevData.chosenReturnSchedule.depCity} (${widget.prevData.chosenReturnSchedule.depAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${prevData.chosenReturnSchedule.depAirport}'),
+                                  '${widget.prevData.chosenReturnSchedule.depAirport}'),
                             ),
                           ),
                         ],
@@ -98,7 +103,7 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.flightTime}',
+                                '${widget.prevData.chosenReturnSchedule.flightTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -111,7 +116,7 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.arrTime}',
+                                '${widget.prevData.chosenReturnSchedule.arrTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Senin, 12 Jan 2021'),
@@ -120,11 +125,11 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.arrCity} (${prevData.chosenReturnSchedule.arrAirportCode})',
+                                '${widget.prevData.chosenReturnSchedule.arrCity} (${widget.prevData.chosenReturnSchedule.arrAirportCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${prevData.chosenReturnSchedule.arrAirport}'),
+                                  '${widget.prevData.chosenReturnSchedule.arrAirport}'),
                             ),
                           ),
                         ],
@@ -188,40 +193,44 @@ class PulangTab extends StatelessWidget {
                 SizedBox(height: 10),
                 Divider(thickness: 2),
                 SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '1. Tuan Anbiya Nur Rohmat',
-                      style: TextStyle(
-                        fontSize: 16,
+                ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: widget.prevData.passengersDetails.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      dense: true,
+                      title: Text(
+                        '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}'}',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Container(
-                      width: 60,
-                      height: 27,
-                      decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                        color: Colors.grey[200],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(0),
-                        child: Center(
-                          child: Text(
-                            "Dewasa",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey[500],
-                                fontWeight: FontWeight.bold),
+                      trailing: Container(
+                        width: 60,
+                        height: 27,
+                        decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                          color: Colors.grey[200],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(0),
+                          child: Center(
+                            child: Text(
+                              "${widget.prevData.passengersDetails[index].ageType}",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey[500],
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   decoration: BoxDecoration(

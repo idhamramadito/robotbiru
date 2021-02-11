@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/passenggers_model.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/basic_info_list_tile.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/UI_components/passengers_bottom_sheet.dart';
@@ -164,9 +165,22 @@ class _PagePesawatState extends State<PagePesawat> {
                     name: 'Jumlah Penumpang',
                     icon: Icons.person,
                     onPressed: () async {
+                      List _temp;
                       var result = await passengersBottomSheet(context);
                       setState(() {
                         data.passengersAmount = result ?? data.passengersAmount;
+                        for (int i = 0; i < data.passengersAmount.length; i++) {
+                          if (data.passengersAmount[i].content > 0) {
+                            for (int j = 0;
+                                j < data.passengersAmount[i].content;
+                                j++) {
+                              _temp.add(PassengersModel(
+                                  ageType: data.passengersAmount[i].name));
+                            }
+                          }
+                        }
+                        data.passengersDetails =
+                            List.from(_temp) ?? data.passengersDetails;
                       });
                     },
                   ),
