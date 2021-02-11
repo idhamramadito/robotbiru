@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/order_detail_model.dart';
+import 'package:homepage/models/passenggers_model.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/detail_penerbangan.dart';
 import 'package:homepage/shared/shared_UI_components/order_details_sheet.dart';
@@ -27,6 +28,14 @@ class _OrderFormsState extends State<OrderForms> {
     widget.prevData.sameAsBuyer = false;
     widget.prevData.fullProtection = false;
     widget.prevData.luggageInsurance = false;
+    for (int i = 0; i < widget.prevData.passengersAmount.length; i++) {
+      if (widget.prevData.passengersAmount[i].content > 0) {
+        for (int j = 0; j < widget.prevData.passengersAmount[i].content; j++) {
+          widget.prevData.passengersDetails.add(PassengersModel(
+              ageType: widget.prevData.passengersAmount[i].name));
+        }
+      }
+    }
 
     super.initState();
   }
