@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/filter_list.dart';
 import 'package:homepage/shared/shared_UI_components/schedule_card.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 import 'package:homepage/models/transportation_model.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/schedule_list/filter_list.dart';
 import 'package:intl/intl.dart';
 
 class ScheduleList extends StatefulWidget {
@@ -297,7 +297,7 @@ class _ListJadwalKendaraanState extends State<ScheduleList> {
               ),
             ),
             onPressed: () {
-              filterList(context);
+              filterList(context, widget.previousData);
             },
           ),
           FloatingActionButton.extended(
