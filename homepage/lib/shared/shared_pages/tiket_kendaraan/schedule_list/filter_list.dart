@@ -76,17 +76,13 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SlideUpMarker(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Urutkan dan Filter",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      Text(
+                        "Urutkan dan Filter",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       ExpansionTile(
                         expandedAlignment: Alignment.centerLeft,
@@ -102,20 +98,16 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                             shrinkWrap: true,
                             itemCount: _urutan.length,
                             itemBuilder: (context, index) {
-                              return InkWell(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      _urutan[index][0],
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: selectedValue == index
-                                            ? Theme.of(context).primaryColor
-                                            : Colors.black,
-                                      ),
-                                    ),
-                                  ],
+                              return ListTile(
+                                dense: true,
+                                title: Text(
+                                  _urutan[index][0],
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: selectedValue == index
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.black,
+                                  ),
                                 ),
                                 onTap: () {
                                   mystate(() {
@@ -127,27 +119,17 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                           ),
                         ],
                       ),
-                      Divider(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Filter Dengan",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      SizedBox(height: 20),
+                      Text(
+                        "Filter Dengan",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Durasi Transit",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          )
-                        ],
+                      Divider(height: 20, thickness: 2),
+                      Text(
+                        "Durasi Transit",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
@@ -179,16 +161,11 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                               ],
                             );
                           }),
-                      Divider(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Waktu Pergi",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      Divider(height: 20, thickness: 2),
+                      Text(
+                        "Waktu Pergi",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
@@ -216,16 +193,11 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                           );
                         },
                       ),
-                      Divider(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Waktu Tiba",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                      Divider(height: 20, thickness: 2),
+                      Text(
+                        "Waktu Tiba",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
@@ -253,123 +225,114 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                           );
                         },
                       ),
-                      Divider(height: 20),
                       if (previousData.transportationType.contains('Pesawat'))
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Divider(height: 20, thickness: 2),
                             Text(
                               "Fasilitas",
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
+                            ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: _filterFasiitas.length,
+                                itemBuilder: (context, index) {
+                                  return Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        _filterFasiitas[index][0],
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      Checkbox(
+                                          value: _filterFasiitas[index][1],
+                                          activeColor:
+                                              Theme.of(context).primaryColor,
+                                          onChanged: (value) {
+                                            mystate(() {
+                                              _filterFasiitas[index][1] = value;
+                                            });
+                                          }),
+                                    ],
+                                  );
+                                }),
                           ],
                         ),
-                      if (previousData.transportationType.contains('Pesawat'))
-                        ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: _filterFasiitas.length,
-                            itemBuilder: (context, index) {
-                              return Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    _filterFasiitas[index][0],
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  Checkbox(
-                                      value: _filterFasiitas[index][1],
-                                      activeColor:
-                                          Theme.of(context).primaryColor,
-                                      onChanged: (value) {
-                                        mystate(() {
-                                          _filterFasiitas[index][1] = value;
-                                        });
-                                      }),
-                                ],
-                              );
-                            }),
-                      Divider(height: 20),
                       if (previousData.transportationType.contains('Kereta'))
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Divider(height: 20, thickness: 2),
                             Text(
                               "Kelas",
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                          ],
-                        ),
-                      if (previousData.transportationType.contains('Kereta'))
-                        ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: _kelas.length,
-                            itemBuilder: (context, index) {
-                              return Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    _kelas[index][0],
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  Checkbox(
-                                      value: _kelas[index][1],
-                                      activeColor:
-                                          Theme.of(context).primaryColor,
-                                      onChanged: (value) {
-                                        mystate(() {
-                                          _kelas[index][1] = value;
-                                        });
-                                      }),
-                                ],
-                              );
-                            }),
-                      Divider(height: 20),
-                      if (previousData.transportationType.contains('Kereta'))
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                            ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: _kelas.length,
+                                itemBuilder: (context, index) {
+                                  return Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        _kelas[index][0],
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      Checkbox(
+                                          value: _kelas[index][1],
+                                          activeColor:
+                                              Theme.of(context).primaryColor,
+                                          onChanged: (value) {
+                                            mystate(() {
+                                              _kelas[index][1] = value;
+                                            });
+                                          }),
+                                    ],
+                                  );
+                                }),
+                            Divider(height: 20, thickness: 2),
                             Text(
-                              "Kelas",
+                              "Nama Kereta",
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
+                            ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: _namaKereta.length,
+                                itemBuilder: (context, index) {
+                                  return Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        _namaKereta[index][0],
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      Checkbox(
+                                          value: _namaKereta[index][1],
+                                          activeColor:
+                                              Theme.of(context).primaryColor,
+                                          onChanged: (value) {
+                                            mystate(() {
+                                              _namaKereta[index][1] = value;
+                                            });
+                                          }),
+                                    ],
+                                  );
+                                }),
                           ],
                         ),
-                      if (previousData.transportationType.contains('Kereta'))
-                        ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: _namaKereta.length,
-                            itemBuilder: (context, index) {
-                              return Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    _namaKereta[index][0],
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  Checkbox(
-                                      value: _namaKereta[index][1],
-                                      activeColor:
-                                          Theme.of(context).primaryColor,
-                                      onChanged: (value) {
-                                        mystate(() {
-                                          _namaKereta[index][1] = value;
-                                        });
-                                      }),
-                                ],
-                              );
-                            }),
                     ],
                   ),
                 ),
