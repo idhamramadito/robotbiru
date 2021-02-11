@@ -186,7 +186,6 @@ class _PageKeretaState extends State<PageKereta> {
                               data.destination,
                               data.dateDepart,
                               data.passengersAmount,
-                              data.cabinClass,
                             ].contains(null) ||
                             (data.isTwoWayTrip == true &&
                                 data.dateReturn == null))
