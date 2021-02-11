@@ -40,7 +40,9 @@ class TabFasilitas extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    'JT-22',
+                    (prevData.transportationType.contains('Kereta'))
+                        ? '${flightSchedule.chairClass}'
+                        : 'JT-22',
                     style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 15,
@@ -151,7 +153,9 @@ class TabFasilitas extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(
-                      'JT-22',
+                      (prevData.transportationType.contains('Kereta'))
+                          ? '${flightSchedule.chairClass}'
+                          : 'JT-22',
                       style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 15,

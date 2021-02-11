@@ -33,7 +33,9 @@ class _PulangTabState extends State<PulangTab> {
                 ),
               ),
               subtitle: Text(
-                'JT-22',
+                (widget.prevData.transportationType.contains('Kereta'))
+                    ? '${widget.prevData.chosenReturnSchedule.chairClass}'
+                    : 'JT-22',
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 15,

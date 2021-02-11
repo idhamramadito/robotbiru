@@ -33,7 +33,9 @@ class _PergiTabState extends State<PergiTab> {
                 ),
               ),
               subtitle: Text(
-                'JT-22',
+                (widget.prevData.transportationType.contains('Kereta'))
+                    ? '${widget.prevData.chosenDepartSchedule.chairClass}'
+                    : 'JT-22',
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 15,
