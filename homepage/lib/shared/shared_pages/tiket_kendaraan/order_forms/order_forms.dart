@@ -25,16 +25,6 @@ class _OrderFormsState extends State<OrderForms> {
   void initState() {
     widget.prevData.orderDetails = OrderDetailModel();
     widget.prevData.passengersDetails = [];
-
-    for (int i = 0; i < widget.prevData.passengersAmount.length; i++) {
-      if (widget.prevData.passengersAmount[i].content > 0) {
-        for (int j = 0; j < widget.prevData.passengersAmount[i].content; j++) {
-          widget.prevData.passengersDetails.add(PassengersModel(
-              ageType: widget.prevData.passengersAmount[i].name));
-        }
-      }
-    }
-
     widget.prevData.sameAsBuyer = false;
     widget.prevData.fullProtection = false;
     widget.prevData.luggageInsurance = false;
@@ -181,7 +171,7 @@ class _OrderFormsState extends State<OrderForms> {
                           child: ListTile(
                             dense: true,
                             title: Text(
-                              '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}: ${widget.prevData.passengersDetails[index].ageType}'}',
+                              '${widget.prevData.passengersDetails[index].title ?? ''} ${widget.prevData.passengersDetails[index].name ?? 'Penumpang ${index + 1}: ${widget.prevData.passengersAmount[index].name}'}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,

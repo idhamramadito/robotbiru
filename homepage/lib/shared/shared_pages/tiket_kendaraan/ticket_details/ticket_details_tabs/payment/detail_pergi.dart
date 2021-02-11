@@ -14,12 +14,6 @@ class PergiTab extends StatefulWidget {
 
 class _PergiTabState extends State<PergiTab> {
   @override
-  void initState() {
-    print('${widget.prevData.passengersDetails[0].ageType ?? 'kosong'}');
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
@@ -225,7 +219,7 @@ class _PergiTabState extends State<PergiTab> {
                             padding: const EdgeInsets.all(0),
                             child: Center(
                               child: Text(
-                                "${widget.prevData.passengersDetails[index].ageType}",
+                                "${widget.prevData.passengersAmount[index].name}",
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey[500],
