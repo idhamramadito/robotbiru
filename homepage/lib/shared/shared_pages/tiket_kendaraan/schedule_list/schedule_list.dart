@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/flight_schedule_model.dart';
+import 'package:homepage/models/schedule_model.dart';
 import 'package:homepage/shared/shared_UI_components/schedule_card.dart';
 import 'package:homepage/shared/shared_UI_components/date_picker.dart';
 import 'package:homepage/models/transportation_model.dart';
@@ -21,20 +21,20 @@ class ScheduleList extends StatefulWidget {
 class _ListJadwalKendaraanState extends State<ScheduleList> {
   List _filterButton = ["Langsung", "Gratis Bagasi", "Makanan Gratis"];
   List _sementara;
-  List<FlightScheduleModel> _jadwalPenerbangan = [
-    FlightScheduleModel(
-      iconAirline: "images/japan-airlines.png",
+  List<ScheduleModel> _jadwalPenerbangan = [
+    ScheduleModel(
+      icon: "images/japan-airlines.png",
       id: "",
-      airlineName: "Jakarta Airlines",
+      transName: "Jakarta Airlines",
       depTime: "05.00",
-      depAirportCode: "CGK",
-      depAirport: 'Soekarno Hatta',
+      depCode: "CGK",
+      depFullName: 'Soekarno Hatta',
       depCity: 'Jakarta',
-      flightTime: "10J",
-      flightType: "Langsung",
+      tripTime: "10J",
+      tripType: "Langsung",
       arrTime: "15.00",
-      arrAirportCode: "DPS",
-      arrAirport: 'Ngurah Rai',
+      arrCode: "DPS",
+      arrFullName: 'Ngurah Rai',
       arrCity: 'Denpasar - Bali',
       chairLeft: 2,
       ticketPrice: 315000,
@@ -42,19 +42,19 @@ class _ListJadwalKendaraanState extends State<ScheduleList> {
       anggota: 2500,
       retail: 2500,
     ),
-    FlightScheduleModel(
-      iconAirline: "images/japan-airlines.png",
+    ScheduleModel(
+      icon: "images/japan-airlines.png",
       id: "",
-      airlineName: "Papua Airlines",
+      transName: "Papua Airlines",
       depTime: "05.00",
-      depAirportCode: "BIK",
-      depAirport: 'Frans Kaisepo',
+      depCode: "BIK",
+      depFullName: 'Frans Kaisepo',
       depCity: 'Biak',
-      flightTime: "10J",
-      flightType: "Transit",
+      tripTime: "10J",
+      tripType: "Transit",
       arrTime: "15.00",
-      arrAirportCode: "CGK",
-      arrAirport: 'Soekarno Hatta',
+      arrCode: "CGK",
+      arrFullName: 'Soekarno Hatta',
       arrCity: 'Jakarta',
       chairLeft: 2,
       ticketPrice: 315000,
@@ -64,20 +64,20 @@ class _ListJadwalKendaraanState extends State<ScheduleList> {
     ),
   ];
 
-  List<FlightScheduleModel> _jadwalKereta = [
-    FlightScheduleModel(
-      iconAirline: "images/logo_kereta.png",
+  List<ScheduleModel> _jadwalKereta = [
+    ScheduleModel(
+      icon: "images/logo_kereta.png",
       id: "",
-      airlineName: "Argo Parahyangan 7001A",
+      transName: "Argo Parahyangan 7001A",
       depTime: "05.00",
-      depAirportCode: "BDG",
-      depAirport: 'Stasiun Bandung',
+      depCode: "BDG",
+      depFullName: 'Stasiun Bandung',
       depCity: 'Bandung',
-      flightTime: "4J 50m",
-      flightType: "Langsung",
+      tripTime: "4J 50m",
+      tripType: "Langsung",
       arrTime: "09.50",
-      arrAirportCode: "BKS",
-      arrAirport: 'Stasiun Bekasi',
+      arrCode: "BKS",
+      arrFullName: 'Stasiun Bekasi',
       arrCity: 'Bekasi',
       chairLeft: 2,
       ticketPrice: 305200,
@@ -86,19 +86,19 @@ class _ListJadwalKendaraanState extends State<ScheduleList> {
       retail: 6000,
       chairClass: "Economy (Subclass C)",
     ),
-    FlightScheduleModel(
-      iconAirline: "images/logo_kereta.png",
+    ScheduleModel(
+      icon: "images/logo_kereta.png",
       id: "",
-      airlineName: "Serayu 434",
+      transName: "Serayu 434",
       depTime: "05.00",
-      depAirportCode: "BDG",
-      depAirport: 'Stasiun Bandung',
+      depCode: "BDG",
+      depFullName: 'Stasiun Bandung',
       depCity: 'Bandung',
-      flightTime: "4J 50m",
-      flightType: "Langsung",
+      tripTime: "4J 50m",
+      tripType: "Langsung",
       arrTime: "09.50",
-      arrAirportCode: "BKS",
-      arrAirport: 'Stasiun Bekasi',
+      arrCode: "BKS",
+      arrFullName: 'Stasiun Bekasi',
       arrCity: 'Bekasi',
       chairLeft: 2,
       ticketPrice: 305200,
@@ -154,9 +154,9 @@ class _ListJadwalKendaraanState extends State<ScheduleList> {
               color: Colors.blue[50],
               child: ListTile(
                 leading: Image.asset(
-                    '${widget.previousData.chosenDepartSchedule.iconAirline}'),
+                    '${widget.previousData.chosenDepartSchedule.icon}'),
                 title: Text(
-                  '${widget.previousData.chosenDepartSchedule.airlineName}',
+                  '${widget.previousData.chosenDepartSchedule.transName}',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 subtitle: Row(

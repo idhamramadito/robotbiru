@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:homepage/models/flight_schedule_model.dart';
+import 'package:homepage/models/schedule_model.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/schedules/tab_fasilitas.dart';
@@ -8,7 +8,7 @@ import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/tick
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/schedules/tab_perjalanan.dart';
 
 Future ticketDetails(BuildContext context, String sourcePage,
-    FlightScheduleModel flightSchedule, TransportationModel data) {
+    ScheduleModel flightSchedule, TransportationModel data) {
   return showModalBottomSheet(
     isScrollControlled: true,
     context: context,
@@ -40,7 +40,7 @@ Future ticketDetails(BuildContext context, String sourcePage,
                   Column(
                     children: [
                       Text(
-                        '${flightSchedule.depAirportCode}',
+                        '${flightSchedule.depCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -57,7 +57,7 @@ Future ticketDetails(BuildContext context, String sourcePage,
                   Column(
                     children: [
                       Text(
-                        '${flightSchedule.arrAirportCode}',
+                        '${flightSchedule.arrCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

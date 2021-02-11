@@ -50,7 +50,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                   Column(
                     children: [
                       Text(
-                        '${widget.prevData.chosenDepartSchedule.depAirportCode}',
+                        '${widget.prevData.chosenDepartSchedule.depCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                   Column(
                     children: [
                       Text(
-                        '${widget.prevData.chosenDepartSchedule.arrAirportCode}',
+                        '${widget.prevData.chosenDepartSchedule.arrCode}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

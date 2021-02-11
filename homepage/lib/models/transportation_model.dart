@@ -1,6 +1,6 @@
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/order_detail_model.dart';
-import 'package:homepage/models/flight_schedule_model.dart';
+import 'package:homepage/models/schedule_model.dart';
 
 class TransportationModel {
   // diisi di halaman basic_info
@@ -16,8 +16,8 @@ class TransportationModel {
   String airline;
 
   // diisi di halaman jadwal kendaraan
-  FlightScheduleModel chosenDepartSchedule;
-  FlightScheduleModel chosenReturnSchedule;
+  ScheduleModel chosenDepartSchedule;
+  ScheduleModel chosenReturnSchedule;
 
   // diisi di halaman pemesanan
   OrderDetailModel orderDetails;
@@ -41,8 +41,8 @@ class TransportationModel {
     List<NameAndContent> passengersAmount,
     String cabinClass,
     String airline,
-    FlightScheduleModel chosenDepartSchedule,
-    FlightScheduleModel chosenReturnSchedule,
+    ScheduleModel chosenDepartSchedule,
+    ScheduleModel chosenReturnSchedule,
     OrderDetailModel orderDetails,
     List passengersDetails,
     bool sameAsBuyer,

@@ -19,9 +19,9 @@ class PulangTab extends StatelessWidget {
             child: ListTile(
               dense: true,
               leading: Image.asset(
-                  '${prevData.chosenReturnSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                  '${prevData.chosenReturnSchedule.icon ?? 'images/japan_airlines.png'}'),
               title: Text(
-                '${prevData.chosenReturnSchedule.airlineName}',
+                '${prevData.chosenReturnSchedule.transName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -42,7 +42,7 @@ class PulangTab extends StatelessWidget {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '${prevData.chosenReturnSchedule.flightTime}',
+                        '${prevData.chosenReturnSchedule.tripTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -84,11 +84,11 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.depCity} (${prevData.chosenReturnSchedule.depAirportCode})',
+                                '${prevData.chosenReturnSchedule.depCity} (${prevData.chosenReturnSchedule.depCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${prevData.chosenReturnSchedule.depAirport}'),
+                                  '${prevData.chosenReturnSchedule.depFullName}'),
                             ),
                           ),
                         ],
@@ -98,7 +98,7 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.flightTime}',
+                                '${prevData.chosenReturnSchedule.tripTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -120,11 +120,11 @@ class PulangTab extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${prevData.chosenReturnSchedule.arrCity} (${prevData.chosenReturnSchedule.arrAirportCode})',
+                                '${prevData.chosenReturnSchedule.arrCity} (${prevData.chosenReturnSchedule.arrCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${prevData.chosenReturnSchedule.arrAirport}'),
+                                  '${prevData.chosenReturnSchedule.arrFullName}'),
                             ),
                           ),
                         ],

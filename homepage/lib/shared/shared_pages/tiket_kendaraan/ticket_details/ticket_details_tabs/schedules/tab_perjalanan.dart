@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/flight_schedule_model.dart';
+import 'package:homepage/models/schedule_model.dart';
 
 class TabPerjalanan extends StatelessWidget {
   const TabPerjalanan({
@@ -7,7 +7,7 @@ class TabPerjalanan extends StatelessWidget {
     @required this.flightSchedule,
   }) : super(key: key);
 
-  final FlightScheduleModel flightSchedule;
+  final ScheduleModel flightSchedule;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class TabPerjalanan extends StatelessWidget {
             ListTile(
               dense: true,
               leading: Image.asset(
-                  '${flightSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                  '${flightSchedule.icon ?? 'images/japan_airlines.png'}'),
               title: Text(
-                '${flightSchedule.airlineName}',
+                '${flightSchedule.transName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -43,7 +43,7 @@ class TabPerjalanan extends StatelessWidget {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '${flightSchedule.flightTime}',
+                        '${flightSchedule.tripTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -80,10 +80,10 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${flightSchedule.depCity} (${flightSchedule.depAirportCode})',
+                                '${flightSchedule.depCity} (${flightSchedule.depCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text('${flightSchedule.depAirport}'),
+                              subtitle: Text('${flightSchedule.depFullName}'),
                             ),
                           ),
                         ],
@@ -93,7 +93,7 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${flightSchedule.flightTime}',
+                                '${flightSchedule.tripTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -115,10 +115,10 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${flightSchedule.arrCity} (${flightSchedule.arrAirportCode})',
+                                '${flightSchedule.arrCity} (${flightSchedule.arrCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text('${flightSchedule.arrAirport}'),
+                              subtitle: Text('${flightSchedule.arrFullName}'),
                             ),
                           ),
                         ],
@@ -128,7 +128,7 @@ class TabPerjalanan extends StatelessWidget {
                 ),
               ],
             ),
-            if (flightSchedule.flightType.contains('Transit'))
+            if (flightSchedule.tripType.contains('Transit'))
               Column(
                 children: [
                   Container(
@@ -163,9 +163,9 @@ class TabPerjalanan extends StatelessWidget {
                   ListTile(
                     dense: true,
                     leading: Image.asset(
-                        '${flightSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                        '${flightSchedule.icon ?? 'images/japan_airlines.png'}'),
                     title: Text(
-                      '${flightSchedule.airlineName}',
+                      '${flightSchedule.transName}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -186,7 +186,7 @@ class TabPerjalanan extends StatelessWidget {
                           Flexible(child: Image.asset('images/gray_clock.png')),
                           Flexible(
                             child: Text(
-                              '${flightSchedule.flightTime}',
+                              '${flightSchedule.tripTime}',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),
@@ -224,12 +224,12 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${flightSchedule.depCity} (${flightSchedule.depAirportCode})',
+                                      '${flightSchedule.depCity} (${flightSchedule.depCode})',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     subtitle:
-                                        Text('${flightSchedule.depAirport}'),
+                                        Text('${flightSchedule.depFullName}'),
                                   ),
                                 ),
                               ],
@@ -239,7 +239,7 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${flightSchedule.flightTime}',
+                                      '${flightSchedule.tripTime}',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -263,12 +263,12 @@ class TabPerjalanan extends StatelessWidget {
                                 Flexible(
                                   child: ListTile(
                                     title: Text(
-                                      '${flightSchedule.arrCity} (${flightSchedule.arrAirportCode})',
+                                      '${flightSchedule.arrCity} (${flightSchedule.arrCode})',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     subtitle:
-                                        Text('${flightSchedule.arrAirport}'),
+                                        Text('${flightSchedule.arrFullName}'),
                                   ),
                                 ),
                               ],

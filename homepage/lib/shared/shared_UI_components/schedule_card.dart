@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/flight_schedule_model.dart';
+import 'package:homepage/models/schedule_model.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details.dart';
 import 'package:intl/intl.dart';
@@ -12,7 +12,7 @@ class ScheduleCard extends StatelessWidget {
     this.onTap,
   }) : super(key: key);
 
-  final FlightScheduleModel flightSchedule;
+  final ScheduleModel flightSchedule;
   final TransportationModel previousData;
   final Function onTap;
 
@@ -43,8 +43,8 @@ class ScheduleCard extends StatelessWidget {
                   children: [
                     ListTile(
                       contentPadding: EdgeInsets.only(bottom: 10),
-                      leading: Image.asset(flightSchedule.iconAirline),
-                      title: Text('${flightSchedule.airlineName}',
+                      leading: Image.asset(flightSchedule.icon),
+                      title: Text('${flightSchedule.transName}',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class ScheduleCard extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     )),
-                                Text('${flightSchedule.depAirportCode}',
+                                Text('${flightSchedule.depCode}',
                                     style: TextStyle(
                                       fontSize: 15,
                                       color: Colors.black,
@@ -99,13 +99,13 @@ class ScheduleCard extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('${flightSchedule.flightTime}',
+                                Text('${flightSchedule.tripTime}',
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     )),
-                                Text('${flightSchedule.flightType}',
+                                Text('${flightSchedule.tripType}',
                                     style: TextStyle(
                                       fontSize: 15,
                                       color: Colors.grey[600],
@@ -132,7 +132,7 @@ class ScheduleCard extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     )),
-                                Text('${flightSchedule.arrAirportCode}',
+                                Text('${flightSchedule.arrCode}',
                                     style: TextStyle(
                                       fontSize: 15,
                                       color: Colors.black,
