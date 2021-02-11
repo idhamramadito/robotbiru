@@ -160,7 +160,7 @@ class _PageKeretaState extends State<PageKereta> {
                     name: 'Jumlah Penumpang',
                     icon: Icons.person,
                     onPressed: () async {
-                      List _temp;
+                      List _temp = [];
                       var result = await passengersBottomSheet(context);
                       setState(() {
                         data.passengersAmount = result ?? data.passengersAmount;
