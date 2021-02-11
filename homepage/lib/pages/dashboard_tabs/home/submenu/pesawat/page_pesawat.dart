@@ -177,7 +177,7 @@ class _PagePesawatState extends State<PagePesawat> {
                     icon: Icons.airline_seat_recline_extra,
                     onPressed: () async {
                       var result =
-                          await choiceBottomSheet(context, "Kelas Kabin");
+                          await choiceBottomSheet(context, "Kelas Kabin", data);
                       setState(() {
                         data.cabinClass = result ?? data.cabinClass;
                       });

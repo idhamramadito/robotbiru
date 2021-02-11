@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 
-List _cabinClass = [
+List _cabinClassPesawat = [
   ['Ekonomi', '', false],
   ['Premium Ekonomi', '', false],
   ['Bisnis', '', false],
   ['First', '', false],
 ];
+
+List _cabinClassKereta = [
+  ['Ekonomi', '', false],
+  ['Premium Ekonomi', '', false],
+  ['Bisnis', '', false],
+  ['First', '', false],
+];
+
 List _hargaBagasi = [
   ["0kg", "(+Rp 0)", false],
   ["5kg", "(+Rp 165.000)", false],
@@ -14,11 +23,16 @@ List _hargaBagasi = [
   ["15kg", "(+Rp 495.000)", false],
 ];
 
-Future choiceBottomSheet(BuildContext context, String pageName) {
+Future choiceBottomSheet(
+    BuildContext context, String pageName, TransportationModel data) {
   List _sementara;
   switch (pageName) {
     case 'Kelas Kabin':
-      _sementara = List.from(_cabinClass);
+      if (data.transportationType.contains('Pesawat')) {
+        _sementara = List.from(_cabinClassPesawat);
+      } else if (data.transportationType.contains('Kereta')) {
+        _sementara = List.from(_cabinClassKereta);
+      }
       break;
     case 'Bagasi':
       _sementara = List.from(_hargaBagasi);
@@ -76,7 +90,14 @@ Future choiceBottomSheet(BuildContext context, String pageName) {
                                 _sementara[index][2] = true;
                                 switch (pageName) {
                                   case 'Kelas Kabin':
-                                    _cabinClass = List.from(_sementara);
+                                    if (data.transportationType
+                                        .contains('Pesawat')) {
+                                      _cabinClassPesawat =
+                                          List.from(_sementara);
+                                    } else if (data.transportationType
+                                        .contains('Kereta')) {
+                                      _cabinClassKereta = List.from(_sementara);
+                                    }
                                     break;
                                   case 'Bagasi':
                                     _hargaBagasi = List.from(_sementara);
