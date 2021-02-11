@@ -11,8 +11,8 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/order_forms/harga_detail.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/order_forms/order_forms.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/harga_detail.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/pembayaran.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ringkasan.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ticket_details_page.dart';
@@ -65,7 +65,7 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => Pembayaran(previousData: arg));
       case '/ringkasan':
         return MaterialPageRoute(builder: (_) => Ringkasan(previousData: arg));
-      case '/total_pembayaran':
+      case '/harga_detail':
         return MaterialPageRoute(builder: (_) => HargaDetail());
       case '/list_jadwal_kendaraan':
         return MaterialPageRoute(

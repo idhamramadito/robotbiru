@@ -40,7 +40,7 @@ class _PemesananBottomBarState extends State<PemesananBottomBar> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/total_pembayaran');
+                    Navigator.of(context).pushNamed('/harga_detail');
                   },
                   child: Row(
                     children: [
