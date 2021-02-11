@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:homepage/models/flight_schedule_model.dart';
 import 'package:homepage/models/transportation_model.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/flight_schedules/tab_fasilitas.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/flight_schedules/tab_harga.dart';
-import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/flight_schedules/tab_perjalanan.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/schedules/tab_fasilitas.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/schedules/tab_harga.dart';
+import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/ticket_details_tabs/schedules/tab_perjalanan.dart';
 
 Future ticketDetails(BuildContext context, String sourcePage,
     FlightScheduleModel flightSchedule, TransportationModel data) {
