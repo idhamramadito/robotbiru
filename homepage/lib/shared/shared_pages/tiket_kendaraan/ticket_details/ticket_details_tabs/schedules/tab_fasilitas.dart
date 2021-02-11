@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/flight_schedule_model.dart';
+import 'package:homepage/models/schedule_model.dart';
 
 List _fasilitas = [
   ['images/koper_biru.png', 'Bagasi'],
@@ -14,7 +14,7 @@ class TabFasilitas extends StatelessWidget {
     @required this.flightSchedule,
   }) : super(key: key);
 
-  final FlightScheduleModel flightSchedule;
+  final ScheduleModel flightSchedule;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +29,9 @@ class TabFasilitas extends StatelessWidget {
                 ListTile(
                   dense: true,
                   leading: Image.asset(
-                      '${flightSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                      '${flightSchedule.icon ?? 'images/japan_airlines.png'}'),
                   title: Text(
-                    '${flightSchedule.airlineName}',
+                    '${flightSchedule.transName}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
@@ -52,7 +52,7 @@ class TabFasilitas extends StatelessWidget {
                         Flexible(child: Image.asset('images/gray_clock.png')),
                         Flexible(
                           child: Text(
-                            '${flightSchedule.flightTime}',
+                            '${flightSchedule.tripTime}',
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),
@@ -129,9 +129,9 @@ class TabFasilitas extends StatelessWidget {
               ],
             ),
           ),
-          if (flightSchedule.flightType.contains('Transit'))
+          if (flightSchedule.tripType.contains('Transit'))
             Divider(thickness: 5),
-          if (flightSchedule.flightType.contains('Transit'))
+          if (flightSchedule.tripType.contains('Transit'))
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -140,9 +140,9 @@ class TabFasilitas extends StatelessWidget {
                   ListTile(
                     dense: true,
                     leading: Image.asset(
-                        '${flightSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                        '${flightSchedule.icon ?? 'images/japan_airlines.png'}'),
                     title: Text(
-                      '${flightSchedule.airlineName}',
+                      '${flightSchedule.transName}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
@@ -163,7 +163,7 @@ class TabFasilitas extends StatelessWidget {
                           Flexible(child: Image.asset('images/gray_clock.png')),
                           Flexible(
                             child: Text(
-                              '${flightSchedule.flightTime}',
+                              '${flightSchedule.tripTime}',
                               style: TextStyle(color: Colors.grey),
                             ),
                           ),

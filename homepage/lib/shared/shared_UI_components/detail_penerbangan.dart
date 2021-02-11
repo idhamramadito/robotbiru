@@ -73,7 +73,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                   onTap: () => widget.onTap(0),
                   dense: true,
                   title: Text(
-                    '${widget.previousData.chosenDepartSchedule.depAirportCode} - ${widget.previousData.chosenDepartSchedule.arrAirportCode}',
+                    '${widget.previousData.chosenDepartSchedule.depCode} - ${widget.previousData.chosenDepartSchedule.arrCode}',
                     style: TextStyle(fontSize: 18),
                   ),
                   subtitle: Text(
@@ -89,7 +89,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
                     onTap: () => widget.onTap(1),
                     dense: true,
                     title: Text(
-                      '${widget.previousData.chosenReturnSchedule.depAirportCode} - ${widget.previousData.chosenReturnSchedule.arrAirportCode}',
+                      '${widget.previousData.chosenReturnSchedule.depCode} - ${widget.previousData.chosenReturnSchedule.depCode}',
                       style: TextStyle(fontSize: 18),
                     ),
                     subtitle: Text(

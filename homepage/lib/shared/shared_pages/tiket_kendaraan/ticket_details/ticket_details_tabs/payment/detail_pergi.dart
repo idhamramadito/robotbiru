@@ -24,9 +24,9 @@ class _PergiTabState extends State<PergiTab> {
             child: ListTile(
               dense: true,
               leading: Image.asset(
-                  '${widget.prevData.chosenDepartSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                  '${widget.prevData.chosenDepartSchedule.icon ?? 'images/japan_airlines.png'}'),
               title: Text(
-                '${widget.prevData.chosenDepartSchedule.airlineName}',
+                '${widget.prevData.chosenDepartSchedule.transName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -47,7 +47,7 @@ class _PergiTabState extends State<PergiTab> {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '${widget.prevData.chosenDepartSchedule.flightTime}',
+                        '${widget.prevData.chosenDepartSchedule.tripTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -89,11 +89,11 @@ class _PergiTabState extends State<PergiTab> {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${widget.prevData.chosenDepartSchedule.depCity} (${widget.prevData.chosenDepartSchedule.depAirportCode})',
+                                '${widget.prevData.chosenDepartSchedule.depCity} (${widget.prevData.chosenDepartSchedule.depCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${widget.prevData.chosenDepartSchedule.depAirport}'),
+                                  '${widget.prevData.chosenDepartSchedule.depFullName}'),
                             ),
                           ),
                         ],
@@ -103,7 +103,7 @@ class _PergiTabState extends State<PergiTab> {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${widget.prevData.chosenDepartSchedule.flightTime}',
+                                '${widget.prevData.chosenDepartSchedule.tripTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -125,11 +125,11 @@ class _PergiTabState extends State<PergiTab> {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${widget.prevData.chosenDepartSchedule.arrCity} (${widget.prevData.chosenDepartSchedule.arrAirportCode})',
+                                '${widget.prevData.chosenDepartSchedule.arrCity} (${widget.prevData.chosenDepartSchedule.arrCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${widget.prevData.chosenDepartSchedule.arrAirport}'),
+                                  '${widget.prevData.chosenDepartSchedule.arrFullName}'),
                             ),
                           ),
                         ],

@@ -24,9 +24,9 @@ class _PulangTabState extends State<PulangTab> {
             child: ListTile(
               dense: true,
               leading: Image.asset(
-                  '${widget.prevData.chosenReturnSchedule.iconAirline ?? 'images/japan_airlines.png'}'),
+                  '${widget.prevData.chosenReturnSchedule.icon ?? 'images/japan_airlines.png'}'),
               title: Text(
-                '${widget.prevData.chosenReturnSchedule.airlineName}',
+                '${widget.prevData.chosenReturnSchedule.transName}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -47,7 +47,7 @@ class _PulangTabState extends State<PulangTab> {
                     Flexible(child: Image.asset('images/gray_clock.png')),
                     Flexible(
                       child: Text(
-                        '${widget.prevData.chosenReturnSchedule.flightTime}',
+                        '${widget.prevData.chosenReturnSchedule.tripTime}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -89,11 +89,11 @@ class _PulangTabState extends State<PulangTab> {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${widget.prevData.chosenReturnSchedule.depCity} (${widget.prevData.chosenReturnSchedule.depAirportCode})',
+                                '${widget.prevData.chosenReturnSchedule.depCity} (${widget.prevData.chosenReturnSchedule.depCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${widget.prevData.chosenReturnSchedule.depAirport}'),
+                                  '${widget.prevData.chosenReturnSchedule.depFullName}'),
                             ),
                           ),
                         ],
@@ -103,7 +103,7 @@ class _PulangTabState extends State<PulangTab> {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${widget.prevData.chosenReturnSchedule.flightTime}',
+                                '${widget.prevData.chosenReturnSchedule.tripTime}',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text('Langsung'),
@@ -125,11 +125,11 @@ class _PulangTabState extends State<PulangTab> {
                           Flexible(
                             child: ListTile(
                               title: Text(
-                                '${widget.prevData.chosenReturnSchedule.arrCity} (${widget.prevData.chosenReturnSchedule.arrAirportCode})',
+                                '${widget.prevData.chosenReturnSchedule.arrCity} (${widget.prevData.chosenReturnSchedule.arrCode})',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               subtitle: Text(
-                                  '${widget.prevData.chosenReturnSchedule.arrAirport}'),
+                                  '${widget.prevData.chosenReturnSchedule.arrFullName}'),
                             ),
                           ),
                         ],
