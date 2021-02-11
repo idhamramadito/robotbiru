@@ -50,7 +50,10 @@ Future ticketDetails(BuildContext context, String sourcePage,
                       Text('${flightSchedule.depCity}'),
                     ],
                   ),
-                  Image.asset('images/plane_with_trail.png', width: 50),
+                  if (data.transportationType.contains('Pesawat'))
+                    Image.asset('images/plane_with_trail.png', width: 50),
+                  if (data.transportationType.contains('Kereta'))
+                    Image.asset('images/train_with_trail.png', width: 50),
                   Column(
                     children: [
                       Text(
