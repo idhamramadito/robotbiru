@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/invoice_topup.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/pilih_pembayaran.dart';
 import 'package:homepage/routing/default_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -21,8 +19,10 @@ import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ticket_deta
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/schedule_list/schedule_list.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/kebijakan_pembatalan.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/page_topup.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/permintaan_topup_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/invoice_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/page_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/permintaan_topup_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/pilih_pembayaran_saldo.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -85,15 +85,15 @@ class RoutingTable {
       case '/kereta':
         return MaterialPageRoute(builder: (_) => PageKereta());
 
-      // khusus topup
-      case '/topup':
-        return MaterialPageRoute(builder: (_) => TopUp());
-      case '/permintaan_topup':
-        return MaterialPageRoute(builder: (_) => PermintaanTopUp());
-      case '/invoice_topup':
-        return MaterialPageRoute(builder: (_) => InvoiceTopUp());
-      case '/topup_payment':
-        return MaterialPageRoute(builder: (_) => TopUpPayment());
+      // khusus top up saldo
+      case '/saldo':
+        return MaterialPageRoute(builder: (_) => Saldo());
+      case '/invoice_saldo':
+        return MaterialPageRoute(builder: (_) => InvoiceSaldo());
+      case '/permintaan_topup_saldo':
+        return MaterialPageRoute(builder: (_) => PermintaanTopUpSaldo());
+      case '/pilih_pembayaran_saldo':
+        return MaterialPageRoute(builder: (_) => PilihPembayaranSaldo());
 
       default:
         return defaultRoute();

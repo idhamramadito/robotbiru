@@ -3,12 +3,12 @@ import 'package:cupertino_radio_choice/cupertino_radio_choice.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
-class TopUp extends StatefulWidget {
+class Saldo extends StatefulWidget {
   @override
-  _TopUpState createState() => _TopUpState();
+  _SaldoState createState() => _SaldoState();
 }
 
-class _TopUpState extends State<TopUp> {
+class _SaldoState extends State<Saldo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +101,7 @@ class _TopUpState extends State<TopUp> {
             ),
             ListTile(
               onTap: () {
-                Navigator.of(context).pushNamed('/topup_payment');
+                Navigator.of(context).pushNamed('/pilih_pembayaran_saldo');
               },
               title: Text(
                 'Bayar Dengan',
