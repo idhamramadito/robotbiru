@@ -94,14 +94,15 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          NumberForm(
-            prompt: 'ID Pelanggan / Nomor Meteran',
-            clearButton: true,
-            onChanged: (val) => setState(() {
-              _dataList.targetNumber = val;
-            }),
-            externalPicker: 'barcode',
-          ),
+          if (_pageName.contains('Token Listrik'))
+            NumberForm(
+              prompt: 'ID Pelanggan / Nomor Meteran',
+              clearButton: true,
+              onChanged: (val) => setState(() {
+                _dataList.targetNumber = val;
+              }),
+              externalPicker: 'barcode',
+            ),
           RememberMeCheckBox(
             onChanged: () => setState(() {
               _rememberNumber = !_rememberNumber;

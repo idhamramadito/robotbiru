@@ -94,14 +94,15 @@ class _PagePulsaState extends State<PagePulsa> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          NumberForm(
-            prompt: 'Nomor Handphone',
-            clearButton: true,
-            onChanged: (val) => setState(() {
-              _dataList.targetNumber = val;
-            }),
-            externalPicker: 'contacts',
-          ),
+          if (_pageName.contains('Pulsa'))
+            NumberForm(
+              prompt: 'Nomor Handphone',
+              clearButton: true,
+              onChanged: (val) => setState(() {
+                _dataList.targetNumber = val;
+              }),
+              externalPicker: 'contacts',
+            ),
           RememberMeCheckBox(
             onChanged: () => setState(() {
               _rememberNumber = !_rememberNumber;
@@ -172,18 +173,17 @@ class _PagePulsaState extends State<PagePulsa> {
             shape: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            onPressed:
-                _contactPicker, // TODO: GANTI DENGAN DAFTAR NOMOR FAVORIT
+            onPressed: () async {
+              // TODO: GANTI DENGAN DAFTAR NOMOR FAVORIT
+              final result =
+                  await Navigator.of(context).pushNamed('/contacts_picker');
+              setState(() {
+                _dataList.targetNumber = result ?? _dataList.targetNumber;
+              });
+            },
           ),
         ),
       ],
     );
-  }
-
-  Future _contactPicker() async {
-    final result = await Navigator.of(context).pushNamed('/contacts_picker');
-    setState(() {
-      _dataList.targetNumber = result ?? _dataList.targetNumber;
-    });
   }
 }
