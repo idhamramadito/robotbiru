@@ -175,10 +175,7 @@ class _PagePulsaState extends State<PagePulsa> {
               _dataList.chosenPackage != null)
             Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(15),
-                  child: PackageDesc(data: _dataList),
-                ),
+                PackageDesc(data: _dataList),
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(
