@@ -211,24 +211,24 @@ class _OrderFormsState extends State<OrderForms> {
                 ],
               ),
             ),
-            if (widget.prevData.transportationType.contains('Pesawat'))
-              Divider(thickness: 10),
-            if (widget.prevData.transportationType.contains('Pesawat'))
-              Container(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Fasilitas Ekstra',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
+            // if (widget.prevData.transportationType.contains('Pesawat'))
+            Divider(thickness: 10),
+            Container(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Fasilitas Ekstra',
+                      textAlign: TextAlign.start,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
-                    SizedBox(height: 20),
+                  ),
+                  SizedBox(height: 20),
+                  if (widget.prevData.transportationType.contains('Pesawat'))
                     Container(
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -262,7 +262,8 @@ class _OrderFormsState extends State<OrderForms> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                  SizedBox(height: 20),
+                  if (widget.prevData.transportationType.contains('Kereta'))
                     Container(
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -290,9 +291,9 @@ class _OrderFormsState extends State<OrderForms> {
                         ),
                       ),
                     ),
-                  ],
-                ),
+                ],
               ),
+            ),
             Divider(thickness: 10),
             Container(
               padding: EdgeInsets.all(20),
