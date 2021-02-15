@@ -137,30 +137,21 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                             shrinkWrap: true,
                             itemCount: _filterDengan.length,
                             itemBuilder: (context, index) {
-                              return Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  InkWell(
-                                    child: Text(
-                                      _filterDengan[index][0],
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.black,
-                                      ),
+                              return CheckboxListTile(
+                                  title: Text(
+                                    _filterDengan[index][0],
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
                                     ),
                                   ),
-                                  Checkbox(
-                                      value: _filterDengan[index][1],
-                                      activeColor:
-                                          Theme.of(context).primaryColor,
-                                      onChanged: (value) {
-                                        mystate(() {
-                                          _filterDengan[index][1] = value;
-                                        });
-                                      }),
-                                ],
-                              );
+                                  value: _filterDengan[index][1],
+                                  activeColor: Theme.of(context).primaryColor,
+                                  onChanged: (value) {
+                                    mystate(() {
+                                      _filterDengan[index][1] = value;
+                                    });
+                                  });
                             }),
                         Divider(height: 20, thickness: 2),
                         Text(
@@ -169,31 +160,25 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: _waktuPergi.length,
-                          itemBuilder: (context, index) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  _waktuPergi[index][0],
-                                  style: TextStyle(
-                                    fontSize: 15,
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: _waktuPergi.length,
+                            itemBuilder: (context, index) {
+                              return CheckboxListTile(
+                                  title: Text(
+                                    _waktuPergi[index][0],
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                    ),
                                   ),
-                                ),
-                                Checkbox(
-                                    value: _waktuPergi[index][1],
-                                    activeColor: Theme.of(context).primaryColor,
-                                    onChanged: (value) {
-                                      mystate(() {
-                                        _waktuPergi[index][1] = value;
-                                      });
-                                    }),
-                              ],
-                            );
-                          },
-                        ),
+                                  value: _waktuPergi[index][1],
+                                  activeColor: Theme.of(context).primaryColor,
+                                  onChanged: (value) {
+                                    mystate(() {
+                                      _waktuPergi[index][1] = value;
+                                    });
+                                  });
+                            }),
                         Divider(height: 20, thickness: 2),
                         Text(
                           "Waktu Tiba",
@@ -205,25 +190,20 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                           shrinkWrap: true,
                           itemCount: _waktuTiba.length,
                           itemBuilder: (context, index) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
+                            return CheckboxListTile(
+                                title: Text(
                                   _waktuTiba[index][0],
                                   style: TextStyle(
                                     fontSize: 15,
                                   ),
                                 ),
-                                Checkbox(
-                                    value: _waktuTiba[index][1],
-                                    activeColor: Theme.of(context).primaryColor,
-                                    onChanged: (value) {
-                                      mystate(() {
-                                        _waktuTiba[index][1] = value;
-                                      });
-                                    }),
-                              ],
-                            );
+                                value: _waktuTiba[index][1],
+                                activeColor: Theme.of(context).primaryColor,
+                                onChanged: (value) {
+                                  mystate(() {
+                                    _waktuTiba[index][1] = value;
+                                  });
+                                });
                           },
                         ),
                         if (previousData.transportationType.contains('Pesawat'))
@@ -241,28 +221,21 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                                   physics: NeverScrollableScrollPhysics(),
                                   itemCount: _filterFasiitas.length,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
+                                    return CheckboxListTile(
+                                        title: Text(
                                           _filterFasiitas[index][0],
                                           style: TextStyle(
                                             fontSize: 15,
                                           ),
                                         ),
-                                        Checkbox(
-                                            value: _filterFasiitas[index][1],
-                                            activeColor:
-                                                Theme.of(context).primaryColor,
-                                            onChanged: (value) {
-                                              mystate(() {
-                                                _filterFasiitas[index][1] =
-                                                    value;
-                                              });
-                                            }),
-                                      ],
-                                    );
+                                        value: _filterFasiitas[index][1],
+                                        activeColor:
+                                            Theme.of(context).primaryColor,
+                                        onChanged: (value) {
+                                          mystate(() {
+                                            _filterFasiitas[index][1] = value;
+                                          });
+                                        });
                                   }),
                             ],
                           ),
@@ -281,27 +254,15 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                                   physics: NeverScrollableScrollPhysics(),
                                   itemCount: _kelas.length,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          _kelas[index][0],
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                        Checkbox(
-                                            value: _kelas[index][1],
-                                            activeColor:
-                                                Theme.of(context).primaryColor,
-                                            onChanged: (value) {
-                                              mystate(() {
-                                                _kelas[index][1] = value;
-                                              });
-                                            }),
-                                      ],
-                                    );
+                                    return CheckboxListTile(
+                                        value: _kelas[index][1],
+                                        activeColor:
+                                            Theme.of(context).primaryColor,
+                                        onChanged: (value) {
+                                          mystate(() {
+                                            _kelas[index][1] = value;
+                                          });
+                                        });
                                   }),
                               Divider(height: 20, thickness: 2),
                               Text(
@@ -314,27 +275,21 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                                   physics: NeverScrollableScrollPhysics(),
                                   itemCount: _namaKereta.length,
                                   itemBuilder: (context, index) {
-                                    return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
+                                    return CheckboxListTile(
+                                        title: Text(
                                           _namaKereta[index][0],
                                           style: TextStyle(
                                             fontSize: 15,
                                           ),
                                         ),
-                                        Checkbox(
-                                            value: _namaKereta[index][1],
-                                            activeColor:
-                                                Theme.of(context).primaryColor,
-                                            onChanged: (value) {
-                                              mystate(() {
-                                                _namaKereta[index][1] = value;
-                                              });
-                                            }),
-                                      ],
-                                    );
+                                        value: _namaKereta[index][1],
+                                        activeColor:
+                                            Theme.of(context).primaryColor,
+                                        onChanged: (value) {
+                                          mystate(() {
+                                            _namaKereta[index][1] = value;
+                                          });
+                                        });
                                   }),
                             ],
                           ),
