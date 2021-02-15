@@ -12,13 +12,21 @@ class HargaTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<NameAndContent> _price = [
-      NameAndContent(name: 'Dewasa (1x)', content: 'Rp 435.454'),
-      NameAndContent(name: 'Biaya Jasa', content: 'Rp 5.865'),
-      NameAndContent(name: 'Total Pembayaran', content: 'Rp 565.454'),
-      NameAndContent(name: 'Tarif'),
-      NameAndContent(name: 'Biaya Lainnya'),
+    double _ticketPrice = 435454;
+    List<NameAndContent> _costs = [
+      for (var element in prevData.passengersAmount)
+        if (element.content > 0)
+          NameAndContent(
+              name: '${element.name} (${element.content}x)',
+              content: 'Rp ${_ticketPrice * element.content}')
     ];
+
+    List<NameAndContent> _otherCosts = [
+      NameAndContent(name: 'Biaya Jasa', content: 'Rp 5.865'),
+    ];
+
+    NameAndContent _total =
+        NameAndContent(name: 'Total Pembayaran', content: 'Rp 565.454');
 
     List<NameAndContent> _bonusList = [
       NameAndContent(name: 'Cashback', content: 'Rp 2.500'),
@@ -55,51 +63,69 @@ class HargaTab extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    '${_price[3].name}',
+                    'Tarif',
                     style: TextStyle(fontSize: 15, color: Colors.grey[400]),
                   ),
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '${_price[0].name}',
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    Text(
-                      '${_price[0].content}',
-                      style: TextStyle(fontSize: 17),
-                    ),
-                  ],
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
+                  itemCount: _costs.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 3),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '${_costs[index].name}',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          Text(
+                            '${_costs[index].content}',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
                 SizedBox(height: 30),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    '${_price[4].name}',
+                    'Biaya Lainnya',
                     style: TextStyle(fontSize: 15, color: Colors.grey[400]),
                   ),
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '${_price[1].name}',
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    Text(
-                      '${_price[1].content}',
-                      style: TextStyle(fontSize: 17),
-                    ),
-                  ],
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
+                  itemCount: _costs.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 3),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '${_otherCosts[index].name}',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          Text(
+                            '${_otherCosts[index].content}',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -111,11 +137,11 @@ class HargaTab extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${_price[2].name}',
+                  '${_total.name}',
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '${_price[2].content}',
+                  '${_total.content}',
                   style: TextStyle(
                       fontSize: 19,
                       fontWeight: FontWeight.bold,
