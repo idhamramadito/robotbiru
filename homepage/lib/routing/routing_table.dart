@@ -20,6 +20,7 @@ import 'package:homepage/shared/shared_pages/tiket_kendaraan/schedule_list/sched
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/kebijakan_pembatalan.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/page_topup.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/permintaan_topup_saldo.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -85,7 +86,8 @@ class RoutingTable {
       // khusus topup
       case '/topup':
         return MaterialPageRoute(builder: (_) => TopUp());
-
+      case '/permintaantopup':
+        return MaterialPageRoute(builder: (_) => PermintaanTopUp());
       default:
         return defaultRoute();
     }

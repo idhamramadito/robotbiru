@@ -30,12 +30,15 @@ class UpgradeToPartner extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0),
               ),
-              child: Text(
-                "Retail",
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
+              child: InkWell(
+                child: Text(
+                  "Retail",
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                onTap: () {},
               ),
             ),
             FlatButton(
