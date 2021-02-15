@@ -20,7 +20,7 @@ class PagePulsa extends StatefulWidget {
 class _PagePulsaState extends State<PagePulsa> {
   bool _rememberNumber = false;
   String _currency = 'Rp';
-  String _pageName = 'Pulsa';
+  String _transactionType = 'Pulsa';
 
   TopUpData _dataList = TopUpData(
     paymentMethod: 'Saldo Robot Biru',
@@ -48,7 +48,7 @@ class _PagePulsaState extends State<PagePulsa> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            '$_pageName',
+            '$_transactionType',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -94,15 +94,14 @@ class _PagePulsaState extends State<PagePulsa> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          if (_pageName.contains('Pulsa'))
-            NumberForm(
-              prompt: 'Nomor Handphone',
-              clearButton: true,
-              onChanged: (val) => setState(() {
-                _dataList.targetNumber = val;
-              }),
-              externalPicker: 'contacts',
-            ),
+          NumberForm(
+            prompt: 'Nomor Handphone',
+            clearButton: true,
+            onChanged: (val) => setState(() {
+              _dataList.targetNumber = val;
+            }),
+            externalPicker: 'contacts',
+          ),
           RememberMeCheckBox(
             onChanged: () => setState(() {
               _rememberNumber = !_rememberNumber;
@@ -111,14 +110,12 @@ class _PagePulsaState extends State<PagePulsa> {
           if (_dataList.targetNumber != null && _dataList.targetNumber != '')
             Column(
               children: [
-                if (_pageName.contains('Pulsa'))
-                  NominalPulsa(
-                    onChanged: (val) => setState(() {
-                      _dataList.chosenPrice = val;
-                    }),
-                  ),
-                if (_pageName.contains('Pulsa'))
-                  PaketPulsaKuota(amount: _dataList.chosenPrice),
+                NominalPulsa(
+                  onChanged: (val) => setState(() {
+                    _dataList.chosenPrice = val;
+                  }),
+                ),
+                PaketPulsaKuota(amount: _dataList.chosenPrice),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: ReceiptCard(

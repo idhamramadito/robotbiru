@@ -20,7 +20,7 @@ class PageTokenListrik extends StatefulWidget {
 class _PageTokenListrikState extends State<PageTokenListrik> {
   bool _rememberNumber = false;
   String _currency = 'Rp';
-  String _pageName = 'Token Listrik';
+  String _transactionType = 'Token Listrik';
 
   TopUpData _dataList = TopUpData(
     paymentMethod: 'Saldo Robot Biru',
@@ -48,7 +48,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            '$_pageName',
+            '$_transactionType',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -94,15 +94,14 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          if (_pageName.contains('Token Listrik'))
-            NumberForm(
-              prompt: 'ID Pelanggan / Nomor Meteran',
-              clearButton: true,
-              onChanged: (val) => setState(() {
-                _dataList.targetNumber = val;
-              }),
-              externalPicker: 'barcode',
-            ),
+          NumberForm(
+            prompt: 'ID Pelanggan / Nomor Meteran',
+            clearButton: true,
+            onChanged: (val) => setState(() {
+              _dataList.targetNumber = val;
+            }),
+            externalPicker: 'barcode',
+          ),
           RememberMeCheckBox(
             onChanged: () => setState(() {
               _rememberNumber = !_rememberNumber;
@@ -111,14 +110,12 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           if (_dataList.targetNumber != null && _dataList.targetNumber != '')
             Column(
               children: [
-                if (_pageName.contains('Token Listrik'))
-                  CardTokenListrik(idNumber: _dataList.targetNumber),
-                if (_pageName.contains('Token Listrik'))
-                  NominalTokenListrik(
-                    onChanged: (val) => setState(() {
-                      _dataList.chosenPrice = val;
-                    }),
-                  ),
+                CardTokenListrik(idNumber: _dataList.targetNumber),
+                NominalTokenListrik(
+                  onChanged: (val) => setState(() {
+                    _dataList.chosenPrice = val;
+                  }),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: ReceiptCard(
