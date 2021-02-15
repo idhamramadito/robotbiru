@@ -161,7 +161,7 @@ class _RingkasanState extends State<Ringkasan> {
                         ),
                         Divider(),
                         Text(
-                          'Nomer Rekening',
+                          'Total Transfer',
                           style:
                               TextStyle(fontSize: 15, color: Colors.grey[400]),
                         ),
