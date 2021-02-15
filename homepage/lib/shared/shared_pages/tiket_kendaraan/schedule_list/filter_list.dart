@@ -343,7 +343,7 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                   ),
                 ),
                 floatingActionButton: FloatingActionButton.extended(
-                  label: Text('Simpan'),
+                  label: Text('Terapkan'),
                   onPressed: () {},
                 ),
                 floatingActionButtonLocation:
