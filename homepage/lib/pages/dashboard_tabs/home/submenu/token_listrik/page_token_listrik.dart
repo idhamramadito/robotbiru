@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
-import 'package:homepage/models/topup_data.dart';
+import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
@@ -22,7 +22,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
   String _currency = 'Rp';
   String _transactionType = 'Token Listrik';
 
-  TopUpData _dataList = TopUpData(
+  TopUpModel _dataList = TopUpModel(
     paymentMethod: 'Saldo Robot Biru',
     chosenPrice: 20000,
     accountBalance: 100000,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/topup_data.dart';
+import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class CheckoutBottomBar extends StatefulWidget {
@@ -12,7 +12,7 @@ class CheckoutBottomBar extends StatefulWidget {
 
   final String currency;
   final String routeName;
-  final TopUpData data;
+  final TopUpModel data;
 
   @override
   _CheckoutBottomBarState createState() => _CheckoutBottomBarState();

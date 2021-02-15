@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
-import 'package:homepage/models/topup_data.dart';
+import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
@@ -22,7 +22,7 @@ class _PagePulsaState extends State<PagePulsa> {
   String _currency = 'Rp';
   String _transactionType = 'Pulsa';
 
-  TopUpData _dataList = TopUpData(
+  TopUpModel _dataList = TopUpModel(
     paymentMethod: 'Saldo Robot Biru',
     chosenPrice: 20000,
     accountBalance: 100000,

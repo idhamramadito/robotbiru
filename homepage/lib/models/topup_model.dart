@@ -1,4 +1,4 @@
-class TopUpData {
+class TopUpModel {
   String id;
   String targetNumber;
   String paymentMethod;
@@ -7,7 +7,7 @@ class TopUpData {
 
   var content;
 
-  TopUpData({
+  TopUpModel({
     String id,
     String targetNumber,
     String paymentMethod,
