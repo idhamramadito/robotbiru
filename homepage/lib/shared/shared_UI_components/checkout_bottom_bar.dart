@@ -5,13 +5,9 @@ import 'package:homepage/shared/shared_UI_components/big_button.dart';
 class CheckoutBottomBar extends StatefulWidget {
   const CheckoutBottomBar({
     Key key,
-    @required this.currency,
-    @required this.routeName,
-    this.data,
+    @required this.data,
   }) : super(key: key);
 
-  final String currency;
-  final String routeName;
   final TopUpModel data;
 
   @override
@@ -56,7 +52,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                     ],
                   ),
                   Text(
-                    '${widget.currency} ${widget.data.accountBalance}',
+                    '${widget.data.currency} ${widget.data.accountBalance}',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                 ],
@@ -65,7 +61,8 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
           ),
           Divider(thickness: 2),
           if (widget.data.targetNumber != null &&
-              widget.data.targetNumber != '')
+              widget.data.targetNumber != '' &&
+              widget.data.chosenPackage != null)
             Container(
               padding: EdgeInsets.symmetric(vertical: 5),
               alignment: Alignment.centerLeft,
@@ -79,7 +76,8 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                   ),
                   children: <TextSpan>[
                     TextSpan(
-                      text: '${widget.currency} ${widget.data.chosenPrice}',
+                      text:
+                          '${widget.data.currency} ${widget.data.chosenPackage.content}',
                       style: TextStyle(color: Theme.of(context).primaryColor),
                     ),
                   ],
@@ -89,10 +87,11 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
           BigButton(
             title: 'Beli',
             onPressed: (widget.data.targetNumber != null &&
-                    widget.data.targetNumber != '')
+                    widget.data.targetNumber != '' &&
+                    widget.data.chosenPackage != null)
                 ? () {
                     Navigator.of(context)
-                        .pushNamed('/pin_code', arguments: widget.routeName);
+                        .pushNamed('/pin_code', arguments: widget.data);
                   }
                 : null,
           ),

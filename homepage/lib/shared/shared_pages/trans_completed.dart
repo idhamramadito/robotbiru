@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/models/topup_model.dart';
 
 class TransCompleted extends StatefulWidget {
-  final String routeName;
-  const TransCompleted({Key key, @required this.routeName}) : super(key: key);
+  final TopUpModel data;
+  const TransCompleted({Key key, @required this.data}) : super(key: key);
 
   @override
   _TransCompletedState createState() => _TransCompletedState();
@@ -128,7 +129,7 @@ class _TransCompletedState extends State<TransCompleted> {
                         title: 'Lihat Detail Transaksi',
                         onPressed: () {
                           Navigator.of(context)
-                              .pushReplacementNamed(widget.routeName);
+                              .pushReplacementNamed(widget.data.invoiceRoute);
                         },
                       ),
                     ],

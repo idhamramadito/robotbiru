@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
+import 'package:homepage/shared/shared_UI_components/number_form.dart';
+import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
+import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
-import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
-import 'package:homepage/shared/shared_UI_components/number_form.dart';
-import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
-import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 
 class PageTokenListrik extends StatefulWidget {
   PageTokenListrik({
@@ -19,13 +19,13 @@ class PageTokenListrik extends StatefulWidget {
 
 class _PageTokenListrikState extends State<PageTokenListrik> {
   bool _rememberNumber = false;
-  String _currency = 'Rp';
-  String _transactionType = 'Token Listrik';
 
   TopUpModel _dataList = TopUpModel(
+    currency: 'Rp',
+    transactionType: 'Token Listrik',
     paymentMethod: 'Saldo Robot Biru',
-    chosenPrice: 20000,
     accountBalance: 100000,
+    invoiceRoute: '/invoice_token_listrik',
   );
 
   List<NameAndContent> _cashback = [
@@ -48,14 +48,14 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            '$_transactionType',
+            '${_dataList.transactionType}',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
         body: Column(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            Padding(
+              padding: EdgeInsets.all(15),
               child: TabBar(
                 unselectedLabelColor: Theme.of(context).primaryColor,
                 indicator: BoxDecoration(
@@ -68,19 +68,18 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                 ],
               ),
             ),
+            SizedBox(height: 10),
             Flexible(
               child: TabBarView(
                 children: [
                   _inputBaru(),
-                  _daftarFavorit(),
+                  _daftarFavorit(context),
                 ],
               ),
             ),
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          routeName: '/invoice_token_listrik',
-          currency: _currency,
           data: _dataList,
         ),
       ),
@@ -94,13 +93,16 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          NumberForm(
-            prompt: 'ID Pelanggan / Nomor Meteran',
-            clearButton: true,
-            onChanged: (val) => setState(() {
-              _dataList.targetNumber = val;
-            }),
-            externalPicker: 'barcode',
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: NumberForm(
+              prompt: 'ID Pelanggan / Nomor Meteran',
+              clearButton: true,
+              onChanged: (val) => setState(() {
+                _dataList.targetNumber = val;
+              }),
+              externalPicker: 'barcode',
+            ),
           ),
           RememberMeCheckBox(
             onChanged: () => setState(() {
@@ -108,16 +110,25 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
             }),
           ),
           if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: CardTokenListrik(idNumber: _dataList.targetNumber),
+            ),
+          if (_dataList.targetNumber != null &&
+              _dataList.targetNumber != '' &&
+              _dataList.chosenPackage != null)
             Column(
               children: [
-                CardTokenListrik(idNumber: _dataList.targetNumber),
-                NominalTokenListrik(
-                  onChanged: (val) => setState(() {
-                    _dataList.chosenPrice = val;
-                  }),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: NominalTokenListrik(
+                    onChanged: (val) => setState(() {
+                      _dataList.chosenPackage = val;
+                    }),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Ringkasan',
                     dataList: _ringkasan,
@@ -125,7 +136,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                 ),
                 Divider(thickness: 5),
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Cashback',
                     dataList: _cashback,
@@ -139,11 +150,48 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
     );
   }
 
-  Widget _daftarFavorit() {
-    return Center(
-      child: Container(
-        child: Text('Daftar Favorit Kosong'),
-      ),
+  Widget _daftarFavorit(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          alignment: Alignment.centerLeft,
+          margin: EdgeInsets.symmetric(horizontal: 15),
+          child: Text(
+            'Pilih Kontak',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.all(15),
+          width: double.infinity,
+          child: FlatButton(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Nomor:',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Icon(
+                  Icons.arrow_drop_down,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ],
+            ),
+            shape: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            onPressed: () async {
+              // TODO: GANTI DENGAN DAFTAR NOMOR FAVORIT
+              final result =
+                  await Navigator.of(context).pushNamed('/contacts_picker');
+              setState(() {
+                _dataList.targetNumber = result ?? _dataList.targetNumber;
+              });
+            },
+          ),
+        ),
+      ],
     );
   }
 }

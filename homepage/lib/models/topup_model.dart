@@ -1,22 +1,32 @@
+import 'package:homepage/models/name_and_content.dart';
+
 class TopUpModel {
   String id;
+  String transactionType;
+  String currency;
   String targetNumber;
   String paymentMethod;
   double accountBalance;
-  double chosenPrice;
-
+  NameAndContent chosenPackage;
+  String invoiceRoute;
   var content;
 
   TopUpModel({
     String id,
+    String transactionType,
+    String currency,
     String targetNumber,
     String paymentMethod,
     double accountBalance,
-    double chosenPrice,
+    NameAndContent chosenPackage,
+    String invoiceRoute,
     var content,
   })  : this.id = id,
+        this.transactionType = transactionType,
+        this.currency = currency,
         this.targetNumber = targetNumber,
         this.paymentMethod = paymentMethod,
         this.accountBalance = accountBalance,
-        this.chosenPrice = chosenPrice;
+        this.invoiceRoute = invoiceRoute,
+        this.chosenPackage = chosenPackage;
 }

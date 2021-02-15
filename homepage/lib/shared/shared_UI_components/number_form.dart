@@ -39,72 +39,66 @@ class _NumberFormState extends State<NumberForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          if (widget.prompt != null)
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: Text(
-                widget.prompt ?? '',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          SizedBox(height: 5),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: TextFormField(
-                    controller: _textController,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.allow(
-                        RegExp(r'[0-9]'),
-                      ),
-                    ],
-                    decoration: InputDecoration(
-                      suffixIcon: Visibility(
-                        visible: widget.clearButton,
-                        child: IconButton(
-                          icon: Icon(Icons.clear, size: 30),
-                          onPressed: () {
-                            setState(() {
-                              _textController.clear();
-                            });
-                          },
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintText: widget.prompt ?? '',
-                    ),
-                  ),
-                ),
-                if (widget.externalPicker != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: (widget.externalPicker == 'contacts')
-                        ? IconButton(
-                            icon: Icon(Icons.perm_contact_cal),
-                            onPressed: _contactPicker,
-                          )
-                        : (widget.externalPicker == 'barcode')
-                            ? IconButton(
-                                icon: Icon(Icons.qr_code_scanner),
-                                onPressed: _barcodeScanner,
-                              )
-                            : Container(),
-                  ),
-              ],
+    return Column(
+      children: [
+        if (widget.prompt != null)
+          Container(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              widget.prompt ?? '',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
-        ],
-      ),
+        SizedBox(height: 5),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              child: TextFormField(
+                controller: _textController,
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(
+                    RegExp(r'[0-9]'),
+                  ),
+                ],
+                decoration: InputDecoration(
+                  suffixIcon: Visibility(
+                    visible: widget.clearButton,
+                    child: IconButton(
+                      icon: Icon(Icons.clear, size: 30),
+                      onPressed: () {
+                        setState(() {
+                          _textController.clear();
+                        });
+                      },
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  hintText: widget.prompt ?? '',
+                ),
+              ),
+            ),
+            if (widget.externalPicker != null)
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: (widget.externalPicker == 'contacts')
+                    ? IconButton(
+                        icon: Icon(Icons.perm_contact_cal),
+                        onPressed: _contactPicker,
+                      )
+                    : (widget.externalPicker == 'barcode')
+                        ? IconButton(
+                            icon: Icon(Icons.qr_code_scanner),
+                            onPressed: _barcodeScanner,
+                          )
+                        : Container(),
+              ),
+          ],
+        ),
+      ],
     );
   }
 

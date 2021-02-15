@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
-class InvoicePulsa extends StatelessWidget {
+class InvoiceTopUp extends StatelessWidget {
   final List<NameAndContent> _boxDetailPesanan = [
     NameAndContent(name: 'Ditransfer Menggunakan'),
     NameAndContent(name: 'Status'),

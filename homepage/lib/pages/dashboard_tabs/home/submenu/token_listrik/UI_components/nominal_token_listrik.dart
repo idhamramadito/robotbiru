@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/name_and_content.dart';
 
 class NominalTokenListrik extends StatefulWidget {
   const NominalTokenListrik({
@@ -6,7 +7,7 @@ class NominalTokenListrik extends StatefulWidget {
     this.onChanged,
   }) : super(key: key);
 
-  final Function(double) onChanged;
+  final Function(NameAndContent) onChanged;
 
   @override
   _NominalTokenListrikState createState() => _NominalTokenListrikState();
@@ -16,18 +17,17 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
   int selectedIndex = 0;
   double cashback = 750;
   double fee = 1750;
-  double selectedValue = 21750;
-  List<double> _boxTokenListrik = [
-    20000,
-    50000,
-    75000,
-    100000,
-    200000,
-    500000,
-    1000000,
-    5000000,
-    10000000,
-    50000000,
+  List<NameAndContent> _boxTokenListrik = [
+    20000.0,
+    50000.0,
+    75000.0,
+    100000.0,
+    200000.0,
+    500000.0,
+    1000000.0,
+    5000000.0,
+    10000000.0,
+    50000000.0,
   ];
 
   @override
@@ -37,7 +37,6 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
             child: Text(
               "Nominal Token Listrik",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -51,14 +50,13 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
               scrollDirection: Axis.horizontal,
               itemCount: _boxTokenListrik.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.55),
+                  crossAxisCount: 2, childAspectRatio: 0.6),
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     setState(() {
                       selectedIndex = index;
-                      selectedValue = _boxTokenListrik[selectedIndex] + fee;
-                      widget.onChanged(selectedValue);
+                      widget.onChanged(_boxTokenListrik[selectedIndex]);
                     });
                   },
                   child: Container(
@@ -80,7 +78,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            '${_boxTokenListrik[index]}',
+                            '${_boxTokenListrik[index].name}',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -98,7 +96,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: Text(
-                            'Rp ${_boxTokenListrik[index] + fee}',
+                            'Rp ${_boxTokenListrik[index].content}',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
