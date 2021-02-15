@@ -113,7 +113,7 @@ class _TopUpState extends State<TopUp> {
               ),
               leading: Image.asset(
                 'images/kredit.png',
-                height: 40,
+                height: 30,
               ),
               trailing: Icon(
                 Icons.keyboard_arrow_right,
