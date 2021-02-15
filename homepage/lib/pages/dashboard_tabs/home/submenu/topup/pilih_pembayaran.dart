@@ -101,9 +101,9 @@ class _TopUpPaymentState extends State<TopUpPayment> {
         padding: EdgeInsets.all(10.0),
         child: BigButton(
           title: 'Top Up',
-          // onPressed: (paymentMethod == null)
-          //     ? null
-          //     : () => Navigator.of(context).pushNamed('/ringkasan'),
+          onPressed: (paymentMethod == null)
+              ? null
+              : () => Navigator.of(context).pushNamed('/invoice_topup'),
         ),
       ),
     );
