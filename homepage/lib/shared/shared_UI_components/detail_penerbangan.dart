@@ -25,7 +25,7 @@ class _PenerbanganDetailState extends State<DetailPenerbangan> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Detail Penerbangan',
+              'Detail Perjalanan',
               textAlign: TextAlign.start,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
