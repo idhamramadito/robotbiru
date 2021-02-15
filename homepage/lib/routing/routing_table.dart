@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/pilih_pembayaran.dart';
 import 'package:homepage/routing/default_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -85,6 +86,8 @@ class RoutingTable {
       // khusus topup
       case '/topup':
         return MaterialPageRoute(builder: (_) => TopUp());
+      case '/topupPayment':
+        return MaterialPageRoute(builder: (_) => TopUpPayment());
 
       default:
         return defaultRoute();

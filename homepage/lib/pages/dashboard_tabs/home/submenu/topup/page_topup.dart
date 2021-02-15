@@ -81,50 +81,6 @@ class _TopUpState extends State<TopUp> {
                 'Rp.100.000': 'Rp100.000',
                 'Rp.150.000': 'Rp150.000'
               }, onChange: (selectedPrice) {}, initialKeyValue: 'Rp50.000'),
-              // child: Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     FlatButton(
-              //       child: Text(
-              //         'Rp50.000',
-              //         style: TextStyle(fontSize: 18),
-              //       ),
-              //       color: Colors.blue,
-              //       textColor: Colors.white,
-              //       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(10.0),
-              //       ),
-              //       onPressed: () {},
-              //     ),
-              //     FlatButton(
-              //       child: Text(
-              //         'Rp100.000',
-              //         style: TextStyle(fontSize: 18),
-              //       ),
-              //       color: Colors.blue,
-              //       textColor: Colors.white,
-              //       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(10.0),
-              //       ),
-              //       onPressed: () {},
-              //     ),
-              //     FlatButton(
-              //       child: Text(
-              //         'Rp150.000',
-              //         style: TextStyle(fontSize: 18),
-              //       ),
-              //       color: Colors.blue,
-              //       textColor: Colors.white,
-              //       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(10.0),
-              //       ),
-              //       onPressed: () {},
-              //     ),
-              //   ],
-              // ),
             ),
             SizedBox(
               height: 30,
@@ -144,7 +100,9 @@ class _TopUpState extends State<TopUp> {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed('/topupPayment');
+              },
               title: Text(
                 'Bayar Dengan',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -164,13 +122,6 @@ class _TopUpState extends State<TopUp> {
               ),
             ),
           ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(20),
-        child: BigButton(
-          title: 'Top Up',
-          onPressed: () {},
         ),
       ),
     );
