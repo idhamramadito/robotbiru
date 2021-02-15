@@ -19,23 +19,18 @@ class _RememberMeCheckBoxState extends State<RememberMeCheckBox> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 0, 25, 0),
-      child: Row(
-        children: [
-          Checkbox(
-            value: rememberMe,
-            onChanged: (newVal) {
-              rememberMe = newVal;
-              widget.onChanged();
-            },
-          ),
-          Text("Simpan Nomor",
+      child: CheckboxListTile(
+          value: rememberMe,
+          onChanged: (newVal) {
+            rememberMe = newVal;
+            widget.onChanged();
+          },
+          title: Text("Simpan Nomor",
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.normal,
                 color: Colors.grey,
-              )),
-        ],
-      ),
+              ))),
     );
   }
 }
