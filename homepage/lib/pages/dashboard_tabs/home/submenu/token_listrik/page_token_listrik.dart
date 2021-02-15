@@ -109,11 +109,14 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
               _rememberNumber = !_rememberNumber;
             }),
           ),
-          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
-            Padding(
+          Visibility(
+            visible:
+                _dataList.targetNumber != null && _dataList.targetNumber != '',
+            child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: CardTokenListrik(idNumber: _dataList.targetNumber),
             ),
+          ),
           if (_dataList.targetNumber != null &&
               _dataList.targetNumber != '' &&
               _dataList.chosenPackage != null)
