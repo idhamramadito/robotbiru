@@ -20,10 +20,11 @@ class PageTokenListrik extends StatefulWidget {
 class _PageTokenListrikState extends State<PageTokenListrik> {
   bool _rememberNumber = false;
   String _currency = 'Rp';
+  String _pageName = 'Token Listrik';
 
   TopUpData _dataList = TopUpData(
     paymentMethod: 'Saldo Robot Biru',
-    chosenPrice: 21750,
+    chosenPrice: 20000,
     accountBalance: 100000,
   );
 
@@ -47,7 +48,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Token Listrik',
+            '$_pageName',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -70,61 +71,8 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
             Flexible(
               child: TabBarView(
                 children: [
-                  SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        NumberForm(
-                          prompt: 'ID Pelanggan / Nomor Meteran',
-                          clearButton: true,
-                          onChanged: (val) => setState(() {
-                            _dataList.targetNumber = val;
-                          }),
-                          externalPicker: 'barcode',
-                        ),
-                        RememberMeCheckBox(
-                          onChanged: () => setState(() {
-                            _rememberNumber = !_rememberNumber;
-                          }),
-                        ),
-                        if (_dataList.targetNumber != null &&
-                            _dataList.targetNumber != '')
-                          Column(
-                            children: [
-                              CardTokenListrik(
-                                  idNumber: _dataList.targetNumber),
-                              NominalTokenListrik(
-                                onChanged: (val) => setState(() {
-                                  _dataList.chosenPrice = val;
-                                }),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: ReceiptCard(
-                                  title: 'Ringkasan',
-                                  dataList: _ringkasan,
-                                ),
-                              ),
-                              Divider(thickness: 5),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: ReceiptCard(
-                                  title: 'Cashback',
-                                  dataList: _cashback,
-                                ),
-                              ),
-                              Divider(thickness: 5),
-                            ],
-                          ),
-                      ],
-                    ),
-                  ),
-                  Center(
-                    child: Container(
-                      child: Text('Daftar Favorit Kosong'),
-                    ),
-                  ),
+                  _inputBaru(),
+                  _daftarFavorit(),
                 ],
               ),
             ),
@@ -138,5 +86,67 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
       ),
     );
   }
+
   //============================= main function ===============================
+
+  Widget _inputBaru() {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          NumberForm(
+            prompt: 'ID Pelanggan / Nomor Meteran',
+            clearButton: true,
+            onChanged: (val) => setState(() {
+              _dataList.targetNumber = val;
+            }),
+            externalPicker: 'barcode',
+          ),
+          RememberMeCheckBox(
+            onChanged: () => setState(() {
+              _rememberNumber = !_rememberNumber;
+            }),
+          ),
+          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+            Column(
+              children: [
+                if (_pageName.contains('Token Listrik'))
+                  CardTokenListrik(idNumber: _dataList.targetNumber),
+                if (_pageName.contains('Token Listrik'))
+                  NominalTokenListrik(
+                    onChanged: (val) => setState(() {
+                      _dataList.chosenPrice = val;
+                    }),
+                  ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: ReceiptCard(
+                    title: 'Ringkasan',
+                    dataList: _ringkasan,
+                  ),
+                ),
+                Divider(thickness: 5),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: ReceiptCard(
+                    title: 'Cashback',
+                    dataList: _cashback,
+                  ),
+                ),
+                Divider(thickness: 5),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _daftarFavorit() {
+    return Center(
+      child: Container(
+        child: Text('Daftar Favorit Kosong'),
+      ),
+    );
+  }
 }

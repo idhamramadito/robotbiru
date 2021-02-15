@@ -20,6 +20,7 @@ class PagePulsa extends StatefulWidget {
 class _PagePulsaState extends State<PagePulsa> {
   bool _rememberNumber = false;
   String _currency = 'Rp';
+  String _pageName = 'Pulsa';
 
   TopUpData _dataList = TopUpData(
     paymentMethod: 'Saldo Robot Biru',
@@ -28,7 +29,7 @@ class _PagePulsaState extends State<PagePulsa> {
   );
 
   List<NameAndContent> _cashback = [
-    NameAndContent(name: 'Pemilik Retail', content: "2000"),
+    NameAndContent(name: 'Pemilik Retail'),
     NameAndContent(name: 'Badan Koperasi'),
     NameAndContent(name: 'Anggota Koperasi'),
     NameAndContent(name: 'Anggota Retail'),
@@ -47,7 +48,7 @@ class _PagePulsaState extends State<PagePulsa> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Pulsa',
+            '$_pageName',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -109,12 +110,14 @@ class _PagePulsaState extends State<PagePulsa> {
           if (_dataList.targetNumber != null && _dataList.targetNumber != '')
             Column(
               children: [
-                NominalPulsa(
-                  onChanged: (val) => setState(() {
-                    _dataList.chosenPrice = val;
-                  }),
-                ),
-                PaketPulsaKuota(amount: _dataList.chosenPrice),
+                if (_pageName.contains('Pulsa'))
+                  NominalPulsa(
+                    onChanged: (val) => setState(() {
+                      _dataList.chosenPrice = val;
+                    }),
+                  ),
+                if (_pageName.contains('Pulsa'))
+                  PaketPulsaKuota(amount: _dataList.chosenPrice),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: ReceiptCard(
