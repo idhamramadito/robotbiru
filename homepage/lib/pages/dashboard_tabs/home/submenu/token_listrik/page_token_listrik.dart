@@ -86,7 +86,6 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
       ),
     );
   }
-
   //============================= main function ===============================
 
   Widget _inputBaru() {
