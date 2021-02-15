@@ -18,16 +18,15 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
   double cashback = 750;
   double fee = 1750;
   List<NameAndContent> _boxTokenListrik = [
-    20000.0,
-    50000.0,
-    75000.0,
-    100000.0,
-    200000.0,
-    500000.0,
-    1000000.0,
-    5000000.0,
-    10000000.0,
-    50000000.0,
+    NameAndContent(name: '20.000', content: 21750),
+    NameAndContent(name: '50.000', content: 51750),
+    NameAndContent(name: '75.000', content: 71750),
+    NameAndContent(name: '100.000', content: 100750),
+    NameAndContent(name: '500.000', content: 501750),
+    NameAndContent(name: '1.000.000', content: 1001750),
+    NameAndContent(name: '5.000.000', content: 5001750),
+    NameAndContent(name: '10.000.000', content: 10001750),
+    NameAndContent(name: '50.000.000', content: 50001750),
   ];
 
   @override
