@@ -349,7 +349,9 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                       'TERAPKAN',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
                 floatingActionButtonLocation:
