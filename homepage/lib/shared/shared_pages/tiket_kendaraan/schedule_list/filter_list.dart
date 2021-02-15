@@ -342,9 +342,15 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                     ),
                   ),
                 ),
-                floatingActionButton: FloatingActionButton.extended(
-                  label: Text('Terapkan'),
-                  onPressed: () {},
+                floatingActionButton: Visibility(
+                  // TODO: Kasih visible:
+                  child: FloatingActionButton.extended(
+                    label: Text(
+                      'TERAPKAN',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: () {},
+                  ),
                 ),
                 floatingActionButtonLocation:
                     FloatingActionButtonLocation.centerFloat,
