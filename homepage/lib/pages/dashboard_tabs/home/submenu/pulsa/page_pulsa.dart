@@ -41,9 +41,18 @@ class _PagePulsaState extends State<PagePulsa> {
   ];
 
   List<NameAndContent> _pulsa = [
-    NameAndContent(name: 'Pulsa 20000, 30 Hari', content: 19500.0),
-    NameAndContent(name: 'Pulsa 25000, 30 Hari', content: 24500.0),
-    NameAndContent(name: 'Pulsa 30000, 30 Hari', content: 29500.0),
+    NameAndContent(
+        logo: "images/provider_indosat.png",
+        name: 'Pulsa 20000, 30 Hari',
+        content: 19500.0),
+    NameAndContent(
+        logo: "images/provider_indosat.png",
+        name: 'Pulsa 25000, 30 Hari',
+        content: 24500.0),
+    NameAndContent(
+        logo: "images/provider_indosat.png",
+        name: 'Pulsa 30000, 30 Hari',
+        content: 29500.0),
   ];
 
   @override

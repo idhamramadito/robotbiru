@@ -17,7 +17,7 @@ class _PackageDescState extends State<PackageDesc> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset("images/provider_indosat.png"),
+        Image.asset('${widget.data.chosenPackage.logo}'),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
