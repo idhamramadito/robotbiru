@@ -19,8 +19,6 @@ class DropDownJenisNominal extends StatefulWidget {
 }
 
 class _NominalPulsaState extends State<DropDownJenisNominal> {
-  double selectedValue;
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +35,7 @@ class _NominalPulsaState extends State<DropDownJenisNominal> {
           itemHeight: 80,
           isExpanded: true,
           iconEnabledColor: Theme.of(context).primaryColor,
-          value: selectedValue,
+          value: widget.prevData.chosenPackage,
           items: widget.nominalList.map((element) {
             return DropdownMenuItem(
               child: Container(
@@ -81,7 +79,6 @@ class _NominalPulsaState extends State<DropDownJenisNominal> {
           }).toList(),
           onChanged: (value) {
             setState(() {
-              selectedValue = value;
               widget.onChanged(value);
             });
           },

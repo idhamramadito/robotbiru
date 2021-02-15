@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
-import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
+import 'package:homepage/shared/shared_UI_components/package_desc.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
 import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
@@ -166,7 +166,7 @@ class _PagePulsaState extends State<PagePulsa> {
               children: [
                 Padding(
                   padding: EdgeInsets.all(15),
-                  child: PaketPulsaKuota(data: _dataList),
+                  child: PackageDesc(data: _dataList),
                 ),
                 Padding(
                   padding: EdgeInsets.all(15),

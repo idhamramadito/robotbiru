@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
-import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
+import 'package:homepage/shared/shared_UI_components/package_desc.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
 import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
@@ -41,9 +41,9 @@ class _PagePulsaState extends State<PagePulsa> {
   ];
 
   List<NameAndContent> _pulsa = [
-    NameAndContent(name: 'Pulsa 20000', content: 19500.0),
-    NameAndContent(name: 'Pulsa 25000', content: 24500.0),
-    NameAndContent(name: 'Pulsa 30000', content: 29500.0),
+    NameAndContent(name: 'Pulsa 20000, 30 Hari', content: 19500.0),
+    NameAndContent(name: 'Pulsa 25000, 30 Hari', content: 24500.0),
+    NameAndContent(name: 'Pulsa 30000, 30 Hari', content: 29500.0),
   ];
 
   @override
@@ -115,8 +115,10 @@ class _PagePulsaState extends State<PagePulsa> {
               _rememberNumber = !_rememberNumber;
             }),
           ),
-          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
-            Padding(
+          Visibility(
+            visible:
+                _dataList.targetNumber != null && _dataList.targetNumber != '',
+            child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: DropDownJenisNominal(
                 prevData: _dataList,
@@ -126,6 +128,7 @@ class _PagePulsaState extends State<PagePulsa> {
                 }),
               ),
             ),
+          ),
           if (_dataList.targetNumber != null &&
               _dataList.targetNumber != '' &&
               _dataList.chosenPackage != null)
@@ -133,7 +136,7 @@ class _PagePulsaState extends State<PagePulsa> {
               children: [
                 Padding(
                   padding: EdgeInsets.all(15),
-                  child: PaketPulsaKuota(data: _dataList),
+                  child: PackageDesc(data: _dataList),
                 ),
                 Padding(
                   padding: EdgeInsets.all(15),

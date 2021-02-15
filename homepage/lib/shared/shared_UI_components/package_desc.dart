@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/topup_model.dart';
 
-class PaketPulsaKuota extends StatefulWidget {
-  const PaketPulsaKuota({
+class PackageDesc extends StatefulWidget {
+  const PackageDesc({
     Key key,
     this.data,
   }) : super(key: key);
   final TopUpModel data;
 
   @override
-  _PaketPulsaKuotaState createState() => _PaketPulsaKuotaState();
+  _PackageDescState createState() => _PackageDescState();
 }
 
-class _PaketPulsaKuotaState extends State<PaketPulsaKuota> {
+class _PackageDescState extends State<PackageDesc> {
   @override
   Widget build(BuildContext context) {
     return Row(
