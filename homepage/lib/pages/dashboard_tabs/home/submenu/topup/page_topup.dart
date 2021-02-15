@@ -101,7 +101,7 @@ class _TopUpState extends State<TopUp> {
             ),
             ListTile(
               onTap: () {
-                Navigator.of(context).pushNamed('/topupPayment');
+                Navigator.of(context).pushNamed('/topup_payment');
               },
               title: Text(
                 'Bayar Dengan',

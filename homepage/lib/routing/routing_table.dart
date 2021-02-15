@@ -88,11 +88,11 @@ class RoutingTable {
       // khusus topup
       case '/topup':
         return MaterialPageRoute(builder: (_) => TopUp());
-      case '/permintaantopup':
+      case '/permintaan_topup':
         return MaterialPageRoute(builder: (_) => PermintaanTopUp());
       case '/invoice_topup':
         return MaterialPageRoute(builder: (_) => InvoiceTopUp());
-      case '/topupPayment':
+      case '/topup_payment':
         return MaterialPageRoute(builder: (_) => TopUpPayment());
 
       default:
