@@ -103,7 +103,7 @@ class _TopUpPaymentState extends State<TopUpPayment> {
           title: 'Top Up',
           onPressed: (paymentMethod == null)
               ? null
-              : () => Navigator.of(context).pushNamed('/invoice_topup'),
+              : () => Navigator.of(context).pushNamed('/permintaantopup'),
         ),
       ),
     );

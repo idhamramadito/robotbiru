@@ -267,7 +267,9 @@ class PermintaanTopUp extends StatelessWidget {
         child: BigButton(
           title: "Selesai",
           data: [],
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed('/invoice_topup');
+          },
         ),
       ),
     ));
