@@ -77,7 +77,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                   children: <TextSpan>[
                     TextSpan(
                       text:
-                          '${widget.data.currency} ${widget.data.chosenPackage.content}',
+                          '${widget.data.currency} ${widget.data.chosenPackage.price}',
                       style: TextStyle(color: Theme.of(context).primaryColor),
                     ),
                   ],

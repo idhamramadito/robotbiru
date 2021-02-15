@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
 
 class DropDownJenisNominal extends StatefulWidget {
   const DropDownJenisNominal({
@@ -11,8 +11,8 @@ class DropDownJenisNominal extends StatefulWidget {
   }) : super(key: key);
 
   final TopUpModel prevData;
-  final Function(NameAndContent) onChanged;
-  final List<NameAndContent> nominalList;
+  final Function(TopUpPackageModel) onChanged;
+  final List<TopUpPackageModel> nominalList;
 
   @override
   _NominalPulsaState createState() => _NominalPulsaState();
@@ -63,7 +63,7 @@ class _NominalPulsaState extends State<DropDownJenisNominal> {
                         textAlign: TextAlign.right,
                       ),
                       Text(
-                        '${element.content}',
+                        '${element.price}',
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,

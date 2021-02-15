@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
 import 'package:homepage/shared/shared_UI_components/package_desc.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
@@ -40,19 +41,53 @@ class _PagePulsaState extends State<PagePulsa> {
     NameAndContent(name: 'Harga Dasar'),
   ];
 
-  List<NameAndContent> _pulsa = [
-    NameAndContent(
-        logo: "images/provider_indosat.png",
+  List<TopUpPackageModel> _pulsa = [
+    TopUpPackageModel(
+        logoPath: "images/provider_indosat.png",
         name: 'Pulsa 20000, 30 Hari',
-        content: 19500.0),
-    NameAndContent(
-        logo: "images/provider_indosat.png",
+        price: 19500.0),
+    TopUpPackageModel(
+        logoPath: "images/provider_indosat.png",
         name: 'Pulsa 25000, 30 Hari',
-        content: 24500.0),
-    NameAndContent(
-        logo: "images/provider_indosat.png",
+        price: 24500.0),
+    TopUpPackageModel(
+        logoPath: "images/provider_indosat.png",
         name: 'Pulsa 30000, 30 Hari',
-        content: 29500.0),
+        price: 29500.0),
+  ];
+
+  List<TopUpPackageModel> _paketData = [
+    TopUpPackageModel(
+        name: '[IY1] IDY1 - Indosat Data Yellow 1 GB, 1 Hari', price: 4975.0),
+    TopUpPackageModel(
+        name: '[IY3] IDY3 - Indosat Data Yellow 1 GB, 3 Hari', price: 6475.0),
+    TopUpPackageModel(
+        name: '[MI30] Indosat Data 300 mb 30 Hari', price: 6875.0),
+  ];
+  List<TopUpPackageModel> _ovo = [
+    TopUpPackageModel(name: '[GR20] OVO20 - OVO Saldo 20rb', price: 21390.0),
+    TopUpPackageModel(name: '[GR25] OVO25 - OVO Saldo 25rb', price: 26390.0),
+    TopUpPackageModel(name: '[GR25] OVO50 - OVO Saldo 50rb', price: 51390.0),
+  ];
+  List<TopUpPackageModel> _gopay = [
+    TopUpPackageModel(name: '[GP10] GoPay Costumer 10.000', price: 11425.0),
+    TopUpPackageModel(name: '[GP20] GoPay Costumer 20.000', price: 21425.0),
+    TopUpPackageModel(name: '[GP25] GoPay Costumer 25.000', price: 21700.0),
+  ];
+  List<TopUpPackageModel> _linkAja = [
+    TopUpPackageModel(name: '[CH10] LinkAja 10k', price: 11325.0),
+    TopUpPackageModel(name: '[CH20] LinkAja 20k', price: 21325.0),
+    TopUpPackageModel(name: '[CH25] LinkAja 25k', price: 26325.0),
+  ];
+  List<TopUpPackageModel> _dana = [
+    TopUpPackageModel(name: '[DN10] Saldo Dana 10.000', price: 11265.0),
+    TopUpPackageModel(name: '[DN20] Saldo Dana 20.000', price: 21265.0),
+    TopUpPackageModel(name: '[DN25] Saldo Dana 25.000', price: 26265.0),
+  ];
+  List<TopUpPackageModel> _shopee = [
+    TopUpPackageModel(name: '[SP10] ShopeePay 10k', price: 11355.0),
+    TopUpPackageModel(name: '[SP10] ShopeePay 20k', price: 21355.0),
+    TopUpPackageModel(name: '[SP10] ShopeePay 30k', price: 31355.0),
   ];
 
   @override
@@ -124,10 +159,8 @@ class _PagePulsaState extends State<PagePulsa> {
               _rememberNumber = !_rememberNumber;
             }),
           ),
-          Visibility(
-            visible:
-                _dataList.targetNumber != null && _dataList.targetNumber != '',
-            child: Padding(
+          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: DropDownJenisNominal(
                 prevData: _dataList,
@@ -137,7 +170,6 @@ class _PagePulsaState extends State<PagePulsa> {
                 }),
               ),
             ),
-          ),
           if (_dataList.targetNumber != null &&
               _dataList.targetNumber != '' &&
               _dataList.chosenPackage != null)

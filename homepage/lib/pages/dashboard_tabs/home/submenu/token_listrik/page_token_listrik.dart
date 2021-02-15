@@ -109,27 +109,26 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
               _rememberNumber = !_rememberNumber;
             }),
           ),
-          Visibility(
-            visible:
-                _dataList.targetNumber != null && _dataList.targetNumber != '',
-            child: Padding(
+          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: CardTokenListrik(idNumber: _dataList.targetNumber),
             ),
-          ),
+          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: NominalTokenListrik(
+                data: _dataList,
+                onChanged: (val) => setState(() {
+                  _dataList.chosenPackage = val;
+                }),
+              ),
+            ),
           if (_dataList.targetNumber != null &&
               _dataList.targetNumber != '' &&
               _dataList.chosenPackage != null)
             Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(15),
-                  child: NominalTokenListrik(
-                    onChanged: (val) => setState(() {
-                      _dataList.chosenPackage = val;
-                    }),
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(

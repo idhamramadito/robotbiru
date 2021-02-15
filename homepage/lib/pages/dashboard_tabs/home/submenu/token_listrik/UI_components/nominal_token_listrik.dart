@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
 
 class NominalTokenListrik extends StatefulWidget {
   const NominalTokenListrik({
     Key key,
     this.onChanged,
+    this.data,
   }) : super(key: key);
 
-  final Function(NameAndContent) onChanged;
+  final TopUpModel data;
+  final Function(TopUpPackageModel) onChanged;
 
   @override
   _NominalTokenListrikState createState() => _NominalTokenListrikState();
 }
 
 class _NominalTokenListrikState extends State<NominalTokenListrik> {
-  int selectedIndex = 0;
   double cashback = 750;
   double fee = 1750;
-  List<NameAndContent> _boxTokenListrik = [
-    NameAndContent(name: '20.000', content: 21750),
-    NameAndContent(name: '50.000', content: 51750),
-    NameAndContent(name: '75.000', content: 71750),
-    NameAndContent(name: '100.000', content: 100750),
-    NameAndContent(name: '500.000', content: 501750),
-    NameAndContent(name: '1.000.000', content: 1001750),
-    NameAndContent(name: '5.000.000', content: 5001750),
-    NameAndContent(name: '10.000.000', content: 10001750),
-    NameAndContent(name: '50.000.000', content: 50001750),
+  List<TopUpPackageModel> _boxTokenListrik = [
+    TopUpPackageModel(name: '20.000', price: 21750),
+    TopUpPackageModel(name: '50.000', price: 51750),
+    TopUpPackageModel(name: '75.000', price: 71750),
+    TopUpPackageModel(name: '100.000', price: 100750),
+    TopUpPackageModel(name: '500.000', price: 501750),
+    TopUpPackageModel(name: '1.000.000', price: 1001750),
+    TopUpPackageModel(name: '5.000.000', price: 5001750),
+    TopUpPackageModel(name: '10.000.000', price: 10001750),
+    TopUpPackageModel(name: '50.000.000', price: 50001750),
   ];
 
   @override
@@ -54,8 +56,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                 return InkWell(
                   onTap: () {
                     setState(() {
-                      selectedIndex = index;
-                      widget.onChanged(_boxTokenListrik[selectedIndex]);
+                      widget.onChanged(_boxTokenListrik[index]);
                     });
                   },
                   child: Container(
@@ -66,7 +67,8 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         color: Colors.white,
                         border: Border.all(
                           width: 2,
-                          color: (selectedIndex == index)
+                          color: (widget.data.chosenPackage ==
+                                  _boxTokenListrik[index])
                               ? Theme.of(context).primaryColor
                               : Colors.grey[200],
                         ),
@@ -95,7 +97,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: Text(
-                            'Rp ${_boxTokenListrik[index].content}',
+                            'Rp ${_boxTokenListrik[index].price}',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,

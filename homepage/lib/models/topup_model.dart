@@ -1,4 +1,4 @@
-import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/models/topup_package_model.dart';
 
 class TopUpModel {
   String id;
@@ -7,7 +7,7 @@ class TopUpModel {
   String targetNumber;
   String paymentMethod;
   double accountBalance;
-  NameAndContent chosenPackage;
+  TopUpPackageModel chosenPackage;
   String invoiceRoute;
   var content;
 
@@ -18,7 +18,7 @@ class TopUpModel {
     String targetNumber,
     String paymentMethod,
     double accountBalance,
-    NameAndContent chosenPackage,
+    TopUpPackageModel chosenPackage,
     String invoiceRoute,
     var content,
   })  : this.id = id,
