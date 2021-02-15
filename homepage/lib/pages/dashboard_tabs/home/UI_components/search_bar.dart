@@ -13,7 +13,10 @@ class SearchBar extends StatelessWidget {
         minWidth: 300,
         height: 50,
         child: FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              // TODO: untuk sementara diarahkan ke detail transaksi topup
+              Navigator.of(context).pushNamed('/invoice_topup');
+            },
             color: Color(0xffFAFAFA),
             shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0)),
