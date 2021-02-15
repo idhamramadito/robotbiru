@@ -15,10 +15,17 @@ class TabHarga extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<NameAndContent> _price = [
-      NameAndContent(name: 'Dewasa (1x)', content: 'Rp 435.454'),
-      NameAndContent(name: 'Cashback', content: 'Rp 2.500'),
+    double _ticketPrice = 435454;
+    List<NameAndContent> _costs = [
+      for (var element in prevData.passengersAmount)
+        if (element.content > 0)
+          NameAndContent(
+              name: '${element.name} (${element.content}x)',
+              content: 'Rp ${_ticketPrice * element.content}')
     ];
+
+    NameAndContent _total =
+        NameAndContent(name: 'Total Pembayaran', content: 'Rp 435.454');
 
     List<NameAndContent> _bonusList = [
       NameAndContent(name: 'Cashback', content: 'Rp 2.500'),
@@ -31,19 +38,29 @@ class TabHarga extends StatelessWidget {
         padding: const EdgeInsets.all(25.0),
         child: Column(
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '${_price[0].name}',
-                  style: TextStyle(fontSize: 17),
-                ),
-                Text(
-                  '${_price[0].content}',
-                  style: TextStyle(fontSize: 17),
-                ),
-              ],
+            ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              itemCount: _costs.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 3),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '${_costs[index].name}',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      Text(
+                        '${_costs[index].content}',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
             SizedBox(height: 15),
             Divider(),
@@ -53,11 +70,11 @@ class TabHarga extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${_price[1].name}',
+                  'Total Pembayaran',
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '${_price[1].content}',
+                  '${_total.content}',
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
               ],
