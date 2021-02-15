@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cupertino_radio_choice/cupertino_radio_choice.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class TopUp extends StatefulWidget {
   @override
@@ -161,8 +162,15 @@ class _TopUpState extends State<TopUp> {
                 size: 40,
                 color: Colors.grey[400],
               ),
-            )
+            ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(20),
+        child: BigButton(
+          title: 'Top Up',
+          onPressed: () {},
         ),
       ),
     );
