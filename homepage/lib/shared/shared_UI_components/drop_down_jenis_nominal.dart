@@ -47,8 +47,7 @@ class _NominalPulsaState extends State<DropDownJenisNominal> {
                 child: ListTile(
                   title: Text(
                     '${element.name}',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.left,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   trailing: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
