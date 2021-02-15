@@ -20,17 +20,21 @@ class _RememberMeCheckBoxState extends State<RememberMeCheckBox> {
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 0, 25, 0),
       child: CheckboxListTile(
-          value: rememberMe,
-          onChanged: (newVal) {
-            rememberMe = newVal;
-            widget.onChanged();
-          },
-          title: Text("Simpan Nomor",
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.normal,
-                color: Colors.grey,
-              ))),
+        value: rememberMe,
+        onChanged: (newVal) {
+          rememberMe = newVal;
+          widget.onChanged();
+        },
+        controlAffinity: ListTileControlAffinity.leading,
+        title: Text(
+          "Simpan Nomor",
+          style: TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.normal,
+            color: Colors.grey,
+          ),
+        ),
+      ),
     );
   }
 }

@@ -22,7 +22,6 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -30,7 +29,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
           BoxShadow(blurRadius: 10, color: Colors.black.withOpacity(0.1))
         ],
       ),
-      child: Column(
+      child: Wrap(
         children: [
           InkWell(
             onTap: () {
