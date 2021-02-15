@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/name_and_content.dart';
 
 class NominalPulsa extends StatefulWidget {
   const NominalPulsa({
@@ -15,6 +16,11 @@ class NominalPulsa extends StatefulWidget {
 class _NominalPulsaState extends State<NominalPulsa> {
   double selectedValue = 20000;
   List<double> _boxPulsa = [20000, 25000, 30000];
+  List<NameAndContent> _pulsa = [
+    NameAndContent(name: '20000.0', content: '19500.0'),
+    NameAndContent(name: '25000.0', content: '24500.0'),
+    NameAndContent(name: '30000.0', content: '29500.0'),
+  ];
 
   @override
   Widget build(BuildContext context) {
