@@ -19,6 +19,7 @@ import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ticket_deta
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/schedule_list/schedule_list.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/kebijakan_pembatalan.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/page_topup.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -80,6 +81,10 @@ class RoutingTable {
       // khusus tiket kereta
       case '/kereta':
         return MaterialPageRoute(builder: (_) => PageKereta());
+
+      // khusus topup
+      case '/topup':
+        return MaterialPageRoute(builder: (_) => TopUp());
 
       default:
         return defaultRoute();
