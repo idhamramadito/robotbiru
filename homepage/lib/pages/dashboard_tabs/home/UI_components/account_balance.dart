@@ -39,7 +39,7 @@ class AccountBalance extends StatelessWidget {
               primary: Theme.of(context).primaryColor,
               onPrimary: Colors.white),
           onPressed: () {
-            Navigator.of(context).pushNamed('topup');
+            Navigator.of(context).pushNamed('/topup');
           },
           child: Text(
             "Isi Saldo",

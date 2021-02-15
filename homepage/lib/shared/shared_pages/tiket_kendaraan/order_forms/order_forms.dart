@@ -143,25 +143,20 @@ class _OrderFormsState extends State<OrderForms> {
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Sama dengan pemesan',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
+                    child: SwitchListTile(
+                      title: Text(
+                        'Sama dengan pemesan',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 16,
                         ),
-                        Switch(
-                          value: widget.prevData.sameAsBuyer,
-                          onChanged: (val) {
-                            setState(() {
-                              widget.prevData.sameAsBuyer = val;
-                            });
-                          },
-                        ),
-                      ],
+                      ),
+                      value: widget.prevData.sameAsBuyer,
+                      onChanged: (val) {
+                        setState(() {
+                          widget.prevData.sameAsBuyer = val;
+                        });
+                      },
                     ),
                   ),
                   SizedBox(height: 20),
