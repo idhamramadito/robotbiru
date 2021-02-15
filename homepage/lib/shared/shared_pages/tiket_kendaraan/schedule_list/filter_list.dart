@@ -11,7 +11,7 @@ List _urutan = [
   ["Durasi Tercepat", false],
 ];
 
-List _filterDengan = [
+List _filterTransit = [
   ["Langsung", false],
   ["1 Transit", false],
   ["2 Transit", false],
@@ -25,27 +25,27 @@ List _filterFasiitas = [
   ["USB", false],
 ];
 
-List _waktuPergi = [
+List _filterWaktuPergi = [
   ["00:00 - 06:00", false],
   ["06:00 - 12:00", false],
   ["12:00 - 18:00", false],
   ["18:00 - 24:00", false],
 ];
 
-List _waktuTiba = [
+List _filterWaktuTiba = [
   ["00:00 - 06:00", false],
   ["06:00 - 12:00", false],
   ["12:00 - 18:00", false],
   ["18:00 - 24:00", false],
 ];
 
-List _kelas = [
+List _filterKelas = [
   ["Ekonomi", false],
   ["Eksekutif", false],
   ["First Class", false],
 ];
 
-List _namaKereta = [
+List _filterNamaKereta = [
   ["Argo Parahyangan", false],
   ["Serayu", false],
   ["Thomas", false],
@@ -135,21 +135,21 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                         ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: _filterDengan.length,
+                            itemCount: _filterTransit.length,
                             itemBuilder: (context, index) {
                               return CheckboxListTile(
                                   title: Text(
-                                    _filterDengan[index][0],
+                                    _filterTransit[index][0],
                                     style: TextStyle(
                                       fontSize: 15,
                                       color: Colors.black,
                                     ),
                                   ),
-                                  value: _filterDengan[index][1],
+                                  value: _filterTransit[index][1],
                                   activeColor: Theme.of(context).primaryColor,
                                   onChanged: (value) {
                                     mystate(() {
-                                      _filterDengan[index][1] = value;
+                                      _filterTransit[index][1] = value;
                                     });
                                   });
                             }),
@@ -162,20 +162,20 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                         ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: _waktuPergi.length,
+                            itemCount: _filterWaktuPergi.length,
                             itemBuilder: (context, index) {
                               return CheckboxListTile(
                                   title: Text(
-                                    _waktuPergi[index][0],
+                                    _filterWaktuPergi[index][0],
                                     style: TextStyle(
                                       fontSize: 15,
                                     ),
                                   ),
-                                  value: _waktuPergi[index][1],
+                                  value: _filterWaktuPergi[index][1],
                                   activeColor: Theme.of(context).primaryColor,
                                   onChanged: (value) {
                                     mystate(() {
-                                      _waktuPergi[index][1] = value;
+                                      _filterWaktuPergi[index][1] = value;
                                     });
                                   });
                             }),
@@ -188,20 +188,20 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: _waktuTiba.length,
+                          itemCount: _filterWaktuTiba.length,
                           itemBuilder: (context, index) {
                             return CheckboxListTile(
                                 title: Text(
-                                  _waktuTiba[index][0],
+                                  _filterWaktuTiba[index][0],
                                   style: TextStyle(
                                     fontSize: 15,
                                   ),
                                 ),
-                                value: _waktuTiba[index][1],
+                                value: _filterWaktuTiba[index][1],
                                 activeColor: Theme.of(context).primaryColor,
                                 onChanged: (value) {
                                   mystate(() {
-                                    _waktuTiba[index][1] = value;
+                                    _filterWaktuTiba[index][1] = value;
                                   });
                                 });
                           },
@@ -252,15 +252,15 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                               ListView.builder(
                                   shrinkWrap: true,
                                   physics: NeverScrollableScrollPhysics(),
-                                  itemCount: _kelas.length,
+                                  itemCount: _filterKelas.length,
                                   itemBuilder: (context, index) {
                                     return CheckboxListTile(
-                                        value: _kelas[index][1],
+                                        value: _filterKelas[index][1],
                                         activeColor:
                                             Theme.of(context).primaryColor,
                                         onChanged: (value) {
                                           mystate(() {
-                                            _kelas[index][1] = value;
+                                            _filterKelas[index][1] = value;
                                           });
                                         });
                                   }),
@@ -273,21 +273,21 @@ Future filterList(BuildContext context, TransportationModel previousData) {
                               ListView.builder(
                                   shrinkWrap: true,
                                   physics: NeverScrollableScrollPhysics(),
-                                  itemCount: _namaKereta.length,
+                                  itemCount: _filterNamaKereta.length,
                                   itemBuilder: (context, index) {
                                     return CheckboxListTile(
                                         title: Text(
-                                          _namaKereta[index][0],
+                                          _filterNamaKereta[index][0],
                                           style: TextStyle(
                                             fontSize: 15,
                                           ),
                                         ),
-                                        value: _namaKereta[index][1],
+                                        value: _filterNamaKereta[index][1],
                                         activeColor:
                                             Theme.of(context).primaryColor,
                                         onChanged: (value) {
                                           mystate(() {
-                                            _namaKereta[index][1] = value;
+                                            _filterNamaKereta[index][1] = value;
                                           });
                                         });
                                   }),
