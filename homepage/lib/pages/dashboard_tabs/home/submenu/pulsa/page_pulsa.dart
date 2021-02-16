@@ -56,40 +56,6 @@ class _PagePulsaState extends State<PagePulsa> {
         price: 29500.0),
   ];
 
-  List<TopUpPackageModel> _paketData = [
-    TopUpPackageModel(
-        name: '[IY1] IDY1 - Indosat Data Yellow 1 GB, 1 Hari', price: 4975.0),
-    TopUpPackageModel(
-        name: '[IY3] IDY3 - Indosat Data Yellow 1 GB, 3 Hari', price: 6475.0),
-    TopUpPackageModel(
-        name: '[MI30] Indosat Data 300 mb 30 Hari', price: 6875.0),
-  ];
-  List<TopUpPackageModel> _ovo = [
-    TopUpPackageModel(name: '[GR20] OVO20 - OVO Saldo 20rb', price: 21390.0),
-    TopUpPackageModel(name: '[GR25] OVO25 - OVO Saldo 25rb', price: 26390.0),
-    TopUpPackageModel(name: '[GR25] OVO50 - OVO Saldo 50rb', price: 51390.0),
-  ];
-  List<TopUpPackageModel> _gopay = [
-    TopUpPackageModel(name: '[GP10] GoPay Costumer 10.000', price: 11425.0),
-    TopUpPackageModel(name: '[GP20] GoPay Costumer 20.000', price: 21425.0),
-    TopUpPackageModel(name: '[GP25] GoPay Costumer 25.000', price: 21700.0),
-  ];
-  List<TopUpPackageModel> _linkAja = [
-    TopUpPackageModel(name: '[CH10] LinkAja 10k', price: 11325.0),
-    TopUpPackageModel(name: '[CH20] LinkAja 20k', price: 21325.0),
-    TopUpPackageModel(name: '[CH25] LinkAja 25k', price: 26325.0),
-  ];
-  List<TopUpPackageModel> _dana = [
-    TopUpPackageModel(name: '[DN10] Saldo Dana 10.000', price: 11265.0),
-    TopUpPackageModel(name: '[DN20] Saldo Dana 20.000', price: 21265.0),
-    TopUpPackageModel(name: '[DN25] Saldo Dana 25.000', price: 26265.0),
-  ];
-  List<TopUpPackageModel> _shopee = [
-    TopUpPackageModel(name: '[SP10] ShopeePay 10k', price: 11355.0),
-    TopUpPackageModel(name: '[SP10] ShopeePay 20k', price: 21355.0),
-    TopUpPackageModel(name: '[SP10] ShopeePay 30k', price: 31355.0),
-  ];
-
   @override
   //============================= main function ===============================
   Widget build(BuildContext context) {
