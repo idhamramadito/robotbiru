@@ -152,8 +152,19 @@ class PermintaanTopUpSaldo extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                         child: InkWell(
-                          child: Icon(Icons.content_copy),
-                        ),
+                            child: Icon(Icons.content_copy),
+                            onTap: () {
+                              Clipboard.setData(ClipboardData(
+                                  text: nominalRek + nominalCode));
+                              Fluttertoast.showToast(
+                                  msg: "Copied to Clipboard",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.grey,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+                            }),
                       ),
                     ],
                   ),
