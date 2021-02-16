@@ -211,7 +211,9 @@ Future otherServices(BuildContext context) {
                           Text("Dana")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/dana');
+                      },
                     ),
                     InkWell(
                       child: Column(
