@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
+import 'package:homepage/shared/shared_UI_components/package_desc.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
 import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
+import 'package:homepage/shared/shared_UI_components/drop_down_jenis_nominal.dart';
 
-class PageTokenListrik extends StatefulWidget {
-  PageTokenListrik({
+class PageGopay extends StatefulWidget {
+  PageGopay({
     Key key,
   }) : super(key: key);
 
   @override
-  _PageTokenListrikState createState() => _PageTokenListrikState();
+  _PageGopayState createState() => _PageGopayState();
 }
 
-class _PageTokenListrikState extends State<PageTokenListrik> {
+class _PageGopayState extends State<PageGopay> {
   bool _rememberNumber = false;
 
   TopUpModel _dataList = TopUpModel(
     currency: 'Rp',
-    transactionType: 'Token Listrik',
+    transactionType: 'GoPay',
     paymentMethod: 'Saldo Robot Biru',
     accountBalance: 100000,
-    invoiceRoute: '/invoice_token_listrik',
+    invoiceRoute: '/invoice_topup',
   );
 
   List<NameAndContent> _cashback = [
@@ -38,6 +39,21 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
   List<NameAndContent> _ringkasan = [
     NameAndContent(name: 'Harga Dasar'),
     NameAndContent(name: 'Harga Dasar'),
+  ];
+
+  List<TopUpPackageModel> _gopay = [
+    TopUpPackageModel(
+        logoPath: "images/gopay-1.png",
+        name: '[GP10] GoPay Costumer 10.000',
+        price: 11425.0),
+    TopUpPackageModel(
+        logoPath: "images/gopay-1.png",
+        name: '[GP20] GoPay Costumer 20.000',
+        price: 21425.0),
+    TopUpPackageModel(
+        logoPath: "images/gopay-1.png",
+        name: '[GP25] GoPay Costumer 25.000',
+        price: 21700.0),
   ];
 
   @override
@@ -96,12 +112,12 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: NumberForm(
-              prompt: 'ID Pelanggan / Nomor Meteran',
+              prompt: 'Nomor Handphone',
               clearButton: true,
               onChanged: (val) => setState(() {
                 _dataList.targetNumber = val;
               }),
-              externalPicker: 'barcode',
+              externalPicker: 'contacts',
             ),
           ),
           RememberMeCheckBox(
@@ -112,13 +128,9 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           if (_dataList.targetNumber != null && _dataList.targetNumber != '')
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: CardTokenListrik(idNumber: _dataList.targetNumber),
-            ),
-          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: NominalTokenListrik(
-                data: _dataList,
+              child: DropDownJenisNominal(
+                prevData: _dataList,
+                nominalList: _gopay,
                 onChanged: (val) => setState(() {
                   _dataList.chosenPackage = val;
                 }),
@@ -129,6 +141,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
               _dataList.chosenPackage != null)
             Column(
               children: [
+                PackageDesc(data: _dataList),
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(

@@ -154,7 +154,10 @@ Future otherServices(BuildContext context) {
                           Text("Paket Data")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/paket_data');
+                      },
                     ),
                     InkWell(
                       child: Column(
@@ -175,7 +178,9 @@ Future otherServices(BuildContext context) {
                           Text("OVO")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/ovo');
+                      },
                     ),
                     InkWell(
                       child: Column(
@@ -184,7 +189,9 @@ Future otherServices(BuildContext context) {
                           Text("GoPay")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/gopay');
+                      },
                     ),
                     InkWell(
                       child: Column(
@@ -193,7 +200,9 @@ Future otherServices(BuildContext context) {
                           Text("Link Aja")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/link_aja');
+                      },
                     ),
                     InkWell(
                       child: Column(
@@ -202,7 +211,9 @@ Future otherServices(BuildContext context) {
                           Text("Dana")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/dana');
+                      },
                     ),
                     InkWell(
                       child: Column(
@@ -211,7 +222,10 @@ Future otherServices(BuildContext context) {
                           Text("Shopee Pay")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/shopee_pay');
+                      },
                     ),
                   ],
                 ),

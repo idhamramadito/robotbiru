@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/dana/page_dana.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/link_aja/page_link_aja.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/ovo/ovo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/paket_data/page_paket_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/invoice_topup.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/pilih_pembayaran.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/shopee_pay/page_shopee_pay.dart';
 import 'package:homepage/routing/default_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/invoice_pulsa.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/page_token_listrik.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/invoice_token_listrik.dart';
+import 'package:homepage/shared/shared_pages/invoice_topup.dart';
 import 'package:homepage/shared/shared_pages/contacts_picker.dart';
 import 'package:homepage/shared/shared_pages/pin_code.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
@@ -21,8 +24,11 @@ import 'package:homepage/shared/shared_pages/tiket_kendaraan/payment/ticket_deta
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/schedule_list/schedule_list.dart';
 import 'package:homepage/shared/shared_pages/tiket_kendaraan/ticket_details/kebijakan_pembatalan.dart';
 import 'package:homepage/shared/shared_pages/trans_completed.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/page_topup.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/topup/permintaan_topup_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/invoice_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/page_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/permintaan_topup_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/pilih_pembayaran_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/gopay/page_gopay.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -38,18 +44,39 @@ class RoutingTable {
             builder: (_) =>
                 SearchPage(pageName: args.pageName, dataList: args.dataList));
       case '/pin_code':
-        return MaterialPageRoute(builder: (_) => PinCode(routeName: arg));
+        return MaterialPageRoute(builder: (_) => PinCode(data: arg));
       case '/trans_completed':
-        return MaterialPageRoute(
-            builder: (_) => TransCompleted(routeName: arg));
+        return MaterialPageRoute(builder: (_) => TransCompleted(data: arg));
       case '/contacts_picker':
         return MaterialPageRoute(builder: (_) => ContactsPicker());
+      case '/invoice_topup':
+        return MaterialPageRoute(builder: (_) => InvoiceTopUp(data: arg));
 
       // khusus pulsa
       case '/pulsa':
         return MaterialPageRoute(builder: (_) => PagePulsa());
-      case '/invoice_pulsa':
-        return MaterialPageRoute(builder: (_) => InvoicePulsa());
+
+      // khusus gopay
+      case '/gopay':
+        return MaterialPageRoute(builder: (_) => PageGopay());
+
+      // khusus paket data
+      case '/paket_data':
+        return MaterialPageRoute(builder: (_) => PagePaketData());
+
+      // khusus ovo
+      case '/ovo':
+        return MaterialPageRoute(builder: (_) => PageOvo());
+      // khusus dana
+      case '/dana':
+        return MaterialPageRoute(builder: (_) => PageDana());
+
+      // khusus link aja
+      case '/link_aja':
+        return MaterialPageRoute(builder: (_) => PageLinkAja());
+      // khusus ShopeePay
+      case '/shopee_pay':
+        return MaterialPageRoute(builder: (_) => PageShopeePay());
 
       // khusus token listrik
       case '/token_listrik':
@@ -85,15 +112,15 @@ class RoutingTable {
       case '/kereta':
         return MaterialPageRoute(builder: (_) => PageKereta());
 
-      // khusus topup
-      case '/topup':
-        return MaterialPageRoute(builder: (_) => TopUp());
-      case '/permintaantopup':
-        return MaterialPageRoute(builder: (_) => PermintaanTopUp());
-      case '/invoice_topup':
-        return MaterialPageRoute(builder: (_) => InvoiceTopUp());
-      case '/topupPayment':
-        return MaterialPageRoute(builder: (_) => TopUpPayment());
+      // khusus top up saldo
+      case '/saldo':
+        return MaterialPageRoute(builder: (_) => Saldo());
+      case '/invoice_saldo':
+        return MaterialPageRoute(builder: (_) => InvoiceSaldo());
+      case '/permintaan_topup_saldo':
+        return MaterialPageRoute(builder: (_) => PermintaanTopUpSaldo());
+      case '/pilih_pembayaran_saldo':
+        return MaterialPageRoute(builder: (_) => PilihPembayaranSaldo());
 
       default:
         return defaultRoute();

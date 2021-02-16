@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class InvoiceTopUp extends StatelessWidget {
+class InvoiceSaldo extends StatelessWidget {
   final List _atm = [
     'images/bca.png',
     'Bank BCA',

@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:homepage/models/topup_data.dart';
+import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
 class CheckoutBottomBar extends StatefulWidget {
   const CheckoutBottomBar({
     Key key,
-    @required this.currency,
-    @required this.routeName,
-    this.data,
+    @required this.data,
   }) : super(key: key);
 
-  final String currency;
-  final String routeName;
-  final TopUpData data;
+  final TopUpModel data;
 
   @override
   _CheckoutBottomBarState createState() => _CheckoutBottomBarState();
@@ -22,7 +18,6 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -30,7 +25,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
           BoxShadow(blurRadius: 10, color: Colors.black.withOpacity(0.1))
         ],
       ),
-      child: Column(
+      child: Wrap(
         children: [
           InkWell(
             onTap: () {
@@ -57,7 +52,7 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                     ],
                   ),
                   Text(
-                    '${widget.currency} ${widget.data.accountBalance}',
+                    '${widget.data.currency} ${widget.data.accountBalance}',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                 ],
@@ -66,7 +61,8 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
           ),
           Divider(thickness: 2),
           if (widget.data.targetNumber != null &&
-              widget.data.targetNumber != '')
+              widget.data.targetNumber != '' &&
+              widget.data.chosenPackage != null)
             Container(
               padding: EdgeInsets.symmetric(vertical: 5),
               alignment: Alignment.centerLeft,
@@ -80,7 +76,8 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
                   ),
                   children: <TextSpan>[
                     TextSpan(
-                      text: '${widget.currency} ${widget.data.chosenPrice}',
+                      text:
+                          '${widget.data.currency} ${widget.data.chosenPackage.price}',
                       style: TextStyle(color: Theme.of(context).primaryColor),
                     ),
                   ],
@@ -90,10 +87,11 @@ class _CheckoutBottomBarState extends State<CheckoutBottomBar> {
           BigButton(
             title: 'Beli',
             onPressed: (widget.data.targetNumber != null &&
-                    widget.data.targetNumber != '')
+                    widget.data.targetNumber != '' &&
+                    widget.data.chosenPackage != null)
                 ? () {
                     Navigator.of(context)
-                        .pushNamed('/pin_code', arguments: widget.routeName);
+                        .pushNamed('/pin_code', arguments: widget.data);
                   }
                 : null,
           ),

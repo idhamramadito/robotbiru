@@ -1,27 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:homepage/models/topup_model.dart';
 
 class TransCompleted extends StatefulWidget {
-  final String routeName;
-  const TransCompleted({Key key, @required this.routeName}) : super(key: key);
+  final TopUpModel data;
+  const TransCompleted({Key key, @required this.data}) : super(key: key);
 
   @override
   _TransCompletedState createState() => _TransCompletedState();
 }
 
 class _TransCompletedState extends State<TransCompleted> {
-  final List<NameAndContent> _boxDetailTransaksi = [
-    NameAndContent(name: 'Jenis Transaksi'),
-    NameAndContent(name: 'Jumlah'),
-    NameAndContent(name: 'Metode Pembayaran'),
-    NameAndContent(name: 'Waktu Transaksi'),
-    NameAndContent(name: 'Info Pesanan'),
-    NameAndContent(name: 'ID Transaksi'),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List<NameAndContent> _boxDetailTransaksi = [
+      NameAndContent(
+        name: 'Jenis Transaksi',
+        content: widget.data.transactionType,
+      ),
+      NameAndContent(name: 'Jumlah'),
+      NameAndContent(
+        name: 'Metode Pembayaran',
+        content: widget.data.paymentMethod,
+      ),
+      NameAndContent(name: 'Waktu Transaksi'),
+      NameAndContent(name: 'Info Pesanan'),
+      NameAndContent(name: 'ID Transaksi'),
+    ];
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).primaryColor,
@@ -49,7 +56,7 @@ class _TransCompletedState extends State<TransCompleted> {
               Container(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  'Pembelian ${_boxDetailTransaksi[0].content ?? 'NULL'} Menggunakan',
+                  'Pembelian ${widget.data.transactionType ?? 'NULL'} Menggunakan',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -58,7 +65,7 @@ class _TransCompletedState extends State<TransCompleted> {
               Container(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  _boxDetailTransaksi[2].content ?? 'NULL',
+                  widget.data.paymentMethod ?? 'NULL',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -127,8 +134,9 @@ class _TransCompletedState extends State<TransCompleted> {
                       BigButton(
                         title: 'Lihat Detail Transaksi',
                         onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed(widget.routeName);
+                          Navigator.of(context).pushReplacementNamed(
+                              widget.data.invoiceRoute,
+                              arguments: widget.data);
                         },
                       ),
                     ],

@@ -3,10 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:homepage/models/topup_model.dart';
 
 class PinCode extends StatefulWidget {
-  final String routeName;
-  const PinCode({Key key, this.routeName}) : super(key: key);
+  final TopUpModel data;
+  const PinCode({Key key, this.data}) : super(key: key);
 
   @override
   _PinCodeState createState() => _PinCodeState();
@@ -71,7 +72,7 @@ class _PinCodeState extends State<PinCode> {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                   Navigator.of(context).pushNamed(
                     '/trans_completed',
-                    arguments: widget.routeName,
+                    arguments: widget.data,
                   );
                 } else {
                   setState(() {

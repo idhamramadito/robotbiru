@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
-class PermintaanTopUp extends StatelessWidget {
-  const PermintaanTopUp({Key key}) : super(key: key);
+class PermintaanTopUpSaldo extends StatelessWidget {
+  const PermintaanTopUpSaldo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -279,7 +279,7 @@ class PermintaanTopUp extends StatelessWidget {
           title: "Selesai",
           data: [],
           onPressed: () {
-            Navigator.of(context).pushNamed('/invoice_topup');
+            Navigator.of(context).pushNamed('/invoice_saldo');
           },
         ),
       ),

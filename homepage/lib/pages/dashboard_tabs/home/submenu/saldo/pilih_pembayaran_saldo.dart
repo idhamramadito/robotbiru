@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 
-class TopUpPayment extends StatefulWidget {
+class PilihPembayaranSaldo extends StatefulWidget {
   @override
-  _TopUpPaymentState createState() => _TopUpPaymentState();
+  _PilihPembayaranSaldoState createState() => _PilihPembayaranSaldoState();
 }
 
-class _TopUpPaymentState extends State<TopUpPayment> {
+class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
   List _atm = [
     [
       'images/mandiri.png',
@@ -103,7 +103,8 @@ class _TopUpPaymentState extends State<TopUpPayment> {
           title: 'Top Up',
           onPressed: (paymentMethod == null)
               ? null
-              : () => Navigator.of(context).pushNamed('/permintaantopup'),
+              : () =>
+                  Navigator.of(context).pushNamed('/permintaan_topup_saldo'),
         ),
       ),
     );

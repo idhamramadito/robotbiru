@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
+import 'package:homepage/shared/shared_UI_components/package_desc.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
 import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
+import 'package:homepage/shared/shared_UI_components/drop_down_jenis_nominal.dart';
 
-class PageTokenListrik extends StatefulWidget {
-  PageTokenListrik({
+class PageShopeePay extends StatefulWidget {
+  PageShopeePay({
     Key key,
   }) : super(key: key);
 
   @override
-  _PageTokenListrikState createState() => _PageTokenListrikState();
+  _PageShopeePayState createState() => _PageShopeePayState();
 }
 
-class _PageTokenListrikState extends State<PageTokenListrik> {
+class _PageShopeePayState extends State<PageShopeePay> {
   bool _rememberNumber = false;
 
   TopUpModel _dataList = TopUpModel(
     currency: 'Rp',
-    transactionType: 'Token Listrik',
+    transactionType: 'ShopeePay',
     paymentMethod: 'Saldo Robot Biru',
     accountBalance: 100000,
-    invoiceRoute: '/invoice_token_listrik',
+    invoiceRoute: '/invoice_topup',
   );
 
   List<NameAndContent> _cashback = [
@@ -38,6 +39,24 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
   List<NameAndContent> _ringkasan = [
     NameAndContent(name: 'Harga Dasar'),
     NameAndContent(name: 'Harga Dasar'),
+  ];
+
+  List<TopUpPackageModel> _shopeePay = [
+    TopUpPackageModel(
+      name: '[SP10] ShopeePay 10k',
+      price: 11355.0,
+      logoPath: "images/shopee-pay_transparent.png",
+    ),
+    TopUpPackageModel(
+      name: '[SP10] ShopeePay 20k',
+      price: 21355.0,
+      logoPath: "images/shopee-pay_transparent.png",
+    ),
+    TopUpPackageModel(
+      name: '[SP10] ShopeePay 30k',
+      price: 31355.0,
+      logoPath: "images/shopee-pay_transparent.png",
+    ),
   ];
 
   @override
@@ -96,12 +115,12 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: NumberForm(
-              prompt: 'ID Pelanggan / Nomor Meteran',
+              prompt: 'Nomor Handphone',
               clearButton: true,
               onChanged: (val) => setState(() {
                 _dataList.targetNumber = val;
               }),
-              externalPicker: 'barcode',
+              externalPicker: 'contacts',
             ),
           ),
           RememberMeCheckBox(
@@ -112,13 +131,9 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           if (_dataList.targetNumber != null && _dataList.targetNumber != '')
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: CardTokenListrik(idNumber: _dataList.targetNumber),
-            ),
-          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: NominalTokenListrik(
-                data: _dataList,
+              child: DropDownJenisNominal(
+                prevData: _dataList,
+                nominalList: _shopeePay,
                 onChanged: (val) => setState(() {
                   _dataList.chosenPackage = val;
                 }),
@@ -129,6 +144,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
               _dataList.chosenPackage != null)
             Column(
               children: [
+                PackageDesc(data: _dataList),
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(

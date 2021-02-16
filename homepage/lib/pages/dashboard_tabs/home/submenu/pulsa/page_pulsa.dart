@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
-import 'package:homepage/models/topup_data.dart';
-import 'package:homepage/shared/shared_UI_components/paket_pulsa_kuota.dart';
+import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
+import 'package:homepage/shared/shared_UI_components/package_desc.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
 import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/UI_components/nominal_pulsa.dart';
+import 'package:homepage/shared/shared_UI_components/drop_down_jenis_nominal.dart';
 
 class PagePulsa extends StatefulWidget {
   PagePulsa({
@@ -19,16 +20,17 @@ class PagePulsa extends StatefulWidget {
 
 class _PagePulsaState extends State<PagePulsa> {
   bool _rememberNumber = false;
-  String _currency = 'Rp';
 
-  TopUpData _dataList = TopUpData(
+  TopUpModel _dataList = TopUpModel(
+    currency: 'Rp',
+    transactionType: 'Pulsa',
     paymentMethod: 'Saldo Robot Biru',
-    chosenPrice: 20000,
     accountBalance: 100000,
+    invoiceRoute: '/invoice_topup',
   );
 
   List<NameAndContent> _cashback = [
-    NameAndContent(name: 'Pemilik Retail', content: "2000"),
+    NameAndContent(name: 'Pemilik Retail'),
     NameAndContent(name: 'Badan Koperasi'),
     NameAndContent(name: 'Anggota Koperasi'),
     NameAndContent(name: 'Anggota Retail'),
@@ -39,6 +41,21 @@ class _PagePulsaState extends State<PagePulsa> {
     NameAndContent(name: 'Harga Dasar'),
   ];
 
+  List<TopUpPackageModel> _pulsa = [
+    TopUpPackageModel(
+        logoPath: "images/provider_indosat.png",
+        name: 'Pulsa 20000, 30 Hari',
+        price: 19500.0),
+    TopUpPackageModel(
+        logoPath: "images/provider_indosat.png",
+        name: 'Pulsa 25000, 30 Hari',
+        price: 24500.0),
+    TopUpPackageModel(
+        logoPath: "images/provider_indosat.png",
+        name: 'Pulsa 30000, 30 Hari',
+        price: 29500.0),
+  ];
+
   @override
   //============================= main function ===============================
   Widget build(BuildContext context) {
@@ -47,14 +64,14 @@ class _PagePulsaState extends State<PagePulsa> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Pulsa',
+            '${_dataList.transactionType}',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
         body: Column(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            Padding(
+              padding: EdgeInsets.all(15),
               child: TabBar(
                 unselectedLabelColor: Theme.of(context).primaryColor,
                 indicator: BoxDecoration(
@@ -67,6 +84,7 @@ class _PagePulsaState extends State<PagePulsa> {
                 ],
               ),
             ),
+            SizedBox(height: 10),
             Flexible(
               child: TabBarView(
                 children: [
@@ -78,8 +96,6 @@ class _PagePulsaState extends State<PagePulsa> {
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          routeName: '/invoice_pulsa',
-          currency: _currency,
           data: _dataList,
         ),
       ),
@@ -93,13 +109,16 @@ class _PagePulsaState extends State<PagePulsa> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          NumberForm(
-            prompt: 'Nomor Handphone',
-            clearButton: true,
-            onChanged: (val) => setState(() {
-              _dataList.targetNumber = val;
-            }),
-            externalPicker: 'contacts',
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: NumberForm(
+              prompt: 'Nomor Handphone',
+              clearButton: true,
+              onChanged: (val) => setState(() {
+                _dataList.targetNumber = val;
+              }),
+              externalPicker: 'contacts',
+            ),
           ),
           RememberMeCheckBox(
             onChanged: () => setState(() {
@@ -107,16 +126,24 @@ class _PagePulsaState extends State<PagePulsa> {
             }),
           ),
           if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: DropDownJenisNominal(
+                prevData: _dataList,
+                nominalList: _pulsa,
+                onChanged: (val) => setState(() {
+                  _dataList.chosenPackage = val;
+                }),
+              ),
+            ),
+          if (_dataList.targetNumber != null &&
+              _dataList.targetNumber != '' &&
+              _dataList.chosenPackage != null)
             Column(
               children: [
-                NominalPulsa(
-                  onChanged: (val) => setState(() {
-                    _dataList.chosenPrice = val;
-                  }),
-                ),
-                PaketPulsaKuota(amount: _dataList.chosenPrice),
+                PackageDesc(data: _dataList),
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Ringkasan',
                     dataList: _ringkasan,
@@ -124,7 +151,7 @@ class _PagePulsaState extends State<PagePulsa> {
                 ),
                 Divider(thickness: 5),
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Cashback',
                     dataList: _cashback,
@@ -143,14 +170,14 @@ class _PagePulsaState extends State<PagePulsa> {
       children: [
         Container(
           alignment: Alignment.centerLeft,
-          padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+          margin: EdgeInsets.symmetric(horizontal: 15),
           child: Text(
             'Pilih Kontak',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
         Container(
-          margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
+          margin: EdgeInsets.all(15),
           width: double.infinity,
           child: FlatButton(
             child: Row(
@@ -169,17 +196,17 @@ class _PagePulsaState extends State<PagePulsa> {
             shape: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            onPressed: _contactPicker, // GANTI DENGAN DAFTAR NOMOR FAVORIT
+            onPressed: () async {
+              // TODO: GANTI DENGAN DAFTAR NOMOR FAVORIT
+              final result =
+                  await Navigator.of(context).pushNamed('/contacts_picker');
+              setState(() {
+                _dataList.targetNumber = result ?? _dataList.targetNumber;
+              });
+            },
           ),
         ),
       ],
     );
-  }
-
-  Future _contactPicker() async {
-    final result = await Navigator.of(context).pushNamed('/contacts_picker');
-    setState(() {
-      _dataList.targetNumber = result ?? _dataList.targetNumber;
-    });
   }
 }

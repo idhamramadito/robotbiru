@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
 
 class NominalTokenListrik extends StatefulWidget {
   const NominalTokenListrik({
     Key key,
     this.onChanged,
+    this.data,
   }) : super(key: key);
 
-  final Function(double) onChanged;
+  final TopUpModel data;
+  final Function(TopUpPackageModel) onChanged;
 
   @override
   _NominalTokenListrikState createState() => _NominalTokenListrikState();
 }
 
 class _NominalTokenListrikState extends State<NominalTokenListrik> {
-  int selectedIndex = 0;
   double cashback = 750;
   double fee = 1750;
-  double selectedValue = 21750;
-  List<double> _boxTokenListrik = [
-    20000,
-    50000,
-    75000,
-    100000,
-    200000,
-    500000,
-    1000000,
-    5000000,
-    10000000,
-    50000000,
+  List<TopUpPackageModel> _boxTokenListrik = [
+    TopUpPackageModel(name: '20.000', price: 21750),
+    TopUpPackageModel(name: '50.000', price: 51750),
+    TopUpPackageModel(name: '75.000', price: 71750),
+    TopUpPackageModel(name: '100.000', price: 100750),
+    TopUpPackageModel(name: '500.000', price: 501750),
+    TopUpPackageModel(name: '1.000.000', price: 1001750),
+    TopUpPackageModel(name: '5.000.000', price: 5001750),
+    TopUpPackageModel(name: '10.000.000', price: 10001750),
+    TopUpPackageModel(name: '50.000.000', price: 50001750),
   ];
 
   @override
@@ -37,7 +38,6 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
             child: Text(
               "Nominal Token Listrik",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -51,14 +51,12 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
               scrollDirection: Axis.horizontal,
               itemCount: _boxTokenListrik.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.55),
+                  crossAxisCount: 2, childAspectRatio: 0.6),
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     setState(() {
-                      selectedIndex = index;
-                      selectedValue = _boxTokenListrik[selectedIndex] + fee;
-                      widget.onChanged(selectedValue);
+                      widget.onChanged(_boxTokenListrik[index]);
                     });
                   },
                   child: Container(
@@ -69,7 +67,8 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         color: Colors.white,
                         border: Border.all(
                           width: 2,
-                          color: (selectedIndex == index)
+                          color: (widget.data.chosenPackage ==
+                                  _boxTokenListrik[index])
                               ? Theme.of(context).primaryColor
                               : Colors.grey[200],
                         ),
@@ -80,7 +79,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            '${_boxTokenListrik[index]}',
+                            '${_boxTokenListrik[index].name}',
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -98,7 +97,7 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: Text(
-                            'Rp ${_boxTokenListrik[index] + fee}',
+                            'Rp ${_boxTokenListrik[index].price}',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
