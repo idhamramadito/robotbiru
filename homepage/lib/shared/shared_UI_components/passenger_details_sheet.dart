@@ -120,19 +120,17 @@ Future passengerDetailsSheet(
                           },
                         ),
                       ),
-                      if (dataPenumpang.ageType.contains('Dewasa'))
-                        SizedBox(height: 20),
-                      if (dataPenumpang.ageType.contains('Dewasa'))
-                        InputNumberField(
-                          initialValue: dataPenumpang.id,
-                          keyboardType: TextInputType.number,
-                          displayName: "Nomor Identitas (NIK / SIM)",
-                          onChanged: (value) {
-                            mystate(() {
-                              dataPenumpang.id = value;
-                            });
-                          },
-                        ),
+                      SizedBox(height: 20),
+                      InputNumberField(
+                        initialValue: dataPenumpang.id,
+                        keyboardType: TextInputType.number,
+                        displayName: "Nomor Identitas (NIK / SIM)",
+                        onChanged: (value) {
+                          mystate(() {
+                            dataPenumpang.id = value;
+                          });
+                        },
+                      ),
                     ],
                   ),
                   SizedBox(height: 20),

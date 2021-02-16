@@ -180,9 +180,13 @@ Future orderDetailsSheet(BuildContext context, OrderDetailModel dataPemesanan) {
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: BigButton(
                         title: 'Simpan',
-                        onPressed: () {
-                          Navigator.pop(context, dataPemesanan);
-                        },
+                        onPressed: (dataPemesanan.name != null &&
+                                dataPemesanan.title != null &&
+                                dataPemesanan.countryCode != null &&
+                                dataPemesanan.phoneNumber != null &&
+                                dataPemesanan.email != null)
+                            ? () => Navigator.pop(context, dataPemesanan)
+                            : null,
                       ),
                     ),
                   ],
