@@ -5,14 +5,13 @@ import 'package:homepage/models/order_detail_model.dart';
 import 'package:homepage/shared/shared_UI_components/text_field.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
 
-Future orderDetailsSheet(BuildContext context) {
+Future orderDetailsSheet(BuildContext context, OrderDetailModel dataPemesanan) {
   List _kodeNegara = [
     ['images/indonesia.png', '+62', 'Indonesia', ''],
     ['images/malaysia.png', '+60', 'Malaysia', ''],
     ['images/singapura.png', '+65', 'Singapura', ''],
   ];
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
-  OrderDetailModel dataPemesanan = OrderDetailModel();
 
   return showModalBottomSheet(
     context: context,
@@ -52,6 +51,7 @@ Future orderDetailsSheet(BuildContext context) {
                     ),
                     SizedBox(height: 20),
                     InputTextField(
+                      initialValue: dataPemesanan.name,
                       displayName: "Masukkan Nama",
                       regex: "[a-zA-Z\ ]",
                       onChanged: (value) {
@@ -145,6 +145,7 @@ Future orderDetailsSheet(BuildContext context) {
                         Flexible(
                           flex: 7,
                           child: InputTextField(
+                            initialValue: dataPemesanan.phoneNumber,
                             displayName: "Masukkan No. Telp",
                             regex: '[0-9]',
                             onChanged: (value) {
@@ -158,6 +159,7 @@ Future orderDetailsSheet(BuildContext context) {
                     ),
                     SizedBox(height: 20),
                     InputTextField(
+                      initialValue: dataPemesanan.email,
                       displayName: "Masukkan Email",
                       regex: '33',
                       onChanged: (value) {

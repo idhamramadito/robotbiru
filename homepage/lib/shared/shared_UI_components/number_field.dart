@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class InputNumberField extends StatefulWidget {
+  final String initialValue;
   final String displayName;
   final Function onChanged;
   InputNumberField({
     Key key,
+    @required this.initialValue,
     @required this.displayName,
     @required this.onChanged,
     TextInputType keyboardType,
@@ -30,7 +32,8 @@ class _InputNumberFieldState extends State<InputNumberField> {
               style: TextStyle(color: Colors.grey),
             ),
           ),
-          TextField(
+          TextFormField(
+            initialValue: widget.initialValue,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),

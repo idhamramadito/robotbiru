@@ -84,8 +84,8 @@ class _OrderFormsState extends State<OrderForms> {
                     ),
                     child: ListTile(
                       onTap: () async {
-                        OrderDetailModel result =
-                            await orderDetailsSheet(context);
+                        OrderDetailModel result = await orderDetailsSheet(
+                            context, widget.prevData.orderDetails);
                         setState(() {
                           widget.prevData.orderDetails =
                               result ?? widget.prevData.orderDetails;

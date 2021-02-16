@@ -3,11 +3,13 @@ import 'package:flutter/services.dart';
 
 class InputTextField extends StatefulWidget {
   final String regex;
+  final String initialValue;
   final String displayName;
   final Function onChanged;
   InputTextField({
     Key key,
     @required this.regex,
+    @required this.initialValue,
     @required this.displayName,
     @required this.onChanged,
   }) : super(key: key);
@@ -31,6 +33,7 @@ class _InputTextFieldState extends State<InputTextField> {
             ),
           ),
           TextFormField(
+            initialValue: widget.initialValue,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),

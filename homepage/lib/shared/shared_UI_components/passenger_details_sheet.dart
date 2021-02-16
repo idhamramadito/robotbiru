@@ -42,6 +42,7 @@ Future passengerDetailsSheet(
                   ),
                   SizedBox(height: 20),
                   InputTextField(
+                    initialValue: dataPenumpang.name,
                     displayName: "Masukkan Nama",
                     regex: "[a-zA-Z\ ]",
                     onChanged: (value) {
@@ -119,16 +120,19 @@ Future passengerDetailsSheet(
                           },
                         ),
                       ),
-                      SizedBox(height: 20),
-                      InputNumberField(
-                        keyboardType: TextInputType.number,
-                        displayName: "Nomor Identitas",
-                        onChanged: (value) {
-                          mystate(() {
-                            dataPenumpang.name = value;
-                          });
-                        },
-                      ),
+                      if (dataPenumpang.ageType.contains('Dewasa'))
+                        SizedBox(height: 20),
+                      if (dataPenumpang.ageType.contains('Dewasa'))
+                        InputNumberField(
+                          initialValue: dataPenumpang.id,
+                          keyboardType: TextInputType.number,
+                          displayName: "Nomor Identitas (NIK / SIM)",
+                          onChanged: (value) {
+                            mystate(() {
+                              dataPenumpang.id = value;
+                            });
+                          },
+                        ),
                     ],
                   ),
                   SizedBox(height: 20),
@@ -136,9 +140,13 @@ Future passengerDetailsSheet(
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: BigButton(
                       title: 'Simpan',
-                      onPressed: () {
-                        Navigator.pop(context, dataPenumpang);
-                      },
+                      onPressed: (dataPenumpang.name != null &&
+                              dataPenumpang.title != null &&
+                              dataPenumpang.birthDate != null &&
+                              (dataPenumpang.ageType != 'Dewasa' ||
+                                  dataPenumpang.id != null))
+                          ? () => Navigator.pop(context, dataPenumpang)
+                          : null,
                     ),
                   ),
                 ]),
