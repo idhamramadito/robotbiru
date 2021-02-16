@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/ovo/ovo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/paket_data/page_paket_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
@@ -55,9 +56,9 @@ class RoutingTable {
       case '/paket_data':
         return MaterialPageRoute(builder: (_) => PagePaketData());
 
-      // khusus pulsa
-      case '/pulsa':
-        return MaterialPageRoute(builder: (_) => PagePulsa());
+      // khusus ovo
+      case '/ovo':
+        return MaterialPageRoute(builder: (_) => PageOvo());
 
       // khusus token listrik
       case '/token_listrik':

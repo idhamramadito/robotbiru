@@ -178,7 +178,9 @@ Future otherServices(BuildContext context) {
                           Text("OVO")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/ovo');
+                      },
                     ),
                     InkWell(
                       child: Column(
