@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/birthdate_sheet.dart';
+import 'package:homepage/shared/shared_UI_components/number_field.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 import 'package:homepage/shared/shared_UI_components/text_field.dart';
 import 'package:intl/intl.dart';
@@ -114,8 +115,19 @@ Future passengerDetailsSheet(
                         },
                       ),
                     ),
+                    SizedBox(height: 20),
+                    InputNumberField(
+                      keyboardType: TextInputType.number,
+                      displayName: "Nomor Identitas",
+                      onChanged: (value) {
+                        mystate(() {
+                          dataPenumpang.name = value;
+                        });
+                      },
+                    ),
                   ],
                 ),
+                SizedBox(height: 20),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: BigButton(
