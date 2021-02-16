@@ -4,6 +4,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/ovo/ovo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/paket_data/page_paket_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/shopee_pay/page_shopee_pay.dart';
 import 'package:homepage/routing/default_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -59,6 +60,10 @@ class RoutingTable {
       // khusus ovo
       case '/ovo':
         return MaterialPageRoute(builder: (_) => PageOvo());
+
+      // khusus ShopeePay
+      case '/shopee_pay':
+        return MaterialPageRoute(builder: (_) => PageShopeePay());
 
       // khusus token listrik
       case '/token_listrik':

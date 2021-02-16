@@ -216,7 +216,10 @@ Future otherServices(BuildContext context) {
                           Text("Shopee Pay")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/shopee_pay');
+                      },
                     ),
                   ],
                 ),
