@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/birthdate_sheet.dart';
-import 'package:homepage/shared/shared_UI_components/number_field.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
-import 'package:homepage/shared/shared_UI_components/text_field.dart';
+import 'package:homepage/shared/shared_UI_components/input_text_field.dart';
 import 'package:intl/intl.dart';
 import 'package:homepage/models/passenggers_model.dart';
 
@@ -121,7 +120,8 @@ Future passengerDetailsSheet(
                         ),
                       ),
                       SizedBox(height: 20),
-                      InputNumberField(
+                      InputTextField(
+                        regex: '[0-9]',
                         initialValue: dataPenumpang.id,
                         keyboardType: TextInputType.number,
                         displayName: "Nomor Identitas (NIK / SIM)",
