@@ -92,6 +92,7 @@ class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: NumberForm(
+              initialValue: widget.dataList.targetNumber,
               prompt:
                   (widget.dataList.transactionType.contains('Token Listrik'))
                       ? 'ID Pelanggan / Nomor Meteran'
@@ -185,7 +186,7 @@ class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
           alignment: Alignment.centerLeft,
           margin: EdgeInsets.symmetric(horizontal: 15),
           child: Text(
-            'Pilih Kontak',
+            'Pilih Favorit',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
@@ -197,7 +198,7 @@ class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Nomor:',
+                  '${widget.dataList.targetNumber ?? 'Nomor:'}',
                   style: TextStyle(color: Colors.grey),
                 ),
                 Icon(

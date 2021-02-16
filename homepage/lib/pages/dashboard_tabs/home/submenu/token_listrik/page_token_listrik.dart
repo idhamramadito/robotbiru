@@ -14,8 +14,6 @@ class PageTokenListrik extends StatefulWidget {
 }
 
 class _PageTokenListrikState extends State<PageTokenListrik> {
-  bool _rememberNumber = false;
-
   TopUpModel _dataList = TopUpModel(
     currency: 'Rp',
     transactionType: 'Token Listrik',
