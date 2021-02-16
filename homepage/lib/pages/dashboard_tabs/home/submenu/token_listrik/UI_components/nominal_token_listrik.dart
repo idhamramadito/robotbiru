@@ -35,9 +35,9 @@ class _NominalTokenListrikState extends State<NominalTokenListrik> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
+          SizedBox(height: 10),
           Container(
             height: 200,
-            margin: EdgeInsets.symmetric(vertical: 10),
             child: GridView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

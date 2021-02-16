@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/models/topup_package_model.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
 import 'package:homepage/shared/shared_UI_components/drop_down_jenis_nominal.dart';
 import 'package:homepage/shared/shared_UI_components/number_form.dart';
@@ -12,18 +14,18 @@ import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 class TopUpPageTemplate extends StatefulWidget {
   const TopUpPageTemplate({
     Key key,
-    @required TopUpModel dataList,
-    @required List<TopUpPackageModel> packageList,
-    @required List<NameAndContent> ringkasan,
-    @required List<NameAndContent> cashback,
-  })  : this.dataList = dataList,
-        this.packageList = packageList,
-        this.ringkasan = ringkasan,
-        this.cashback = cashback,
-        super(key: key);
+    @required this.dataList,
+    @required this.packageList,
+    @required this.ringkasan,
+    @required this.cashback,
+    this.packageCashback,
+    this.fee,
+  }) : super(key: key);
 
   final TopUpModel dataList;
   final List<TopUpPackageModel> packageList;
+  final double packageCashback;
+  final double fee;
   final List<NameAndContent> ringkasan;
   final List<NameAndContent> cashback;
 
@@ -90,12 +92,18 @@ class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: NumberForm(
-              prompt: 'Nomor Handphone',
+              prompt:
+                  (widget.dataList.transactionType.contains('Token Listrik'))
+                      ? 'ID Pelanggan / Nomor Meteran'
+                      : 'Nomor Handphone',
               clearButton: true,
               onChanged: (val) => setState(() {
                 widget.dataList.targetNumber = val;
               }),
-              externalPicker: 'contacts',
+              externalPicker:
+                  (widget.dataList.transactionType.contains('Token Listrik'))
+                      ? 'barcode'
+                      : 'contacts',
             ),
           ),
           RememberMeCheckBox(
@@ -104,7 +112,32 @@ class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
             }),
           ),
           if (widget.dataList.targetNumber != null &&
-              widget.dataList.targetNumber != '')
+              widget.dataList.targetNumber != '' &&
+              widget.dataList.transactionType == 'Token Listrik')
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child:
+                      CardTokenListrik(idNumber: widget.dataList.targetNumber),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: NominalTokenListrik(
+                    data: widget.dataList,
+                    packageList: widget.packageList,
+                    packageCashback: widget.packageCashback,
+                    fee: widget.fee,
+                    onChanged: (val) => setState(() {
+                      widget.dataList.chosenPackage = val;
+                    }),
+                  ),
+                ),
+              ],
+            ),
+          if (widget.dataList.targetNumber != null &&
+              widget.dataList.targetNumber != '' &&
+              widget.dataList.transactionType != 'Token Listrik')
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: DropDownJenisNominal(
@@ -120,7 +153,8 @@ class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
               widget.dataList.chosenPackage != null)
             Column(
               children: [
-                PackageDesc(data: widget.dataList),
+                if (widget.dataList.transactionType != 'Token Listrik')
+                  PackageDesc(data: widget.dataList),
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(
