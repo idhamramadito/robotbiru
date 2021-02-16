@@ -26,15 +26,13 @@ Future orderDetailsSheet(BuildContext context) {
     builder: (context) {
       return StatefulBuilder(
         builder: (BuildContext context, StateSetter mystate) {
-          return DraggableScrollableSheet(
-            initialChildSize: 0.9,
-            expand: false,
-            builder: (context, controller) {
-              return SingleChildScrollView(
-                controller: controller,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(children: [
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
                     SlideUpMarker(),
                     SizedBox(height: 10),
                     Container(
@@ -185,10 +183,10 @@ Future orderDetailsSheet(BuildContext context) {
                         },
                       ),
                     ),
-                  ]),
+                  ],
                 ),
-              );
-            },
+              ),
+            ),
           );
         },
       );
