@@ -200,7 +200,9 @@ Future otherServices(BuildContext context) {
                           Text("Link Aja")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/link_aja');
+                      },
                     ),
                     InkWell(
                       child: Column(
@@ -218,7 +220,10 @@ Future otherServices(BuildContext context) {
                           Text("Shopee Pay")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/shopee_pay');
+                      },
                     ),
                   ],
                 ),
