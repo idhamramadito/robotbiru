@@ -5,6 +5,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/ovo/ovo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/paket_data/page_paket_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/shopee_pay/page_shopee_pay.dart';
 import 'package:homepage/routing/default_route.dart';
 import 'package:homepage/pages/dashboard.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pulsa/page_pulsa.dart';
@@ -26,6 +27,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/invoice_saldo.d
 import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/page_saldo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/permintaan_topup_saldo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/pilih_pembayaran_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/gopay/page_gopay.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -53,6 +55,10 @@ class RoutingTable {
       case '/pulsa':
         return MaterialPageRoute(builder: (_) => PagePulsa());
 
+      // khusus gopay
+      case '/gopay':
+        return MaterialPageRoute(builder: (_) => PageGopay());
+
       // khusus paket data
       case '/paket_data':
         return MaterialPageRoute(builder: (_) => PagePaketData());
@@ -64,6 +70,9 @@ class RoutingTable {
       // khusus link aja
       case '/link_aja':
         return MaterialPageRoute(builder: (_) => PageLinkAja());
+      // khusus ShopeePay
+      case '/shopee_pay':
+        return MaterialPageRoute(builder: (_) => PageShopeePay());
 
       // khusus token listrik
       case '/token_listrik':
