@@ -41,9 +41,9 @@ class _NominalPulsaState extends State<DropDownJenisNominal> {
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.grey, width: 2),
-                    borderRadius: BorderRadius.circular(10)),
+                    color: Colors.grey[100],
+                    border: Border.all(color: Colors.grey[300], width: 2),
+                    borderRadius: BorderRadius.circular(5)),
                 child: ListTile(
                   title: Text(
                     '${element.name}',
