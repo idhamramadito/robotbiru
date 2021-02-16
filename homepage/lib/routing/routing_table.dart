@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/paket_data/page_paket_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/order_forms/bagasi.dart';
 import 'package:homepage/routing/default_route.dart';
@@ -43,12 +44,20 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => TransCompleted(data: arg));
       case '/contacts_picker':
         return MaterialPageRoute(builder: (_) => ContactsPicker());
+      case '/invoice_topup':
+        return MaterialPageRoute(builder: (_) => InvoiceTopUp());
 
       // khusus pulsa
       case '/pulsa':
         return MaterialPageRoute(builder: (_) => PagePulsa());
-      case '/invoice_topup':
-        return MaterialPageRoute(builder: (_) => InvoiceTopUp());
+
+      // khusus paket data
+      case '/paket_data':
+        return MaterialPageRoute(builder: (_) => PagePaketData());
+
+      // khusus pulsa
+      case '/pulsa':
+        return MaterialPageRoute(builder: (_) => PagePulsa());
 
       // khusus token listrik
       case '/token_listrik':

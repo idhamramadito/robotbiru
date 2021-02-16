@@ -154,7 +154,10 @@ Future otherServices(BuildContext context) {
                           Text("Paket Data")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/paket_data');
+                      },
                     ),
                     InkWell(
                       child: Column(
