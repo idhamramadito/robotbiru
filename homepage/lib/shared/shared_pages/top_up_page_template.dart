@@ -2,59 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/models/topup_package_model.dart';
-import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
-import 'package:homepage/shared/shared_UI_components/number_form.dart';
-import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
-import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
+import 'package:homepage/shared/shared_UI_components/drop_down_jenis_nominal.dart';
+import 'package:homepage/shared/shared_UI_components/number_form.dart';
+import 'package:homepage/shared/shared_UI_components/package_desc.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
+import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 
-class PageTokenListrik extends StatefulWidget {
-  PageTokenListrik({
+class TopUpPageTemplate extends StatefulWidget {
+  const TopUpPageTemplate({
     Key key,
-  }) : super(key: key);
+    @required TopUpModel dataList,
+    @required List<TopUpPackageModel> packageList,
+    @required List<NameAndContent> ringkasan,
+    @required List<NameAndContent> cashback,
+  })  : this.dataList = dataList,
+        this.packageList = packageList,
+        this.ringkasan = ringkasan,
+        this.cashback = cashback,
+        super(key: key);
+
+  final TopUpModel dataList;
+  final List<TopUpPackageModel> packageList;
+  final List<NameAndContent> ringkasan;
+  final List<NameAndContent> cashback;
 
   @override
-  _PageTokenListrikState createState() => _PageTokenListrikState();
+  _TopUpPageTemplateState createState() => _TopUpPageTemplateState();
 }
 
-class _PageTokenListrikState extends State<PageTokenListrik> {
+class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
   bool _rememberNumber = false;
-
-  TopUpModel _dataList = TopUpModel(
-    currency: 'Rp',
-    transactionType: 'Token Listrik',
-    paymentMethod: 'Saldo Robot Biru',
-    accountBalance: 100000,
-    invoiceRoute: '/invoice_token_listrik',
-  );
-
-  List<NameAndContent> _cashback = [
-    NameAndContent(name: 'Pemilik Retail', content: null),
-    NameAndContent(name: 'Badan Koperasi', content: null),
-    NameAndContent(name: 'Anggota Koperasi', content: null),
-    NameAndContent(name: 'Anggota Retail', content: null),
-  ];
-
-  List<NameAndContent> _ringkasan = [
-    NameAndContent(name: 'Harga Dasar', content: null),
-    NameAndContent(name: 'Harga Dasar', content: null),
-  ];
-
-  List<TopUpPackageModel> _tokenListrik = [
-    TopUpPackageModel(name: '20.000', price: 21750),
-    TopUpPackageModel(name: '50.000', price: 51750),
-    TopUpPackageModel(name: '75.000', price: 71750),
-    TopUpPackageModel(name: '100.000', price: 100750),
-    TopUpPackageModel(name: '500.000', price: 501750),
-    TopUpPackageModel(name: '1.000.000', price: 1001750),
-    TopUpPackageModel(name: '5.000.000', price: 5001750),
-    TopUpPackageModel(name: '10.000.000', price: 10001750),
-    TopUpPackageModel(name: '50.000.000', price: 50001750),
-  ];
-
-  double _packageCashback = 750;
-  double _fee = 1750;
 
   @override
   //============================= main function ===============================
@@ -64,7 +42,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            '${_dataList.transactionType}',
+            '${widget.dataList.transactionType}',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -88,22 +66,22 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
             Flexible(
               child: TabBarView(
                 children: [
-                  _inputBaru(),
-                  _daftarFavorit(context),
+                  _tabInputBaru(),
+                  _tabDaftarFavorit(context),
                 ],
               ),
             ),
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          data: _dataList,
+          data: widget.dataList,
         ),
       ),
     );
   }
   //============================= main function ===============================
 
-  Widget _inputBaru() {
+  Widget _tabInputBaru() {
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -112,12 +90,12 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: NumberForm(
-              prompt: 'ID Pelanggan / Nomor Meteran',
+              prompt: 'Nomor Handphone',
               clearButton: true,
               onChanged: (val) => setState(() {
-                _dataList.targetNumber = val;
+                widget.dataList.targetNumber = val;
               }),
-              externalPicker: 'barcode',
+              externalPicker: 'contacts',
             ),
           ),
           RememberMeCheckBox(
@@ -125,34 +103,29 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
               _rememberNumber = !_rememberNumber;
             }),
           ),
-          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+          if (widget.dataList.targetNumber != null &&
+              widget.dataList.targetNumber != '')
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: CardTokenListrik(idNumber: _dataList.targetNumber),
-            ),
-          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
-            Padding(
-              padding: EdgeInsets.all(15),
-              child: NominalTokenListrik(
-                data: _dataList,
-                packageList: _tokenListrik,
-                packageCashback: _packageCashback,
-                fee: _fee,
+              child: DropDownJenisNominal(
+                prevData: widget.dataList,
+                nominalList: widget.packageList,
                 onChanged: (val) => setState(() {
-                  _dataList.chosenPackage = val;
+                  widget.dataList.chosenPackage = val;
                 }),
               ),
             ),
-          if (_dataList.targetNumber != null &&
-              _dataList.targetNumber != '' &&
-              _dataList.chosenPackage != null)
+          if (widget.dataList.targetNumber != null &&
+              widget.dataList.targetNumber != '' &&
+              widget.dataList.chosenPackage != null)
             Column(
               children: [
+                PackageDesc(data: widget.dataList),
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Ringkasan',
-                    dataList: _ringkasan,
+                    dataList: widget.ringkasan,
                   ),
                 ),
                 Divider(thickness: 5),
@@ -160,7 +133,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Cashback',
-                    dataList: _cashback,
+                    dataList: widget.cashback,
                   ),
                 ),
                 Divider(thickness: 5),
@@ -171,7 +144,7 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
     );
   }
 
-  Widget _daftarFavorit(BuildContext context) {
+  Widget _tabDaftarFavorit(BuildContext context) {
     return Column(
       children: [
         Container(
@@ -203,10 +176,11 @@ class _PageTokenListrikState extends State<PageTokenListrik> {
               borderRadius: BorderRadius.circular(10),
             ),
             onPressed: () async {
-              final result =
-                  await Navigator.of(context).pushNamed('/contacts_picker');
+              final result = await Navigator.of(context).pushNamed(
+                  '/contacts_picker'); // TODO: GANTI KE PAGE DAFTAR FAVORIT
               setState(() {
-                _dataList.targetNumber = result ?? _dataList.targetNumber;
+                widget.dataList.targetNumber =
+                    result ?? widget.dataList.targetNumber;
               });
             },
           ),
