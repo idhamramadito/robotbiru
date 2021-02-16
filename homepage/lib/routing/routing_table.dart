@@ -24,6 +24,7 @@ import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/invoice_saldo.d
 import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/page_saldo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/permintaan_topup_saldo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/saldo/pilih_pembayaran_saldo.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/gopay/page_gopay.dart';
 
 class RoutingTable {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -50,6 +51,10 @@ class RoutingTable {
       // khusus pulsa
       case '/pulsa':
         return MaterialPageRoute(builder: (_) => PagePulsa());
+
+      // khusus gopay
+      case '/gopay':
+        return MaterialPageRoute(builder: (_) => PageGopay());
 
       // khusus paket data
       case '/paket_data':

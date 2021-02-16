@@ -187,7 +187,9 @@ Future otherServices(BuildContext context) {
                           Text("GoPay")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/gopay');
+                      },
                     ),
                     InkWell(
                       child: Column(
