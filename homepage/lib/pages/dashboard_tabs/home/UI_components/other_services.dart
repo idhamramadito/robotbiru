@@ -198,7 +198,9 @@ Future otherServices(BuildContext context) {
                           Text("Link Aja")
                         ],
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed('/link_aja');
+                      },
                     ),
                     InkWell(
                       child: Column(

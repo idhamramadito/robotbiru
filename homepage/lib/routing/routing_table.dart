@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/link_aja/page_link_aja.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/ovo/ovo.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/paket_data/page_paket_data.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/pesawat/page_pesawat.dart';
@@ -59,6 +60,10 @@ class RoutingTable {
       // khusus ovo
       case '/ovo':
         return MaterialPageRoute(builder: (_) => PageOvo());
+
+      // khusus link aja
+      case '/link_aja':
+        return MaterialPageRoute(builder: (_) => PageLinkAja());
 
       // khusus token listrik
       case '/token_listrik':
