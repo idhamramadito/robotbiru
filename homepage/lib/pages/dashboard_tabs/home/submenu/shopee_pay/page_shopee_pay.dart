@@ -200,7 +200,6 @@ class _PageShopeePayState extends State<PageShopeePay> {
               borderRadius: BorderRadius.circular(10),
             ),
             onPressed: () async {
-              // TODO: GANTI DENGAN DAFTAR NOMOR FAVORIT
               final result =
                   await Navigator.of(context).pushNamed('/contacts_picker');
               setState(() {
