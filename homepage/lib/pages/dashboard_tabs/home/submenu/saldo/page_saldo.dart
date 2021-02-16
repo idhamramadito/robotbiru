@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cupertino_radio_choice/cupertino_radio_choice.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:homepage/models/topup_model.dart';
+import 'package:homepage/models/topup_package_model.dart';
 
 class Saldo extends StatefulWidget {
   @override
@@ -8,6 +10,13 @@ class Saldo extends StatefulWidget {
 }
 
 class _SaldoState extends State<Saldo> {
+  TopUpModel _dataList = TopUpModel(
+      currency: 'Rp',
+      transactionType: 'Saldo',
+      accountBalance: 100000,
+      invoiceRoute: '/invoice_saldo',
+      chosenPackage: TopUpPackageModel());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +50,13 @@ class _SaldoState extends State<Saldo> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
-                    child: Text('Rp',
+                    child: Text(_dataList.currency,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
                         )),
                   ),
-                  Text('50.000',
+                  Text('${_dataList.chosenPackage.name ?? ''}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
@@ -75,11 +84,19 @@ class _SaldoState extends State<Saldo> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: CupertinoRadioChoice(choices: {
-                'Rp50.000': 'Rp50.000',
-                'Rp.100.000': 'Rp100.000',
-                'Rp.150.000': 'Rp150.000'
-              }, onChange: (selectedPrice) {}, initialKeyValue: 'Rp50.000'),
+              child: CupertinoRadioChoice(
+                  selectedColor: Theme.of(context).primaryColor,
+                  choices: {
+                    '50.000': '50.000',
+                    '100.000': '100.000',
+                    '150.000': '150.000'
+                  },
+                  onChange: (selectedPrice) {
+                    setState(() {
+                      _dataList.chosenPackage.name = selectedPrice;
+                    });
+                  },
+                  initialKeyValue: '50.000'),
             ),
             SizedBox(
               height: 30,
