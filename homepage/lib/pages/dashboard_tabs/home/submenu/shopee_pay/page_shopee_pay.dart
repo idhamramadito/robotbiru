@@ -41,7 +41,7 @@ class _PageShopeePayState extends State<PageShopeePay> {
     NameAndContent(name: 'Harga Dasar'),
   ];
 
-  List<TopUpPackageModel> _shopee = [
+  List<TopUpPackageModel> _shopeePay = [
     TopUpPackageModel(
       name: '[SP10] ShopeePay 10k',
       price: 11355.0,
@@ -133,7 +133,7 @@ class _PageShopeePayState extends State<PageShopeePay> {
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: DropDownJenisNominal(
                 prevData: _dataList,
-                nominalList: _shopee,
+                nominalList: _shopeePay,
                 onChanged: (val) => setState(() {
                   _dataList.chosenPackage = val;
                 }),
