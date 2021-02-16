@@ -50,7 +50,7 @@ class RoutingTable {
       case '/contacts_picker':
         return MaterialPageRoute(builder: (_) => ContactsPicker());
       case '/invoice_topup':
-        return MaterialPageRoute(builder: (_) => InvoiceTopUp());
+        return MaterialPageRoute(builder: (_) => InvoiceTopUp(data: arg));
 
       // khusus pulsa
       case '/pulsa':

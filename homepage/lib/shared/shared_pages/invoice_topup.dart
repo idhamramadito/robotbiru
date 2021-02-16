@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
+import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
 
-class InvoiceTopUp extends StatelessWidget {
+class InvoiceTopUp extends StatefulWidget {
+  final TopUpModel data;
+  const InvoiceTopUp({Key key, @required this.data}) : super(key: key);
+
+  @override
+  _InvoiceTopUpState createState() => _InvoiceTopUpState();
+}
+
+class _InvoiceTopUpState extends State<InvoiceTopUp> {
   final List<NameAndContent> _boxDetailPesanan = [
     NameAndContent(name: 'Ditransfer Menggunakan'),
     NameAndContent(name: 'Status'),
@@ -139,7 +148,8 @@ class InvoiceTopUp extends StatelessWidget {
                           style: TextStyle(color: Colors.grey),
                         ),
                         new Container(
-                          child: Image.asset('images/indosat_kecil.png'),
+                          child:
+                              Image.asset(widget.data.chosenPackage.logoPath),
                         )
                       ]),
                 ),
@@ -158,5 +168,4 @@ class InvoiceTopUp extends StatelessWidget {
       ),
     );
   }
-  //============================= main function ===============================
 }

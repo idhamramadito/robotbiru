@@ -134,8 +134,9 @@ class _TransCompletedState extends State<TransCompleted> {
                       BigButton(
                         title: 'Lihat Detail Transaksi',
                         onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed(widget.data.invoiceRoute);
+                          Navigator.of(context).pushReplacementNamed(
+                              widget.data.invoiceRoute,
+                              arguments: widget.data);
                         },
                       ),
                     ],
