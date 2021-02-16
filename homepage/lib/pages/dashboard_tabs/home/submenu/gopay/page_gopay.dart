@@ -23,7 +23,7 @@ class _PageGopayState extends State<PageGopay> {
 
   TopUpModel _dataList = TopUpModel(
     currency: 'Rp',
-    transactionType: 'Pulsa',
+    transactionType: 'GoPay',
     paymentMethod: 'Saldo Robot Biru',
     accountBalance: 100000,
     invoiceRoute: '/invoice_topup',
@@ -43,15 +43,15 @@ class _PageGopayState extends State<PageGopay> {
 
   List<TopUpPackageModel> _gopay = [
     TopUpPackageModel(
-        logoPath: "images/gopay.png",
+        logoPath: "images/gopay-1.png",
         name: '[GP10] GoPay Costumer 10.000',
         price: 11425.0),
     TopUpPackageModel(
-        logoPath: "images/gopay.png",
+        logoPath: "images/gopay-1.png",
         name: '[GP20] GoPay Costumer 20.000',
         price: 21425.0),
     TopUpPackageModel(
-        logoPath: "images/gopay.png",
+        logoPath: "images/gopay-1.png",
         name: '[GP25] GoPay Costumer 25.000',
         price: 21700.0),
   ];
