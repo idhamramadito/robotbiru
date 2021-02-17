@@ -378,20 +378,19 @@ class _OrderFormsState extends State<OrderForms> {
                             ),
                             subtitle: Column(
                               children: [
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Wrap(
+                                RichText(
+                                  text: TextSpan(
                                     children: [
-                                      Text(
-                                        'Rp 13.300',
+                                      TextSpan(
+                                        text: 'Rp 13.300',
                                         style: TextStyle(
                                           color: Theme.of(context).primaryColor,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20,
+                                          fontSize: 18,
                                         ),
                                       ),
-                                      Text(
-                                        ' /Penumpang',
+                                      TextSpan(
+                                        text: ' / Penumpang',
                                         style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 14,
