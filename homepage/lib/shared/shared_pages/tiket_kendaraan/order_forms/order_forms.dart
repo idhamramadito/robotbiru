@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/models/order_detail_model.dart';
 import 'package:homepage/models/passenggers_model.dart';
@@ -298,14 +299,14 @@ class _OrderFormsState extends State<OrderForms> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Perlindungan Ekstra',
+                      'Asuransi',
                       textAlign: TextAlign.start,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
+                  SizedBox(height: 20),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
@@ -344,7 +345,8 @@ class _OrderFormsState extends State<OrderForms> {
                                 ),
                               ),
                               Text(
-                                  'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000'),
+                                'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000',
+                              ),
                             ],
                           ),
                           value: widget.prevData.fullProtection,
@@ -404,6 +406,29 @@ class _OrderFormsState extends State<OrderForms> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 10),
+                  if (widget.prevData.transportationType.contains('Kereta'))
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(color: Colors.black),
+                        children: [
+                          TextSpan(
+                              text:
+                                  'Dengan menekan tombol, kamu menyetujui Kebijakan Privasi dan'),
+                          TextSpan(
+                            text: ' Syarat & Ketentuan ',
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.of(context)
+                                    .pushNamed('/syarat_dan_ketentuan');
+                              },
+                          ),
+                          TextSpan(text: 'PT KAI'),
+                        ],
+                      ),
+                    ),
                 ],
               ),
             ),
