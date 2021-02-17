@@ -279,6 +279,7 @@ class PermintaanTopUpSaldo extends StatelessWidget {
           title: "Selesai",
           data: [],
           onPressed: () {
+            Navigator.of(context).popUntil((route) => route.isFirst);
             Navigator.of(context).pushNamed('/invoice_saldo');
           },
         ),
