@@ -324,21 +324,21 @@ class _OrderFormsState extends State<OrderForms> {
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Wrap(
+                              RichText(
+                                text: TextSpan(
                                   children: [
-                                    Text(
-                                      'Rp 29.000',
+                                    TextSpan(
+                                      text: 'Rp 29.000',
                                       style: TextStyle(
                                         color: Theme.of(context).primaryColor,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
                                       ),
                                     ),
-                                    Text(
-                                      ' /Penumpang',
+                                    TextSpan(
+                                      text: ' / Penumpang',
                                       style: TextStyle(
                                         color: Colors.grey,
                                         fontSize: 14,
