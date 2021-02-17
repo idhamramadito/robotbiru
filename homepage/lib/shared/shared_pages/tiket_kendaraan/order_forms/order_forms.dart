@@ -316,6 +316,8 @@ class _OrderFormsState extends State<OrderForms> {
                     child: Column(
                       children: [
                         CheckboxListTile(
+                          contentPadding: EdgeInsets.zero,
+                          secondary: Image.asset('images/shield.png'),
                           title: const Text(
                             'Perlindungan Penuh',
                             style: TextStyle(
@@ -332,21 +334,27 @@ class _OrderFormsState extends State<OrderForms> {
                                       style: TextStyle(
                                         color: Theme.of(context).primaryColor,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 20,
+                                        fontSize: 18,
                                       ),
                                     ),
                                     Text(
                                       ' /Penumpang',
                                       style: TextStyle(
+                                        color: Colors.grey,
                                         fontSize: 14,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Text(
-                                'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000',
-                              ),
+                              if (widget.prevData.transportationType
+                                  .contains('Pesawat'))
+                                Text(
+                                    'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga Rp500.000.000'),
+                              if (widget.prevData.transportationType
+                                  .contains('Kereta'))
+                                Text(
+                                    'Asuransi ini berlaku untuk warga Negara Indonesia dan Warga Negara Asing yang memiliki izin tinggal di Indonesia. Traveler yang memenuhi syarat berhak atas kompensasi perjalanan hingga Rp8.500.000'),
                             ],
                           ),
                           value: widget.prevData.fullProtection,
@@ -355,7 +363,6 @@ class _OrderFormsState extends State<OrderForms> {
                               widget.prevData.fullProtection = value;
                             });
                           },
-                          secondary: Image.asset('images/shield.png'),
                         ),
                         if (widget.prevData.transportationType
                             .contains('Pesawat'))
@@ -363,6 +370,7 @@ class _OrderFormsState extends State<OrderForms> {
                         if (widget.prevData.transportationType
                             .contains('Pesawat'))
                           CheckboxListTile(
+                            contentPadding: EdgeInsets.zero,
                             title: const Text(
                               'Asuransi Bagasi',
                               style: TextStyle(
@@ -385,6 +393,7 @@ class _OrderFormsState extends State<OrderForms> {
                                       Text(
                                         ' /Penumpang',
                                         style: TextStyle(
+                                          color: Colors.grey,
                                           fontSize: 14,
                                         ),
                                       ),
