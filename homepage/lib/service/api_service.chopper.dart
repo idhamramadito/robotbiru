@@ -29,4 +29,18 @@ class _$APIService extends APIService {
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<FetchedDataList, FetchedDataList>($request);
   }
+
+  @override
+  Future<Response<FetchedDataList>> getFlightPayment() {
+    final $url = 'ticket/flight/payment';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FetchedDataList, FetchedDataList>($request);
+  }
+
+  @override
+  Future<Response<FetchedDataList>> getTrainPayment() {
+    final $url = 'ticket/train/payment';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<FetchedDataList, FetchedDataList>($request);
+  }
 }

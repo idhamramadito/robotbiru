@@ -1,4 +1,5 @@
 import 'package:homepage/models/api_models/airport.dart';
+import 'package:homepage/models/api_models/payment.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'fetched_data_list.g.dart';
@@ -7,7 +8,8 @@ part 'fetched_data_list.g.dart';
 class FetchedDataList {
   String status;
   String message;
-  List<Airport> result;
+  List<Payment> result;
+  // List<Airport> result;
   // List<Airline> result;
 
   FetchedDataList({this.message, this.result, this.status});
