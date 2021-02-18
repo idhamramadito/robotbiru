@@ -43,7 +43,7 @@ class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
                     fontWeight: FontWeight.bold)),
           ),
           Flexible(
-            child: FutureBuilder<Response<FetchedDataList>>(
+            child: FutureBuilder<Response>(
               future: _dataFromAPI,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
