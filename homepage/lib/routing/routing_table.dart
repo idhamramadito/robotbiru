@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/login/userlogin.dart';
+import 'package:homepage/login/verif_otplogin.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/dana/page_dana.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/kereta/page_kereta.dart';
 import 'package:homepage/pages/dashboard_tabs/home/submenu/link_aja/page_link_aja.dart';
@@ -121,6 +123,14 @@ class RoutingTable {
         return MaterialPageRoute(builder: (_) => PermintaanTopUpSaldo());
       case '/pilih_pembayaran_saldo':
         return MaterialPageRoute(builder: (_) => PilihPembayaranSaldo());
+
+      //login
+
+      case '/userlogin':
+        return MaterialPageRoute(builder: (_) => UserLogin());
+
+      case '/verif_otplogin':
+        return MaterialPageRoute(builder: (_) => PageVerifLogin());
 
       default:
         return defaultRoute();
