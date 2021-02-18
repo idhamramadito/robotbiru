@@ -80,7 +80,7 @@ class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
     );
   }
 
-  ListView _buildList(BuildContext context, List<Payment> list) {
+  ListView _buildList(BuildContext context, List list) {
     return ListView.builder(
       padding: EdgeInsets.all(10),
       itemExtent: 100,
@@ -99,14 +99,18 @@ class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Transfer ${list[index].name}',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(
+                'Transfer ${list[index].name}',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               if (list[index].norek != null)
-                Text('${list[index].norek}',
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold)),
+                Text(
+                  '${list[index].norek}',
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
               Text(
                 '${list[index].atasNama}',
                 overflow: TextOverflow.ellipsis,

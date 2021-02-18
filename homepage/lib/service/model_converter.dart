@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:chopper/chopper.dart';
+import 'package:homepage/models/api_models/airport.dart';
+import 'package:homepage/models/api_models/airline.dart';
 import 'package:homepage/models/api_models/fetched_data_list.dart';
+import 'package:homepage/models/api_models/payment.dart';
 
 class ModelConverter implements Converter {
   @override
@@ -36,7 +39,17 @@ class ModelConverter implements Converter {
     }
     try {
       var mapData = json.decode(body);
-      var result = FetchedDataList.fromJson(mapData);
+      print(mapData['message']);
+      var result = FetchedDataList.fromJson(mapData, (data) {
+        if (mapData['message'].contains('pembayaran'))
+          return Payment.fromJson(data);
+        else if (mapData['message'].contains('Airline'))
+          return Airline.fromJson(data);
+        else if (mapData['message'].contains('Airport'))
+          return Airport.fromJson(data);
+        else
+          null;
+      });
       return response.copyWith<BodyType>(body: result as BodyType);
     } catch (e) {
       chopperLogger.warning(e);

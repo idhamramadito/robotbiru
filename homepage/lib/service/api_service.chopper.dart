@@ -17,30 +17,34 @@ class _$APIService extends APIService {
   final definitionType = APIService;
 
   @override
-  Future<Response<FetchedDataList>> getAirlines() {
+  Future<Response<FetchedDataList<dynamic>>> getAirlines() {
     final $url = 'ticket/flight/airline';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<FetchedDataList, FetchedDataList>($request);
+    return client
+        .send<FetchedDataList<dynamic>, FetchedDataList<dynamic>>($request);
   }
 
   @override
-  Future<Response<FetchedDataList>> getAirports() {
+  Future<Response<FetchedDataList<dynamic>>> getAirports() {
     final $url = 'ticket/flight/airport';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<FetchedDataList, FetchedDataList>($request);
+    return client
+        .send<FetchedDataList<dynamic>, FetchedDataList<dynamic>>($request);
   }
 
   @override
-  Future<Response<FetchedDataList>> getFlightPayment() {
+  Future<Response<FetchedDataList<dynamic>>> getFlightPayment() {
     final $url = 'ticket/flight/payment';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<FetchedDataList, FetchedDataList>($request);
+    return client
+        .send<FetchedDataList<dynamic>, FetchedDataList<dynamic>>($request);
   }
 
   @override
-  Future<Response<FetchedDataList>> getTrainPayment() {
+  Future<Response<FetchedDataList<dynamic>>> getTrainPayment() {
     final $url = 'ticket/train/payment';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<FetchedDataList, FetchedDataList>($request);
+    return client
+        .send<FetchedDataList<dynamic>, FetchedDataList<dynamic>>($request);
   }
 }

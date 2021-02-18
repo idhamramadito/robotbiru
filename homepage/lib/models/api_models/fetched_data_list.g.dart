@@ -6,20 +6,23 @@ part of 'fetched_data_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FetchedDataList _$FetchedDataListFromJson(Map<String, dynamic> json) {
-  return FetchedDataList(
+FetchedDataList<T> _$FetchedDataListFromJson<T>(
+  Map<String, dynamic> json,
+  T Function(Object json) fromJsonT,
+) {
+  return FetchedDataList<T>(
     message: json['message'] as String,
-    result: (json['result'] as List)
-        ?.map((e) =>
-            e == null ? null : Payment.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    result: (json['result'] as List)?.map(fromJsonT)?.toList(),
     status: json['status'] as String,
   );
 }
 
-Map<String, dynamic> _$FetchedDataListToJson(FetchedDataList instance) =>
+Map<String, dynamic> _$FetchedDataListToJson<T>(
+  FetchedDataList<T> instance,
+  Object Function(T value) toJsonT,
+) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
-      'result': instance.result,
+      'result': instance.result?.map(toJsonT)?.toList(),
     };
