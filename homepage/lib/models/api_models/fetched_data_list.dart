@@ -1,5 +1,3 @@
-import 'package:homepage/models/api_models/airport.dart';
-import 'package:homepage/models/api_models/payment.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'fetched_data_list.g.dart';

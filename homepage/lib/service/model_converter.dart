@@ -40,16 +40,19 @@ class ModelConverter implements Converter {
     try {
       var mapData = json.decode(body);
       print(mapData['message']);
-      var result = FetchedDataList.fromJson(mapData, (data) {
-        if (mapData['message'].contains('pembayaran'))
-          return Payment.fromJson(data);
-        else if (mapData['message'].contains('Airline'))
-          return Airline.fromJson(data);
-        else if (mapData['message'].contains('Airport'))
-          return Airport.fromJson(data);
-        else
-          null;
-      });
+      var result = FetchedDataList.fromJson(
+        mapData,
+        (data) {
+          if (mapData['message'].contains('pembayaran'))
+            return Payment.fromJson(data);
+          else if (mapData['message'].contains('Airline'))
+            return Airline.fromJson(data);
+          else if (mapData['message'].contains('Airport'))
+            return Airport.fromJson(data);
+          else
+            return null;
+        },
+      );
       return response.copyWith<BodyType>(body: result as BodyType);
     } catch (e) {
       chopperLogger.warning(e);

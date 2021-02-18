@@ -1,6 +1,5 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
-import 'package:homepage/models/api_models/payment.dart';
 import 'package:homepage/service/api_service.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:provider/provider.dart';
