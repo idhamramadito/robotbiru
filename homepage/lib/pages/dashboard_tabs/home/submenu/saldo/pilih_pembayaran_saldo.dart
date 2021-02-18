@@ -1,6 +1,5 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
-import 'package:homepage/models/api_models/fetched_data_list.dart';
 import 'package:homepage/models/api_models/payment.dart';
 import 'package:homepage/service/api_service.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
@@ -13,11 +12,11 @@ class PilihPembayaranSaldo extends StatefulWidget {
 
 class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
   int selectedIndex;
-  Future _dataFromAPI;
+  Future _paymentDataFromAPI;
 
   @override
   void initState() {
-    _dataFromAPI =
+    _paymentDataFromAPI =
         Provider.of<APIService>(context, listen: false).getTrainPayment();
     super.initState();
   }
@@ -44,7 +43,7 @@ class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
           ),
           Flexible(
             child: FutureBuilder<Response>(
-              future: _dataFromAPI,
+              future: _paymentDataFromAPI,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   if (snapshot.hasError) {
