@@ -1,0 +1,695 @@
+URL : http://178.128.215.125:3000
+Keterangan:
+POST atau GET : method type saat merequest ke API
+PARAMS : parameter yang dikirim saat menggunakan method GET
+BODY : parameter yang dikirim saat menggunakan method POST
+M : parameter yang wajib diisi
+O : parameter yang tidak wajib
+// client_code, token dan message digunakan untuk endpoint ticket kereta atau pesawat
+client_code : IKGqKijOuzWvXPkAxt5G
+token : NDZXmY4F6RoK63E1C99q
+message : sha1(client_code + token + data)
+
+
+
+(POST) auth/register
+NOTE : untuk pendaftaran anggota
+BODY
+nama: M
+password: M
+password_confirmation: M
+email: M jika no_hp tidak diisi
+no_hp: M jika email tidak diisi
+id_koperasi: O
+id_retail: O
+tanggal_lahir: M jika mengirim id_koperasi atau id_retail
+alamat: M jika mengirim id_koperasi atau id_retail
+no_ktp: M jika mengirim id_koperasi atau id_retail
+file_ktp: M jika mengirim id_koperasi atau id_retail
+jenis_kelamin: O
+alamat_di_ktp: O
+organisasi: O
+pendidikan_terakhir: O
+pekerjaan: O
+is_old: O jika anggota koperasi lama, isi nilai dengan (true)
+
+(POST) auth/register_koperasi
+NOTE : untuk mendaftarkan koperasi beserta pemiliknya 
+BODY
+nama: M
+password: M
+password_confirmation: M
+email: M jika no_hp tidak diisi
+no_hp: M jika email tidak diisi
+tanggal_lahir: M jika mengirim id_koperasi atau id_retail
+alamat: M jika mengirim id_koperasi atau id_retail
+no_ktp: M jika mengirim id_koperasi atau id_retail
+file_ktp: M jika mengirim id_koperasi atau id_retail
+jenis_kelamin: O
+alamat_di_ktp: O
+organisasi: O
+pendidikan_terakhir: O
+pekerjaan: O
+file_koperasi : M foto koperasi
+kop_nama : M nama koperasi
+kop_url : 0 alamat website koperasi
+kop_nama_pendek : M nama pendek (singkatan) koperasi
+kop_biaya_daftar : M biaya daftar koperasi
+kop_biaya_simpan_pokok : M biaya simpan pokok koperasi
+kop_biaya_simpan_wajib : M biaya simpan wajib koperasi
+
+(POST) auth/register_retail
+NOTE : untuk mendaftarkan retail beserta pemiliknya 
+BODY
+nama: M
+password: M
+password_confirmation: M
+email: M jika no_hp tidak diisi
+no_hp: M jika email tidak diisi
+tanggal_lahir: M jika mengirim id_koperasi atau id_retail
+alamat: M jika mengirim id_koperasi atau id_retail
+no_ktp: M jika mengirim id_koperasi atau id_retail
+file_ktp: M jika mengirim id_koperasi atau id_retail
+jenis_kelamin: O
+alamat_di_ktp: O
+organisasi: O
+pendidikan_terakhir: O
+pekerjaan: O
+retail_nama : M nama retail
+retail_url : 0 alamat website retail
+retail_alamat : M alamat retail
+retail_biaya_daftar : M biaya daftar retail
+retail_nama_penanggung_jawab : M nama penanggung jawab retail
+retail_no_ktp_penanggung_jawab : M no ktp penanggung jawab retail
+retail_no_hp_penanggung_jawab : M no hp penanggung jawab retail
+file_gambar_retail : M gambar retail
+file_gambar_ktp_penanggung_jawab : M gambar ktp penanggung jawab retail
+file_gambar_selfie_penanggung_jawab : M gambar selfie penanggung jawab retail dengan ktp
+file_gambar_penanggung_jawab_dan_retail : M gambar penanggung jawab dengan retailnya
+file_logo : M logo retail
+
+(POST) auth/profile
+NOTE : untuk update profile
+BODY
+nama: O
+tanggal_lahir: O
+alamat: O
+no_ktp: O
+file: O untuk gambar ktp
+jenis_kelamin: O
+alamat_di_ktp: O
+organisasi: O
+pendidikan_terakhir: O
+pekerjaan: O
+gambar_pengguna: O
+
+(POST) auth/pin
+NOTE : untuk update pin pengguna (kebutuhan transaksi menggunakan deposit)
+HEADERS
+x-access-token: M token yang didapat saat berhasil login
+BODY
+pin: M pin sebanyak 6 karakter
+
+(PUT) auth/pin
+NOTE : untuk mengganti pin pengguna
+HEADERS
+x-access-token: M token yang didapat saat berhasil login
+BODY
+pin: M pin sebanyak 6 karakter
+password: M password pengguna
+
+(GET) auth/koperasi
+NOTE : untuk list koperasi
+
+(GET) auth/retail
+NOTE : untuk list retail
+
+(POST) auth/koperasi
+NOTE : untuk upgrade anggota
+BODY
+id_koperasi: M
+tanggal_lahir: M
+alamat: M
+no_ktp: M
+file: M
+jenis_kelamin: O
+alamat_di_ktp: O
+organisasi: O
+pendidikan_terakhir: O
+pekerjaan: O
+
+(POST) auth/retail
+NOTE : untuk upgrade anggota menjadi retail
+BODY
+id_retail: M
+tanggal_lahir: M
+alamat: M
+no_ktp: M
+file: M
+jenis_kelamin: O
+alamat_di_ktp: O
+organisasi: O
+pendidikan_terakhir: O
+pekerjaan: O
+
+(GET) auth/verification
+NOTE : untuk pendaftaran anggota
+PARAMS
+email: M
+secret_code: M (didapat dari email)
+
+(GET) auth/kode_unik_baru
+NOTE : untuk memperbaharui timelimit (beserta kode unik)
+HEADERS
+x-access-token: M token yang didapat saat berhasil login
+
+(POST) auth/resend_verification
+NOTE : untuk memperbaharui kode verifikasi untuk aktifasi akun baru
+BODY
+email: M jika no_hp tidak diisi
+no_hp: M jika email tidak diisi
+
+(GET) auth/profile
+NOTE : untuk melihat profile pengguna
+HEADERS
+x-access-token: M token yang didapat saat berhasil login atau setelah melakukan verifikasi akun
+
+(POST) auth/login
+NOTE : untuk login
+BODY
+password: M
+email: M jika no_hp tidak diisi
+no_hp: M jika email tidak diisi
+
+(GET) auth/transfer_saldo
+NOTE : untuk transfer saldo
+HEADERS
+x-access-token: M token yang didapat saat berhasil login atau setelah melakukan verifikasi akun
+PARAMS
+email: M // jika no hp tidak dicantumkan
+no_hp: M // jika email tidak dicantumkan
+nominal: M
+pin: O pin sebanyak 6 karakter (jika sistem deposit)
+
+(POST) auth/topup
+NOTE : untuk topup saldo
+HEADERS
+x-access-token: M token yang didapat saat berhasil login atau setelah melakukan verifikasi akun
+PARAMS
+nominal: M
+
+(POST) auth/topup_payment
+NOTE : untuk set metode pembayaran tagihan topup
+HEADERS
+x-access-token: M token yang didapat saat berhasil login atau setelah melakukan verifikasi akun
+PARAMS
+id: M id tagihan pengguna atau id topup
+id_payment: M id metode pembayaran
+
+(GET) ticket/flight/flight_availability
+NOTE : untuk mencari tiket penerbangan pesawat
+PARAMS
+data: {
+            "fromcity": "CGK", // kode bandara asal
+            "tocity": "DPS", // kode bandara tujuan
+            "departdate": "27-Mar-2018", // tanggal berangkat
+            "returndate": "28-Mar-2018", // tanggal pulang (jika one way returndate tidak perlu dikirim)
+            "airline": [ // array kode airline (kosongkan array jika ingin menampilkan semua maskapai)
+                "GA",
+                "JT"
+            ],
+            "adult": "1", // penumpang dewasa 1 - 6
+            "child": "0", // penumpang anak 0 - 6
+            "infant": "0", // penumpang anak 0 - 6
+            "cabin": "ECONOMY" // {ECONOMY/BUSINESS/FIRSTCLASS}
+        }
+client_code : M
+message : M
+
+(GET) ticket/flight/airfare
+NOTE : untuk mendapatkan harga tiket yang terbaru
+PARAMS
+data: {
+            "trip_type": "return", // {one way/return}
+            "departure_date": "27-Mar-2018", // tanggal berangkat
+            "return_date": "28-Mar-2018", // tanggal pulang (jika one way returndate tidak perlu dikirim)
+            "fromcity": "CGK", // kode bandara asal
+            "tocity": "DPS", // kode bandara tujuan
+            "departure": { // data keberangkatan
+                "airlinecode": "JT", // kode airline
+                "tripdate": "27-Mar-2018", // tanggal berangkat
+                "item": { // item penerbangan
+                    "sumlocal": [ // tipe tarif {sumlocal/throughfare}
+                        {
+                            "flightno": "ID 6196", // nomor penerbangan
+                            "classcode": "V", // kode class
+                            "fromcity": "CGK", // kode bandara asal
+                            "tocity": "UPG", // kode bandara tujuan
+                            "departdate": "27-Mar-2018", // tanggal keberangkatan
+                            "departtime": "00:05", // jam keberangkatan
+                            "arrivetime": "03:20" // jam sampai tujuan
+                        },
+                        {
+                            "flightno": "JT 927", // nomor penerbangan
+                            "classcode": "Q", // kode class
+                            "fromcity": "UPG", // kode bandara keberangkatan
+                            "tocity": "DPS", // kode bandara tujuan
+                            "departdate": "27-Mar-2018", // tanggal keberangkatan
+                            "departtime": "05:40", // jam keberangkatan
+                            "arrivetime": "08:40" // jam sampai tujuan
+                        }
+                    ]
+                }
+            },
+            "return": { // data pulang (jika one way return_date tidak perlu dikirim)
+                "airlinecode": "JT", // kode airline
+                "tripdate": "28-Mar-2018", // tanggal berangkat
+                "item": { // item penerbangan
+                    "sumlocal": [ // tipe tarif {sumlocal/throughfare}
+                        {
+                            "flightno": "JT 11", // nomor penerbangan
+                            "classcode": "X", // kode class
+                            "fromcity": "DPS", // kode bandara asal
+                            "tocity": "CGK", // kode bandara tujuan
+                            "departdate": "28-Mar-2018", // tanggal keberangkatan
+                            "departtime": "07:00", // jam keberangkatan
+                            "arrivetime": "07:44" // jam sampai tujuan
+                        }
+                    ]
+                }
+            },
+            "withinsurance": "true", // asuransi {true/false}
+            "adultcount": "1", // penumpang dewasa 1 - 6
+            "childcount": "0", // penumpang anak 0 - 6
+            "infantcount": "0", // penumpang anak 0 - 6
+            "totalfare": "2179000" // total harga
+        }
+client_code : M
+message : M
+
+(POST) ticket/flight/booking
+NOTE : untuk memesan tiket pesawat
+HEADERS
+x-access-token: M
+PARAMS
+data: {
+            "trip_type": "return", // {one way/return}
+            "departure_date": "27-Mar-2018", // tanggal berangkat
+            "return_date": "28-Mar-2018", // tanggal pulang (jika one way returndate tidak perlu dikirim)
+            "fromcity": "CGK", // kode bandara asal
+            "tocity": "DPS", // kode bandara tujuan
+            "withinsurance": "true", // asuransi
+            "departure": {
+                "airlinecode": "JT",
+                "tripdate": "30-Jun-2019",
+                "item": {
+                    "sumlocal": [
+                        {
+                            "flightno": "ID 6196",
+                            "classcode": "B",
+                            "choosen_class": "EKONOMI",
+                            "fromcity": "CGK",
+                            "tocity": "UPG",
+                            "departdate": "30-Jun-2019",
+                            "departtime": "00:05",
+                            "arrivaldate": "30-Jun-2019",
+                            "arrivetime": "03:20"
+                        },
+                        {
+                            "flightno": "JT 927",
+                            "classcode": "H",
+                            "choosen_class": "EKONOMI",
+                            "fromcity": "UPG",
+                            "tocity": "DPS",
+                            "departdate": "30-Jun-2019",
+                            "departtime": "06:00",
+                            "arrivaldate": "30-Jun-2019",
+                            "arrivetime": "07:20"
+                        }
+                    ]
+                }
+            },
+            "return": {
+                "airlinecode": "JT",
+                "tripdate": "28-Jul-2019",
+                "item": {
+                    "sumlocal": [
+                        {
+                            "flightno": "JT 39",
+                            "classcode": "M",
+                            "choosen_class": "EKONOMI",
+                            "fromcity": "DPS",
+                            "tocity": "CGK",
+                            "departdate": "28-Jul-2019",
+                            "departtime": "23:50",
+                            "arrivaldate": "29-Jul-2019",
+                            "arrivetime": "00:40"
+                        }
+                    ]
+                }
+            },
+            "pax": [
+                {
+                    "title": "MR",
+                    "firstname": "Dadanga",
+                    "lastname": "Hermawana",
+                    "type": "ADULT",
+                    "id": "3211170111920065",
+                    "dob": "01-Nov-2011",
+                    "adultassoc": "0",
+                    "passport": {
+                        "no": "R1232",
+                        "nationality": "ID",
+                        "issuingcountry": "ID",
+                        "expiry": "20-AUG-2020"
+                    }
+                }
+            ],
+            "paxcontact": {
+                "firstname": "Dadanga",
+                "lastname": "Hermawana",
+                "phone1": "081320256580",
+                "phone2": "",
+                "email": "rizkifaishal182@gmail.com"
+            }
+        }
+client_code : M
+message : M
+
+(GET) ticket/flight/detail
+NOTE : untuk melihat detail pesanan tiket pesawat
+HEADERS
+x-access-token: M
+PARAMS
+data: {"id_booking":"1132"}
+client_code : M
+message : M
+
+(GET) ticket/flight/payment
+NOTE : untuk melihat metode pembayaran
+
+(POST) ticket/flight/payment
+NOTE : untuk memilih metode pembayaran
+HEADERS
+x-access-token: M
+BODY
+id_booking: M
+id_payment: M didapat dari list payment
+pin: O pin sebanyak 6 karakter (jika sistem deposit)
+
+(POST) ticket/flight/payment_proof
+NOTE : untuk upload bukti pembayaran
+HEADERS
+x-access-token: M
+BODY
+id_booking: M
+file: M file gambar bukti transfer
+
+(POST) ticket/flight/cancel
+NOTE : untuk membatalkan pemesanan tiket
+HEADERS
+x-access-token: M
+BODY
+data: {"id_booking":"1125"}
+client_code: M
+message: M
+
+(GET) ticket/flight/history
+NOTE : untuk melihat riwayat pemesanan tiket
+HEADERS
+x-access-token: M
+
+(GET) ticket/flight/airline
+NOTE : untuk melihat daftar airline
+PARAMS 
+data : { airline_code, name }
+
+(GET) ticket/flight/airport
+NOTE : untuk melihat daftar airport
+PARAMS
+data : { iata_code, name, city, timezone, country }
+
+(GET) ticket/train/train_availability
+NOTE : untuk mencari tiket kereta
+PARAMS
+data: {
+            "departure":"GMR", //m
+            "arrival":"BD", //m
+            "departDate":"27-May-2018", //m
+            "returnDate":"28-May-2018", //m
+            "adult":"2", //m
+            "infant":"0", //m
+        }
+client_code: M
+message: M
+
+(POST) ticket/train/booking
+NOTE : untuk pemesanan tiket kereta
+HEADERS
+x-access-token: M
+BODY
+data: {
+            "booking_session": "6438dcf1f904530759b3ed459979537fa7010d43",
+            "departure": {
+		        "trainNo": "11G",
+		        "chosenClass": "A",
+		        "departure": "GMR",
+		        "departDate": "27-Mar-2018"
+                "departureTime":"05:00",
+		        "arrival": "BD",
+                "arrivalDate": "30-May-2019",
+                "arrivalTime": "08:20"
+
+	        },
+	        "return": {
+		        "trainNo": "10501",
+		        "chosenClass": "C",
+		        "departure": "BD",
+		        "departDate": "28-Jun-2019"
+                "departureTime":"07:00",
+		        "arrival": "GMR",
+                "arrivalDate": "28-Jun-2019",
+                "arrivalTime": "10:00"
+	        },
+	        "passenger": [
+		        {
+			        "passengerName": "Rianti Rahardja",
+			        "type": "ADULT",
+			        "title": "MS",
+			        "personalIdNo": "12345666",
+			        "index": "1"
+		        },
+		        {
+			        "passengerName": "Dylan Iskandar",
+			        "type": "INFANT",
+			        "title": "MSTR",
+			        "dateOfBirth": "18-May-2017",
+			        "parent": "1",
+			        "index": "2"
+		        }
+	        ],
+	        "adult": "1",
+	        "infant": "0",
+	        "passengerContact": {
+		        "name": "Rianti Rahardja",
+		        "email": "rianti@gmail.com",
+		        "phoneNo": "081320256580"
+	        }
+        }
+client_code: M
+message: M
+
+(GET) ticket/train/detail
+NOTE : untuk mencari tiket kereta
+HEADERS
+x-access-token: M
+PARAMS
+data: {"id_booking":"926"}
+client_code: M
+message: M
+
+(GET) ticket/train/railway_station
+NOTE : daftar railway station
+PARAMS
+data: { code, name, country, city }
+
+
+(GET) ticket/train/history
+NOTE : untuk melihat riwayat pemesanan tiket kereta
+HEADERS
+x-access-token: M
+
+(GET) ticket/train/payment
+NOTE : untuk melihat metode pembayaran
+
+(POST) ticket/train/payment
+NOTE : untuk memilih metode pembayaran
+HEADERS
+x-access-token: M
+BODY
+id_booking: M
+id_payment: M didapat dari list payment
+pin: O pin sebanyak 6 karakter (jika sistem deposit)
+
+(POST) ticket/train/payment_proof
+NOTE : untuk upload bukti pembayaran
+HEADERS
+x-access-token: M
+BODY
+id_booking: M
+file: M file gambar bukti transfer
+
+(GET) ticket/train/seat_map
+NOTE : untuk melihat peta kursi
+HEADERS
+x-access-token: M
+PARAMS
+data: {"id_booking":"926"}
+client_code: M
+message: M
+
+(POST) ticket/train/seat_map
+NOTE : untuk merubah lokasi kursi
+HEADERS
+x-access-token: M
+BODY
+data: {"id_booking":"922","seats":"6D","wagonCode":"EKS-1"}
+client_code: M
+message: M
+
+(POST) ticket/train/cancel
+NOTE : untuk membatalkan pemesanan tiket
+HEADERS
+x-access-token: M
+BODY
+data: {"id_booking":"1125"}
+client_code: M
+message: M
+
+(GET) ppob/pulsa
+NOTE : untuk pembelian voucher pulsa
+HEADERS
+x-access-token: M
+PARAMS
+fungsi: M diisi hp_pay
+voucherid: M
+phone_number: M
+trx_date: M format (YYYY-MM-DD HH:mm:ss)
+nama_riwayat: O dikirim jika ingin menambahkan data pembeli ke daftar favorit
+message: M (dGdF8vpGl3mlmYPu + trxdate)
+pin: M pin sebanyak 6 karakter
+
+(GET) ppob/price_list_pulsa
+NOTE : untuk daftar harga pulsa
+HEADERS
+x-access-token: M
+PARAMS
+code: P diisi dengan kode produk
+
+(GET) ppob/paket_data
+NOTE : untuk pembelian paket data
+HEADERS
+x-access-token: M
+PARAMS
+fungsi: M diisi hp_pay
+voucherid: M
+phone_number: M
+trx_date: M format (YYYY-MM-DD HH:mm:ss)
+nama_riwayat: O dikirim jika ingin menambahkan data pembeli ke daftar favorit
+message: M (dGdF8vpGl3mlmYPu + trxdate)
+pin: M pin sebanyak 6 karakter
+
+(GET) ppob/price_list_paket_data
+NOTE : untuk daftar harga paket data
+HEADERS
+x-access-token: M
+PARAMS
+code: P diisi dengan kode produk
+
+(GET) ppob/price_list_pln
+NOTE : untuk daftar harga pln
+HEADERS
+x-access-token: M
+PARAMS
+code: P diisi dengan kode (nominal)
+
+(GET) ppob/pln
+NOTE : untuk pembelian token PLN
+HEADERS
+x-access-token: M
+PARAMS
+fungsi: M diisi pln_autopay
+nominal: M
+msn: M
+trx_date: M format (YYYY-MM-DD HH:mm:ss)
+nama_riwayat: O dikirim jika ingin menambahkan data pembeli ke daftar favorit
+message: M (dGdF8vpGl3mlmYPu + trxdate)
+pin: M pin sebanyak 6 karakter
+
+(GET) ppob/history
+NOTE : untuk melihat riwayat transaksi ppob
+HEADERS
+x-access-token: M
+PARAMS
+type: O pulsa atau pln
+
+(GET) ppob/riwayat_pembeli
+NOTE : untuk melihat riwayat pembeli ppob
+HEADERS
+x-access-token: M
+PARAMS
+type: M pulsa, paket_data atau pln
+
+(GET) auth/forgot_password
+NOTE : untuk meminta kode perubahan password
+PARAMS
+email: M jika nomor hp tidak dicantumkan
+no_hp: M jika email tidak dicantumkan
+
+(GET) auth/forgot_password_verification
+NOTE : untuk melakukan perubahan password setelah mendapatkan kode lupa password
+PARAMS
+email: M jika nomor hp tidak dicantumkan
+no_hp: M jika email tidak dicantumkan
+secret_code: M
+password: M
+
+(GET) auth/history_cashback
+NOTE : untuk melihat riwayat cashback
+HEADERS
+x-access-token: M
+PARAMS
+type: M (pulsa, pln, flight atau train)
+
+(GET) auth/history_transfer
+NOTE : untuk melihat riwayat transfer saldo
+HEADERS
+x-access-token: M
+
+(GET) auth/simpanan_wajib
+NOTE : untuk melihat riwayat tagihan simpanan wajib
+HEADERS
+x-access-token: M
+
+(GET) auth/simpanan_wajib_payment
+NOTE : untuk melihat metode pembayaran
+
+(POST) auth/simpanan_wajib_payment
+NOTE : untuk memilih metode pembayaran
+HEADERS
+x-access-token: M
+BODY
+id: M didapat dari list simpanan wajib
+id_payment: M didapat dari list payment
+pin: M pin sebanyak 6 karakter
+
+(GET) auth/kode_unik_simpanan
+NOTE : untuk memperbaharui timelimit tagihan simpanan wajib (beserta kode unik)
+HEADERS
+x-access-token: M token yang didapat saat berhasil login
+id: M didapat dari riwayat tagihan simpanan
+
+(GET) auth/banner
+NOTE : list banner untuk pengguna
+HEADERS
+x-access-token: M token yang didapat saat berhasil login pengguna
