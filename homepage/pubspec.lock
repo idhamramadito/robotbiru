@@ -114,7 +114,7 @@ packages:
     source: hosted
     version: "1.0.4"
   chopper:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: chopper
       url: "https://pub.dartlang.org"
@@ -239,8 +239,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.1"
-<<<<<<< HEAD
-=======
   fixnum:
     dependency: transitive
     description:
@@ -248,7 +246,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.11"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   flutter:
     dependency: "direct main"
     description: flutter
@@ -355,8 +352,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.0"
-<<<<<<< HEAD
-=======
   io:
     dependency: transitive
     description:
@@ -364,7 +359,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.4"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   js:
     dependency: transitive
     description:
@@ -372,10 +366,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.2"
-<<<<<<< HEAD
-=======
   json_annotation:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
@@ -388,7 +380,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.5.1"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   libphonenumber:
     dependency: transitive
     description:
@@ -424,16 +415,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.6+9"
-<<<<<<< HEAD
-=======
   logging:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: logging
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.11.4"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   matcher:
     dependency: transitive
     description:
@@ -448,8 +436,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0-nullsafety.3"
-<<<<<<< HEAD
-=======
   mime:
     dependency: transitive
     description:
@@ -485,7 +471,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.3"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   page_transition:
     dependency: "direct main"
     description:
@@ -591,8 +576,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-<<<<<<< HEAD
-=======
   pool:
     dependency: transitive
     description:
@@ -600,7 +583,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.0"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   process:
     dependency: transitive
     description:
@@ -608,8 +590,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.13"
-<<<<<<< HEAD
-=======
   provider:
     dependency: "direct main"
     description:
@@ -631,7 +611,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.8"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   quiver:
     dependency: transitive
     description:
@@ -681,8 +660,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.2+3"
-<<<<<<< HEAD
-=======
   shelf:
     dependency: transitive
     description:
@@ -696,8 +673,7 @@ packages:
       name: shelf_web_socket
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.4"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
+    version: "0.2.4+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -780,8 +756,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.3"
-<<<<<<< HEAD
-=======
   watcher:
     dependency: transitive
     description:
@@ -796,7 +770,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
   win32:
     dependency: transitive
     description:
@@ -811,8 +784,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2"
-<<<<<<< HEAD
-=======
   yaml:
     dependency: transitive
     description:
@@ -820,7 +791,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
->>>>>>> c5851be1ced5996d4a3fa9e5200ab80538a453e8
 sdks:
   dart: ">=2.10.0 <2.11.0"
   flutter: ">=1.22.0 <2.0.0"
