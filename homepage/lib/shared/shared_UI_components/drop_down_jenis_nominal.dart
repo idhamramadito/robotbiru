@@ -62,7 +62,7 @@ class _NominalPulsaState extends State<DropDownJenisNominal> {
                         textAlign: TextAlign.right,
                       ),
                       Text(
-                        '${element.price}',
+                        '${widget.prevData.currency} ${element.price}',
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,

@@ -3,13 +3,17 @@ import 'package:flutter/services.dart';
 
 class InputTextField extends StatefulWidget {
   final String regex;
+  final String initialValue;
   final String displayName;
   final Function onChanged;
+  final TextInputType keyboardType;
   InputTextField({
     Key key,
     @required this.regex,
-    @required this.displayName,
     @required this.onChanged,
+    this.initialValue,
+    this.displayName,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -26,16 +30,18 @@ class _InputTextFieldState extends State<InputTextField> {
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: Text(
-              widget.displayName,
+              '${widget.displayName ?? ''}',
               style: TextStyle(color: Colors.grey),
             ),
           ),
           TextFormField(
+            initialValue: widget.initialValue,
+            keyboardType: widget.keyboardType,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              hintText: widget.displayName ?? '',
+              hintText: '${widget.displayName ?? ''}',
             ),
             inputFormatters: <TextInputFormatter>[
               (widget.displayName.contains('Email'))

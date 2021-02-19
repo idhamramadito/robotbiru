@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
 import 'package:homepage/shared/shared_UI_components/slide_up_marker.dart';
 import 'package:homepage/models/order_detail_model.dart';
-import 'package:homepage/shared/shared_UI_components/text_field.dart';
+import 'package:homepage/shared/shared_UI_components/input_text_field.dart';
 import 'package:homepage/shared/shared_pages/search_page.dart';
 
-Future orderDetailsSheet(BuildContext context) {
+Future orderDetailsSheet(BuildContext context, OrderDetailModel dataPemesanan) {
   List _kodeNegara = [
     ['images/indonesia.png', '+62', 'Indonesia', ''],
     ['images/malaysia.png', '+60', 'Malaysia', ''],
     ['images/singapura.png', '+65', 'Singapura', ''],
   ];
   List<String> _titleList = ['Tuan', 'Nyonya', 'Nona'];
-  OrderDetailModel dataPemesanan = OrderDetailModel();
 
   return showModalBottomSheet(
     context: context,
@@ -26,15 +25,13 @@ Future orderDetailsSheet(BuildContext context) {
     builder: (context) {
       return StatefulBuilder(
         builder: (BuildContext context, StateSetter mystate) {
-          return DraggableScrollableSheet(
-            initialChildSize: 0.9,
-            expand: false,
-            builder: (context, controller) {
-              return SingleChildScrollView(
-                controller: controller,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(children: [
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
                     SlideUpMarker(),
                     SizedBox(height: 10),
                     Container(
@@ -54,6 +51,7 @@ Future orderDetailsSheet(BuildContext context) {
                     ),
                     SizedBox(height: 20),
                     InputTextField(
+                      initialValue: dataPemesanan.name,
                       displayName: "Masukkan Nama",
                       regex: "[a-zA-Z\ ]",
                       onChanged: (value) {
@@ -147,6 +145,7 @@ Future orderDetailsSheet(BuildContext context) {
                         Flexible(
                           flex: 7,
                           child: InputTextField(
+                            initialValue: dataPemesanan.phoneNumber,
                             displayName: "Masukkan No. Telp",
                             regex: '[0-9]',
                             onChanged: (value) {
@@ -160,6 +159,7 @@ Future orderDetailsSheet(BuildContext context) {
                     ),
                     SizedBox(height: 20),
                     InputTextField(
+                      initialValue: dataPemesanan.email,
                       displayName: "Masukkan Email",
                       regex: '33',
                       onChanged: (value) {
@@ -180,15 +180,19 @@ Future orderDetailsSheet(BuildContext context) {
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: BigButton(
                         title: 'Simpan',
-                        onPressed: () {
-                          Navigator.pop(context, dataPemesanan);
-                        },
+                        onPressed: (dataPemesanan.name != null &&
+                                dataPemesanan.title != null &&
+                                dataPemesanan.countryCode != null &&
+                                dataPemesanan.phoneNumber != null &&
+                                dataPemesanan.email != null)
+                            ? () => Navigator.pop(context, dataPemesanan)
+                            : null,
                       ),
                     ),
-                  ]),
+                  ],
                 ),
-              );
-            },
+              ),
+            ),
           );
         },
       );

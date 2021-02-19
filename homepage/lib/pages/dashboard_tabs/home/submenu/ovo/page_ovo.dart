@@ -4,19 +4,19 @@ import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/models/topup_package_model.dart';
 import 'package:homepage/shared/shared_pages/top_up_page_template.dart';
 
-class PageGopay extends StatefulWidget {
-  PageGopay({
+class PageOvo extends StatefulWidget {
+  PageOvo({
     Key key,
   }) : super(key: key);
 
   @override
-  _PageGopayState createState() => _PageGopayState();
+  _PageOvoState createState() => _PageOvoState();
 }
 
-class _PageGopayState extends State<PageGopay> {
+class _PageOvoState extends State<PageOvo> {
   TopUpModel _dataList = TopUpModel(
     currency: 'Rp',
-    transactionType: 'GoPay',
+    transactionType: 'OVO',
     paymentMethod: 'Saldo Robot Biru',
     accountBalance: 100000,
     invoiceRoute: '/invoice_topup',
@@ -34,19 +34,22 @@ class _PageGopayState extends State<PageGopay> {
     NameAndContent(name: 'Harga Dasar', content: null),
   ];
 
-  List<TopUpPackageModel> _gopay = [
+  List<TopUpPackageModel> _ovo = [
     TopUpPackageModel(
-        logoPath: "images/gopay-1.png",
-        name: '[GP10] GoPay Costumer 10.000',
-        price: 11425.0),
+      name: '[GR20] OVO20 - OVO Saldo 20rb',
+      price: 21390.0,
+      logoPath: "images/ovo_white.png",
+    ),
     TopUpPackageModel(
-        logoPath: "images/gopay-1.png",
-        name: '[GP20] GoPay Costumer 20.000',
-        price: 21425.0),
+      name: '[GR25] OVO25 - OVO Saldo 25rb',
+      price: 26390.0,
+      logoPath: "images/ovo_white.png",
+    ),
     TopUpPackageModel(
-        logoPath: "images/gopay-1.png",
-        name: '[GP25] GoPay Costumer 25.000',
-        price: 21700.0),
+      name: '[GR25] OVO50 - OVO Saldo 50rb',
+      price: 51390.0,
+      logoPath: "images/ovo_white.png",
+    ),
   ];
 
   @override
@@ -54,7 +57,7 @@ class _PageGopayState extends State<PageGopay> {
   Widget build(BuildContext context) {
     return TopUpPageTemplate(
       dataList: _dataList,
-      packageList: _gopay,
+      packageList: _ovo,
       ringkasan: _ringkasan,
       cashback: _cashback,
     );

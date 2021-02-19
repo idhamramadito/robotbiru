@@ -2,62 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:homepage/models/name_and_content.dart';
 import 'package:homepage/models/topup_model.dart';
 import 'package:homepage/models/topup_package_model.dart';
-import 'package:homepage/shared/shared_UI_components/package_desc.dart';
-import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
-import 'package:homepage/shared/shared_UI_components/number_form.dart';
-import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/card_token_listrik.dart';
+import 'package:homepage/pages/dashboard_tabs/home/submenu/token_listrik/UI_components/nominal_token_listrik.dart';
 import 'package:homepage/shared/shared_UI_components/checkout_bottom_bar.dart';
 import 'package:homepage/shared/shared_UI_components/drop_down_jenis_nominal.dart';
+import 'package:homepage/shared/shared_UI_components/number_form.dart';
+import 'package:homepage/shared/shared_UI_components/package_desc.dart';
+import 'package:homepage/shared/shared_UI_components/receipt_card.dart';
+import 'package:homepage/shared/shared_UI_components/rememberme_checkbox.dart';
 
-class PageOvo extends StatefulWidget {
-  PageOvo({
+class TopUpPageTemplate extends StatefulWidget {
+  const TopUpPageTemplate({
     Key key,
+    @required this.dataList,
+    @required this.packageList,
+    @required this.ringkasan,
+    @required this.cashback,
+    this.packageCashback,
+    this.fee,
   }) : super(key: key);
 
+  final TopUpModel dataList;
+  final List<TopUpPackageModel> packageList;
+  final double packageCashback;
+  final double fee;
+  final List<NameAndContent> ringkasan;
+  final List<NameAndContent> cashback;
+
   @override
-  _PageOvoState createState() => _PageOvoState();
+  _TopUpPageTemplateState createState() => _TopUpPageTemplateState();
 }
 
-class _PageOvoState extends State<PageOvo> {
+class _TopUpPageTemplateState extends State<TopUpPageTemplate> {
   bool _rememberNumber = false;
-
-  TopUpModel _dataList = TopUpModel(
-    currency: 'Rp',
-    transactionType: 'OVO',
-    paymentMethod: 'Saldo Robot Biru',
-    accountBalance: 100000,
-    invoiceRoute: '/invoice_topup',
-  );
-
-  List<NameAndContent> _cashback = [
-    NameAndContent(name: 'Pemilik Retail'),
-    NameAndContent(name: 'Badan Koperasi'),
-    NameAndContent(name: 'Anggota Koperasi'),
-    NameAndContent(name: 'Anggota Retail'),
-  ];
-
-  List<NameAndContent> _ringkasan = [
-    NameAndContent(name: 'Harga Dasar'),
-    NameAndContent(name: 'Harga Dasar'),
-  ];
-
-  List<TopUpPackageModel> _ovo = [
-    TopUpPackageModel(
-      name: '[GR20] OVO20 - OVO Saldo 20rb',
-      price: 21390.0,
-      logoPath: "images/ovo_white.png",
-    ),
-    TopUpPackageModel(
-      name: '[GR25] OVO25 - OVO Saldo 25rb',
-      price: 26390.0,
-      logoPath: "images/ovo_white.png",
-    ),
-    TopUpPackageModel(
-      name: '[GR25] OVO50 - OVO Saldo 50rb',
-      price: 51390.0,
-      logoPath: "images/ovo_white.png",
-    ),
-  ];
 
   @override
   //============================= main function ===============================
@@ -67,7 +44,7 @@ class _PageOvoState extends State<PageOvo> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            '${_dataList.transactionType}',
+            '${widget.dataList.transactionType}',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
@@ -91,22 +68,22 @@ class _PageOvoState extends State<PageOvo> {
             Flexible(
               child: TabBarView(
                 children: [
-                  _inputBaru(),
-                  _daftarFavorit(context),
+                  _tabInputBaru(),
+                  _tabDaftarFavorit(context),
                 ],
               ),
             ),
           ],
         ),
         bottomNavigationBar: CheckoutBottomBar(
-          data: _dataList,
+          data: widget.dataList,
         ),
       ),
     );
   }
   //============================= main function ===============================
 
-  Widget _inputBaru() {
+  Widget _tabInputBaru() {
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -115,12 +92,19 @@ class _PageOvoState extends State<PageOvo> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: NumberForm(
-              prompt: 'Nomor Handphone',
+              initialValue: widget.dataList.targetNumber,
+              prompt:
+                  (widget.dataList.transactionType.contains('Token Listrik'))
+                      ? 'ID Pelanggan / Nomor Meteran'
+                      : 'Nomor Handphone',
               clearButton: true,
               onChanged: (val) => setState(() {
-                _dataList.targetNumber = val;
+                widget.dataList.targetNumber = val;
               }),
-              externalPicker: 'contacts',
+              externalPicker:
+                  (widget.dataList.transactionType.contains('Token Listrik'))
+                      ? 'barcode'
+                      : 'contacts',
             ),
           ),
           RememberMeCheckBox(
@@ -128,28 +112,55 @@ class _PageOvoState extends State<PageOvo> {
               _rememberNumber = !_rememberNumber;
             }),
           ),
-          if (_dataList.targetNumber != null && _dataList.targetNumber != '')
+          if (widget.dataList.targetNumber != null &&
+              widget.dataList.targetNumber != '' &&
+              widget.dataList.transactionType == 'Token Listrik')
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child:
+                      CardTokenListrik(idNumber: widget.dataList.targetNumber),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: NominalTokenListrik(
+                    data: widget.dataList,
+                    packageList: widget.packageList,
+                    packageCashback: widget.packageCashback,
+                    fee: widget.fee,
+                    onChanged: (val) => setState(() {
+                      widget.dataList.chosenPackage = val;
+                    }),
+                  ),
+                ),
+              ],
+            ),
+          if (widget.dataList.targetNumber != null &&
+              widget.dataList.targetNumber != '' &&
+              widget.dataList.transactionType != 'Token Listrik')
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: DropDownJenisNominal(
-                prevData: _dataList,
-                nominalList: _ovo,
+                prevData: widget.dataList,
+                nominalList: widget.packageList,
                 onChanged: (val) => setState(() {
-                  _dataList.chosenPackage = val;
+                  widget.dataList.chosenPackage = val;
                 }),
               ),
             ),
-          if (_dataList.targetNumber != null &&
-              _dataList.targetNumber != '' &&
-              _dataList.chosenPackage != null)
+          if (widget.dataList.targetNumber != null &&
+              widget.dataList.targetNumber != '' &&
+              widget.dataList.chosenPackage != null)
             Column(
               children: [
-                PackageDesc(data: _dataList),
+                if (widget.dataList.transactionType != 'Token Listrik')
+                  PackageDesc(data: widget.dataList),
                 Padding(
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Ringkasan',
-                    dataList: _ringkasan,
+                    dataList: widget.ringkasan,
                   ),
                 ),
                 Divider(thickness: 5),
@@ -157,7 +168,7 @@ class _PageOvoState extends State<PageOvo> {
                   padding: EdgeInsets.all(15),
                   child: ReceiptCard(
                     title: 'Cashback',
-                    dataList: _cashback,
+                    dataList: widget.cashback,
                   ),
                 ),
                 Divider(thickness: 5),
@@ -168,14 +179,14 @@ class _PageOvoState extends State<PageOvo> {
     );
   }
 
-  Widget _daftarFavorit(BuildContext context) {
+  Widget _tabDaftarFavorit(BuildContext context) {
     return Column(
       children: [
         Container(
           alignment: Alignment.centerLeft,
           margin: EdgeInsets.symmetric(horizontal: 15),
           child: Text(
-            'Pilih Kontak',
+            'Pilih Favorit',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
@@ -187,7 +198,7 @@ class _PageOvoState extends State<PageOvo> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Nomor:',
+                  '${widget.dataList.targetNumber ?? 'Nomor:'}',
                   style: TextStyle(color: Colors.grey),
                 ),
                 Icon(
@@ -200,11 +211,11 @@ class _PageOvoState extends State<PageOvo> {
               borderRadius: BorderRadius.circular(10),
             ),
             onPressed: () async {
-              // TODO: GANTI DENGAN DAFTAR NOMOR FAVORIT
-              final result =
-                  await Navigator.of(context).pushNamed('/contacts_picker');
+              final result = await Navigator.of(context).pushNamed(
+                  '/contacts_picker'); // TODO: GANTI KE PAGE DAFTAR FAVORIT
               setState(() {
-                _dataList.targetNumber = result ?? _dataList.targetNumber;
+                widget.dataList.targetNumber =
+                    result ?? widget.dataList.targetNumber;
               });
             },
           ),

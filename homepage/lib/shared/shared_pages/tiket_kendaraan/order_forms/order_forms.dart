@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:homepage/models/order_detail_model.dart';
 import 'package:homepage/models/passenggers_model.dart';
@@ -84,8 +85,8 @@ class _OrderFormsState extends State<OrderForms> {
                     ),
                     child: ListTile(
                       onTap: () async {
-                        OrderDetailModel result =
-                            await orderDetailsSheet(context);
+                        OrderDetailModel result = await orderDetailsSheet(
+                            context, widget.prevData.orderDetails);
                         setState(() {
                           widget.prevData.orderDetails =
                               result ?? widget.prevData.orderDetails;
@@ -298,14 +299,14 @@ class _OrderFormsState extends State<OrderForms> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Perlindungan Ekstra',
+                      'Asuransi',
                       textAlign: TextAlign.start,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
+                  SizedBox(height: 20),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
@@ -315,36 +316,45 @@ class _OrderFormsState extends State<OrderForms> {
                     child: Column(
                       children: [
                         CheckboxListTile(
+                          contentPadding: EdgeInsets.zero,
+                          secondary: Image.asset('images/shield.png'),
                           title: const Text(
                             'Perlindungan Penuh',
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Wrap(
+                              RichText(
+                                text: TextSpan(
                                   children: [
-                                    Text(
-                                      'Rp 29.000',
+                                    TextSpan(
+                                      text: 'Rp 29.000',
                                       style: TextStyle(
                                         color: Theme.of(context).primaryColor,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 20,
+                                        fontSize: 18,
                                       ),
                                     ),
-                                    Text(
-                                      ' /Penumpang',
+                                    TextSpan(
+                                      text: ' / Penumpang',
                                       style: TextStyle(
+                                        color: Colors.grey,
                                         fontSize: 14,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Text(
-                                  'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga\nRp 500.000.000'),
+                              if (widget.prevData.transportationType
+                                  .contains('Pesawat'))
+                                Text(
+                                    'Kompensasi bila terjadi kecelakaan dan gangguan perjalanan hingga Rp500.000.000'),
+                              if (widget.prevData.transportationType
+                                  .contains('Kereta'))
+                                Text(
+                                    'Asuransi ini berlaku untuk warga Negara Indonesia dan Warga Negara Asing yang memiliki izin tinggal di Indonesia. Traveler yang memenuhi syarat berhak atas kompensasi perjalanan hingga Rp8.500.000'),
                             ],
                           ),
                           value: widget.prevData.fullProtection,
@@ -353,7 +363,6 @@ class _OrderFormsState extends State<OrderForms> {
                               widget.prevData.fullProtection = value;
                             });
                           },
-                          secondary: Image.asset('images/shield.png'),
                         ),
                         if (widget.prevData.transportationType
                             .contains('Pesawat'))
@@ -361,6 +370,7 @@ class _OrderFormsState extends State<OrderForms> {
                         if (widget.prevData.transportationType
                             .contains('Pesawat'))
                           CheckboxListTile(
+                            contentPadding: EdgeInsets.zero,
                             title: const Text(
                               'Asuransi Bagasi',
                               style: TextStyle(
@@ -368,21 +378,21 @@ class _OrderFormsState extends State<OrderForms> {
                             ),
                             subtitle: Column(
                               children: [
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Wrap(
+                                RichText(
+                                  text: TextSpan(
                                     children: [
-                                      Text(
-                                        'Rp 13.300',
+                                      TextSpan(
+                                        text: 'Rp 13.300',
                                         style: TextStyle(
                                           color: Theme.of(context).primaryColor,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20,
+                                          fontSize: 18,
                                         ),
                                       ),
-                                      Text(
-                                        ' /Penumpang',
+                                      TextSpan(
+                                        text: ' / Penumpang',
                                         style: TextStyle(
+                                          color: Colors.grey,
                                           fontSize: 14,
                                         ),
                                       ),
@@ -404,6 +414,29 @@ class _OrderFormsState extends State<OrderForms> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 10),
+                  if (widget.prevData.transportationType.contains('Kereta'))
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(color: Colors.black),
+                        children: [
+                          TextSpan(
+                              text:
+                                  'Dengan menekan tombol, kamu menyetujui Kebijakan Privasi dan'),
+                          TextSpan(
+                            text: ' Syarat & Ketentuan ',
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.of(context)
+                                    .pushNamed('/syarat_dan_ketentuan');
+                              },
+                          ),
+                          TextSpan(text: 'PT KAI'),
+                        ],
+                      ),
+                    ),
                 ],
               ),
             ),

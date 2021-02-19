@@ -1,5 +1,8 @@
+import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
+import 'package:homepage/service/api_service.dart';
 import 'package:homepage/shared/shared_UI_components/big_button.dart';
+import 'package:provider/provider.dart';
 
 class PilihPembayaranSaldo extends StatefulWidget {
   @override
@@ -7,28 +10,15 @@ class PilihPembayaranSaldo extends StatefulWidget {
 }
 
 class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
-  List _atm = [
-    [
-      'images/mandiri.png',
-      'Bank Mandiri',
-      '1320015081202',
-      'PT EDUMATIC INTERNASIONAL'
-    ],
-    [
-      'images/bca.png',
-      'Bank BCA',
-      '1320015081203',
-      'PT EDUMATIC INTERNASIONAL'
-    ],
-    [
-      'images/bjb.png',
-      'Bank BJB',
-      '1320015081204',
-      'PT EDUMATIC INTERNASIONAL'
-    ],
-  ];
+  int selectedIndex;
+  Future _paymentDataFromAPI;
 
-  var paymentMethod;
+  @override
+  void initState() {
+    _paymentDataFromAPI =
+        Provider.of<APIService>(context, listen: false).getTrainPayment();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,77 +26,104 @@ class _PilihPembayaranSaldoState extends State<PilihPembayaranSaldo> {
       appBar: AppBar(
         title: Text('Pilih Metode Pembayaran'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 50,
-              margin: EdgeInsets.symmetric(),
-              decoration: BoxDecoration(color: Colors.green),
-              alignment: Alignment.center,
-              child: Text('Proses Pengecekan Pembayaran sekitar 5-10 menit.',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold)),
-            ),
-            SizedBox(height: 20),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemExtent: 100,
-              itemCount: _atm.length,
-              itemBuilder: (context, index) {
-                return RadioListTile(
-                  value: _atm[index],
-                  groupValue: paymentMethod,
-                  onChanged: (value) {
-                    setState(() {
-                      paymentMethod = value;
-                    });
-                  },
-                  title: Image.asset(_atm[index][0]),
-                  secondary: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Transfer ${_atm[index][1]}',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text('${_atm[index][2]}',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold)),
-                      if (_atm[index][3] != '')
-                        Text(
-                          '${_atm[index][3]}',
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      Text(
-                        'Jam Operasional 05:00:00-22:30:00 WIB',
-                        style: TextStyle(fontSize: 10),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 50,
+            decoration: BoxDecoration(color: Colors.green),
+            alignment: Alignment.center,
+            child: Text('Proses Pengecekan Pembayaran sekitar 5-10 menit.',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+          ),
+          Flexible(
+            child: FutureBuilder<Response>(
+              future: _paymentDataFromAPI,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text(
+                        snapshot.error.toString(),
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 1.3,
                       ),
-                    ],
-                  ),
-                );
+                    );
+                  }
+                  final list = snapshot.data.body.result;
+                  return _buildList(context, list);
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
               },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(10.0),
         child: BigButton(
           title: 'Top Up',
-          onPressed: (paymentMethod == null)
+          onPressed: (selectedIndex == null)
               ? null
               : () =>
                   Navigator.of(context).pushNamed('/permintaan_topup_saldo'),
         ),
       ),
+    );
+  }
+
+  ListView _buildList(BuildContext context, List list) {
+    return ListView.builder(
+      padding: EdgeInsets.all(10),
+      itemExtent: 100,
+      itemCount: list.length,
+      itemBuilder: (context, index) {
+        return RadioListTile(
+          value: index,
+          groupValue: selectedIndex,
+          onChanged: (int value) {
+            setState(() {
+              selectedIndex = value;
+            });
+          },
+          title: Image.asset('images/dompet.png'), //TODO: fotonya di mana???
+          secondary: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Transfer ${list[index].name}',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              if (list[index].norek != null)
+                Text(
+                  '${list[index].norek}',
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              Text(
+                '${list[index].atasNama}',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 12),
+              ),
+              if (list[index].start != null || list[index].end != null)
+                Text(
+                  'Jam Operasional ${list[index].start}-${list[index].end} WIB',
+                  style: TextStyle(fontSize: 10),
+                ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

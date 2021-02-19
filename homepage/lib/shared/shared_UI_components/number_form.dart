@@ -5,13 +5,15 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 class NumberForm extends StatefulWidget {
   const NumberForm({
     Key key,
-    @required this.onChanged,
+    this.initialValue,
     bool clearButton,
+    @required this.onChanged,
     this.prompt,
     this.externalPicker,
   })  : this.clearButton = clearButton ?? false,
         super(key: key);
 
+  final String initialValue;
   final bool clearButton;
   final String prompt;
   final Function(String) onChanged;
@@ -26,7 +28,7 @@ class _NumberFormState extends State<NumberForm> {
 
   @override
   void initState() {
-    _textController = TextEditingController();
+    _textController = TextEditingController(text: widget.initialValue);
     _textController.addListener(() => widget.onChanged(_textController.text));
     super.initState();
   }

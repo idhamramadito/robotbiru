@@ -15,7 +15,7 @@ class PinCode extends StatefulWidget {
 
 class _PinCodeState extends State<PinCode> {
   String currentText = '';
-  String requiredAnswer = '123456';
+  String pinAnswer = '123456';
   bool wrongInput = false;
   StreamController<ErrorAnimationType> errorController =
       StreamController<ErrorAnimationType>();
@@ -68,7 +68,7 @@ class _PinCodeState extends State<PinCode> {
                 });
               },
               onCompleted: (val) {
-                if (val == requiredAnswer) {
+                if (val == pinAnswer) {
                   Navigator.of(context).popUntil((route) => route.isFirst);
                   Navigator.of(context).pushNamed(
                     '/trans_completed',
