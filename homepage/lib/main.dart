@@ -37,7 +37,7 @@ class RobotBiruApp extends StatelessWidget {
           primaryColor: Color(0xff008AD5), //Colors.blue[600],
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: '/',
+        initialRoute: '//',
         onGenerateRoute: RoutingTable.generateRoute,
       ),
     );
